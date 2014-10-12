@@ -1,0 +1,17 @@
+Team Risks
+------------
+>Team is not collocated.
+>Time schedules differ among team members (full-time students vs. 9-5ers).
+>Only list of requirements given. Cannot have (or haven't had) stakeholder interviews.
+>Limited Person-to-Person interactions between team members but also stakeholders.
+>Team member limitations (scope, experience, specialization, etc.)
+
+
+Product Risks
+-------------
+>Potential illegal items could be sold on site (legal risk)
+>Transaction security.
+>Concurency of transactions (multiple bids on single item at once/bid price changes mid-bid)
+>Potential bidder-seller disputes.
+>Fraud.
+>International currency and tax conflicts/problems.
