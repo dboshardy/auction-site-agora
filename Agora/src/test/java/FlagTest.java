@@ -2,6 +2,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
@@ -12,6 +14,7 @@ public class FlagTest {
     Flag tester;
     Auction mAuction;
     UserAccount mUser;
+
 
     @BeforeClass
     public void testSetup() {
