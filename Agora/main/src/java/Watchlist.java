@@ -11,14 +11,11 @@ public class Watchlist {
         mWatchlist = new Item[0];
     }
 
-    public Watchlist(String watchlistName, Item[] watchlist){
-        mWatchlistName = watchlistName;
-        mWatchlist = watchlist;
-    }
-
     public void addItemToWatchlist(){}
 
     public void deleteItemFromWatchlist(){}
+
+    public void deleteWatchlist(){}
 
     public String getWatchlistName() {
         return mWatchlistName;

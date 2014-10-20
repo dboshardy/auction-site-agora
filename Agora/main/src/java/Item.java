@@ -21,6 +21,8 @@ public class Item {
         this.mItemName = mItemName;
     }
 
+    public void deleteItem(){}
+
     public String getItemDescription() {
         return mItemDescription;
     }
