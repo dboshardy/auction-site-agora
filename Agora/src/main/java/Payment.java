@@ -22,8 +22,8 @@ public class Payment {
 
     private double mPaymentAmount;
     private Date mPaymentDate;
-    private User mPaymentSourceUser;
-    private User mPaymentDestinationUser;
+    private UserAccount mPaymentSourceUser;
+    private UserAccount mPaymentDestinationUser;
 
     private PaymentStrategy mPaymentStrategy;    // payment_method
 
@@ -40,11 +40,11 @@ public class Payment {
         return mPaymentDate;
     }
 
-    public User getPaymentSourceUser() {
+    public UserAccount getPaymentSourceUser() {
         return mPaymentSourceUser;
     }
 
-    public User getPaymentDestinationUser() {
+    public UserAccount getPaymentDestinationUser() {
         return mPaymentDestinationUser;
     }
 
@@ -61,16 +61,16 @@ public class Payment {
         this.mPaymentDate = paymentDate;
     }
 
-    public void setPaymentSourceUser(User paymentSourceUser) {
+    public void setPaymentSourceUser(UserAccount paymentSourceUser) {
         this.mPaymentSourceUser = paymentSourceUser;
     }
 
-    public void setPaymentDestinationUser(User paymentDestinationUser) {
+    public void setPaymentDestinationUser(UserAccount paymentDestinationUser) {
         this.mPaymentDestinationUser = paymentDestinationUser;
     }
 
     public void setPaymentStrategy(PaymentStrategy payStrategy) {
-        this.PaymentStrategy = payStrategy;
+        this.mPaymentStrategy = payStrategy;
     }
 
     // check
