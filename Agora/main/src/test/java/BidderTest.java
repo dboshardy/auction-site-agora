@@ -1,8 +1,6 @@
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import javax.jws.soap.SOAPBinding;
-
 import java.math.BigDecimal;
 import java.util.Currency;
 

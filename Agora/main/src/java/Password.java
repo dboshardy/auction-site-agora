@@ -5,7 +5,6 @@
 public class Password {
 
     private String password;
-    private ;
 
     public Password(String password) {
         this.password=password;
