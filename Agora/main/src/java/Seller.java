@@ -3,7 +3,15 @@
  */
 public class Seller extends UserAccount {
 
-    public Seller(){}
+
+    public Seller(UserID userID) {
+        super(userID);
+    }
+
+    public void Seller(UserAccount account){
+
+
+    }
 
     public void createAuction(){}
     public void receiveTransction(){}

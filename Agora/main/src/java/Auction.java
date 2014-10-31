@@ -1,37 +1,41 @@
-import java.util.ArrayList;
+import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by Miao Yu on 10/19/14.
  */
 public class Auction {
 
-    private String timestamp;
-    private ArrayList<Bid> bidList;
-    private Seller seller;
+    private Timestamp mTimestamp;
+    private List<Bid> mBidList;
+    private List<Flag> mFlagList;
+    private Seller mSeller;
     public Auction() {
         
     }
 
-    public ArrayList<Bid> getBidList(){
-        ArrayList<Bid> result= bidList;
+    public List<Bid> getBidList(){
+        List<Bid> result= mBidList;
         return result;
     }
 
-    public void setTimestamp(String time){
-        timestamp=time;
+    public void setTimestamp(Timestamp timestamp){
+        mTimestamp = timestamp;
     }
 
     public Seller getSeller(){
-        return seller;
+        return mSeller;
     }
 
-    public void setSeller(Seller seller){
-        this.seller=seller;
+    public void setSeller(Seller mSeller){
+        this.mSeller=mSeller;
     }
 
     public boolean addBid(Bid bid){
-        bidList.add(bid);
+        mBidList.add(bid);
         return true;
     }
 
+    public void setFlag(Flag flag, UserID userID, Timestamp timestamp) {
+    }
 }
