@@ -1,2 +1,0 @@
-Dir for project planning.
-
