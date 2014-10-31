@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by Miao Yu on 10/19/14.
@@ -13,7 +13,7 @@ public class Auction {
     }
 
     public ArrayList<Bid> getBidList(){
-        ArrayList<Item> result= bidList;
+        ArrayList<Bid> result= bidList;
         return result;
     }
 
