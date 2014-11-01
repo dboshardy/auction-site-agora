@@ -2,10 +2,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.math.BigInteger;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotSame;
 
 /**
  * Created by drew on 10/19/14.
@@ -18,7 +16,7 @@ public class FlagTest {
 
     @BeforeClass
     public void testSetup() {
-        mUser = new UserAccount();
+        mUser = new UserAccount(new UserID(345345));
         mAuction = new Auction();
         FlagType flagType = FlagType.FAKE_AUCTION;
         tester = new Flag(flagType, mUser, mAuction);
@@ -43,7 +41,7 @@ public class FlagTest {
     public void testSetFlagType() {
         tester.setFlagType(FlagType.ILLEGAL_ITEM);
         assertEquals(FlagType.ILLEGAL_ITEM, tester.getFlagType());
-        assertNotEquals(FlagType.FAKE_AUCTION, tester.getFlagType());
+        assertNotSame(FlagType.FAKE_AUCTION, tester.getFlagType());
     }
 
     @Test
@@ -51,15 +49,15 @@ public class FlagTest {
         Auction auction2 = new Auction();
         tester.setAuctionFlagged(auction2);
         assertEquals(auction2, tester.getAuctionFlagged());
-        assertNotEquals(mAuction, tester.getAuctionFlagged());
+        assertNotSame(mAuction, tester.getAuctionFlagged());
     }
 
     @Test
     public void testSetUser() {
-        UserAccount user2 = new UserAccount();
+        UserAccount user2 = new UserAccount(new UserID(5434534));
         tester.setFlaggingUser(user2);
         assertEquals(user2, tester.getFlaggingUser());
-        assertNotEquals(mUser, tester.getFlaggingUser());
+        assertNotSame(mUser, tester.getFlaggingUser());
     }
 
 

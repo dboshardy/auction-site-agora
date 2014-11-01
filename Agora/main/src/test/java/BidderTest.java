@@ -6,6 +6,7 @@ import java.util.Currency;
 
 import static org.junit.Assert.assertTrue;
 
+
 /**
  * Created by drew on 10/19/14.
  */
@@ -19,7 +20,7 @@ public class BidderTest {
 
     @BeforeClass
     public void testSetup(){
-        mUserAccount = new UserAccount();
+        mUserAccount = new UserAccount(new UserID(12341342));
         tester = new Bidder(mUserAccount);
 
     }
@@ -34,4 +35,5 @@ public class BidderTest {
         Bid bid = new Bid(tester,auction,currency,amount);
         assertTrue(tester.placeBid(bid));
     }
+
 }

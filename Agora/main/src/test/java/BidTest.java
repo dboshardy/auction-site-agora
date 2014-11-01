@@ -2,11 +2,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.util.Currency;
-import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
+
 
 /**
  * Created by drew on 10/19/14.
@@ -21,7 +20,7 @@ public class BidTest {
 
     @BeforeClass
     public void testSetup() {
-        mUserAccount = new UserAccount();
+        mUserAccount = new UserAccount(new UserID(1234));
         mBidder = new Bidder(mUserAccount);
         mCurrency = Currency.getInstance("USD");
         mAmount = BigDecimal.valueOf(12.50);

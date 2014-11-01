@@ -1,3 +1,8 @@
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import static junit.framework.Assert.assertEquals;
+
 /**
  * Created by thomkel on 10/24/14.
  */
@@ -22,6 +27,8 @@ public class ItemTest {
         assertEquals(mItemDescription, tester.getItemDescription());
     }
 
+
+
     public void testEditItemName(){
         String itemName = "Snow shoes";
         Item testItem = new Item(5555, itemName, "Made in Germany");
@@ -29,7 +36,7 @@ public class ItemTest {
         assertEquals(itemName, testItem.getItemName());
 
         itemName = "BMW M3";
-        test.editItemName(itemName);
+        tester.setItemName(itemName);
 
         assertEquals(itemName, testItem.getItemName());
 
@@ -42,7 +49,7 @@ public class ItemTest {
         assertEquals(itemDesc, testItem.getItemDescription());
 
         itemDesc = "Made in Vietnam";
-        test.editItemDescription(itemDesc);
+        tester.setItemDescription(itemDesc);
 
         assertEquals(itemDesc, testItem.getItemDescription());
 

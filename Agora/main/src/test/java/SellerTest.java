@@ -1,13 +1,16 @@
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 /**
  * Created by thomkel on 10/24/14.
  */
 public class SellerTest {
     Seller tester;
-    int mUserId;
+    UserID mUserId;
 
     @BeforeClass
     public void testSetup() {
-        mUserId = 5555;
+        mUserId = new UserID(5555);
         tester = new Seller(mUserId);
     }
 
@@ -17,7 +20,7 @@ public class SellerTest {
     }
 
     public void testCreateAuction(){
-        Auction testAuction = test.createAuction();
+        Auction testAuction = tester.createAuction();
         // test each element of Auction
         // test Auction was added to database
         // TODO: research how Java communicates with Database.

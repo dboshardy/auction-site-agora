@@ -1,3 +1,8 @@
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import static junit.framework.Assert.assertEquals;
+
 /**
  * Created by thomkel on 10/31/14.
  */
@@ -29,7 +34,8 @@ public class WatchlistTest {
     }
 
     public void testAddItemToWatchlist(){
-        Item item = new Item
+        //TODO: fix this
+        //Item item = new Item();
     }
 }
 
