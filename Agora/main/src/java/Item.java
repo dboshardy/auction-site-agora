@@ -1,7 +1,7 @@
 /**
  * Created by thomkel on 10/19/14.
  */
-public class Item {
+publixc class Item {
 
     private int mItemId;
     private String mItemName;
