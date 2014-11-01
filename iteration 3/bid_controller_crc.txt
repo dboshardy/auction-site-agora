@@ -1,0 +1,30 @@
+FRONT:
+Name: BidController
+No Super/Sub
+
+ClassType:
+Concrete
+------------
+
+
+Responsibilities:
+
+Need to know:
+-Bid it is placing
+-Bid table
+
+Need to do:
+-Pull from Bids table to check if valid bid
+-Insert into Bids table to place bid
+
+
+Collaborations:
+Bid Class - Model class
+
+
+BACK:
+Pattern: N/A
+
+Attributes:
+Bid
+Endpoint for database
