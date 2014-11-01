@@ -21,4 +21,30 @@ public class ItemTest {
         assertEquals(mItemName, tester.getItemName());
         assertEquals(mItemDescription, tester.getItemDescription());
     }
+
+    public void testEditItemName(){
+        String itemName = "Snow shoes";
+        Item testItem = new Item(5555, itemName, "Made in Germany");
+
+        assertEquals(itemName, testItem.getItemName());
+
+        itemName = "BMW M3";
+        test.editItemName(itemName);
+
+        assertEquals(itemName, testItem.getItemName());
+
+    }
+
+    public void testEditItemDescription(){
+        String itemDesc = "Made in France";
+        Item testItem = new Item(5555, "Baguette", itemDesc);
+
+        assertEquals(itemDesc, testItem.getItemDescription());
+
+        itemDesc = "Made in Vietnam";
+        test.editItemDescription(itemDesc);
+
+        assertEquals(itemDesc, testItem.getItemDescription());
+
+    }
 }
