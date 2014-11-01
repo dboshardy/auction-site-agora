@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flag type:</strong>
+  <%= @flag.flag_type %>
+</p>
+
+<p>
+  <strong>Flagging user:</strong>
+  <%= @flag.flagging_user %>
+</p>
+
+<p>
+  <strong>Auction:</strong>
+  <%= @flag.auction_id %>
+</p>
+
+<%= link_to 'Edit', edit_flag_path(@flag) %> |
+<%= link_to 'Back', flags_path %>
