@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trans_date: 2014-10-31
+  bidder: 
+  seller: 
+
+two:
+  trans_date: 2014-10-31
+  bidder: 
+  seller: 

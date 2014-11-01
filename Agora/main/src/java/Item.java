@@ -8,9 +8,18 @@ public class Item {
     private String mItemDescription;
 
     public Item(int itemId, String itemName, String itemDescription){
+        // input validation
         mItemId = itemId;
         mItemName = itemName;
         mItemDescription = itemDescription;
+    }
+
+    public int getItemId() {
+        return mItemId;
+    }
+
+    public void setItemId(int mItemId) {
+        this.mItemId = mItemId;
     }
 
     public String getItemName() {

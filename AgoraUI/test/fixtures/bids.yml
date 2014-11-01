@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bidder_id: 
+  currency_id: 
+  amount: 
+  auction_id: 
+
+two:
+  bidder_id: 
+  currency_id: 
+  amount: 
+  auction_id: 
