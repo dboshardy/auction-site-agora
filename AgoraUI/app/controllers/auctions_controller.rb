@@ -1,5 +1,10 @@
+require 'activemessaging/processor'
+
 class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
+  
+  include ActiveMessaging::MessageSender
+  publishes_to :auction
 
   # GET /auctions
   # GET /auctions.json
