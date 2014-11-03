@@ -31,15 +31,26 @@ class AuctionsController < ApplicationController
   def create
     @auction = Auction.new(auction_params)
 
-    respond_to do |format|
-      if @auction.save
-        format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
-        format.json { render :show, status: :created, location: @auction }
-      else
-        format.html { render :new }
-        format.json { render json: @auction.errors, status: :unprocessable_entity }
-      end
-    end
+    hash = { :auction_date => params[:auction_start_date], 
+      :auction_length => params[:auction_length] }
+
+    json_data = hash.to_json
+
+    publish :auction, json_data
+
+    render new_item_path
+
+    # redirect_to new_item_path
+
+    # respond_to do |format|
+    #   if @auction.save
+    #     format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
+    #     format.json { render :show, status: :created, location: @auction }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @auction.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /auctions/1

@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :seller_id %><br>
-    <%= f.text_field :seller_id %>
+    <%= f.label :auction_start_time %><br>
+    <%= f.datetime_select :auction_start_time %>
+  </div>
+    <div class="field">
+    <%= f.label :auction_length %><br>
+    <%= f.number_field :length, in: 3...8 %>
   </div>
   <div class="actions">
     <%= f.submit %>
