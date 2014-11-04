@@ -1,4 +1,3 @@
 .bundle
 .DS_Store
-Agora/.idea/
-*.iml
+Agora/.idea/*
