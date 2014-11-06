@@ -12,6 +12,15 @@ public class Bid {
     private BigDecimal mBidAmount;
     private Timestamp mTimestamp;
     private Auction mAuction;
+    private int mBidId;
+
+    public int getBidId() {
+        return mBidId;
+    }
+
+    public void setBidId(int bidId) {
+        mBidId = bidId;
+    }
 
     public Bid(Bidder bidder, Auction auction, Currency currency, BigDecimal bidAmount) {
         mBidder = bidder;
@@ -59,6 +68,7 @@ public class Bid {
     }
 
     public void setTimestamp(Timestamp timestamp) {
+
         mTimestamp = timestamp;
     }
 }

@@ -21,10 +21,10 @@ WITH (
 CREATE TABLE Auctions 
 (
     auction_id serial NOT NULL,
-    list_time timestamp,
+    list_time integer,
     current_highest_bid_id integer NOT NULL,
     auction_description character varying(1000),
-    end_time timestamp,
+    end_time character varying(45),
     buy_it_now_price money NOT NULL,
     seller_user_id integer NOT NULL,
     is_ended boolean,
@@ -54,7 +54,7 @@ CREATE TABLE Bids
 (
     bid_id serial NOT NULL,
     auction_id integer NOT NULL,
-    timestamp timestamp,
+    timestamp integer,
     bidder_user_id integer NOT NULL,
     bid_amount money NOT NULL,
     currency character varying(45),

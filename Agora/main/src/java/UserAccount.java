@@ -13,21 +13,47 @@ public class UserAccount {
     ShoppingCart mShoppingCart;
     UserDescription mUserDescription;
     String mUserLocation;
-    UserID mUserID;
+    private int mUserId;
+    private String mFirstName;
+    private String mLastName;
+    private String mDescription;
 
-    public UserAccount(UserID userID) {
-        mUserID = userID;
+    public String getDescription() {
+        return mDescription;
     }
 
-    public UserAccount(String userName, String email, Password password, Watchlist watchlist, ShoppingCart shoppingCart, UserDescription userDescription, String userLocation) {
-        mUserName = userName;
-        mEmail = email;
-        mPassword = password;
-        mWatchlist = watchlist;
-        mShoppingCart = shoppingCart;
-        mUserDescription = userDescription;
-        mUserLocation = userLocation;
+    public void setDescription(String description) {
+        mDescription = description;
     }
+
+    public String getLastName() {
+        return mLastName;
+    }
+
+    public void setLastName(String lastName) {
+        mLastName = lastName;
+    }
+
+    public String getFirstName() {
+        return mFirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        mFirstName = firstName;
+    }
+
+    public int getUserId() {
+        return mUserId;
+    }
+
+    public void setUserId(int userId) {
+        mUserId = userId;
+    }
+
+    public UserAccount(int userID) {
+        mUserId = userID;
+    }
+
 
     public void flagAuction(Auction auction,Flag flag){
         auction.setFlag(flag,this.getUserID(), new Timestamp(new Date().getTime()));
@@ -96,11 +122,11 @@ public class UserAccount {
         mUserLocation = userLocation;
     }
 
-    public UserID getUserID() {
-        return mUserID;
+    public int getUserID() {
+        return mUserId;
     }
 
-    public void setUserID(UserID userID) {
-        mUserID = userID;
+    public void setUserID(int  userID) {
+        mUserId = userID;
     }
 }
