@@ -9,5 +9,7 @@ ActiveMessaging::Gateway.define do |s|
   
   s.destination :auction, '/queue/Auction'
   s.destination :item, '/queue/Item'
+  s.destination :watchlist, '/queue/Watchlist'
+  s.destination :user, '/queue/User'
   
 end

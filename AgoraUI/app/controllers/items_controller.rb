@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-    @item_name = @item.item_name
+    @item_name = "test item!!!"
     @item.item_desc = params[:item_desc]
     publish :item, @item_name
 

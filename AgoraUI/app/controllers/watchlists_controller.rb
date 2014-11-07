@@ -1,6 +1,11 @@
+require 'activemessaging/processor'
+require 'json'
+
 class WatchlistsController < ApplicationController
   before_action :set_watchlist, only: [:show, :edit, :update, :destroy]
 
+  include ActiveMessaging::MessageSender
+  publishes_to :watchlist
   # GET /watchlists
   # GET /watchlists.json
   def index
@@ -24,17 +29,22 @@ class WatchlistsController < ApplicationController
   # POST /watchlists
   # POST /watchlists.json
   def create
-    @watchlist = Watchlist.new(watchlist_params)
+    watchlist_info = {:watchlist_name => params[:watchlist][:watchlist_name].to_s}
 
-    respond_to do |format|
-      if @watchlist.save
-        format.html { redirect_to @watchlist, notice: 'Watchlist was successfully created.' }
-        format.json { render :show, status: :created, location: @watchlist }
-      else
-        format.html { render :new }
-        format.json { render json: @watchlist.errors, status: :unprocessable_entity }
-      end
-    end
+    publish :watchlist, JSON.generate(watchlist_info)
+    # @watchlist = Watchlist.new(watchlist_params)
+
+    # respond_to do |format|
+    #   if @watchlist.save
+    #     format.html { redirect_to @watchlist, notice: 'Watchlist was successfully created.' }
+    #     format.json { render :show, status: :created, location: @watchlist }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @watchlist.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
+    redirect_to watchlists_path
   end
 
   # PATCH/PUT /watchlists/1

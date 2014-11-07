@@ -1,6 +1,11 @@
+require 'activemessaging/processor'
+require 'json'
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  include ActiveMessaging::MessageSender
+  publishes_to :user
   # GET /users
   # GET /users.json
   def index
@@ -32,17 +37,28 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    user_info = {:first_name => params[:first_name].to_s,
+      :last_name => params[:last_name].to_s,
+      :email => params[:email].to_s,
+      :username => params[:username].to_s,
+      :password => params[:password].to_s
+    }
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    publish :user, JSON.generate(user_info)
+
+    redirect_to users_path
+
+    # @user = User.new(user_params)
+
+    # respond_to do |format|
+    #   if @user.save
+    #     format.html { redirect_to @user, notice: 'User was successfully created.' }
+    #     format.json { render :show, status: :created, location: @user }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /users/1

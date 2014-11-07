@@ -1,4 +1,5 @@
 require 'activemessaging/processor'
+require 'json'
 
 class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
@@ -29,17 +30,25 @@ class AuctionsController < ApplicationController
   # POST /auctions
   # POST /auctions.json
   def create
-    @auction = Auction.new(auction_params)
+    auction_info = {:auction_start_time => params[:auction_start_time].to_s, 
+      :auction_length => params[:auction_length].to_s,
+      :item_name => params[:item_name].to_s,
+      :item_desc => params[:item_desc].to_s
+    }
 
-    respond_to do |format|
-      if @auction.save
-        format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
-        format.json { render :show, status: :created, location: @auction }
-      else
-        format.html { render :new }
-        format.json { render json: @auction.errors, status: :unprocessable_entity }
-      end
-    end
+    publish :auction, JSON.generate(auction_info)
+
+    # respond_to do |format|
+    #   if @auction.save
+    #     format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
+    #     format.json { render :show, status: :created, location: @auction }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @auction.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
+    redirect_to auctions_path
   end
 
   # PATCH/PUT /auctions/1
