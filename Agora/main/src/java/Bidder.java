@@ -9,11 +9,11 @@ public class Bidder extends UserAccount{
     private List<Bid> mBidList;
 
     public Bidder(UserAccount userAccount) {
-        super(userAccount.getUserID());
+        super(userAccount.getUserId());
         mUserAccount = userAccount;
     }
 
-    public Bidder(UserID userID) {
+    public Bidder(int userID) {
         super(userID);
     }
 

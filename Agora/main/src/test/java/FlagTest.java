@@ -16,7 +16,7 @@ public class FlagTest {
 
     @BeforeClass
     public void testSetup() {
-        mUser = new UserAccount(new UserID(345345));
+        mUser = new UserAccount(345345);
         mAuction = new Auction();
         FlagType flagType = FlagType.FAKE_AUCTION;
         tester = new Flag(flagType, mUser, mAuction);
@@ -54,7 +54,7 @@ public class FlagTest {
 
     @Test
     public void testSetUser() {
-        UserAccount user2 = new UserAccount(new UserID(5434534));
+        UserAccount user2 = new UserAccount(5434534);
         tester.setFlaggingUser(user2);
         assertEquals(user2, tester.getFlaggingUser());
         assertNotSame(mUser, tester.getFlaggingUser());

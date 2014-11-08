@@ -1,0 +1,144 @@
+2014-11-07 18:44:43 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:44:43 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:44:43 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:44:43 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:44:43 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-07 18:44:43 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-07 18:44:43 WARN  AuctionEngine:21 - Failed to create session factory object. org.hibernate.HibernateException: /hibernate.cfg.xml not found
+2014-11-07 18:45:06 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:45:06 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:45:06 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:45:06 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:45:06 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-07 18:45:06 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-07 18:45:06 WARN  AuctionEngine:21 - Failed to create session factory object. org.hibernate.HibernateException: /hibernate.cfg.xml not found
+2014-11-07 18:45:31 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:45:31 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:45:31 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:45:31 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:45:36 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-07 18:45:36 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-07 18:45:51 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:45:51 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:45:51 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:45:51 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:46:00 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-07 18:46:00 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-07 18:46:51 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:46:51 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:46:51 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:46:51 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:46:52 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-07 18:46:52 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-07 18:46:55 WARN  AuctionEngine:21 - Failed to create session factory object. org.hibernate.HibernateException: /hibernate.cfg.xml not found
+2014-11-07 18:47:05 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:47:05 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:47:05 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:47:05 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:50:55 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:50:55 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:50:55 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:50:55 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:50:57 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-07 18:50:57 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-07 18:50:57 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-07 18:50:58 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-07 18:50:59 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-07 18:50:59 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-07 18:50:59 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-07 18:50:59 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-07 18:50:59 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, pool_size=1}
+2014-11-07 18:50:59 WARN  JdbcServicesImpl:169 - HHH000342: Could not obtain connection to query metadata : FATAL: password authentication failed for user "root"
+2014-11-07 18:50:59 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-07 18:50:59 INFO  LobCreatorBuilder:85 - HHH000422: Disabling contextual LOB creation as connection was null
+2014-11-07 18:50:59 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-07 18:51:00 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-07 18:51:00 INFO  PojoInstantiator:85 - HHH000182: No default (no-argument) constructor for class: Bid (class must be instantiated by Interceptor)
+2014-11-07 18:51:00 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2014-11-07 18:51:00 ERROR SchemaExport:385 - HHH000231: Schema export unsuccessful
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "root"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:293)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:108)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:66)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:125)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3g.AbstractJdbc3gConnection.<init>(AbstractJdbc3gConnection.java:22)
+	at org.postgresql.jdbc4.AbstractJdbc4Connection.<init>(AbstractJdbc4Connection.java:32)
+	at org.postgresql.jdbc4.Jdbc4Connection.<init>(Jdbc4Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:393)
+	at org.postgresql.Driver.connect(Driver.java:267)
+	at org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:204)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:51)
+	at org.hibernate.tool.hbm2ddl.DatabaseExporter.<init>(DatabaseExporter.java:52)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.execute(SchemaExport.java:367)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:304)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:293)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:500)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1769)
+	at AuctionEngine.createSessionFactory(AuctionEngine.java:40)
+	at AuctionEngine.main(AuctionEngine.java:21)
+2014-11-07 18:51:00 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2014-11-07 18:51:02 WARN  SqlExceptionHelper:145 - SQL Error: 0, SQLState: 28P01
+2014-11-07 18:51:02 ERROR SqlExceptionHelper:147 - FATAL: password authentication failed for user "root"
+2014-11-07 18:53:26 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:53:26 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:53:26 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:53:26 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:53:26 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-07 18:53:26 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-07 18:53:26 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-07 18:53:26 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-07 18:53:26 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-07 18:53:26 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-07 18:53:26 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-07 18:53:26 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-07 18:53:26 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=1}
+2014-11-07 18:53:27 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-07 18:53:27 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-07 18:53:27 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-07 18:53:27 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-07 18:53:27 INFO  PojoInstantiator:85 - HHH000182: No default (no-argument) constructor for class: Bid (class must be instantiated by Interceptor)
+2014-11-07 18:53:27 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2014-11-07 18:53:27 ERROR SchemaExport:425 - HHH000389: Unsuccessful: drop sequence hibernate_sequence
+2014-11-07 18:53:27 ERROR SchemaExport:426 - ERROR: sequence "hibernate_sequence" does not exist
+2014-11-07 18:53:27 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2014-11-07 18:54:23 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:54:23 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:54:23 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:54:23 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:54:23 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-07 18:54:23 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-07 18:54:23 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-07 18:54:23 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-07 18:54:23 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-07 18:54:23 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-07 18:54:23 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-07 18:54:23 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-07 18:54:23 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=1}
+2014-11-07 18:54:24 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-07 18:54:24 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-07 18:54:24 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-07 18:54:24 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-07 18:54:24 INFO  PojoInstantiator:85 - HHH000182: No default (no-argument) constructor for class: Bid (class must be instantiated by Interceptor)
+2014-11-07 18:54:24 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2014-11-07 18:54:24 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2014-11-07 18:56:13 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-07 18:56:13 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-07 18:56:13 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-07 18:56:13 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-07 18:56:13 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-07 18:56:13 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-07 18:56:13 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-07 18:56:13 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-07 18:56:13 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-07 18:56:13 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-07 18:56:13 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-07 18:56:13 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-07 18:56:13 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=1}
+2014-11-07 18:56:14 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-07 18:56:14 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-07 18:56:14 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-07 18:56:14 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-07 18:56:14 INFO  PojoInstantiator:85 - HHH000182: No default (no-argument) constructor for class: Bid (class must be instantiated by Interceptor)
+2014-11-07 18:56:14 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2014-11-07 18:56:14 INFO  SchemaExport:405 - HHH000230: Schema export complete

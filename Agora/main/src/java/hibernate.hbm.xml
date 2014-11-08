@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC
-        "-//Hibernate/Hibernate Mapping DTD//EN"
-        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
+    <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
     <class name="Bid" table="bids">
         <id name="BidId" type="int" column="bid_id">
             <generator class="native"/>
@@ -23,10 +23,10 @@
         <property name="CurrentHighestBid" column="current_highest_bid_id" type="int"/>
         <property name="Desription" column="auction_description" type="java.lang.String"/>
         <property name="BuyItNowPrice" column="buy_it_now_price" type="java.math.BigDecimal"/>
-        </class>
+    </class>
     <class name="UserAccount" table="useraccounts">
         <id name = "UserId" type="int" column="user_id">
-                <generator class="native"/>
+            <generator class="native"/>
         </id>
         <property name="UserName" column="username" type="java.lang.String"/>
         <property name="FirstName" column="first_name" type="java.lang.String"/>
@@ -34,4 +34,4 @@
         <property name="Description" column="user_description" type="java.lang.String"/>
         <property name="Password" column="password_hash" type="java.lang.String"/>
     </class>
-    </hibernate-mapping>
+</hibernate-mapping>
