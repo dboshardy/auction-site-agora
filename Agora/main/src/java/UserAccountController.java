@@ -30,6 +30,9 @@ public class UserAccountController {
             transaction.commit();
         }
         catch (HibernateException e){
+            if(transaction != null){
+                transaction.rollback();
+            }
             //LOG.warn("Could not insert user account : {} to database.",user.toString());
             //todo: implement
         }
