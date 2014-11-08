@@ -16,6 +16,8 @@ class AuctionsController < ApplicationController
   # GET /auctions/1
   # GET /auctions/1.json
   def show
+
+    
   end
 
   # GET /auctions/new
