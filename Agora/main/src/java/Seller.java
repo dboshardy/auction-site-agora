@@ -4,7 +4,7 @@
 public class Seller extends UserAccount {
 
 
-    public Seller(UserID userID) {
+    public Seller(int userID) {
         super(userID);
     }
 
@@ -16,10 +16,12 @@ public class Seller extends UserAccount {
     public Auction createAuction(){
         // Auction-- should this have constructor accepting Seller and timestamp?
         // also, is the timestamp when the auction is created or when the auction begins?
+        return null;
     }
 
     public Auction deleteAuction(int auctionId){
 
+        return null;
     }
 
     public void receiveTransction(){

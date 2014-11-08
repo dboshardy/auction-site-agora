@@ -1,5 +1,3 @@
-import org.hibernate.Session;
-
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -9,7 +7,7 @@ import java.util.Date;
 public class UserAccount {
     String mUserName;
     String mEmail;
-    Password mPassword;
+    String mPassword;
     Watchlist mWatchlist;
     ShoppingCart mShoppingCart; UserDescription mUserDescription;
     String mUserLocation;
@@ -17,6 +15,22 @@ public class UserAccount {
     private String mFirstName;
     private String mLastName;
     private String mDescription;
+
+
+    public UserAccount(String userName, String email, String password, String firstName, String lastName, String description) {
+        mUserName = userName;
+        mEmail = email;
+        mPassword = password;
+        mFirstName = firstName;
+        mLastName = lastName;
+        mDescription = description;
+    }
+
+    public UserAccount() {
+    }
+
+    public UserAccount(int userID) {
+    }
 
     public String getDescription() {
         return mDescription;
@@ -50,13 +64,8 @@ public class UserAccount {
         mUserId = userId;
     }
 
-    public UserAccount(int userID) {
-        mUserId = userID;
-    }
-
-
     public void flagAuction(Auction auction,Flag flag){
-        auction.setFlag(flag,this.getUserID(), new Timestamp(new Date().getTime()));
+        auction.setFlag(flag,this.getUserId(), new Timestamp(new Date().getTime()));
         //TODO: implement flagAuction
 
 
@@ -82,11 +91,11 @@ public class UserAccount {
         mEmail = email;
     }
 
-    public Password getPassword() {
+    public String getPassword() {
         return mPassword;
     }
 
-    public void setPassword(Password password) {
+    public void setPassword(String password) {
         mPassword = password;
     }
 
@@ -122,11 +131,5 @@ public class UserAccount {
         mUserLocation = userLocation;
     }
 
-    public int getUserID() {
-        return mUserId;
-    }
 
-    public void setUserID(int  userID) {
-        mUserId = userID;
-    }
 }

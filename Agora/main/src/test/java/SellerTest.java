@@ -6,11 +6,11 @@ import org.junit.Test;
  */
 public class SellerTest {
     Seller tester;
-    UserID mUserId;
+    int mUserId;
 
     @BeforeClass
     public void testSetup() {
-        mUserId = new UserID(5555);
+        mUserId = 5555;
         tester = new Seller(mUserId);
     }
 

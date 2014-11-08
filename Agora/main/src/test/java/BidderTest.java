@@ -20,7 +20,7 @@ public class BidderTest {
 
     @BeforeClass
     public void testSetup(){
-        mUserAccount = new UserAccount(new UserID(12341342));
+        mUserAccount = new UserAccount(12341342);
         tester = new Bidder(mUserAccount);
 
     }

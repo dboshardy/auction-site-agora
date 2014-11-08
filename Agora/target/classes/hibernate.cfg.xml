@@ -14,12 +14,16 @@
            jdbc:postgresql://localhost:5432/agora-db
         </property>
         <property name="hibernate.connection.username">
-            root
+            postgres
         </property>
         <property name="hibernate.connection.password">
-            root123
+            postgres
         </property>
+        <property name="connection_pool_size">1</property>
 
+        <property name="hbm2ddl.auto">create</property>
+
+        <property name="show_sql">true</property>
         <!-- List of XML mapping files -->
         <mapping resource="hibernate.hbm.xml"/>
 

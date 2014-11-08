@@ -20,7 +20,7 @@ public class BidTest {
 
     @BeforeClass
     public void testSetup() {
-        mUserAccount = new UserAccount(new UserID(1234));
+        mUserAccount = new UserAccount(1234);
         mBidder = new Bidder(mUserAccount);
         mCurrency = Currency.getInstance("USD");
         mAmount = BigDecimal.valueOf(12.50);

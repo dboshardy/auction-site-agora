@@ -17,8 +17,8 @@ public class Search {
         return result;
     }
 
-    public ArrayList<Item> searchUser(String user){
-        ArrayList<User> result= new ArrayList<User>();
+    public ArrayList<UserAccount> searchUser(String user){
+        ArrayList<UserAccount> result= new ArrayList<UserAccount>();
 
         //TODO: flesh out search User;
         return result;
