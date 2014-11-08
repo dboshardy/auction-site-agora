@@ -1,3 +1,5 @@
+import org.hibernate.Session;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -60,8 +62,6 @@ public class UserAccount {
 
     }
 
-    public void persistUserAccount(){
-    }
     public void editUserDescription(){
         //TODO: implement editUserDescription()
     }
