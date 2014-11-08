@@ -8,10 +8,8 @@ public class UserAccount {
     String mUserName;
     String mEmail;
     Password mPassword;
-    //TODO: define "history" for user account
     Watchlist mWatchlist;
-    ShoppingCart mShoppingCart;
-    UserDescription mUserDescription;
+    ShoppingCart mShoppingCart; UserDescription mUserDescription;
     String mUserLocation;
     private int mUserId;
     private String mFirstName;
@@ -62,6 +60,8 @@ public class UserAccount {
 
     }
 
+    public void persistUserAccount(){
+    }
     public void editUserDescription(){
         //TODO: implement editUserDescription()
     }
