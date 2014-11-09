@@ -28,16 +28,31 @@ public class UserAccountController {
             transaction = session.beginTransaction();
             user.setUserId((Integer) session.save(user));
             transaction.commit();
+            session.close();
         }
         catch (HibernateException e){
             if(transaction != null){
                 transaction.rollback();
             }
             //LOG.warn("Could not insert user account : {} to database.",user.toString());
-            //todo: implement
         }
 
+    }
 
-
+    public void removeUserAccount(UserAccount user) {
+        Session session = mSessionFactory.openSession();
+        org.hibernate.Transaction transaction = null;
+        try{
+            transaction = session.beginTransaction();
+            session.delete(user);
+            transaction.commit();
+            session.close();
+        }
+        catch (HibernateException e){
+            if(transaction != null){
+                transaction.rollback();
+            }
+            //LOG.warn("Could not remove user account : {} to database.",user.toString());
+        }
     }
 }
