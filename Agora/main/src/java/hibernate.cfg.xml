@@ -14,17 +14,10 @@
            jdbc:postgresql://localhost:5432/agora-db
         </property>
         <property name="hibernate.connection.username">
-<<<<<<< HEAD
             postgres
         </property>
         <property name="hibernate.connection.password">
             postgres
-=======
-            thomkel
-        </property>
-        <property name="hibernate.connection.password">
-
->>>>>>> ef22e5a4f9a451af04c007cf4297bcb049df06f5
         </property>
         <property name="connection_pool_size">1</property>
 
