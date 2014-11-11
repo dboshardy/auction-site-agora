@@ -1,10 +1,7 @@
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
-import java.io.InputStream;
+import java.io.IOException;
 
 /**
  * Created by drew on 11/7/14.
@@ -13,12 +10,11 @@ public class AuctionEngine {
 
     private static final Logger LOG = Logger.getLogger(AuctionEngine.class);
     private static SessionFactory mSessionFactory;
-    private static ServiceRegistry mServiceRegistry;
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
 
         try {
-            mSessionFactory = createSessionFactory();
+            mSessionFactory = HibernateUtils.getSessionFactory();
         } catch (Throwable e) {
             LOG.warn("Failed to create session factory object. " + e);
         }
@@ -27,20 +23,21 @@ public class AuctionEngine {
 
         UserAccountController userAccountController = UserAccountController.getInstance(mSessionFactory);
 
+        //add user
         userAccountController.addUserAccount(user1);
+
+        user1.setFirstName("Andrew");
+        //update
+        userAccountController.updateUserAccount(user1);
+
+        userAccountController.getUserById(1);
+        //delete it after input
+        System.out.println("press any key to delete");
+        System.in.read();
+        userAccountController.deleteUserAccount(user1);
     }
 
 
-
-    public static SessionFactory createSessionFactory() {
-        InputStream inputStream = AuctionEngine.class.getResourceAsStream("/hibernate.cfg.xml");
-        Configuration configuration = new Configuration().addInputStream(inputStream);
-        configuration.configure();
-        ServiceRegistry serviceRegistry = (ServiceRegistry) new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
-        SessionFactory factory = configuration.buildSessionFactory(serviceRegistry);
-        return factory;
-
-    }
 
 
 }

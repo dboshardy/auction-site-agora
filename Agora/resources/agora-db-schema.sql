@@ -9,6 +9,7 @@ CREATE TABLE UserAccounts
     last_name character varying(45),
     user_description character varying(1000),
     password_hash character varying(256),
+		user_joined_date timestamp NOT NULL,
     CONSTRAINT UserAccounts_pk PRIMARY KEY (user_id)
 )
 WITH (

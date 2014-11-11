@@ -23,36 +23,53 @@ public class UserAccountController {
 
     public void addUserAccount(UserAccount user) {
         Session session = mSessionFactory.openSession();
-        org.hibernate.Transaction transaction = null;
-        try{
-            transaction = session.beginTransaction();
+        try {
+            session.beginTransaction();
             user.setUserId((Integer) session.save(user));
-            transaction.commit();
+            session.getTransaction().commit();
             session.close();
-        }
-        catch (HibernateException e){
-            if(transaction != null){
-                transaction.rollback();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
             }
             //LOG.warn("Could not insert user account : {} to database.",user.toString());
         }
 
     }
 
-    public void removeUserAccount(UserAccount user) {
+    public void deleteUserAccount(UserAccount user) {
         Session session = mSessionFactory.openSession();
-        org.hibernate.Transaction transaction = null;
-        try{
-            transaction = session.beginTransaction();
+        try {
+            session.beginTransaction();
             session.delete(user);
-            transaction.commit();
+            session.getTransaction().commit();
             session.close();
-        }
-        catch (HibernateException e){
-            if(transaction != null){
-                transaction.rollback();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
             }
             //LOG.warn("Could not remove user account : {} to database.",user.toString());
         }
+    }
+
+    public void updateUserAccount(UserAccount user) {
+        Session session = mSessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            session.update(user);
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            //LOG.warn("Could not update user account : {} to database.",user.toString());
+        }
+    }
+
+    public UserAccount getUserById(int i) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        session.beginTransaction();
+        return (UserAccount) session.get(UserAccount.class, i);
     }
 }

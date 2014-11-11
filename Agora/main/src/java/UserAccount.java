@@ -1,3 +1,6 @@
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -108,11 +111,14 @@ public class UserAccount {
     }
 
     public ShoppingCart getShoppingCart() {
-        return mShoppingCart;
-    }
 
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        mShoppingCart = shoppingCart;
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+        session.createQuery("SELECT * FROM UserAccount WHERE user_id="+this.getUserId());
+
+        return mShoppingCart;
     }
 
     public UserDescription getUserDescription() {
@@ -131,5 +137,11 @@ public class UserAccount {
         mUserLocation = userLocation;
     }
 
+    public void addAuctionToWatchlist(Auction auction){
 
+    }
+
+    public void addAuctionToShoppingCart(Auction auction){
+
+    }
 }
