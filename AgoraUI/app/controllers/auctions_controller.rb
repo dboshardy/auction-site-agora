@@ -32,6 +32,7 @@ class AuctionsController < ApplicationController
   # POST /auctions
   # POST /auctions.json
   def create
+
     id = SecureRandom.uuid.to_s
 
     auction_info = {:id => id, :type => "create", 
