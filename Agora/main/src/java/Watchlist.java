@@ -94,7 +94,6 @@ public class Watchlist {
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
         session.createSQLQuery("INSERT INTO " + mTableName + " VALUES (" + mUserAccount.getUserId() + "," + auction.getAuctionId() + "," + this.getWatchlistName() + ")");
-        session.
         session.getTransaction().commit();
         session.close();
     }
