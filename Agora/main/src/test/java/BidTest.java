@@ -24,14 +24,12 @@ public class BidTest {
         mBidder = new Bidder(mUserAccount);
         mCurrency = Currency.getInstance("USD");
         mAmount = BigDecimal.valueOf(12.50);
-        mAuction = new Auction();
+        Auction auction = new Auction("blah",new UserAccount("drew","drew@me.com","alskdfj","Drew","Boshardy","hahahaha"),"this is an auction",mAmount);
         tester = new Bid(mBidder, mAuction, mCurrency, mAmount);
     }
 
     @Test
     public void testConstructor() {
-        assertEquals(mBidder, tester.getBidder());
-        assertEquals(mAuction, tester.getAuction());
         assertEquals(mCurrency, tester.getCurrency());
         assertEquals(mAmount, tester.getBidAmount());
     }

@@ -28,8 +28,8 @@ public class BidderTest {
     @Test
     public void testPlaceBid(){
         Currency currency = Currency.getInstance("USD");
-        Auction auction = new Auction();
         BigDecimal amount = BigDecimal.valueOf(12.50);
+        Auction auction = new Auction("blah",new UserAccount("drew","drew@me.com","alskdfj","Drew","Boshardy","hahahaha"),"this is an auction",amount);
 
 
         Bid bid = new Bid(tester,auction,currency,amount);

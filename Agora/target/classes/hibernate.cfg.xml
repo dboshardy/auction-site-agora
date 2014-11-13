@@ -24,7 +24,7 @@
         <property name="hbm2ddl.auto">create</property>
 
         <property name="show_sql">true</property>
-        <!-- List of XML mapping files -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping resource="hibernate.hbm.xml"/>
 
     </session-factory>

@@ -10,20 +10,24 @@ import java.io.InputStream;
  */
 public class HibernateUtils {
 
-    private static final SessionFactory sessionFactory = createSessionFactory();
+    private static  SessionFactory sessionFactory;
 
     public static SessionFactory createSessionFactory() {
         InputStream inputStream = AuctionEngine.class.getResourceAsStream("/hibernate.cfg.xml");
         Configuration configuration = new Configuration().addInputStream(inputStream);
         configuration.configure();
         ServiceRegistry serviceRegistry = (ServiceRegistry) new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
-        SessionFactory factory = configuration.buildSessionFactory(serviceRegistry);
-        return factory;
+        return configuration.buildSessionFactory(serviceRegistry);
 
     }
 
     public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+        if(sessionFactory == null){
+            return createSessionFactory();
+        }
+        else {
+            return sessionFactory;
+        }
     }
 
 }

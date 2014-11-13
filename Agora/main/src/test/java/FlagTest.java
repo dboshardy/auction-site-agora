@@ -2,6 +2,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
 
@@ -17,7 +19,7 @@ public class FlagTest {
     @BeforeClass
     public void testSetup() {
         mUser = new UserAccount(345345);
-        mAuction = new Auction();
+        Auction auction = new Auction("blah",new UserAccount("drew","drew@me.com","alskdfj","Drew","Boshardy","hahahaha"),"this is an auction",new BigDecimal(1234.3));
         FlagType flagType = FlagType.FAKE_AUCTION;
         tester = new Flag(flagType, mUser, mAuction);
     }
@@ -46,7 +48,7 @@ public class FlagTest {
 
     @Test
     public void testSetAuction() {
-        Auction auction2 = new Auction();
+        Auction auction2 = new Auction("blah",new UserAccount("drew","drew@me.com","alskdfj","Drew","Boshardy","hahahaha"),"this is an auction",new BigDecimal(2039.42));
         tester.setAuctionFlagged(auction2);
         assertEquals(auction2, tester.getAuctionFlagged());
         assertNotSame(mAuction, tester.getAuctionFlagged());

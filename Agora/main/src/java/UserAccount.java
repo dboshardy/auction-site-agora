@@ -1,8 +1,7 @@
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by drew on 10/19/14.
@@ -11,8 +10,9 @@ public class UserAccount {
     String mUserName;
     String mEmail;
     String mPassword;
-    Watchlist mWatchlist;
-    ShoppingCart mShoppingCart; UserDescription mUserDescription;
+    Map<String, Watchlist> mWatchlists = new HashMap<String, Watchlist>();
+    ShoppingCart mShoppingCart;
+    UserDescription mUserDescription;
     String mUserLocation;
     private int mUserId;
     private String mFirstName;
@@ -67,15 +67,17 @@ public class UserAccount {
         mUserId = userId;
     }
 
-    public void flagAuction(Auction auction,Flag flag){
-        auction.setFlag(flag,this.getUserId(), new Timestamp(new Date().getTime()));
+    public void flagAuction(Auction auction, Flag flag) {
+        auction.setFlag(flag, this.getUserId(), new Timestamp(new Date().getTime()));
         //TODO: implement flagAuction
 
 
     }
 
-    public void editUserDescription(){
-        //TODO: implement editUserDescription()
+    public void editUserDescription(String newDesc) {
+        UserAccountController controller = new UserAccountController();
+        this.setDescription(newDesc);
+        controller.updateUserAccount(this);
     }
 
     public String getUserName() {
@@ -102,22 +104,15 @@ public class UserAccount {
         mPassword = password;
     }
 
-    public Watchlist getWatchlist() {
-        return mWatchlist;
+    public Watchlist getWatchlist(String name) {
+        return mWatchlists.get(name);
     }
 
-    public void setWatchlist(Watchlist watchlist) {
-        mWatchlist = watchlist;
+    public void addWatchlist(Watchlist watchlist) {
+        mWatchlists.put(watchlist.getWatchlistName(),watchlist);
     }
 
     public ShoppingCart getShoppingCart() {
-
-        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
-        Session session = sessionFactory.openSession();
-
-        session.beginTransaction();
-        session.createQuery("SELECT * FROM UserAccount WHERE user_id="+this.getUserId());
-
         return mShoppingCart;
     }
 
@@ -137,11 +132,26 @@ public class UserAccount {
         mUserLocation = userLocation;
     }
 
-    public void addAuctionToWatchlist(Auction auction){
 
+    public void addAuctionToShoppingCart(Auction auction) {
+        //todo: implement this in ShoppingCart class instead
+        this.getShoppingCart().addAuctionToShoppingCart();
     }
 
-    public void addAuctionToShoppingCart(Auction auction){
-
+    @Override
+    public String toString() {
+        return "UserAccount{" +
+                "mUserName='" + mUserName + '\'' +
+                ", mEmail='" + mEmail + '\'' +
+                ", mPassword='" + mPassword + '\'' +
+                ", mWatchlists=" + mWatchlists +
+                ", mShoppingCart=" + mShoppingCart +
+                ", mUserDescription=" + mUserDescription +
+                ", mUserLocation='" + mUserLocation + '\'' +
+                ", mUserId=" + mUserId +
+                ", mFirstName='" + mFirstName + '\'' +
+                ", mLastName='" + mLastName + '\'' +
+                ", mDescription='" + mDescription + '\'' +
+                '}';
     }
 }

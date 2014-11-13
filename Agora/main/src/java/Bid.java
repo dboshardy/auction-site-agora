@@ -7,12 +7,15 @@ import java.util.Date;
  * Created by drew on 10/19/14.
  */
 public class Bid {
-    private Bidder mBidder;
+    private UserAccount mBidder;
     private Currency mCurrency;
     private BigDecimal mBidAmount;
     private Timestamp mTimestamp;
     private Auction mAuction;
     private int mBidId;
+
+    public Bid() {
+    }
 
     public int getBidId() {
         return mBidId;
@@ -22,7 +25,15 @@ public class Bid {
         mBidId = bidId;
     }
 
-    public Bid(Bidder bidder, Auction auction, Currency currency, BigDecimal bidAmount) {
+    public Bid(UserAccount bidder, Auction auction, BigDecimal bidAmount) {
+        mBidder = bidder;
+        mCurrency = Currency.getInstance("USD");
+        mBidAmount = bidAmount;
+        Date date = new Date();
+        mTimestamp = new Timestamp(date.getTime());
+        mAuction = auction;
+    }
+    public Bid(UserAccount bidder, Auction auction, Currency currency, BigDecimal bidAmount) {
         mBidder = bidder;
         mCurrency = currency;
         mBidAmount = bidAmount;
@@ -31,16 +42,8 @@ public class Bid {
         mAuction = auction;
     }
 
-    public Auction getAuction() {
-        return mAuction;
-    }
-
     public void setAuction(Auction auction) {
         mAuction = auction;
-    }
-
-    public Bidder getBidder() {
-        return mBidder;
     }
 
     public void setBidder(Bidder bidder) {
@@ -70,5 +73,17 @@ public class Bid {
     public void setTimestamp(Timestamp timestamp) {
 
         mTimestamp = timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "Bid{" +
+                "mBidder=" + mBidder +
+                ", mCurrency=" + mCurrency +
+                ", mBidAmount=" + mBidAmount +
+                ", mTimestamp=" + mTimestamp +
+                ", mAuction=" + mAuction +
+                ", mBidId=" + mBidId +
+                '}';
     }
 }

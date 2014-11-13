@@ -14,7 +14,7 @@ public class WatchlistTest {
     @BeforeClass
     public void testSetup() {
         mWatchlistName = "Things I Want";
-        tester = new Watchlist(mWatchlistName);
+        tester = new Watchlist(new UserAccount());
     }
 
     @Test
@@ -24,7 +24,7 @@ public class WatchlistTest {
 
     public void testEditWatchlistName() {
         String watchlistName = "New things for you";
-        Watchlist testWatchlist = new Watchlist(watchlistName);
+        Watchlist testWatchlist = new Watchlist(new UserAccount());
         assertEquals(watchlistName, testWatchlist.getWatchlistName());
 
         watchlistName = "New things for me";

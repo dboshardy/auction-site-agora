@@ -7,21 +7,19 @@
         <id name="BidId" type="int" column="bid_id">
             <generator class="native"/>
         </id>
-        <property name="Bidder" column="bidder_user_id" type="int"/>
-        <property name="Auction" column="auction_id" type="int"/>
         <property name="Timestamp" column="timestamp" type="timestamp"/>
-        <property name="Currency" column="currency" type="java.lang.String"/>
+        <property name="Currency" column="currency" type="java.util.Currency"/>
         <property name="BidAmount" column="bid_amount" type="java.math.BigDecimal"/>
     </class>
     <class name="Auction" table="auctions">
         <id name="AuctionId" type="int" column="auction_id">
             <generator class="native"/>
         </id>
-        <property name="Seller" column="seller_user_id" type="int"/>
+        <property name="CurrentHighestBidId" column="current_highest_bid_id" type="int" />
+        <property name="SellerId" column="seller_user_id" type="int"/>
         <property name="ListTime" column="list_time" type="timestamp"/>
         <property name="EndTime" column="end_time" type="timestamp"/>
-        <property name="CurrentHighestBid" column="current_highest_bid_id" type="int"/>
-        <property name="Desription" column="auction_description" type="java.lang.String"/>
+        <property name="Description" column="auction_description" type="java.lang.String"/>
         <property name="BuyItNowPrice" column="buy_it_now_price" type="java.math.BigDecimal"/>
     </class>
     <class name="UserAccount" table="useraccounts">

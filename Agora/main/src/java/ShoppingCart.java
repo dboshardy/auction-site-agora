@@ -23,4 +23,7 @@ public class ShoppingCart {
         cart.remove(auction);
         return true;
     }
+
+    public void addAuctionToShoppingCart() {
+    }
 }

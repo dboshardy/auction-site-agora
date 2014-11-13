@@ -7,15 +7,85 @@ import java.util.List;
  */
 public class Auction {
 
+    private Bid mCurrentHighestBid = null;
     private Date mListTime;
     private Date mEndTime;
     private List<Bid> mBidList;
     private List<Flag> mFlagList;
-    private Seller mSeller;
+    private UserAccount mSeller;
     private int mAuctionId;
-    private int mCurrentHighestBid;
+    private String mDescription;
+
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String description) {
+        mDescription = description;
+    }
+
+    public int getCurrentHighestBidId() {
+        return mCurrentHighestBidId;
+    }
+
+    public void setCurrentHighestBidId(int currentHighestBidId) {
+        mCurrentHighestBidId = currentHighestBidId;
+    }
+
+    private int mCurrentHighestBidId;
     private String mDesription;
     private BigDecimal mBuyItNowPrice;
+    private int mSellerId;
+
+    //todo: implement buy it now price
+    public Auction() {
+    }
+
+    public int getSellerId() {
+        return mSellerId;
+    }
+
+    public void setSellerId(int sellerId) {
+        mSellerId = sellerId;
+    }
+
+    public Auction(String auctionName, UserAccount seller, String description, BigDecimal bid) {
+        mAuctionName = auctionName;
+        mSeller = seller;
+        mDesription = description;
+        //set date as of now
+        mListTime = new Date();
+        Bid initialBid = new Bid(mSeller,this,bid);
+        mCurrentHighestBid = initialBid;
+    }
+
+    public Auction(String auctionName, int sellerId, String description, BigDecimal bid) {
+        mAuctionName = auctionName;
+        mSellerId = sellerId;
+        mDesription = description;
+        //set date as of now
+        mListTime = new Date();
+        Bid initialBid = new Bid(mSeller,this,bid);
+        mCurrentHighestBid = initialBid;
+    }
+    public UserAccount getSeller() {
+        return mSeller;
+    }
+
+    public void setSeller(UserAccount seller) {
+        mSeller = seller;
+    }
+
+    public String getAuctionName() {
+        return mAuctionName;
+    }
+
+    public void setAuctionName(String auctionName) {
+        mAuctionName = auctionName;
+    }
+
+    private String mAuctionName;
+
 
     public BigDecimal getBuyItNowPrice() {
         return mBuyItNowPrice;
@@ -33,11 +103,11 @@ public class Auction {
         mDesription = desription;
     }
 
-    public int getCurrentHighestBid() {
+    public Bid getCurrentHighestBid() {
         return mCurrentHighestBid;
     }
 
-    public void setCurrentHighestBid(int currentHighestBid) {
+    public void setCurrentHighestBid(Bid currentHighestBid) {
         mCurrentHighestBid = currentHighestBid;
     }
 
@@ -74,10 +144,6 @@ public class Auction {
         mListTime = timestamp;
     }
 
-    public Seller getSeller(){
-        return mSeller;
-    }
-
     public void setSeller(Seller mSeller){
         this.mSeller=mSeller;
     }
@@ -98,4 +164,23 @@ public class Auction {
     public void setFlag(Flag flag, int userID, Date timestamp) {
         //todo: implement this
     }
+
+    @Override
+    public String toString() {
+        return "Auction{" +
+                "mListTime=" + mListTime +
+                ", mEndTime=" + mEndTime +
+                ", mBidList=" + mBidList +
+                ", mFlagList=" + mFlagList +
+                ", mSeller=" + mSeller +
+                ", mAuctionId=" + mAuctionId +
+                ", mCurrentHighestBid=" + mCurrentHighestBid +
+                ", mCurrentHighestBidId=" + mCurrentHighestBidId +
+                ", mDescription='" + mDescription + '\'' +
+                ", mBuyItNowPrice=" + mBuyItNowPrice +
+                ", mSellerId=" + mSellerId +
+                ", mAuctionName='" + mAuctionName + '\'' +
+                '}';
+    }
+
 }
