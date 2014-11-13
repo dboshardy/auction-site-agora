@@ -22,6 +22,7 @@ public class Watchlist {
     public Watchlist(UserAccount user, String watchlistName) {
         mUserAccount = user;
         mWatchlistName = watchlistName;
+        mWatchlistModel = new WatchlistModel();
         mWatchlist = new ArrayList<Auction>();
 
     }
@@ -76,6 +77,14 @@ public class Watchlist {
 
     public void setWatchlistName(String mWatchlistName) {
         this.mWatchlistName = mWatchlistName;
+    }
+
+    public Integer getWatchlistId() {
+        return mWatchlistId;
+    }
+
+    public void setWatchlistId(Integer mWatchlistId) {
+        this.mWatchlistId = mWatchlistId;
     }
 
     public ArrayList<Auction> getWatchlist() {

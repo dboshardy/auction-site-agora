@@ -10,169 +10,94 @@ class AuctionsController < ApplicationController
   # GET /auctions
   # GET /auctions.json
   def index
-
-    id = SecureRandom.uuid.to_s
-
-    auction_info = {:id => id, :type => "index", 
-      :user_id => session[:user_id]    
-    }
-
-    publish :auction, JSON.generate(auction_info)
-
-    @auctions = Message.new.get_auctions(id)
-
-    render 'index'      
+    @auctions = Auction.all
   end
 
   # GET /auctions/1
   # GET /auctions/1.json
   def show
 
-    id = SecureRandom.uuid.to_s
-
-    auction_info = {:id => id, :type => "show", 
-      :auction_id => params[:id]  }
-
-    publish :auction, JSON.generate(auction_info)
-
-    @auction, @bidder, @seller = Message.new.get_auction(id)
-
+    
   end
 
   # GET /auctions/new
   def new
-    if session[:user_id].blank?
-      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
-    end
+    @auction = Auction.new
   end
 
   # GET /auctions/1/edit
   def edit
-    if session[:user_id].blank?
-      redirect_to "/users/new", notice: "You must log in or sign up to update an auction"
-    end    
   end
 
   # POST /auctions
   # POST /auctions.json
   def create
-    auction = Auction.new(auction_params)
 
     id = SecureRandom.uuid.to_s
 
     auction_info = {:id => id, :type => "create", 
-      :user_id => session[:user_id],     
-      :auction_start_time => auction.auction_start_time, 
-      :auction_length => auction.auction_length,
-      :item_name => auction.item_name, :item_desc => auction.item_desc,
-      :quantity => auction.quantity, :buy_it_now => auction.buy_it_now,
-      :start_id => auction.start_bid, :shipping_cost => auction.shipping_cost
+      :auction_start_time => params[:auction_start_time].to_s, 
+      :auction_length => params[:auction_length].to_s,
+      :item_name => params[:item_name].to_s,
+      :item_desc => params[:item_desc].to_s
     }
 
     publish :auction, JSON.generate(auction_info)
 
-    status, @error = Message.new.get_success(id)
+    attempts = 0
 
-    if status == "true"
-      @status = "New auction created!"
-    else
-      @status = "Auction could not be created"
+    @message_id = nil
+
+    message = Message.find_by(:message_id => id)
+
+    while attempts < 10 # change after testing
+
+      if message.nil?
+        sleep(1)
+        attempts += 1
+        message = Message.find_by(:message_id => id)
+      else
+        @message_id = message.message_id
+        break
+      end
+
     end
 
     render 'confirm'
   end
 
+  def check_for_message(message_id)
+    message = Message.find_by(:message_id => message_id.to_s)
+
+    if message.nil?
+      return nil
+    else
+      return message
+    end
+  end
+
   # PATCH/PUT /auctions/1
   # PATCH/PUT /auctions/1.json
   def update
-    auction = Auction.new(auction_params)
-
-    id = SecureRandom.uuid.to_s
-
-    auction_info = {:id => id, :type => "update", 
-      :auction_id => params[:id],     
-      :auction_start_time => auction.auction_start_time, 
-      :auction_length => auction.auction_length,
-      :item_name => auction.item_name, :item_desc => auction.item_desc,
-      :quantity => auction.quantity, :buy_it_now => auction.buy_it_now,
-      :start_id => auction.start_bid, :shipping_cost => auction.shipping_cost
-    }
-
-    publish :auction, JSON.generate(auction_info)
-
-    status, @error = Message.new.get_success(id)
-
-    if status == "true"
-      @status = "Auction updated!"
-    else
-      @status = "Auction could not be updated"
+    respond_to do |format|
+      if @auction.update(auction_params)
+        format.html { redirect_to @auction, notice: 'Auction was successfully updated.' }
+        format.json { render :show, status: :ok, location: @auction }
+      else
+        format.html { render :edit }
+        format.json { render json: @auction.errors, status: :unprocessable_entity }
+      end
     end
-
-    render 'confirm'    
-
   end
 
   # DELETE /auctions/1
   # DELETE /auctions/1.json
   def destroy
-    id = SecureRandom.uuid.to_s
-
-    auction_info = {:id => id, :type => "delete", 
-      :auction_id => params[:id],     
-    }
-
-    publish :auction, JSON.generate(auction_info)
-
-    status, @error = Message.new.get_success(id)
-
-    if status == "true"
-      @status = "Auction deleted!"
-    else
-      @status = "Auction could not be deleted"
+    @auction.destroy
+    respond_to do |format|
+      format.html { redirect_to auctions_url, notice: 'Auction was successfully destroyed.' }
+      format.json { head :no_content }
     end
-
-    render 'confirm'    
-  end
-
-  def search
-
-    @categories = Category.new.get_categories
-
-  end
-
-  def keyword_search
-
-    keyword = params[:keyword]
-
-    id = SecureRandom.uuid.to_s
-
-    auction_info = {:id => id, :type => "search", 
-      :search_type => "keyword"     
-    }
-
-    publish :auction, JSON.generate(auction_info)
-
-    @auctions = Message.new.get_auctions(id)
-
-    render 'results'    
-
-  end
-
-  def category_search
-
-    category = params[:category]
-
-    id = SecureRandom.uuid.to_s
-
-    auction_info = {:id => id, :type => "search", 
-      :search_type => "category"     
-    }
-
-    publish :auction, JSON.generate(auction_info)
-
-    @auctions = Message.new.get_auctions(id)
-
-    render 'results'   
   end
 
   private
