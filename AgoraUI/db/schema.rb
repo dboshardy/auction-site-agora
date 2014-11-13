@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031184147) do
+ActiveRecord::Schema.define(version: 20141113022446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "auction_messages", force: true do |t|
+    t.text     "body"
+    t.datetime "received_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "read"
+  end
 
   create_table "auctions", force: true do |t|
     t.integer  "seller_id"
@@ -48,6 +56,14 @@ ActiveRecord::Schema.define(version: 20141031184147) do
   create_table "items", force: true do |t|
     t.string   "item_name"
     t.text     "item_desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: true do |t|
+    t.string   "message_id"
+    t.text     "body"
+    t.datetime "received_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

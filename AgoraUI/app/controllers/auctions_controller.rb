@@ -32,7 +32,11 @@ class AuctionsController < ApplicationController
   # POST /auctions
   # POST /auctions.json
   def create
-    auction_info = {:auction_start_time => params[:auction_start_time].to_s, 
+
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "create", 
+      :auction_start_time => params[:auction_start_time].to_s, 
       :auction_length => params[:auction_length].to_s,
       :item_name => params[:item_name].to_s,
       :item_desc => params[:item_desc].to_s
@@ -40,17 +44,36 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    # respond_to do |format|
-    #   if @auction.save
-    #     format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
-    #     format.json { render :show, status: :created, location: @auction }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @auction.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    attempts = 0
 
-    redirect_to auctions_path
+    @message_id = nil
+
+    message = Message.find_by(:message_id => id)
+
+    while attempts < 10 # change after testing
+
+      if message.nil?
+        sleep(1)
+        attempts += 1
+        message = Message.find_by(:message_id => id)
+      else
+        @message_id = message.message_id
+        break
+      end
+
+    end
+
+    render 'confirm'
+  end
+
+  def check_for_message(message_id)
+    message = Message.find_by(:message_id => message_id.to_s)
+
+    if message.nil?
+      return nil
+    else
+      return message
+    end
   end
 
   # PATCH/PUT /auctions/1
