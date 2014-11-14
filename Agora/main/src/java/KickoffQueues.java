@@ -5,26 +5,20 @@ public class KickoffQueues {
 
     public static void main(String[] args) {
         QueueHandler auctionHandler = new QueueHandler("Auction", "AuctionConfirm");
-        QueueHandler watchlistHandler = new QueueHandler("Watchlist", "WatchlistConfirm");
-
-        Thread auctionThread = new Thread(auctionHandler);
-        Thread watchlistThread = new Thread(watchlistHandler);
-
         System.out.print("\n\n\n");
         System.out.println("Starting Queues...");
-
         try {
-
-            System.out.println("Kicking off auction queue connection ...");
-            auctionThread.start();
-            System.out.println("Kicking off watchlist queue connection...");
-            watchlistThread.start();
-//          example.after();
-
+            auctionHandler.initializeQueues();
+            while(true) {
+                System.out.println("Kicking off new connection...");
+                auctionHandler.runQueues();
+//            example.after();
+            }
         } catch (Exception e) {
             System.out.println("Caught an exception during the example: " + e);
         }
-
+        System.out.println("Queue connections have been closed");
+        System.out.print("\n\n\n");
     }
 
 }
