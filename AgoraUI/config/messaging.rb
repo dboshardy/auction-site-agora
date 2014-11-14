@@ -12,5 +12,6 @@ ActiveMessaging::Gateway.define do |s|
   s.destination :watchlist, '/queue/Watchlist'
   s.destination :user, '/queue/User'
   s.destination :auction_confirm, '/queue/AuctionConfirm'
+  s.destination :watchlist_confirm, '/queue/WatchlistConfirm'
   
 end
