@@ -69,4 +69,18 @@ public class UserAccountController {
         session.beginTransaction();
         return (UserAccount) session.get(UserAccount.class, i);
     }
+
+    public void placeBidOnAuction(UserAccount user, Bid bid, Auction auction){
+        BidController bidController = new BidController();
+        AuctionController auctionController = new AuctionController();
+        Bid currentHighestBid = auction.getCurrentHighestBid();
+        if(currentHighestBid.getBidAmount().compareTo(bid.getBidAmount()) == -1) {
+            //if currentHightestBid is less than proposed bid
+            bidController.persistBid(bid);
+            auction.setCurrentHighestBid(bid);
+            auctionController.updateAuction(auction);
+        }
+
+
+    }
 }
