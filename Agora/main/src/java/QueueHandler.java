@@ -9,7 +9,7 @@ import org.json.*;
 
 import java.net.SocketTimeoutException;
 
-public class QueueHandler {
+public class QueueHandler implements Runnable{
 
     private StompConnection stompConsumerConnection;
     private StompConnection stompProducerConnection;
@@ -31,7 +31,7 @@ public class QueueHandler {
         this.mProducerQueue = pQueue;
     }
 
-    public void initializeQueues() throws Exception {
+    public void initializeQueue() throws Exception {
         //create stompConsumerConnection
         System.out.println("Trying to create connection for " + mConsumerQueue + "...");
         stompConsumerConnection.open("localhost", 61613);
@@ -45,42 +45,61 @@ public class QueueHandler {
 
     }
 
-    public void runQueues() throws Exception {
-        // Consume message from queue
-        String cMessageNum = "tx" + getConsumerMessageNum();
-        stompConsumerConnection.begin(cMessageNum);
-        long timeoutWait = 1000;
-        System.out.println("Consuming message..");
-        String body = null;
+    public void run() {
+        try {
+            initializeQueue();
+        } catch (Exception except){
+            System.out.println("Cannot initialize queue" + except);
+        }
 
-        while(body == null) {
+        while(true) {
+            // Consume message from queue
+            String cMessageNum = "tx" + getConsumerMessageNum();
             try {
-                StompFrame message = stompConsumerConnection.receive(timeoutWait);
-                body = message.getBody();
-                System.out.println(body);
-                stompConsumerConnection.ack(message, cMessageNum);
-                stompConsumerConnection.commit(cMessageNum);
-                //stompConsumerConnection.disconnect();
-                setConsumerMessageNum(getConsumerMessageNum() + 2);
+                stompConsumerConnection.begin(cMessageNum);
+            } catch (Exception e) {
+                System.out.println("Cannot begin StompConnection: " + e);
+            }
 
-                //parse body of message to get id
-                JSONObject obj = new JSONObject(body);
-                String id = obj.getString("id");
+            long timeoutWait = 1000;
+            System.out.println("Consuming message..");
+            String body = null;
 
-                JSONObject response = new JSONObject();
-                response.put("id", id);
+            while (body == null) {
+                try {
+                    StompFrame message = stompConsumerConnection.receive(timeoutWait);
+                    body = message.getBody();
+                    System.out.println(body);
+                    stompConsumerConnection.ack(message, cMessageNum);
+                    stompConsumerConnection.commit(cMessageNum);
+                    //stompConsumerConnection.disconnect();
+                    setConsumerMessageNum(getConsumerMessageNum() + 2);
 
-                // Produce response message
-                String pMessageNum = "tx" + getProducerMessageNum();
-                stompProducerConnection.begin(pMessageNum);
-                stompProducerConnection.send(mProducerQueue, response.toString());
-                stompProducerConnection.commit(pMessageNum);
-                //stompProducerConnection.disconnect();
-                setProducerMessageNum(getProducerMessageNum() + 2);
+                    //parse body of message to get id
+                    JSONObject obj = new JSONObject(body);
+                    String id = obj.getString("id");
 
-            } catch (SocketTimeoutException e) {
-                System.out.println("No message found");
-                Thread.sleep(1000);
+                    JSONObject response = new JSONObject();
+                    response.put("id", id);
+
+                    // Produce response message
+                    String pMessageNum = "tx" + getProducerMessageNum();
+                    stompProducerConnection.begin(pMessageNum);
+                    stompProducerConnection.send(mProducerQueue, response.toString());
+                    stompProducerConnection.commit(pMessageNum);
+                    //stompProducerConnection.disconnect();
+                    setProducerMessageNum(getProducerMessageNum() + 2);
+
+                } catch (Exception e) {
+                    System.out.println("No message found");
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        System.out.println("Cannot sleep: " + ex);
+                    }
+
+                }
             }
         }
 
