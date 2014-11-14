@@ -29,9 +29,32 @@ class WatchlistsController < ApplicationController
   # POST /watchlists
   # POST /watchlists.json
   def create
-    watchlist_info = {:watchlist_name => params[:watchlist][:watchlist_name].to_s}
+    id = SecureRandom.uuid.to_s
+
+    watchlist_info = {:id => id, :watchlist_name => params[:watchlist_name].to_s}
 
     publish :watchlist, JSON.generate(watchlist_info)
+
+        attempts = 0
+
+    @message_id = nil
+
+    message = Message.find_by(:message_id => id)
+
+    while attempts < 10 # change after testing
+
+      if message.nil?
+        sleep(1)
+        attempts += 1
+        message = Message.find_by(:message_id => id)
+      else
+        @message_id = message.message_id
+        break
+      end
+
+    end
+
+    render 'confirm'
     # @watchlist = Watchlist.new(watchlist_params)
 
     # respond_to do |format|
@@ -44,7 +67,6 @@ class WatchlistsController < ApplicationController
     #   end
     # end
 
-    redirect_to watchlists_path
   end
 
   # PATCH/PUT /watchlists/1
