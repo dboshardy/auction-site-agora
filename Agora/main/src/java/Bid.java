@@ -12,6 +12,16 @@ public class Bid {
     private BigDecimal mBidAmount;
     private Timestamp mTimestamp;
     private Auction mAuction;
+
+    public int getAuctionId() {
+        return mAuctionId;
+    }
+
+    public void setAuctionId(int auctionId) {
+        mAuctionId = auctionId;
+    }
+
+    private int mAuctionId;
     private int mBidId;
 
     public Bid() {

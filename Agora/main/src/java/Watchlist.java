@@ -36,11 +36,12 @@ public class Watchlist {
         // make call to database to get all items in watchlist
     }
 
-    public void deleteItemFromWatchlist(Auction auction) {
+    public void deleteAuctionFromWatchlist(Auction auction) {
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
-        session.createSQLQuery("DELETE FROM" + mTableName + "WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND " +
+        SQLQuery query = session.createSQLQuery("DELETE FROM" + mTableName + "WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND " +
                 "auctions_auction_id=" + auction.getAuctionId() + " AND watchlist_name=" + this.getWatchlistName());
+        query.executeUpdate();
         session.getTransaction().commit();
         session.close();
     }
@@ -49,7 +50,8 @@ public class Watchlist {
         // delete from database
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
-        session.createSQLQuery("DELETE FROM " + mTableName + " WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND watchlist_name=" + this.getWatchlistName());
+        SQLQuery query = session.createSQLQuery("DELETE FROM " + mTableName + " WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND watchlist_name=" + this.getWatchlistName());
+        query.executeUpdate();
         session.getTransaction().commit();
         session.close();
     }
@@ -81,10 +83,6 @@ public class Watchlist {
 
     public void setWatchlist(ArrayList<Auction> mWatchlist) {
         this.mWatchlist = mWatchlist;
-    }
-
-    public Iterator getIterator() {
-        return this.getWatchlist().iterator();
     }
 
     public void addAuctionToWatchlist(Auction auction) {

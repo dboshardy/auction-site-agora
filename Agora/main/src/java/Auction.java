@@ -35,6 +35,10 @@ public class Auction {
         mCurrentHighestBidId = currentHighestBidId;
     }
 
+    public List<Bid> getBidList() {
+        AuctionController auctionController = new AuctionController();
+        return auctionController.getAuctionBids(this);
+    }
 
     //todo: implement buy it now price
     public Auction() {
@@ -126,11 +130,6 @@ public class Auction {
 
     public void setEndTime(Date endTime) {
         mEndTime = endTime;
-    }
-
-    public List<Bid> getBidList(){
-        List<Bid> result= mBidList;
-        return result;
     }
 
     public void setTimestamp(Date timestamp){

@@ -7,8 +7,9 @@
         <id name="BidId" type="int" column="bid_id" unsaved-value="null">
             <generator class="increment"/>
         </id>
+        <property name="AuctionId" column="auction_id" type="int"/>
         <property name="Timestamp" column="timestamp" type="timestamp"/>
-        <property name="Currency" column="currency" type="java.util.Currency"/>
+        <property name="Currency" column="currency" type="string" length="45"/>
         <property name="BidAmount" column="bid_amount" type="java.math.BigDecimal"/>
     </class>
     <class name="Auction" table="auctions">

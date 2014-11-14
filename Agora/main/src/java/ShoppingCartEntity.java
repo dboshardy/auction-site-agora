@@ -3,26 +3,13 @@ import java.io.Serializable;
 /**
  * Created by drew on 11/14/14.
  */
-public class WatchlistEntity implements Serializable {
-    private String mWatchlistName;
+public class ShoppingCartEntity implements Serializable {
     private int mAuctionId;
     private int mUserId;
 
-    public WatchlistEntity(int userId, int auctionId, String watchlistName) {
-        mWatchlistName = watchlistName;
+    public ShoppingCartEntity(int userId, int auctionId) {
         mAuctionId = auctionId;
         mUserId = userId;
-    }
-
-    public WatchlistEntity() {
-    }
-
-    public String getWatchlistName() {
-        return mWatchlistName;
-    }
-
-    public void setWatchlistName(String watchlistName) {
-        mWatchlistName = watchlistName;
     }
 
     public int getAuctionId() {
@@ -40,7 +27,8 @@ public class WatchlistEntity implements Serializable {
     public void setUserId(int userId) {
         mUserId = userId;
     }
-    public Auction getAuctionFromDatabase(){
+
+    public Auction getAuctionFromDatabase() {
         AuctionController auctionController = new AuctionController();
         return auctionController.getAuctionById(this.getAuctionId());
     }

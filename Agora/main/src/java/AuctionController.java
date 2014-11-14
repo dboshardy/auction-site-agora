@@ -1,8 +1,10 @@
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 import javax.persistence.EntityExistsException;
+import java.util.List;
 
 /**
  * Created by drew on 11/7/14.
@@ -67,7 +69,7 @@ public class AuctionController {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-            LOG.warn("Could not remove auction account: " + auction.toString() + " from database.");
+            LOG.warn("Could not remove auction: " + auction.toString() + " from database.");
         }
     }
 
@@ -83,8 +85,27 @@ public class AuctionController {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-            LOG.warn("Could not remove auction account: " + auction.toString() + " from database.");
+            LOG.warn("Could not get auction : " + auction.toString() + " from database.");
         }
         return auction;
+    }
+
+    public List<Bid> getAuctionBids(Auction auction) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Bid> bids = null;
+        try {
+            session.beginTransaction();
+            SQLQuery query = session.createSQLQuery("SELECT * FROM bids WHERE auction_id="+auction.getAuctionId()).addEntity(Bid.class);
+            bids = query.list();
+            session.getTransaction().commit();
+            session.close();
+
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get bid list for auction : " + auction.toString() + " from database.");
+        }
+        return bids;
     }
 }
