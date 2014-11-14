@@ -43,7 +43,7 @@ CREATE TABLE User_has_Watchlist_Auctions
     UserAccounts_user_id integer NOT NULL,
     Auctions_auction_id integer NOT NULL,
     watchlist_name character varying(45) default 'default' NOT NULL,
-    CONSTRAINT User_has_Watchlist_Auctions_pk PRIMARY KEY (UserAccounts_user_id,Auctions_auction_id)
+    CONSTRAINT User_has_Watchlist_Auctions_pk PRIMARY KEY (UserAccounts_user_id,Auctions_auction_id,watchlist_name)
 )
 WITH (
     OIDS=FALSE

@@ -15,6 +15,9 @@ public class Auction {
     private UserAccount mSeller;
     private int mAuctionId;
     private String mDescription;
+    private int mCurrentHighestBidId;
+    private BigDecimal mBuyItNowPrice;
+    private int mSellerId;
 
     public String getDescription() {
         return mDescription;
@@ -32,10 +35,6 @@ public class Auction {
         mCurrentHighestBidId = currentHighestBidId;
     }
 
-    private int mCurrentHighestBidId;
-    private String mDesription;
-    private BigDecimal mBuyItNowPrice;
-    private int mSellerId;
 
     //todo: implement buy it now price
     public Auction() {
@@ -52,7 +51,7 @@ public class Auction {
     public Auction(String auctionName, UserAccount seller, String description, BigDecimal bid) {
         mAuctionName = auctionName;
         mSeller = seller;
-        mDesription = description;
+        mDescription = description;
         //set date as of now
         mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
@@ -62,14 +61,15 @@ public class Auction {
     public Auction(String auctionName, int sellerId, String description, BigDecimal bid) {
         mAuctionName = auctionName;
         mSellerId = sellerId;
-        mDesription = description;
+        mDescription = description;
         //set date as of now
         mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
     }
     public UserAccount getSeller() {
-        return mSeller;
+        UserAccountController userAccountController = new UserAccountController();
+        return  userAccountController.getUserById(this.getSellerId());
     }
 
     public void setSeller(UserAccount seller) {
@@ -95,16 +95,9 @@ public class Auction {
         mBuyItNowPrice = buyItNowPrice;
     }
 
-    public String getDesription() {
-        return mDesription;
-    }
-
-    public void setDesription(String desription) {
-        mDesription = desription;
-    }
-
     public Bid getCurrentHighestBid() {
-        return mCurrentHighestBid;
+        BidController bidController = new BidController();
+        return bidController.getBidById(this.getCurrentHighestBidId());
     }
 
     public void setCurrentHighestBid(Bid currentHighestBid) {
@@ -174,7 +167,6 @@ public class Auction {
                 ", mFlagList=" + mFlagList +
                 ", mSeller=" + mSeller +
                 ", mAuctionId=" + mAuctionId +
-                ", mCurrentHighestBid=" + mCurrentHighestBid +
                 ", mCurrentHighestBidId=" + mCurrentHighestBidId +
                 ", mDescription='" + mDescription + '\'' +
                 ", mBuyItNowPrice=" + mBuyItNowPrice +

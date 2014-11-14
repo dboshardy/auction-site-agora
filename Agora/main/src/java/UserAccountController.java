@@ -21,7 +21,7 @@ public class UserAccountController {
         }
         try {
             session.beginTransaction();
-            user.setUserId((Integer) session.save(user));
+            session.save(user);
             session.getTransaction().commit();
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {

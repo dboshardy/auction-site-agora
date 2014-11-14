@@ -39,7 +39,7 @@ public class Watchlist {
     public void deleteItemFromWatchlist(Auction auction) {
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
-        session.createSQLQuery("DELETE * FROM" + mTableName + "WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND " +
+        session.createSQLQuery("DELETE FROM" + mTableName + "WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND " +
                 "auctions_auction_id=" + auction.getAuctionId() + " AND watchlist_name=" + this.getWatchlistName());
         session.getTransaction().commit();
         session.close();
@@ -49,7 +49,7 @@ public class Watchlist {
         // delete from database
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
-        session.createSQLQuery("DELETE * FROM " + mTableName + " WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND watchlist_name=" + this.getWatchlistName());
+        session.createSQLQuery("DELETE FROM " + mTableName + " WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND watchlist_name=" + this.getWatchlistName());
         session.getTransaction().commit();
         session.close();
     }
@@ -66,20 +66,17 @@ public class Watchlist {
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
         SQLQuery query = (SQLQuery) session.createSQLQuery("SELECT * FROM " + mTableName + " WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND watchlist_name=\'" + this.getWatchlistName() + "\'");
-        List<Integer> ids = query.list();
+        List<Object[]> objects = query.list();
         session.getTransaction().commit();
         session.close();
 
-        if (ids.size() > 0) {
-            session = HibernateUtils.getSessionFactory().openSession();
-            session.beginTransaction();
-            for (Integer id : ids) {
-                mWatchlist.add((Auction) session.get(Auction.class, id));
+        if (objects.size() > 0) {
+            for (Object[] o : objects) {
+                WatchlistEntity entity = new WatchlistEntity((Integer)o[0],(Integer)o[1],(String)o[2]);
+                mWatchlist.add(entity.getAuctionFromDatabase());
             }
-            session.getTransaction().commit();
-            session.close();
         }
-            return mWatchlist;
+        return mWatchlist;
     }
 
     public void setWatchlist(ArrayList<Auction> mWatchlist) {
@@ -93,7 +90,8 @@ public class Watchlist {
     public void addAuctionToWatchlist(Auction auction) {
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
-        session.createSQLQuery("INSERT INTO " + mTableName + " VALUES (" + mUserAccount.getUserId() + "," + auction.getAuctionId() + "," + this.getWatchlistName() + ")");
+        SQLQuery query = session.createSQLQuery("INSERT INTO " + mTableName + "(useraccounts_user_id, auctions_auction_id, watchlist_name) VALUES (" + mUserAccount.getUserId() + "," + auction.getAuctionId() + ", \'" + this.getWatchlistName() + "\')");
+        query.executeUpdate();
         session.getTransaction().commit();
         session.close();
     }

@@ -82,7 +82,7 @@ public class Bid {
                 ", mCurrency=" + mCurrency +
                 ", mBidAmount=" + mBidAmount +
                 ", mTimestamp=" + mTimestamp +
-                ", mAuction=" + mAuction +
+                ", mAuction=" + mAuction.getAuctionId() +
                 ", mBidId=" + mBidId +
                 '}';
     }

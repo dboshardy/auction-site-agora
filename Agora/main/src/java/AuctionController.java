@@ -70,4 +70,21 @@ public class AuctionController {
             LOG.warn("Could not remove auction account: " + auction.toString() + " from database.");
         }
     }
+
+    public Auction getAuctionById(int auctionId) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Auction auction = null;
+        try {
+            session.beginTransaction();
+            auction = (Auction) session.get(Auction.class,auctionId);
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not remove auction account: " + auction.toString() + " from database.");
+        }
+        return auction;
+    }
 }

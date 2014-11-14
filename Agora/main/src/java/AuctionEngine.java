@@ -20,7 +20,6 @@ public class AuctionEngine {
 
         UserAccountController userAccountController = new UserAccountController();
 
-        UserAccountController userAccountController2 = new UserAccountController();
         //add user
         userAccountController.persistUserAccount(user1);
 
@@ -30,7 +29,7 @@ public class AuctionEngine {
 
         //add second user
         UserAccount user2 = new UserAccount("thomkel", "thomkel@gmail.com", "a;o8p234ifsd", "Thomas", "Kelly", "I am a person, and I want to buy stuff.");
-        userAccountController2.persistUserAccount(user2);
+        userAccountController.persistUserAccount(user2);
 
         //create auction
         Auction auction1 = new Auction("Computer", user1, "This is a computer I want to sell.", new BigDecimal(2000.00));
