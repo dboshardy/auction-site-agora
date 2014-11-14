@@ -71,8 +71,8 @@ public class Watchlist {
         session.close();
 
         if (objects.size() > 0) {
-            for (Object[] o : objects) {
-                WatchlistEntity entity = new WatchlistEntity((Integer)o[0],(Integer)o[1],(String)o[2]);
+            for (Object[] object : objects) {
+                WatchlistEntity entity = new WatchlistEntity((Integer)object[0],(Integer)object[1],(String)object[2]);
                 mWatchlist.add(entity.getAuctionFromDatabase());
             }
         }
