@@ -29,6 +29,14 @@ public class Watchlist {
         } else {
             mWatchlist = new ArrayList<Auction>();
         }
+    public Watchlist(String watchlistName, Integer watchlistId){
+        mWatchlistName = watchlistName;
+        mWatchlist = new ArrayList<Item>();
+        mWatchlistModel = new WatchlistModel();
+    }
+
+    public JSONObject createMessageBody(String body){
+        return new JSONObject();
     }
 
     public void addItemToWatchlist(Auction item) {
