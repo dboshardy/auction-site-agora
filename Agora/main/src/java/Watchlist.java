@@ -1,5 +1,6 @@
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ import java.util.List;
  */
 public class Watchlist {
 
+    private WatchlistModel mWatchlistModel;
     private String mWatchlistName;
     private ArrayList<Auction> mWatchlist;
     private Iterator mIterator;
@@ -29,9 +31,12 @@ public class Watchlist {
         } else {
             mWatchlist = new ArrayList<Auction>();
         }
+
+    }
+
     public Watchlist(String watchlistName, Integer watchlistId){
         mWatchlistName = watchlistName;
-        mWatchlist = new ArrayList<Item>();
+        mWatchlist = new ArrayList<Auction>();
         mWatchlistModel = new WatchlistModel();
     }
 
