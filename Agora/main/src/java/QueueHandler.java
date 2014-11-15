@@ -72,22 +72,21 @@ public class QueueHandler implements Runnable{
                     System.out.println(body);
                     stompConsumerConnection.ack(message, cMessageNum);
                     stompConsumerConnection.commit(cMessageNum);
-                    //stompConsumerConnection.disconnect();
                     setConsumerMessageNum(getConsumerMessageNum() + 2);
 
                     //parse body of message to get id
-                    JSONObject obj = new JSONObject(body);
-                    String id = obj.getString("id");
+//                    JSONObject JSONobj = new JSONObject(body);
+//                    String id = JSONobj.getString("id");
 
-                    JSONObject response = new JSONObject();
-                    response.put("id", id);
+                    MessageFactory messageFactory = new MessageFactory();
+                    Message messageClass = messageFactory.getMessageClass(mConsumerQueue);
+                    JSONObject response = messageClass.createResponseMessage(body);
 
                     // Produce response message
                     String pMessageNum = "tx" + getProducerMessageNum();
                     stompProducerConnection.begin(pMessageNum);
                     stompProducerConnection.send(mProducerQueue, response.toString());
                     stompProducerConnection.commit(pMessageNum);
-                    //stompProducerConnection.disconnect();
                     setProducerMessageNum(getProducerMessageNum() + 2);
 
                 } catch (Exception e) {
