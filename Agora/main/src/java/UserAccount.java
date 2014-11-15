@@ -132,12 +132,6 @@ public class UserAccount {
         mUserLocation = userLocation;
     }
 
-
-    public void addAuctionToShoppingCart(Auction auction) {
-        //todo: implement this in ShoppingCart class instead
-        this.getShoppingCart().addAuctionToShoppingCart();
-    }
-
     @Override
     public String toString() {
         return "UserAccount{" +
