@@ -5,7 +5,7 @@ class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
   
   include ActiveMessaging::MessageSender
-  publishes_to :auction
+  publishes_to :auction, :category
 
   # GET /auctions
   # GET /auctions.json
@@ -32,71 +32,111 @@ class AuctionsController < ApplicationController
   # POST /auctions
   # POST /auctions.json
   def create
+    auction = Auction.new(auction_params)
+
     id = SecureRandom.uuid.to_s
 
     auction_info = {:id => id, :type => "create", 
-      :auction_start_time => params[:auction_start_time].to_s, 
-      :auction_length => params[:auction_length].to_s,
-      :item_name => params[:item_name].to_s,
-      :item_desc => params[:item_desc].to_s
+      :user_id => session[:user_id],     
+      :auction_start_time => auction.auction_start_time, 
+      :auction_length => auction.auction_length,
+      :item_name => auction.item_name, :item_desc => auction.item_desc,
+      :quantity => auction.quantity, :buy_it_now => auction.buy_it_now,
+      :start_id => auction.start_bid, :shipping_cost => auction.shipping_cost
     }
 
     publish :auction, JSON.generate(auction_info)
 
-    attempts = 0
-
-    @message_id = nil
-
-    message = Message.find_by(:message_id => id)
-
-    while attempts < 10 # change after testing
-
-      if message.nil?
-        sleep(1)
-        attempts += 1
-        message = Message.find_by(:message_id => id)
-      else
-        @message_id = message.message_id
-        break
-      end
-
-    end
+    @message = Message.new.query_message(id)
 
     render 'confirm'
-  end
-
-  def check_for_message(message_id)
-    message = Message.find_by(:message_id => message_id.to_s)
-
-    if message.nil?
-      return nil
-    else
-      return message
-    end
   end
 
   # PATCH/PUT /auctions/1
   # PATCH/PUT /auctions/1.json
   def update
-    respond_to do |format|
-      if @auction.update(auction_params)
-        format.html { redirect_to @auction, notice: 'Auction was successfully updated.' }
-        format.json { render :show, status: :ok, location: @auction }
-      else
-        format.html { render :edit }
-        format.json { render json: @auction.errors, status: :unprocessable_entity }
-      end
-    end
+    auction = Auction.new(auction_params)
+
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "update", 
+      :auction_id => params[:id],     
+      :auction_start_time => auction.auction_start_time, 
+      :auction_length => auction.auction_length,
+      :item_name => auction.item_name, :item_desc => auction.item_desc,
+      :quantity => auction.quantity, :buy_it_now => auction.buy_it_now,
+      :start_id => auction.start_bid, :shipping_cost => auction.shipping_cost
+    }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @message_id = Message.new.get_status(id)
+
+    render 'confirm'    
+
   end
 
   # DELETE /auctions/1
   # DELETE /auctions/1.json
   def destroy
-    @auction.destroy
-    respond_to do |format|
-      format.html { redirect_to auctions_url, notice: 'Auction was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "delete", 
+      :auction_id => params[:id],     
+    }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @message_id = Message.new.query_message(id)
+
+    render 'confirm'
+  end
+
+  def search
+
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "index" }
+
+    publish :category, JSON.generate(auction_info)
+
+    @categories = Message.new.get_categories(id) 
+
+  end
+
+  def keyword_search
+
+    keyword = params[:keyword]
+
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "search", 
+      :search_type => "keyword"     
+    }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @auctions = Message.new.get_auctions(id)
+
+    render 'confirm'    
+
+  end
+
+  def category_search
+
+    category = params[:category]
+
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "search", 
+      :search_type => "category"     
+    }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @auctions = Message.new.get_auctions(id)
+
+    render 'results'   
   end
 
   private
