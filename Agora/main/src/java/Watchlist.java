@@ -41,7 +41,7 @@ public class Watchlist {
         mWatchlistModel = new WatchlistModel();
     }
 
-    public JSONObject createMessageBody(String body){
+    public JSONObject createMessageBody(JSONObject body){
         return new JSONObject();
     }
 

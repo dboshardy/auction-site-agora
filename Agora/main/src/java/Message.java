@@ -11,12 +11,12 @@ public abstract class Message {
 
         JSONObject producedMessage = new JSONObject();
         producedMessage.put("id", id);
-        producedMessage.put("response", createMessageBody(body));
+        producedMessage.put("response", createMessageBody(consumedMessage));
 
         return producedMessage;
     }
 
-    public abstract JSONObject createMessageBody(String body);
+    public abstract JSONObject createMessageBody(JSONObject body);
 
     // create, read, update, delete
 

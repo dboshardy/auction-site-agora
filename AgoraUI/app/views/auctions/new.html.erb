@@ -1,20 +1,5 @@
 <h1>New auction</h1>
 
-<%= form_tag "/auctions" do %>
-
-	<%= label_tag :auction_start_time %><br>
-	<%= select_datetime Date.today, prefix: :auction_start_time %>
-	<br>
-	<%= label_tag :auction_length %><br>
-	<%= number_field_tag :auction_length, in: 3...8 %>
-	<br>
-	<%= label_tag :item_name %><br>
-	<%= text_field_tag :item_name %>
-	<br>
-	<%= label_tag :item_desc %><br>
-	<%= text_field_tag :item_desc %>
-	<br>
-	<%= submit_tag "Create Auction" %><br><br>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', auctions_path %>

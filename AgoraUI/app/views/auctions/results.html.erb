@@ -1,0 +1,12 @@
+<h1> Search Results </h1>
+
+<% @auctions.each do |auction| %>
+	<h3><%= auction["item_name"] %></h3>
+	<%= auction["item_desc"] %>
+	<%= auction["highest_bid"] %>
+	<%= link_to "View Auction", "/auctions/#{auction["auction_id"]}" %>
+	<% if session["is_admin"] == "true" %>
+		<%= link_to "Stop Auction", "/auctions/stop/#{auction["auction_id"]}" %>
+	<% end %>
+
+<% end %>
