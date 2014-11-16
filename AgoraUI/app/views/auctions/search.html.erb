@@ -1,0 +1,20 @@
+<%= Search by Keyword %>
+
+<%= form_tag "/keyword_search" do %>
+
+  <%= label_tag :keyword %>
+  <%= text_field_tag :keyword %>
+  <%= submit_tag "Search" %>
+
+<% end %>
+
+<%= Search by Category %>
+
+<%= form_tag "/category_search" do %>
+	<% @categories.each do |category| %>
+		<%= label_tag category["category"] %>
+		<%= check_box_tag :category, category["category"] %><br>
+	<% end %>
+  	<%= submit_tag "Sign Me Up!" %>
+
+<% end %>
