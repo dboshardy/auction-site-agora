@@ -29,11 +29,52 @@ class MessagesController < ApplicationController
     		return nil
     	else
     		json_data = JSON.parse(message)
-    		return json_data["auctions"]
+    		auction_data = json_data["auctions"]
+
+            auctions = []
+
+            auction_data.each do |auc|
+
+                auction = Auction.new
+                auction.auction_id = auc["auction_id"]
+                auction.item_name = auc["item_name"]
+                auction.item_desc = auc["item_desc"]
+                auction.highest_bid = auc["highest_bid"]
+
+                auctions.push(auction)
+            end
+
+            return auctions
 
     	end
-
 	end
+
+    def get_auction(id)
+
+        message = query_message(id)
+
+        if message.nil?
+            return nil
+        else
+            json = JSON.parse(message)
+
+            auction = Auction.new
+            auction.auction_id = json["auction_id"]
+            auction.item_name = json["item_name"]
+            auction.item_desc = json["item_desc"]
+            auction.highest_bid = json["highest_bid"]
+
+            bidder = User.new
+            bidder.username = json["bidder_username"]
+
+            seller = User.new
+            seller.id = json["seller_id"]
+            seller.username = json["seller_username"]
+
+            return auction, bidder, seller
+
+        end
+    end
 
 	def get_categories(id)
 
@@ -48,6 +89,19 @@ class MessagesController < ApplicationController
     	end
     end
 
+    def get_success(id)
+
+        message = query_message(id)
+
+        if message.nil?
+            return "Error reaching database"
+        else
+            json_data = JSON.parse(message)
+            status = json_data["success"]
+            error = json_data["error"]
+
+            return status, error
+    end
 
 	def query_message(id)
 	    attempts = 0
