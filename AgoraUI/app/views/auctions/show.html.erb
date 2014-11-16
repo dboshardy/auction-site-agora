@@ -1,9 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Seller:</strong>
-  <%= @auction.seller_id %>
+  <strong>Auction:</strong>
+  <%= "Item name: " + @auction.item_name %><br>
+  <%= "Item description: " + @auction.item_desc %><br>
+  <%= "Highest bid: " + @auction.highest_bid %><br>
+  <%= "Highest bidder: " + @bidder.username %><br>
+  <%= "Seller: " + @seller.username %><br>
 </p>
 
-<%= link_to 'Edit', edit_auction_path(@auction) %> |
+<% if session["user_id"] == auction.user_id %>
+  <%= link_to 'Edit', edit_auction_path(auction) %><br>
+  <%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% else %>
+  <%= button_to "Bid on Auction", "/bids/place/#{auction.auction_id}" %><br>
+<% end %>
+<% if session["is_admin"] == "true" %>
+  <%= link_to "Stop Auction", "/auctions/stop/#{auction["auction_id"]}" %><br>
+<% end %>    
+<%= link_to 'Flag Auction', "/flags/create/#{@auction.auction_id}" %>
 <%= link_to 'Back', auctions_path %>

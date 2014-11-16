@@ -1,10 +1,26 @@
+require 'activemessaging/processor'
+require 'json'
+
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
+  include ActiveMessaging::MessageSender
+  publishes_to :category
+  
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
+  end
+
+  def get_categories(id)
+    id = SecureRandom.uuid.to_s
+
+    category_info = {:id => id, :type => "index" }
+
+    publish :category, JSON.generate(category_info)
+
+    return Message.new.get_categories(id)
   end
 
   # GET /categories/1
