@@ -5,28 +5,52 @@ class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
   
   include ActiveMessaging::MessageSender
-  publishes_to :auction, :category
+  publishes_to :auction
 
   # GET /auctions
   # GET /auctions.json
   def index
-    @auctions = Auction.all
+
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "index", 
+      :user_id => session[:user_id]    
+    }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @auctions = Message.new.get_auctions(id)
+
+    render 'index'      
   end
 
   # GET /auctions/1
   # GET /auctions/1.json
   def show
 
-    
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "show", 
+      :auction_id => params[:id]  }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @auction, @bidder, @seller = Message.new.get_auction(id)
+
   end
 
   # GET /auctions/new
   def new
-    @auction = Auction.new
+    if session[:user_id].blank?
+      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+    end
   end
 
   # GET /auctions/1/edit
   def edit
+    if session[:user_id].blank?
+      redirect_to "/users/new", notice: "You must log in or sign up to update an auction"
+    end    
   end
 
   # POST /auctions
@@ -47,7 +71,13 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @message = Message.new.query_message(id)
+    status, @error = Message.new.get_success(id)
+
+    if status == "true"
+      @status = "New auction created!"
+    else
+      @status = "Auction could not be created"
+    end
 
     render 'confirm'
   end
@@ -70,7 +100,13 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @message_id = Message.new.get_status(id)
+    status, @error = Message.new.get_success(id)
+
+    if status == "true"
+      @status = "Auction updated!"
+    else
+      @status = "Auction could not be updated"
+    end
 
     render 'confirm'    
 
@@ -87,20 +123,20 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @message_id = Message.new.query_message(id)
+    status, @error = Message.new.get_success(id)
 
-    render 'confirm'
+    if status == "true"
+      @status = "Auction deleted!"
+    else
+      @status = "Auction could not be deleted"
+    end
+
+    render 'confirm'    
   end
 
   def search
 
-    id = SecureRandom.uuid.to_s
-
-    auction_info = {:id => id, :type => "index" }
-
-    publish :category, JSON.generate(auction_info)
-
-    @categories = Message.new.get_categories(id) 
+    @categories = Category.new.get_categories
 
   end
 
@@ -118,7 +154,7 @@ class AuctionsController < ApplicationController
 
     @auctions = Message.new.get_auctions(id)
 
-    render 'confirm'    
+    render 'results'    
 
   end
 

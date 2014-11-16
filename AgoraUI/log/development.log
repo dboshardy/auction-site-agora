@@ -20179,3 +20179,68 @@ Started GET "/assets/watchlists.js?body=1" for 127.0.0.1 at 2014-11-15 20:53:54 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-15 20:53:54 -0600
+ActiveMessaging: adapter amqp not loaded: cannot load such file -- carrot
+ActiveMessaging: adapter beanstalk not loaded: cannot load such file -- beanstalk-client
+ActiveMessaging: adapter reliable_msg not loaded: cannot load such file -- reliable-msg
+ActiveMessaging: adapter wmq not loaded: cannot load such file -- wmq/wmq
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/application_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/auction_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/item_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/user_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/watchlist_processor.rb
+ActiveMessaging: Rails available: Adding dispatcher prepare callback.
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-16 11:38:53 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (26.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ArgumentError (wrong number of arguments (2 for 1)):
+  app/controllers/auctions_controller.rb:8:in `<class:AuctionsController>'
+  app/controllers/auctions_controller.rb:4:in `<top (required)>'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.0ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-16 11:39:17 -0600
+
+ActionController::RoutingError (undefined method `published_to' for AuctionsController:Class):
+  app/controllers/auctions_controller.rb:9:in `<class:AuctionsController>'
+  app/controllers/auctions_controller.rb:4:in `<top (required)>'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.6ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.4ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (91.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-16 11:39:27 -0600
+
+RuntimeError (You have not yet defined a destination named category. Destinations currently defined are [auction,item,watchlist,user,auction_confirm,watchlist_confirm]):
+  app/controllers/auctions_controller.rb:9:in `<class:AuctionsController>'
+  app/controllers/auctions_controller.rb:4:in `<top (required)>'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-16 11:51:08 -0600
+Processing by AuctionsController#index as HTML
+Timed out trying to send the message #<OpenStruct body="{\"id\":\"7c265fd4-d2c8-4eb6-8fcf-f554243dbe40\",\"type\":\"index\",\"user_id\":null}", headers={:persistent=>true}> to destination auction via broker default
+Completed 500 Internal Server Error in 10002ms
+
+Timeout::Error (execution expired):
+  app/controllers/auctions_controller.rb:20:in `index'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.8ms)
