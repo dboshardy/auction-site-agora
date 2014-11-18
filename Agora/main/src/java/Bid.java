@@ -7,22 +7,23 @@ import java.util.Date;
  * Created by drew on 10/19/14.
  */
 public class Bid {
-    private UserAccount mBidder;
     private Currency mCurrency;
+    private UserAccount mBidder;
+    private int mBidderId;
     private BigDecimal mBidAmount;
     private Timestamp mTimestamp;
     private Auction mAuction;
+    private int mAuctionId;
+    private int mBidId;
 
     public int getAuctionId() {
-        return mAuctionId;
+        return mAuction.getAuctionId();
     }
 
     public void setAuctionId(int auctionId) {
         mAuctionId = auctionId;
     }
 
-    private int mAuctionId;
-    private int mBidId;
 
     public Bid() {
     }
@@ -60,8 +61,8 @@ public class Bid {
         mBidder = bidder;
     }
 
-    public Currency getCurrency() {
-        return mCurrency;
+    public String getCurrency() {
+        return mCurrency.getCurrencyCode();
     }
 
     public void setCurrency(Currency currency) {
@@ -95,5 +96,13 @@ public class Bid {
                 ", mAuction=" + mAuction.getAuctionId() +
                 ", mBidId=" + mBidId +
                 '}';
+    }
+
+    public int getBidderId() {
+        return mBidder.getUserId();
+    }
+
+    public void setBidderId(int bidderId) {
+        mBidderId = bidderId;
     }
 }

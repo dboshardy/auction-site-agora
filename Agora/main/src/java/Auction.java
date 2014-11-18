@@ -28,7 +28,7 @@ public class Auction {
     }
 
     public int getCurrentHighestBidId() {
-        return mCurrentHighestBidId;
+        return mCurrentHighestBid.getBidId();
     }
 
     public void setCurrentHighestBidId(int currentHighestBidId) {
@@ -45,7 +45,7 @@ public class Auction {
     }
 
     public int getSellerId() {
-        return mSellerId;
+        return mSeller.getUserId();
     }
 
     public void setSellerId(int sellerId) {
@@ -99,6 +99,9 @@ public class Auction {
         mBuyItNowPrice = buyItNowPrice;
     }
 
+    public Bid getNonPersistedBid(){
+        return mCurrentHighestBid;
+    }
     public Bid getCurrentHighestBid() {
         BidController bidController = new BidController();
         return bidController.getBidById(this.getCurrentHighestBidId());

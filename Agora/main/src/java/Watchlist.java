@@ -1,4 +1,10 @@
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by thomkel on 10/19/14.
@@ -11,17 +17,11 @@ public class Watchlist {
     private Iterator mIterator;
     private UserAccount mUserAccount;
     private final String mTableName = "user_has_watchlist_auctions";
-
-    public Watchlist(){
-        mWatchlistName = "New Watchlist";
-        mWatchlist = new ArrayList<Item>();
-        mWatchlistModel = new WatchlistModel();
-    }
+    private Integer mWatchlistId;
 
     public Watchlist(UserAccount user, String watchlistName) {
         mUserAccount = user;
         mWatchlistName = watchlistName;
-        mWatchlistModel = new WatchlistModel();
         mWatchlist = new ArrayList<Auction>();
 
     }
@@ -78,14 +78,6 @@ public class Watchlist {
         this.mWatchlistName = mWatchlistName;
     }
 
-    public Integer getWatchlistId() {
-        return mWatchlistId;
-    }
-
-    public void setWatchlistId(Integer mWatchlistId) {
-        this.mWatchlistId = mWatchlistId;
-    }
-
     public ArrayList<Auction> getWatchlist() {
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
@@ -103,7 +95,20 @@ public class Watchlist {
         return mWatchlist;
     }
 
-    public void setWatchlist(ArrayList<Item> mWatchlist) {
+    public void setWatchlist(ArrayList<Auction> mWatchlist) {
         this.mWatchlist = mWatchlist;
+    }
+
+    public void addAuctionToWatchlist(Auction auction) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        session.beginTransaction();
+        SQLQuery query = session.createSQLQuery("INSERT INTO " + mTableName + "(useraccounts_user_id, auctions_auction_id, watchlist_name) VALUES (" + mUserAccount.getUserId() + "," + auction.getAuctionId() + ", \'" + this.getWatchlistName() + "\')");
+        query.executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void setWatchlistId(Integer watchlistId) {
+        mWatchlistId = watchlistId;
     }
 }

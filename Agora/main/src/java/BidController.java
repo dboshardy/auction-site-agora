@@ -11,43 +11,58 @@ public class BidController {
     private static final org.apache.log4j.Logger LOG = Logger.getLogger(BidController.class);
 
     public void persistBid(Bid bid) {
-        Session session = HibernateUtils.getSessionFactory().openSession();
-        try {
-            session.beginTransaction();
-            bid.setBidId((Integer) session.save(bid));
-            session.getTransaction().commit();
-            session.close();
-        } catch (HibernateException e) {
-            if (session.getTransaction() != null) {
-                session.getTransaction().rollback();
-            }
-            LOG.warn("Could not insert account: " + bid.toString() + " to database.");
-        }
-    }
-
-    public Bid getBidById(int currentHighestBidId) {
-        Bid bid = null;
-        Session session = HibernateUtils.getSessionFactory().openSession();
         if (bid.getBidId() > 0) {
             throw new EntityExistsException();
 
         }
+        Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            bid = (Bid) session.get(Bid.class, currentHighestBidId);
+            session.save(bid);
             session.getTransaction().commit();
             session.close();
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-            LOG.warn("Could not insert account: " + bid.toString() + " to database.");
+            LOG.warn("Could not insert bid: " + bid.toString() + " to database.");
         } catch (EntityExistsException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-            LOG.warn("Could not insert bid: " + bid.toString() + " to database. Bid already exists");
+            LOG.warn("Could not insert bid: " + bid.toString() + " to database. Bid already exists.");
+        }
+    }
+
+    public Bid getBidById(int bidId) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Bid bid = null;
+        try {
+            session.beginTransaction();
+            bid = (Bid) session.get(Bid.class, bidId);
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get bid: " + bidId + " from database.");
         }
         return bid;
+    }
+
+    public void updateBid(Bid bid) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            session.save(bid);
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not update bid: " + bid.toString() + " in database.");
+        }
     }
 }

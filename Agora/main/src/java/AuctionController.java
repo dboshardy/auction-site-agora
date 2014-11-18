@@ -18,8 +18,6 @@ public class AuctionController {
 
         }
         Session session = HibernateUtils.getSessionFactory().openSession();
-        BidController bidController = new BidController();
-        bidController.persistBid(auction.getCurrentHighestBid());
 
         try {
             session.beginTransaction();
@@ -38,8 +36,11 @@ public class AuctionController {
             LOG.warn("Could not insert auction: " + auction.toString() + " to database. Auction already exists");
         }
 
-        auction.setCurrentHighestBidId(auction.getCurrentHighestBid().getBidId());
+        BidController bidController = new BidController();
+        bidController.persistBid(auction.getNonPersistedBid());
+        //auction.setCurrentHighestBidId(auction.getCurrentHighestBid().getBidId());
         this.updateAuction(auction);
+        //bidController.updateBid(auction.getCurrentHighestBid());
 
     }
 
