@@ -17,6 +17,7 @@ public class Watchlist {
     private Iterator mIterator;
     private UserAccount mUserAccount;
     private final String mTableName = "user_has_watchlist_auctions";
+    private Integer mWatchlistId;
 
     public Watchlist(UserAccount user, String watchlistName) {
         mUserAccount = user;
@@ -105,5 +106,9 @@ public class Watchlist {
         query.executeUpdate();
         session.getTransaction().commit();
         session.close();
+    }
+
+    public void setWatchlistId(Integer watchlistId) {
+        mWatchlistId = watchlistId;
     }
 }

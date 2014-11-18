@@ -3,7 +3,6 @@ import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Iterator;
 
 /**
  * Created by drew on 11/7/14.
@@ -41,10 +40,6 @@ public class AuctionEngine {
 
         user2.getWatchlist("default").addAuctionToWatchlist(auction1);
 
-        Iterator watchlistIter = user2.getWatchlist("default").getIterator();
-        while (watchlistIter.hasNext()) {
-            System.out.println(watchlistIter.next().toString());
-        }
         //delete it after input
         System.out.println("press any key to delete");
         System.in.read();

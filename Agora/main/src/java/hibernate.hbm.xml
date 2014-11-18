@@ -4,16 +4,17 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
     <hibernate-mapping>
     <class name="Bid" table="bids">
-        <id name="BidId" type="int" column="bid_id" unsaved-value="null">
+        <id name="BidId" type="int" column="bid_id" >
             <generator class="increment"/>
         </id>
+        <property name="BidderId" column="bidder_user_id" type="int"/>
         <property name="AuctionId" column="auction_id" type="int"/>
         <property name="Timestamp" column="timestamp" type="timestamp"/>
         <property name="Currency" column="currency" type="string" length="45"/>
         <property name="BidAmount" column="bid_amount" type="java.math.BigDecimal"/>
     </class>
     <class name="Auction" table="auctions">
-        <id name="AuctionId" type="int" column="auction_id" unsaved-value="null">
+        <id name="AuctionId" type="int" column="auction_id">
             <generator class="increment"/>
         </id>
         <property name="CurrentHighestBidId" column="current_highest_bid_id" type="int" />
@@ -24,7 +25,7 @@
         <property name="BuyItNowPrice" column="buy_it_now_price" type="java.math.BigDecimal"/>
     </class>
     <class name="UserAccount" table="useraccounts">
-        <id name = "UserId" type="int" column="user_id" unsaved-value="null">
+        <id name = "UserId" type="int" column="user_id">
             <generator class="increment"/>
         </id>
         <property name="UserName" column="username" type="java.lang.String"/>
