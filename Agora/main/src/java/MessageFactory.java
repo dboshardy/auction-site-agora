@@ -3,7 +3,7 @@
  */
 public class MessageFactory {
 
-    public Message getMessageClass(String queue){
+    public MessageFactory getMessageClass(String queue){
         //todo: fix this, thom :D
 //        if (queue.equals("Watchlist")){
 //            return new Watchlist();
