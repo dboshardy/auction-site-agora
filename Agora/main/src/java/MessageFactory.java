@@ -4,10 +4,11 @@
 public class MessageFactory {
 
     public Message getMessageClass(String queue){
-        if (queue.equals("Watchlist")){
-            return new Watchlist();
-
-        }
+        //todo: fix this, thom :D
+//        if (queue.equals("Watchlist")){
+//            return new Watchlist();
+//
+//        }
 //        else if (queue.equals("Auction")){
 //            return new Auction();
 //
