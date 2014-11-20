@@ -1,5 +1,7 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
+  publishes_to :bid
+
 
   # GET /bids
   # GET /bids.json

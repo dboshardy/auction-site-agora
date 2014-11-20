@@ -9,14 +9,15 @@
   <%= "Seller: " + @seller.username %><br>
 </p>
 
-<% if session["user_id"] == auction.user_id %>
+<% if session["user_id"] == @auction.user_id %>
   <%= link_to 'Edit', edit_auction_path(auction) %><br>
-  <%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+  <%= link_to 'Destroy', "/auctions/#{@auction.auction_id}" data: { confirm: 'Are you sure?' } %><br>
 <% else %>
   <%= button_to "Bid on Auction", "/bids/place/#{auction.auction_id}" %><br>
 <% end %>
 <% if session["is_admin"] == "true" %>
   <%= link_to "Stop Auction", "/auctions/stop/#{auction["auction_id"]}" %><br>
+  <%= link_to "Suspend User", "/users/#{@seller.id}/suspend", data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
 <% end %>    
 <%= link_to 'Flag Auction', "/flags/create/#{@auction.auction_id}" %>
 <%= link_to 'Back', auctions_path %>

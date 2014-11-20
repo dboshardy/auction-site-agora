@@ -1,3 +1,5 @@
+require 'json'
+
 class ApplicationProcessor < ActiveMessaging::Processor
   
   # Default on_error implementation - logs standard errors but keeps processing. Other exceptions are raised.
@@ -14,5 +16,18 @@ class ApplicationProcessor < ActiveMessaging::Processor
       raise err
     end
   end
+
+  def parse_message_id(message)
+    json = JSON.parse(message)
+    return json["id"]
+  end
+
+  def create_new_message(message)
+    message_new = Message.new
+    message_new.message_id = parse_message_id(message)
+    message_new.body = message
+    message_new.received_date = DateTime.new
+    message_new.save
+  end    
 
 end

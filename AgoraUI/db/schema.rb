@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141116011310) do
+ActiveRecord::Schema.define(version: 20141120180916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20141116011310) do
   end
 
   create_table "auctions", force: true do |t|
-    t.integer  "seller_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -37,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141116011310) do
     t.boolean  "buy_it_now"
     t.decimal  "start_bid"
     t.decimal  "shipping_cost"
+    t.integer  "auction_id"
   end
 
   create_table "bids", force: true do |t|
@@ -46,12 +46,14 @@ ActiveRecord::Schema.define(version: 20141116011310) do
     t.integer  "auction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "bid_id"
   end
 
   create_table "categories", force: true do |t|
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
 
   create_table "flags", force: true do |t|
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 20141116011310) do
     t.integer  "auction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "flag_id"
   end
 
   create_table "items", force: true do |t|
@@ -67,6 +70,7 @@ ActiveRecord::Schema.define(version: 20141116011310) do
     t.text     "item_desc"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "item_id"
   end
 
   create_table "messages", force: true do |t|
@@ -77,10 +81,16 @@ ActiveRecord::Schema.define(version: 20141116011310) do
     t.datetime "updated_at"
   end
 
+  create_table "sessions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "shopping_carts", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "shopping_cart_id"
   end
 
   create_table "transactions", force: true do |t|
@@ -89,21 +99,25 @@ ActiveRecord::Schema.define(version: 20141116011310) do
     t.integer  "seller"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "transaction_id"
   end
 
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "email"
-    t.string   "location"
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "user_description"
+    t.integer  "user_id"
   end
 
   create_table "watchlists", force: true do |t|
     t.string   "watchlist_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "watchlist_id"
   end
 
 end

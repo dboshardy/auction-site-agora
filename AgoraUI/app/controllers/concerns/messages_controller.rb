@@ -1,24 +1,25 @@
-require 'json'
-
 class MessagesController < ApplicationController
 
 	def get_status(id)
 
 		message = query_message(id)
+        status = nil
+        error = nil
 
     	if message.nil?
-    		return nil
+            status = "false"
+            error = "database could not be reached"
     	else
     		json_data = JSON.parse(message)
     		status = json_data["success"]
+            error = nil
 
-    		if status == "true"
-    			return "Success"
-    		else 
-    			return json_data["error"]
-    		end
-
+            if status != "true"
+                error = json_data["error"]
+            end
     	end
+
+        return status, error
 	end
 
 	def get_auctions(id)
@@ -101,6 +102,27 @@ class MessagesController < ApplicationController
             error = json_data["error"]
 
             return status, error
+        end
+    end
+
+    def get_user(id)
+        message = query_message(id)
+
+        user = nil
+        error = nil
+
+        if message.nil?
+            error = "Error reaching database"
+        else
+            json_data = JSON.parse(message)
+            user = User.new
+            user.username = json_data[:username]
+            user.first_name = json_data[:first_name]
+            user.last_name = json_data[:last_name]
+            user.user_description = json_data[:user_description]
+        end
+
+        return user, error
     end
 
 	def query_message(id)

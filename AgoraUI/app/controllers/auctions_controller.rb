@@ -1,10 +1,5 @@
-require 'activemessaging/processor'
-require 'json'
-
 class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
-  
-  include ActiveMessaging::MessageSender
   publishes_to :auction
 
   # GET /auctions
@@ -29,9 +24,10 @@ class AuctionsController < ApplicationController
   def show
 
     id = SecureRandom.uuid.to_s
+    auction_id = params[:id]
 
     auction_info = {:id => id, :type => "show", 
-      :auction_id => params[:id]  }
+      :auction_id => auction_id  }
 
     publish :auction, JSON.generate(auction_info)
 
@@ -88,9 +84,10 @@ class AuctionsController < ApplicationController
     auction = Auction.new(auction_params)
 
     id = SecureRandom.uuid.to_s
+    auction_id = params[:id]
 
     auction_info = {:id => id, :type => "update", 
-      :auction_id => params[:id],     
+      :auction_id => auction_id,     
       :auction_start_time => auction.auction_start_time, 
       :auction_length => auction.auction_length,
       :item_name => auction.item_name, :item_desc => auction.item_desc,
@@ -116,9 +113,10 @@ class AuctionsController < ApplicationController
   # DELETE /auctions/1.json
   def destroy
     id = SecureRandom.uuid.to_s
+    auction_id = params[:id]
 
     auction_info = {:id => id, :type => "delete", 
-      :auction_id => params[:id],     
+      :auction_id => auction_id     
     }
 
     publish :auction, JSON.generate(auction_info)
