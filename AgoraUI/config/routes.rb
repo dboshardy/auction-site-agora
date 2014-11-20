@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "auctions#index"
 
+  get "/users/:id/suspend" => "users#suspend"
   get "/auctions/search" => "auctions#search"
   get "/auction/keyword_search" => "auctions#keyword_search"
   get "/auction/category_search" => "auctions#category_search"

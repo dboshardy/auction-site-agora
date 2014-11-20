@@ -1,28 +1,5 @@
 <h1>Sign Up!</h1>
 
-<%= form_tag "/users" do %>
-
-  <%= label_tag :first_name %><br>
-  <%= text_field_tag :first_name %>
-  <br>
-  <%= label_tag :last_name %><br>
-  <%= text_field_tag :last_name %>
-  <br>
-  <%= label_tag :email %><br>
-  <%= text_field_tag :email %>
-  <br>
-  <%= label_tag :username %><br>
-  <%= text_field_tag :username %>
-  <br>
-  <%= label_tag :password %><br>
-  <%= password_field_tag :password %>
-  <br>
-  <%= label_tag :password_confirmation %><br>
-  <%= password_field_tag :password_confirmation %>
-  <br>
-  <%= submit_tag "Sign Me Up!" %>
-
-<% end %>
-
+<%= render 'form' %>
 
 <%= link_to 'Back', users_path %>

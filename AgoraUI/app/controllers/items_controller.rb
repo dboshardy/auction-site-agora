@@ -1,9 +1,5 @@
-require 'activemessaging/processor'
-
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
-  include ActiveMessaging::MessageSender
   publishes_to :item  
 
   # GET /items

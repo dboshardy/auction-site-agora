@@ -1,6 +1,6 @@
 class ShoppingCartsController < ApplicationController
   before_action :set_shopping_cart, only: [:show, :edit, :update, :destroy]
-
+  publishes_to :shopping_cart
   # GET /shopping_carts
   # GET /shopping_carts.json
   def index

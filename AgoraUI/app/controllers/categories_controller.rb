@@ -1,10 +1,6 @@
-require 'activemessaging/processor'
-require 'json'
 
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
-  include ActiveMessaging::MessageSender
   publishes_to :category
   
   # GET /categories

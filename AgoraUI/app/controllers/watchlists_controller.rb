@@ -1,10 +1,5 @@
-require 'activemessaging/processor'
-require 'json'
-
 class WatchlistsController < ApplicationController
   before_action :set_watchlist, only: [:show, :edit, :update, :destroy]
-
-  include ActiveMessaging::MessageSender
   publishes_to :watchlist
   # GET /watchlists
   # GET /watchlists.json

@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
+  before_action :set_session, only: [:show, :edit, :update, :destroy]
+  publishes_to :user
 
   def index
-  	render "new"
+    render "new"
   end
 
   def destroy
@@ -11,19 +13,40 @@ class SessionsController < ApplicationController
 
   def create
     username = params[:username]
+    password = params[:password]
 
-    user = User.find_by(username: username)
-    if user
-      if user.authenticate(params[:password])
-        session[:user_id] = user.id
-        find_follows
-        redirect_to root_url, notice: "Welcome Back, #{user.username}"
-      else
-        redirect_to "/sessions", notice: "Bad Password"
-      end
-    else
-       redirect_to "/sessions", notice: "Unknown Username"
+    id = SecureRandom.uuid.to_s
+
+    user_info = { :id => id, :type => "login",
+      :username => username,
+      :password => password
+    }
+
+    if user.errors.any?
+      redirect_to "/users", user.errors.full_messages
     end
+
+    publish :user, JSON.generate(user_info)
+
+    status, @error = Message.new.get_success(id)
+
+    if status == "true"
+      @status = "Login Successful!"
+    else
+      @status = "Login error:"
+    end
+
+    render 'confirm'
   end
 
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_session
+      @session = Session.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def session_params
+      params[:session]
+    end
 end
