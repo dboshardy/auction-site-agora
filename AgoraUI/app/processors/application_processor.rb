@@ -28,7 +28,6 @@ class ApplicationProcessor < ActiveMessaging::Processor
     message_new.body = message
     message_new.received_date = DateTime.new
     message_new.save
-    
   end    
 
 end

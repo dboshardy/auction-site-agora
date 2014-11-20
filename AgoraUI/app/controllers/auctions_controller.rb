@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-  before_action :set_auction, only: [:new, :edit, :create, :update, :destroy]
+  before_action :set_auction, only: [:show, :edit, :update, :destroy]
   publishes_to :auction
 
   # GET /auctions
@@ -14,13 +14,9 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auctions = get_auctions(id)
+    @auctions = Message.new.get_auctions(id)
 
-    if @auctions[0][0].item_name.nil?
-      render 'No auctions found for that user'
-    else
-      render 'index'  
-    end    
+    render 'index'      
   end
 
   # GET /auctions/1
@@ -35,23 +31,22 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auction, @bid, @bidder, @seller = get_auction(id)
-
-    # if @auction.item_name.nil?
-    #   @error = "Auction not found"
-    #   render 'error'
-    # end
+    @auction, @bidder, @seller = Message.new.get_auction(id)
 
   end
 
   # GET /auctions/new
   def new
-
+    if session[:user_id].blank?
+      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+    end
   end
 
   # GET /auctions/1/edit
   def edit
-
+    if session[:user_id].blank?
+      redirect_to "/users/new", notice: "You must log in or sign up to update an auction"
+    end    
   end
 
   # POST /auctions
@@ -72,7 +67,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    status, @error = get_success(id)
+    status, @error = Message.new.get_success(id)
 
     if status == "true"
       @status = "New auction created!"
@@ -102,7 +97,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    status, @error = get_success(id)
+    status, @error = Message.new.get_success(id)
 
     if status == "true"
       @status = "Auction updated!"
@@ -126,7 +121,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    status, @error = get_success(id)
+    status, @error = Message.new.get_success(id)
 
     if status == "true"
       @status = "Auction deleted!"
@@ -139,7 +134,7 @@ class AuctionsController < ApplicationController
 
   def search
 
-    @categories = get_categories
+    @categories = Category.new.get_categories
 
   end
 
@@ -155,7 +150,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auctions = get_auctions(id)
+    @auctions = Message.new.get_auctions(id)
 
     render 'results'    
 
@@ -173,7 +168,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auctions = get_auctions(id)
+    @auctions = Message.new.get_auctions(id)
 
     render 'results'   
   end
@@ -181,7 +176,7 @@ class AuctionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_auction
-      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+      @auction = Auction.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
