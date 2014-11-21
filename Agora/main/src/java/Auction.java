@@ -18,6 +18,7 @@ public class Auction {
     private int mCurrentHighestBidId;
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
+    private Category mCategory;
 
     public String getDescription() {
         return mDescription;
@@ -42,6 +43,16 @@ public class Auction {
 
     //todo: implement buy it now price
     public Auction() {
+    }
+
+    public Auction(String auctionName, UserAccount seller, String description, Date endTime, Bid currentHighestBid, Category category, BigDecimal buyItNowPrice) {
+        mAuctionName = auctionName;
+        mSeller = seller;
+        mDescription = description;
+        mEndTime = endTime;
+        mCurrentHighestBid = currentHighestBid;
+        mCategory = category;
+        mBuyItNowPrice = buyItNowPrice;
     }
 
     public int getSellerId() {
