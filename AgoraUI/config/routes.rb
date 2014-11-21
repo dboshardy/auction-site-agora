@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post "/bids/:id/auction_bid_history" => "bids#show_auction_history"
   post "/bids/:id/user_bid_history" => "bids#show_user_history"
   get "/watchlist_items/:id/new" => "watchlist_items#new"
+  get "/flags/:id/new" => "flags#new"
+  post "flags/:id/create" => "flags#create"
 
   resources :watchlists
 

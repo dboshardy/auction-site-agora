@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-  #before_action :set_bid, only: [:show, :edit, :update, :destroy]
+  before_action :set_bid, only: [:new, :create, :create_buy_now, :show, :edit, :update, :destroy]
   publishes_to :bid
 
 
@@ -42,9 +42,7 @@ class BidsController < ApplicationController
 
   # GET /bids/new
   def new
-    if session[:user_id].blank?
-      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
-    end
+
   end
 
   # # GET /bids/1/edit
@@ -54,9 +52,6 @@ class BidsController < ApplicationController
   # POST /bids
   # POST /bids.json
   def create
-    if session[:user_id].blank?
-      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
-    end
 
     @bid = Bid.new(bid_params)
 
@@ -93,9 +88,6 @@ class BidsController < ApplicationController
   end
 
   def create_buy_now
-    if session[:user_id].blank?
-      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
-    end
 
     id = SecureRandom.uuid.to_s
 
@@ -144,14 +136,14 @@ class BidsController < ApplicationController
   #   end
   # end
 
-  # private
-  #   # Use callbacks to share common setup or constraints between actions.
-  #   def set_bid
-  #     @bid = Bid.find(params[:id])
-  #   end
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_bid
+      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+    end
 
-  #   # Never trust parameters from the scary internet, only allow the white list through.
-  #   def bid_params
-  #     params.require(:bid).permit(:bidder_id, :currency_id, :amount, :auction_id)
-  #   end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def bid_params
+      params.require(:bid).permit(:bidder_id, :currency_id, :amount, :auction_id)
+    end
 end
