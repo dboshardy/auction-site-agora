@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-  before_action :set_auction, only: [:show, :edit, :update, :destroy]
+  #before_action :set_auction, only: [:show, :edit, :update, :destroy]
   publishes_to :auction
 
   # GET /auctions
@@ -14,9 +14,13 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auctions = Message.new.get_auctions(id)
+    @auctions = get_auctions(id)
 
-    render 'index'      
+    if @auctions[0][0].item_name.nil?
+      render 'No auctions found for that user'
+    else
+      render 'index'  
+    end    
   end
 
   # GET /auctions/1
@@ -31,7 +35,12 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auction, @bidder, @seller = Message.new.get_auction(id)
+    @auction, @bid, @bidder, @seller = get_auction(id)
+
+    # if @auction.item_name.nil?
+    #   @error = "Auction not found"
+    #   render 'error'
+    # end
 
   end
 
@@ -67,7 +76,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    status, @error = Message.new.get_success(id)
+    status, @error = get_success(id)
 
     if status == "true"
       @status = "New auction created!"
@@ -97,7 +106,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    status, @error = Message.new.get_success(id)
+    status, @error = get_success(id)
 
     if status == "true"
       @status = "Auction updated!"
@@ -121,7 +130,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    status, @error = Message.new.get_success(id)
+    status, @error = get_success(id)
 
     if status == "true"
       @status = "Auction deleted!"
@@ -134,7 +143,7 @@ class AuctionsController < ApplicationController
 
   def search
 
-    @categories = Category.new.get_categories
+    @categories = get_categories
 
   end
 
@@ -150,7 +159,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auctions = Message.new.get_auctions(id)
+    @auctions = get_auctions(id)
 
     render 'results'    
 
@@ -168,19 +177,19 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auctions = Message.new.get_auctions(id)
+    @auctions = get_auctions(id)
 
     render 'results'   
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_auction
-      @auction = Auction.find(params[:id])
-    end
+  # private
+  #   # Use callbacks to share common setup or constraints between actions.
+  #   def set_auction
+  #     @auction = Auction.find(params[:id])
+  #   end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def auction_params
-      params.require(:auction).permit(:seller_id)
-    end
+  #   # Never trust parameters from the scary internet, only allow the white list through.
+  #   def auction_params
+  #     params.require(:auction).permit(:seller_id)
+  #   end
 end

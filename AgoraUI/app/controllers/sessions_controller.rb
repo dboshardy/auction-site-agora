@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 
     publish :user, JSON.generate(user_info)
 
-    status, @error = Message.new.get_success(id)
+    status, @error = get_success(id)
 
     if status == "true"
       @status = "Login Successful!"

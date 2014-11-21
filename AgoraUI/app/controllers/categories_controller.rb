@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
 
     publish :category, JSON.generate(category_info)
 
-    return Message.new.get_categories(id)
+    return get_categories(id)
   end
 
   # GET /categories/1
