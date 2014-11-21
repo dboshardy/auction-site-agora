@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-  #before_action :set_auction, only: [:show, :edit, :update, :destroy]
+  before_action :set_auction, only: [:new, :edit, :create, :update, :destroy]
   publishes_to :auction
 
   # GET /auctions
@@ -46,16 +46,12 @@ class AuctionsController < ApplicationController
 
   # GET /auctions/new
   def new
-    if session[:user_id].blank?
-      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
-    end
+
   end
 
   # GET /auctions/1/edit
   def edit
-    if session[:user_id].blank?
-      redirect_to "/users/new", notice: "You must log in or sign up to update an auction"
-    end    
+
   end
 
   # POST /auctions
@@ -182,14 +178,14 @@ class AuctionsController < ApplicationController
     render 'results'   
   end
 
-  # private
-  #   # Use callbacks to share common setup or constraints between actions.
-  #   def set_auction
-  #     @auction = Auction.find(params[:id])
-  #   end
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_auction
+      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+    end
 
-  #   # Never trust parameters from the scary internet, only allow the white list through.
-  #   def auction_params
-  #     params.require(:auction).permit(:seller_id)
-  #   end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def auction_params
+      params.require(:auction).permit(:seller_id)
+    end
 end
