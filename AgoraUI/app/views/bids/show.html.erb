@@ -1,24 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Bidder:</strong>
-  <%= @bid.bidder_id %>
-</p>
+<%= render 'results' %>
 
-<p>
-  <strong>Currency:</strong>
-  <%= @bid.currency_id %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @bid.amount %>
-</p>
-
-<p>
-  <strong>Auction:</strong>
-  <%= @bid.auction_id %>
-</p>
-
-<%= link_to 'Edit', edit_bid_path(@bid) %> |
 <%= link_to 'Back', bids_path %>

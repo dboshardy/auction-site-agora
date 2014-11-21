@@ -1,0 +1,33 @@
+<%= form_for(@watchlist_item) do |f| %>
+  <% if @watchlist_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@watchlist_item.errors.count, "error") %> prohibited this watchlist item from being saved:</h2>
+
+      <ul>
+      <% @watchlist_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <% f.label :watchlist_id %><br>
+    <% f.text_field :watchlist_id, :value => "#{@watchlist_id}" %>
+  </div>
+  <div class="field">
+    <%= f.label :item_name %><br>
+    <%= f.text_field :item_name %>
+  </div>
+  <div class="field">
+    <%= f.label :item_description %><br>
+    <%= f.text_field :item_description %>
+  </div>
+    <div class="field">
+    <%= f.label :item_price %><br>
+    <%= f.number_field :item_price %>
+  </div>  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

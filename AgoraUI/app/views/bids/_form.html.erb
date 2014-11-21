@@ -12,20 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :bidder_id %><br>
-    <%= f.text_field :bidder_id %>
-  </div>
-  <div class="field">
-    <%= f.label :currency_id %><br>
-    <%= f.text_field :currency_id %>
-  </div>
-  <div class="field">
     <%= f.label :amount %><br>
     <%= f.text_field :amount %>
   </div>
+
   <div class="field">
-    <%= f.label :auction_id %><br>
-    <%= f.text_field :auction_id %>
+    <%= f.label :buy_now %>  <br>
+    <input type="radio" name=<%= :buy_now %> value="true" checked><strong> True</strong><br>
+    <input type="radio" name=<%= :buy_now %> value="false"> <strong>False</strong><br><br>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
   root "auctions#index"
 
-  get "/users/:id/suspend" => "users#suspend"
+  post "/users/:id/suspend" => "users#suspend"
   get "/auctions/search" => "auctions#search"
-  get "/auction/keyword_search" => "auctions#keyword_search"
-  get "/auction/category_search" => "auctions#category_search"
+  post "/auction/keyword_search" => "auctions#keyword_search"
+  post "/auction/category_search" => "auctions#category_search"
+  post "/bids/:id/create" => "bids#create"
+  post "/bids/:id/buy_now" => "bids#create_buy_now"
+  post "/bids/:id/auction_bid_history" => "bids#show_auction_history"
+  post "/bids/:id/user_bid_history" => "bids#show_user_history"
+  get "/watchlist_items/:id/new" => "watchlist_items#new"
 
   resources :watchlists
+
+  resources :watchlist_items
 
   resources :users
 
