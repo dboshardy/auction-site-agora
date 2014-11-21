@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
     publish :user, JSON.generate(user_info)   
 
-    @user, error = Message.new.get_user(id)   
+    @user, error = get_user(id)   
 
     if @user.nil?
       redirect_to "/users", notice: "Error finding this user" + error
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 
     publish :user, JSON.generate(user_info)
 
-    status, @error = Message.new.get_success(id)
+    status, @error = get_success(id)
 
     if status == "true"
       @status = "New user created!"
@@ -106,7 +106,7 @@ class UsersController < ApplicationController
 
     publish :user, JSON.generate(user_info)
 
-    status, @error = Message.new.get_success(id)
+    status, @error = get_success(id)
 
     if status == "true"
       @status = "New user updated!"
@@ -143,7 +143,7 @@ class UsersController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    status, @error = Message.new.get_success(id)
+    status, @error = get_success(id)
 
     if status == "true"
       @status = "User deleted!"
@@ -171,7 +171,7 @@ class UsersController < ApplicationController
 
       publish :auction, JSON.generate(auction_info)
 
-      status, @error = Message.new.get_success(id)
+      status, @error = get_success(id)
 
       if status == "true"
         @status = "User suspended!"
@@ -197,7 +197,7 @@ class UsersController < ApplicationController
 
       publish :auction, JSON.generate(auction_info)
 
-      status, @error = Message.new.get_success(id)
+      status, @error = get_success(id)
 
       if status == "true"
         @status = "User suspended!"
