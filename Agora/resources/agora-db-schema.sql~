@@ -22,16 +22,23 @@ CREATE TABLE FlaggedAuctions
 		Auctions_auction_id integer NOT NULL,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		date_flagged timestamp NOT NULL,
 		UserAccounts_user_id integer NOT NULL,
 >>>>>>> fleshed out methods to check if user has active bids or auctions
 =======
+=======
+>>>>>>> adding updated files
 <<<<<<< HEAD
 		date_flagged timestamp NOT NULL,
 		UserAccounts_user_id integer NOT NULL,
 =======
 >>>>>>> adding updated files
+=======
+>>>>>>> adding updated files
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> adding updated files
 >>>>>>> adding updated files
@@ -45,7 +52,12 @@ WITH (
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> adding updated files
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> adding updated files
@@ -60,8 +72,14 @@ WITH (
     OIDS=FALSE
 );
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> adding updated files
+=======
+>>>>>>> adding updated files
 >>>>>>> adding updated files
 =======
 >>>>>>> adding updated files
@@ -174,9 +192,14 @@ ALTER TABLE CategoryChildren ADD CONSTRAINT fk_CategoryChildren FOREIGN KEY (chi
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ALTER TABLE UserAccounts ADD CONSTRAINT UniqueUsername UNIQUE (username);
 =======
 >>>>>>> adding updated files
+=======
+>>>>>>> adding updated files
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> adding updated files
 >>>>>>> adding updated files
