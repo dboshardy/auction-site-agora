@@ -4,8 +4,11 @@
   <thead>
     <tr>
       <th>Flag type</th>
-      <th>Flagging user</th>
-      <th>Auction</th>
+      <th>Flag description</th>
+      <th>Item</th>
+      <th>Item</th>
+      <th>Item Description</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,9 +16,13 @@
   <tbody>
     <% @flags.each do |flag| %>
       <tr>
+        <% flag = flag[0] %>
+        <% auction = flag[1] %>
         <td><%= flag.flag_type %></td>
-        <td><%= flag.flagging_user %></td>
-        <td><%= flag.auction_id %></td>
+        <td><%= flag.flag_description %></td>
+        <td><%= auction.auction_id %></td>
+        <td><%= auction.item_name %></td>
+        <td><%= auction.item_description %></td>
         <td><%= link_to 'Show', flag %></td>
         <td><%= link_to 'Edit', edit_flag_path(flag) %></td>
         <td><%= link_to 'Destroy', flag, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,5 +1,5 @@
 class WatchlistItemController < ApplicationController
-  before_action :set_watchlist_item, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :confirm_user, only: [:new, :create, :show, :edit, :update, :destroy]
   publishes_to :watchlist_item
   # GET /watchlists
   # GET /watchlists.json

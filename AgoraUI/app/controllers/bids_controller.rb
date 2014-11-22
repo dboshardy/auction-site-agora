@@ -1,13 +1,13 @@
 class BidsController < ApplicationController
-  before_action :set_bid, only: [:new, :create, :create_buy_now, :show, :edit, :update, :destroy]
+  before_action :confirm_user, only: [:new, :create, :create_buy_now, :show, :edit, :update, :destroy]
   publishes_to :bid
 
 
   # GET /bids
   # GET /bids.json
-  def index
-    @bids = Bid.all
-  end
+  # def index
+  #   @bids = Bid.all
+  # end
 
   # GET /bids/1
   # GET /bids/1.json

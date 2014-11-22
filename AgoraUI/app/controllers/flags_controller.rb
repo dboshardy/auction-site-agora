@@ -1,10 +1,18 @@
 class FlagsController < ApplicationController
-  before_action :set_flag, only: [:show, :create, :new, :edit, :update, :destroy]
+  before_action :confirm_user, only: [:show, :create, :new, :edit, :update, :destroy]
+  before_action :confirm_admin, only: [:index]
   publishes_to :flag
 
   # GET /flags
   # GET /flags.json
   def index
+    id = SecureRandom.uuid.to_s
+
+    flag_info = {:id => id, :type => "index" }
+
+    publish :flag, JSON.generate(flag_info)
+
+    @flags = get_flags(id)
   end
 
   # GET /flags/1
@@ -123,7 +131,7 @@ class FlagsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_flag
+    def confirm_user
       redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
     end
 
