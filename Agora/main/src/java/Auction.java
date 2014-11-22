@@ -24,6 +24,26 @@ public class Auction {
         return mDescription;
     }
 
+    public Category getCategory() {
+        return mCategory;
+    }
+
+    public void setCategory(Category category) {
+        mCategory = category;
+    }
+
+    public List<Flag> getFlagList() {
+        return mFlagList;
+    }
+
+    public void setFlagList(List<Flag> flagList) {
+        mFlagList = flagList;
+    }
+
+    public void setBidList(List<Bid> bidList) {
+        mBidList = bidList;
+    }
+
     public void setDescription(String description) {
         mDescription = description;
     }

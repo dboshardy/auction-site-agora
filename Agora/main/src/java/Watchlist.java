@@ -117,7 +117,4 @@ public class Watchlist {
         session.close();
     }
 
-    public void setWatchlistId(Integer watchlistId) {
-        mWatchlistId = watchlistId;
-    }
 }
