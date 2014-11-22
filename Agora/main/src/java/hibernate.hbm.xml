@@ -54,5 +54,6 @@
             <generator class="native"/>
         </id>
         <property name="AuctionId" column="auctions_auction_id" type="int"/>
+        <property name="FlagType" column="flag_type" type="string" length="45"/>
     </class>
 </hibernate-mapping>
