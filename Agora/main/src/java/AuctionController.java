@@ -1,5 +1,6 @@
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
@@ -108,5 +109,43 @@ public class AuctionController {
             LOG.warn("Could not get bid list for auction : " + auction.toString() + " from database.");
         }
         return bids;
+    }
+
+    public List<Auction> getAllAuctionsByUserId(int userId) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            SQLQuery query = session.createSQLQuery("SELECT * FROM auctions WHERE seller_user_id=" + userId).addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        }
+        catch (HibernateException e){
+
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auction list for user : " + userId + " from database.");
+        }
+        return auctions;
+    }
+
+    public List<Auction> getAuctionByBidId(int bidId) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auction = null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE current_highest_bid_id="+bidId).addEntity(Auction.class);
+            List<Auction> auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auction : " + auction.toString() + " from database.");
+        }
+        return auction;
     }
 }
