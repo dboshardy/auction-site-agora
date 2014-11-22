@@ -16,6 +16,25 @@ WITH (
     OIDS=FALSE
 );
 
+CREATE TABLE FlaggedAuctions
+(
+		flag_id serial NOT NULL,
+		Auctions_auction_id integer NOT NULL,
+		CONSTRAINT FlaggedAuctions_pk PRIMARY KEY (flag_id,Auctions_auction_id)
+)
+WITH (
+    OIDS=FALSE
+);
+
+CREATE TABLE FlaggedUsers
+(
+		flag_id serial NOT NULL,
+		UserAccounts_user_id integer not null,
+		CONSTRAINT FlaggedUsers_pk PRIMARY KEY (flag_id,UserAccounts_user_id)
+)
+WITH (
+    OIDS=FALSE
+);
 --------------------------------------------------
 --Definition for Table: Auctions 
 --------------------------------------------------
@@ -26,7 +45,7 @@ CREATE TABLE Auctions
     current_highest_bid_id integer NOT NULL,
     auction_description character varying(1000),
     end_time timestamp,
-    buy_it_now_price money NOT NULL,
+    buy_it_now_price money,
     seller_user_id integer NOT NULL,
     is_ended boolean default false,
     CONSTRAINT Auctions_pk PRIMARY KEY (auction_id)
@@ -55,9 +74,7 @@ WITH (
 CREATE TABLE Bids 
 (
     bid_id serial NOT NULL,
-    auction_id integer NOT NULL,
-    timestamp timestamp,
-    bidder_user_id integer NOT NULL,
+    auction_id integer NOT NULL, timestamp timestamp, bidder_user_id integer NOT NULL,
     bid_amount money NOT NULL,
     currency character varying(45),
     CONSTRAINT Bids_pk PRIMARY KEY (bid_id,auction_id)
@@ -79,11 +96,33 @@ WITH (
     OIDS=FALSE
 );
 
+CREATE TABLE Categories 
+(
+		category_id serial NOT NULL,
+		category_name character varying(45),
+	  parent_id integer,
+		CONSTRAINT Categories_pk PRIMARY KEY (category_id)
+)
+WITH (
+		OIDS=FALSE
+);
+
+CREATE TABLE CategoryChildren 
+(
+		parent_id integer NOT NULL,
+		child_id integer NOT NULL,
+		constraint Category_Chilren_pk PRIMARY KEY (parent_id,child_id)
+)
+WITH (
+		OIDS=FALSE
+);
+
+------------------
 
 ALTER TABLE Auctions ADD CONSTRAINT fk_Auctions_UserAccounts1 FOREIGN KEY (seller_user_id)
         REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE User_has_Watchlist_Auctions ADD CONSTRAINT fk_Auctions_has_UserAccounts_Auctions FOREIGN KEY (Auctions_auction_id)
-        REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+--ALTER TABLE User_has_Watchlist_Auctions ADD CONSTRAINT fk_Auctions_has_UserAccounts_Auctions FOREIGN KEY (Auctions_auction_id)
+   --     REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE User_has_Watchlist_Auctions ADD CONSTRAINT fk_Auctions_has_UserAccounts_UserAccounts1 FOREIGN KEY (UserAccounts_user_id)
         REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE Bids ADD CONSTRAINT fk_Bids_Auctions1 FOREIGN KEY (auction_id)
@@ -94,3 +133,10 @@ ALTER TABLE User_has_ShoppingCart_Auctions ADD CONSTRAINT fk_UserAccounts_has_Au
         REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE User_has_ShoppingCart_Auctions ADD CONSTRAINT fk_UserAccounts_has_Auctions_Auctions1 FOREIGN KEY (Auctions_auction_id)
         REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE FlaggedUsers ADD CONSTRAINT fk_FlaggedUsers1 FOREIGN KEY (UserAccounts_user_id)
+				REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE FlaggedAuctions ADD CONSTRAINT fk_FlaggedAuctions1 FOREIGN KEY (Auctions_Auction_id)
+				REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE CategoryChildren ADD CONSTRAINT fk_CategoryChildren FOREIGN KEY (child_id)
+				REFERENCES Categories (category_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+

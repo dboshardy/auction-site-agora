@@ -5,11 +5,34 @@ public class Flag {
     private FlagType mFlagType;
     private UserAccount mFlaggingUser;
     private Auction mAuctionFlagged;
+    private int mAuctionId;
+    private int mFlagId;
+
+
+    public int getAuctionId() {
+        return mAuctionId;
+    }
+
+    public void setAuctionId(int auctionId) {
+        mAuctionId = auctionId;
+    }
+
+    public int getFlagId() {
+        return mFlagId;
+    }
+
+    public void setFlagId(int flagId) {
+        mFlagId = flagId;
+    }
+
 
     public Flag(FlagType flagType, UserAccount flaggingUser, Auction auctionFlagged) {
         mFlagType = flagType;
         mFlaggingUser = flaggingUser;
         mAuctionFlagged = auctionFlagged;
+    }
+
+    public Flag() {
     }
 
 
@@ -34,6 +57,17 @@ public class Flag {
     }
 
     public void setAuctionFlagged(Auction auctionFlagged) {
+
         mAuctionFlagged = auctionFlagged;
+    }
+
+    @Override
+    public String toString() {
+        return "Flag{" +
+                "mFlagType=" + mFlagType +
+                ", mAuctionId=" + mAuctionId +
+                ", mFlagId=" + mFlagId +
+                ", mFlaggingUser=" + mFlaggingUser.getUserId() +
+                '}';
     }
 }

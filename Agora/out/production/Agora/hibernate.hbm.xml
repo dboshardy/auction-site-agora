@@ -5,7 +5,11 @@
     <hibernate-mapping>
     <class name="Bid" table="bids">
         <id name="BidId" type="int" column="bid_id" >
+<<<<<<< HEAD
             <generator class="increment"/>
+=======
+            <generator class="native"/>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
         </id>
         <property name="BidderId" column="bidder_user_id" type="int"/>
         <property name="AuctionId" column="auction_id" type="int"/>
@@ -15,7 +19,11 @@
     </class>
     <class name="Auction" table="auctions">
         <id name="AuctionId" type="int" column="auction_id">
+<<<<<<< HEAD
             <generator class="increment"/>
+=======
+            <generator class="native"/>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
         </id>
         <property name="CurrentHighestBidId" column="current_highest_bid_id" type="int" />
         <property name="SellerId" column="seller_user_id" type="int"/>
@@ -26,13 +34,21 @@
     </class>
     <class name="UserAccount" table="useraccounts">
         <id name = "UserId" type="int" column="user_id">
+<<<<<<< HEAD
             <generator class="increment"/>
+=======
+            <generator class="native"/>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
         </id>
         <property name="UserName" column="username" type="java.lang.String"/>
         <property name="FirstName" column="first_name" type="java.lang.String"/>
         <property name="LastName" column="last_name" type="java.lang.String"/>
         <property name="Description" column="user_description" type="string" length="255"/>
         <property name="Password" column="password_hash" type="java.lang.String"/>
+<<<<<<< HEAD
+=======
+        <property name="UserJoinedDate" column="user_joined_date" type="timestamp"/>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
     </class>
     <class name="WatchlistEntity" table="user_has_watchlist_auctions">
         <composite-id>
@@ -41,4 +57,20 @@
             <key-property name="WatchlistName" column="watchlist_name" type="string"/>
         </composite-id>
     </class>
+<<<<<<< HEAD
+=======
+    <class name="Category" table="categories">
+        <id name="CategoryId" type="int" column="category_id">
+            <generator class="native"/>
+        </id>
+        <property name="ParentId" column="parent_id" type="int"/>
+        <property name="Name" column="category_name" type="string" length="45"/>
+    </class>
+    <class name="Flag" table="flaggedauctions">
+        <id name="FlagId" type="int" column="flag_id">
+            <generator class="native"/>
+        </id>
+        <property name="AuctionId" column="auctions_auction_id" type="int"/>
+    </class>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
 </hibernate-mapping>
