@@ -36,7 +36,6 @@ WITH (
 CREATE TABLE Auctions 
 (
     auction_id serial NOT NULL,
-    auction_name character varying(100) NOT NULL,
     list_time timestamp NOT NULL,
     current_highest_bid_id integer NOT NULL,
     auction_description character varying(1000),
@@ -70,7 +69,9 @@ WITH (
 CREATE TABLE Bids 
 (
     bid_id serial NOT NULL,
-    auction_id integer NOT NULL, timestamp timestamp, bidder_user_id integer NOT NULL,
+    auction_id integer NOT NULL,
+    timestamp timestamp,
+    bidder_user_id integer NOT NULL,
     bid_amount money NOT NULL,
     currency character varying(45),
     CONSTRAINT Bids_pk PRIMARY KEY (bid_id,auction_id)
