@@ -2,9 +2,12 @@
  * Created by thomkel on 11/8/14.
  */
 
-import org.apache.activemq.transport.stomp.Stomp.Headers.Subscribe;
 import org.apache.activemq.transport.stomp.StompConnection;
 import org.apache.activemq.transport.stomp.StompFrame;
+import org.apache.activemq.transport.stomp.Stomp.Headers.*;
+import org.json.*;
+
+import java.net.SocketTimeoutException;
 
 public class QueueHandler implements Runnable{
 
@@ -66,7 +69,7 @@ public class QueueHandler implements Runnable{
                 try {
                     StompFrame message = stompConsumerConnection.receive(timeoutWait);
                     body = message.getBody();
-                    System.out.println(body);
+                    System.out.println("Message body: " + body);
                     stompConsumerConnection.ack(message, cMessageNum);
                     stompConsumerConnection.commit(cMessageNum);
                     setConsumerMessageNum(getConsumerMessageNum() + 2);
@@ -76,21 +79,26 @@ public class QueueHandler implements Runnable{
 //                    String id = JSONobj.getString("id");
 
                     MessageFactory messageFactory = new MessageFactory();
-//                    Message messageClass = messageFactory.getMessageClass(mConsumerQueue);
-//                    JSONObject response = messageClass.createResponseMessage(body);
+//                   System.out.println("getting message class of " + mConsumerQueue);
+                    Message messageClass = messageFactory.getMessageClass(mConsumerQueue);
+//                    System.out.println("Getting response from " + messageClass);
+                    JSONObject response = messageClass.createResponseMessage(body);
 
                     // Produce response message
+                    System.out.println("Producing message: ");
                     String pMessageNum = "tx" + getProducerMessageNum();
                     stompProducerConnection.begin(pMessageNum);
-//                    stompProducerConnection.send(mProducerQueue, response.toString());
+                    stompProducerConnection.send(mProducerQueue, response.toString());
                     stompProducerConnection.commit(pMessageNum);
                     setProducerMessageNum(getProducerMessageNum() + 2);
 
+                    System.out.println("Sending message" + response);
+
                 } catch (Exception e) {
-                    System.out.println("No message found");
+                    //System.out.println("No message found");
 
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(200);
                     } catch (InterruptedException ex) {
                         System.out.println("Cannot sleep: " + ex);
                     }
