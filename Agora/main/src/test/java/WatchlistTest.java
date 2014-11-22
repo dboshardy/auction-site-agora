@@ -1,3 +1,8 @@
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by thomkel on 10/31/14.
  */
@@ -19,7 +24,7 @@ public class WatchlistTest {
 
     public void testEditWatchlistName() {
         String watchlistName = "New things for you";
-        Watchlist testWatchlist = new Watchlist(watchlistName);
+        Watchlist testWatchlist = new Watchlist(new UserAccount(),watchlistName);
         assertEquals(watchlistName, testWatchlist.getWatchlistName());
 
         watchlistName = "New things for me";

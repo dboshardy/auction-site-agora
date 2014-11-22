@@ -8,6 +8,27 @@ public class Category {
     private String mName;
     private Category mParent;
     private Set<Category> mChildren = new HashSet<Category>();
+    private int mCategoryId;
+    private int mParentId;
+
+    public int getParentId() {
+        return mParentId;
+    }
+
+    public void setParentId(int parentId) {
+        mParentId = parentId;
+    }
+
+    public Category() {
+    }
+
+    public int getCategoryId() {
+        return mCategoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        mCategoryId = categoryId;
+    }
 
     public Category(String name, Category parent) {
         mName = name;
