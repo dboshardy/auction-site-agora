@@ -8,56 +8,40 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 	def get_status(id)
-
-		message = query_message(id)
+		json_data = query_message(id)
         status = nil
         error = nil
 
-    	if message.nil?
-            status = "false"
-            error = "database could not be reached"
-    	else
-    		json_data = JSON.parse(message)
-    		status = json_data["success"]
-            error = nil
+		status = json_data["success"]
+        error = nil
 
-            if status != "true"
-                error = json_data["error"]
-            end
-    	end
+        if status != "true"
+            error = json_data["error"]
+        end
 
         return status, error
 	end
 
 	def get_auctions(id)
-
 		message = query_message(id)
+		auction_data = message["auctions"]
+        auctions = []
 
-    	if message.nil?
-    		return nil
-    	else
-    		auction_data = message["auctions"]
+        auction_data.each do |auc|
+            auction = Auction.new
+            auction.auction_id = auc["auction_id"]
+            auction.item_name = auc["item_name"]
+            auction.item_desc = auc["item_desc"]
 
-            auctions = []
+            bid = Bid.new
+            bid.amount = auc["highest_bid"]
 
-            auction_data.each do |auc|
+            array = [auction, bid]
 
-                auction = Auction.new
-                auction.auction_id = auc["auction_id"]
-                auction.item_name = auc["item_name"]
-                auction.item_desc = auc["item_desc"]
+            auctions.push(array)
+        end
 
-                bid = Bid.new
-                bid.amount = auc["highest_bid"]
-
-                array = [auction, bid]
-
-                auctions.push(array)
-            end
-
-            return auctions
-
-    	end
+        return auctions
 	end
 
     def get_watchlist(id)
@@ -133,7 +117,22 @@ class ApplicationController < ActionController::Base
 
     end
 
-	def get_categories(id)
+    def get_categories(id)
+        message = query_message(id)
+
+        categories = []
+
+        message["categories"].each do |c|
+            category = Category.new
+            category.category = c["category"]
+            category.category_id = c["category_id"]
+            categories.push(category)
+        end
+
+        return categories
+    end
+
+	def get_flags(id)
 
 		message = query_message(id)
 
@@ -208,72 +207,67 @@ class ApplicationController < ActionController::Base
         return transactions
     end
 
-    def get_flags(id)
-
+    def get_auction_success(id)
         message = query_message(id)
 
+        auction_id = message["auction_id"]
+        status = message["status"]
+        error = message["error"]
 
+        return auction_id, status, error
+
+    end
+
+    def get_login_sucess(id)
+        message = query_message
+
+        status = message["success"]
+        error = message["error"]
+        user_id = message["user_id"]
+        is_admin = message["is_admin"]
+
+        return status, error, user_id, is_admin      
     end
 
     def get_success(id)
-
         message = query_message(id)
 
-        if message.nil?
-            return "Error reaching database"
-        else
-            json_data = JSON.parse(message)
-            status = json_data["success"]
-            error = json_data["error"]
+        status = message["success"]
+        error = message["error"]
 
-            return status, error
-        end
+        return status, error
     end
 
     def get_user(id)
-        message = query_message(id)
+        json_data = query_message(id)
 
         user = nil
         error = nil
 
-        if message.nil?
-            error = "Error reaching database"
-        else
-            json_data = JSON.parse(message)
-            user = User.new
-            user.username = json_data[:username]
-            user.first_name = json_data[:first_name]
-            user.last_name = json_data[:last_name]
-            user.user_description = json_data[:user_description]
-        end
+        user = User.new
+        user.username = json_data[:username]
+        user.first_name = json_data[:first_name]
+        user.last_name = json_data[:last_name]
+        user.user_description = json_data[:user_description]
 
         return user, error
     end
 
     def get_bids(id)
         message = query_message(id)
+        bid_data = message["auctions"]
+        bids = []
 
-        if message.nil?
-            return nil
-        else
-            json_data = JSON.parse(message)
-            bid_data = json_data["auctions"]
+        bid_data.each do |bid|
+            b = Bid.new
+            b.bid_amount = bid["bid_amount"]
+            b.bidder_id = bid["bidder"]
+            b.auction_id = bid["auction_id"]
 
-            bids = []
+            bids.push(b)
+        end
 
-            bid_data.each do |bid|
-
-                b = Bid.new
-                b.bid_amount = bid["bid_amount"]
-                b.bidder_id = bid["bidder"]
-                b.auction_id = bid["auction_id"]
-
-                bids.push(b)
-            end
-
-            return bids
-
-        end                
+        return bids
     end
 
 	def query_message(id)

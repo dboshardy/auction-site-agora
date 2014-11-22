@@ -1,0 +1,12 @@
+<h1>Add categories to auction</h1>
+
+<% form_tag "/create_categories_for_auction/#{@auction_id}" do %>
+
+	<% @categories.each do |category| %>
+		<%= check_box_tag "categories[]", category.id %>
+		<%= category.category %><br>
+	<% end %>
+
+	<%= submit_tag "Add Categories to Auction" %>
+
+<% end %>
