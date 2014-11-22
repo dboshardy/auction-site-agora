@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-  before_action :set_auction, only: [:new, :edit, :create, :update, :destroy]
+  before_action :confirm_user, only: [:new, :edit, :create, :update, :destroy]
   publishes_to :auction
 
   # GET /auctions
@@ -180,9 +180,9 @@ class AuctionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_auction
-      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
-    end
+    # def set_auction
+    #   redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction_params

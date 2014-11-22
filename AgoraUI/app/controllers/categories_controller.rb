@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
+  before_action :confirm_user, only: [:new, :edit, :create, :update, :destroy]
   publishes_to :category
   
   # GET /categories
