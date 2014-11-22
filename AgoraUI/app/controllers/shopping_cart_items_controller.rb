@@ -1,64 +1,82 @@
 class ShoppingCartItemsController < ApplicationController
-  before_action :set_shopping_cart_item, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /shopping_cart_items
-  # GET /shopping_cart_items.json
-  def index
-    @shopping_cart_items = ShoppingCartItem.all
-  end
+  # # GET /shopping_cart_items
+  # # GET /shopping_cart_items.json
+  # def index
+  #   @shopping_cart_items = ShoppingCartItem.all
+  # end
 
-  # GET /shopping_cart_items/1
-  # GET /shopping_cart_items/1.json
-  def show
-  end
+  # # GET /shopping_cart_items/1
+  # # GET /shopping_cart_items/1.json
+  # def show
+  # end
 
-  # GET /shopping_cart_items/new
-  def new
-    @shopping_cart_item = ShoppingCartItem.new
-  end
+  # # GET /shopping_cart_items/new
+  # def new
+  #   @shopping_cart_item = ShoppingCartItem.new
+  # end
 
-  # GET /shopping_cart_items/1/edit
-  def edit
-  end
+  # # GET /shopping_cart_items/1/edit
+  # def edit
+  # end
 
-  # POST /shopping_cart_items
-  # POST /shopping_cart_items.json
-  def create
-    @shopping_cart_item = ShoppingCartItem.new(shopping_cart_item_params)
+  # # POST /shopping_cart_items
+  # # POST /shopping_cart_items.json
+  # def create
+  #   @shopping_cart_item = ShoppingCartItem.new(shopping_cart_item_params)
 
-    respond_to do |format|
-      if @shopping_cart_item.save
-        format.html { redirect_to @shopping_cart_item, notice: 'Shopping cart item was successfully created.' }
-        format.json { render :show, status: :created, location: @shopping_cart_item }
-      else
-        format.html { render :new }
-        format.json { render json: @shopping_cart_item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @shopping_cart_item.save
+  #       format.html { redirect_to @shopping_cart_item, notice: 'Shopping cart item was successfully created.' }
+  #       format.json { render :show, status: :created, location: @shopping_cart_item }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @shopping_cart_item.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
-  # PATCH/PUT /shopping_cart_items/1
-  # PATCH/PUT /shopping_cart_items/1.json
-  def update
-    respond_to do |format|
-      if @shopping_cart_item.update(shopping_cart_item_params)
-        format.html { redirect_to @shopping_cart_item, notice: 'Shopping cart item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shopping_cart_item }
-      else
-        format.html { render :edit }
-        format.json { render json: @shopping_cart_item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # # PATCH/PUT /shopping_cart_items/1
+  # # PATCH/PUT /shopping_cart_items/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @shopping_cart_item.update(shopping_cart_item_params)
+  #       format.html { redirect_to @shopping_cart_item, notice: 'Shopping cart item was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @shopping_cart_item }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @shopping_cart_item.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /shopping_cart_items/1
   # DELETE /shopping_cart_items/1.json
   def destroy
-    @shopping_cart_item.destroy
-    respond_to do |format|
-      format.html { redirect_to shopping_cart_items_url, notice: 'Shopping cart item was successfully destroyed.' }
-      format.json { head :no_content }
+    id = SecureRandom.uuid.to_s
+    item_id = params[:id]
+
+    item_info = {:id => id, :type => "delete", 
+      :item_id => item_id     
+    }
+
+    publish :shopping_cart_item, JSON.generate(item_info)
+
+    status, @error = get_success(id)
+
+    if status == "true"
+      @status = "Cart item deleted!"
+    else
+      @status = "Cart item could not be deleted"
     end
+
+    render 'confirm'  
+        # @shopping_cart_item.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to shopping_cart_items_url, notice: 'Shopping cart item was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

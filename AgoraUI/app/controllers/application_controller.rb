@@ -90,7 +90,21 @@ class ApplicationController < ActionController::Base
         message = query_message(id)
 
         cart = ShoppingCart.new
-        cart.user_id = 
+        cart.user_id = message["cart_id"]
+
+        items = []
+
+        message["items"].each do |item|
+            cart_auction = Auction.new
+            cart_auction.auction_id = item["item_id"]
+            cart_auction.item_name = item["item_name"]
+            cart_auction.item_desc = item["item_desc"]
+            cart_item.item_price = item["item_price"]
+
+            items.push(cart_item)
+        end
+
+        return cart, items
     end
 
     def get_auction(id)
@@ -146,6 +160,52 @@ class ApplicationController < ActionController::Base
         end
 
         return flags
+    end
+
+    def get_transaction(id)
+        message = query_message(id)
+
+        transaction = Transaction.new
+        auction = Auction.new
+
+        transaction.trans_date = t["date"]
+        transaction.address = t["address"]
+        transaction.city = t["city"]
+        transcation.state = t["state"]
+        transaction.zip_code = t["zip_code"]
+        transaction.payment_type = t["payment_type"]
+        transaction.total_cost = t["total_cost"]
+
+        auction.auction_id = t["auction_id"]
+        auction.item_name = t["auction_name"]
+        auction.item_desc = t["item_desc"]
+
+        return transaction, auction
+    end
+
+    def get_transactions(id)
+        message = query_message(id)
+
+        transactions = []
+
+        message["transactions"].each do |t|
+            transaction = Transaction.new
+            auction = Auction.new
+
+            transaction.transaction_id = t["transaction_id"]
+            transaction.trans_date = t["date"]
+            transaction.total_cost = t["total_cost"]
+
+            auction.auction_id = t["auction_id"]
+            auction.item_name = t["auction_name"]
+            auction.item_desc = t["item_desc"]
+
+            array = [transaction, auction]
+
+            transactions.push(array)
+        end
+
+        return transactions
     end
 
     def get_flags(id)
