@@ -18,6 +18,15 @@ public class UserAccount {
     private String mFirstName;
     private String mLastName;
     private String mDescription;
+    private Date mUserJoinedDate;
+
+    public Date getUserJoinedDate() {
+        return mUserJoinedDate;
+    }
+
+    public void setUserJoinedDate(Date userJoinedDate) {
+        mUserJoinedDate = userJoinedDate;
+    }
 
 
     public UserAccount(String userName, String email, String password, String firstName, String lastName, String description) {
@@ -27,6 +36,8 @@ public class UserAccount {
         mFirstName = firstName;
         mLastName = lastName;
         mDescription = description;
+        mUserJoinedDate = new Date();
+        
     }
 
     public UserAccount() {

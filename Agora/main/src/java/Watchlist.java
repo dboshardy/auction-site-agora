@@ -27,14 +27,14 @@ public class Watchlist {
 
     }
 
-    public Watchlist(UserAccount user) {
-        mUserAccount = user;
-        if ((mWatchlist = getWatchlist()) != null) {
-        } else {
-            mWatchlist = new ArrayList<Auction>();
-        }
-
-    }
+//    public Watchlist(UserAccount user) {
+//        mUserAccount = user;
+//        if ((mWatchlist = getWatchlist()) != null) {
+//        } else {
+//            mWatchlist = new ArrayList<Auction>();
+//        }
+//
+//    }
 
     public Watchlist(String watchlistName, Integer watchlistId){
         mWatchlistName = watchlistName;
