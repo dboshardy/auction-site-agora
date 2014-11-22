@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @shopping_cart.user_id %>
+  <strong>Shopping Cart:</strong>
+  <% @items.each do |item| %>
+  	<@= "Item name: " + item.item_name %><br>
+  	<@= item.item_description %>
+  	<@= item.item_price @>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_shopping_cart_path(@shopping_cart) %> |
 <%= link_to 'Back', shopping_carts_path %>

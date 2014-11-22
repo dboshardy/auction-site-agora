@@ -69,7 +69,7 @@ public class QueueHandler implements Runnable{
                 try {
                     StompFrame message = stompConsumerConnection.receive(timeoutWait);
                     body = message.getBody();
-                    System.out.println(body);
+                    System.out.println("Message body: " + body);
                     stompConsumerConnection.ack(message, cMessageNum);
                     stompConsumerConnection.commit(cMessageNum);
                     setConsumerMessageNum(getConsumerMessageNum() + 2);
@@ -79,21 +79,26 @@ public class QueueHandler implements Runnable{
 //                    String id = JSONobj.getString("id");
 
                     MessageFactory messageFactory = new MessageFactory();
+//                   System.out.println("getting message class of " + mConsumerQueue);
                     Message messageClass = messageFactory.getMessageClass(mConsumerQueue);
+//                    System.out.println("Getting response from " + messageClass);
                     JSONObject response = messageClass.createResponseMessage(body);
 
                     // Produce response message
+                    System.out.println("Producing message: ");
                     String pMessageNum = "tx" + getProducerMessageNum();
                     stompProducerConnection.begin(pMessageNum);
                     stompProducerConnection.send(mProducerQueue, response.toString());
                     stompProducerConnection.commit(pMessageNum);
                     setProducerMessageNum(getProducerMessageNum() + 2);
 
+                    System.out.println("Sending message" + response);
+
                 } catch (Exception e) {
-                    System.out.println("No message found");
+                    //System.out.println("No message found");
 
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(200);
                     } catch (InterruptedException ex) {
                         System.out.println("Cannot sleep: " + ex);
                     }
