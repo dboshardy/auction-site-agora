@@ -42,7 +42,7 @@ CREATE TABLE Auctions
     current_highest_bid_id integer NOT NULL,
     auction_description character varying(1000),
     end_time timestamp,
-    buy_it_now_price money,
+    buy_it_now_price numeric,
     seller_user_id integer NOT NULL,
     is_ended boolean default false,
     CONSTRAINT Auctions_pk PRIMARY KEY (auction_id)
@@ -72,7 +72,7 @@ CREATE TABLE Bids
 (
     bid_id serial NOT NULL,
     auction_id integer NOT NULL, timestamp timestamp, bidder_user_id integer NOT NULL,
-    bid_amount money NOT NULL,
+    bid_amount numeric NOT NULL,
     currency character varying(45),
     CONSTRAINT Bids_pk PRIMARY KEY (bid_id,auction_id)
 )
@@ -137,4 +137,7 @@ ALTER TABLE FlaggedAuctions ADD CONSTRAINT fk_FlaggedAuctions1 FOREIGN KEY (Auct
 ALTER TABLE CategoryChildren ADD CONSTRAINT fk_CategoryChildren FOREIGN KEY (child_id)
 				REFERENCES Categories (category_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE UserAccounts ADD CONSTRAINT UniqueUsername UNIQUE (username);
+
+
+--Write script to add all categories. Maybe get from work.
 

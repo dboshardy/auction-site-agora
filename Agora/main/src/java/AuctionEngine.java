@@ -42,7 +42,7 @@ public class AuctionEngine {
         calendar.add(Calendar.DATE, 7);
         newDate.setTime(calendar.getTime().getTime());
 
-        Auction auction1 = new Auction("Computer", user1, "This is a computer I want to sell.", new BigDecimal(2000.00),newDate);
+        Auction auction1 = new Auction("Computer", user1, "This is a computer I want to sell.",new BigDecimal(2000.00),newDate);
 
         AuctionController auctionController = new AuctionController();
         auctionController.persistAuction(auction1);
@@ -50,6 +50,7 @@ public class AuctionEngine {
         user2.addWatchlist(new Watchlist(user2, "default"));
 
         user2.getWatchlist("default").addAuctionToWatchlist(auction1);
+        userAccountController.placeBidOnAuction(user2,new Bid(user2,auction1,new BigDecimal(2500.00)),auction1);
 
         //delete it after input
         System.out.println("press any key to delete");

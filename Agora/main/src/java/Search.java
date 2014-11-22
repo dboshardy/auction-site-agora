@@ -10,8 +10,8 @@ public class Search {
         
     }
 
-    public ArrayList<Item> searchItem(String item){
-        ArrayList<Item> result= new ArrayList<Item>();
+    public ArrayList<Auction> searchItem(String item){
+        ArrayList<Auction> result= new ArrayList<Auction>();
 
         //TODO: flesh out search item;
         return result;

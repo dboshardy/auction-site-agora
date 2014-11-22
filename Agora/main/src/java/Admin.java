@@ -8,7 +8,7 @@ public class Admin extends UserAccount{
     public String updateUserPassword(String newPwd){
         return  newPwd;
     };
-    public Item updateItem(Item item){return item;}
+    public String updateItem(Auction auction){return "response";}
     public Email updateEmail(Email email){return email;}
     public Payment updatePayment(Payment payment){return payment;}
 
