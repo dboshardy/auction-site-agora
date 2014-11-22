@@ -2,12 +2,9 @@
  * Created by thomkel on 11/8/14.
  */
 
+import org.apache.activemq.transport.stomp.Stomp.Headers.Subscribe;
 import org.apache.activemq.transport.stomp.StompConnection;
 import org.apache.activemq.transport.stomp.StompFrame;
-import org.apache.activemq.transport.stomp.Stomp.Headers.*;
-import org.json.*;
-
-import java.net.SocketTimeoutException;
 
 public class QueueHandler implements Runnable{
 
@@ -79,13 +76,13 @@ public class QueueHandler implements Runnable{
 //                    String id = JSONobj.getString("id");
 
                     MessageFactory messageFactory = new MessageFactory();
-                    Message messageClass = messageFactory.getMessageClass(mConsumerQueue);
-                    JSONObject response = messageClass.createResponseMessage(body);
+//                    Message messageClass = messageFactory.getMessageClass(mConsumerQueue);
+//                    JSONObject response = messageClass.createResponseMessage(body);
 
                     // Produce response message
                     String pMessageNum = "tx" + getProducerMessageNum();
                     stompProducerConnection.begin(pMessageNum);
-                    stompProducerConnection.send(mProducerQueue, response.toString());
+//                    stompProducerConnection.send(mProducerQueue, response.toString());
                     stompProducerConnection.commit(pMessageNum);
                     setProducerMessageNum(getProducerMessageNum() + 2);
 
