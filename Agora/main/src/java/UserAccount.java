@@ -1,6 +1,7 @@
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,6 +41,26 @@ public class UserAccount {
         
     }
 
+    public boolean userHasCurrentHighestBid(){
+        boolean result = false;
+
+
+
+        return result;
+    }
+
+    public boolean userHasActiveAuction(){
+        boolean result = false;
+        AuctionController auctionController = new AuctionController();
+
+        List<Auction> userAuctions = auctionController.getAllAuctionsByUserId(this.getUserId());
+        for(Auction auction : userAuctions){
+            if(!auction.isEnded()){
+                result = true;
+            }
+        }
+        return result;
+    }
     public UserAccount() {
     }
 

@@ -9,7 +9,7 @@ public class FlagController {
     private static final org.apache.log4j.Logger LOG = Logger.getLogger(FlagController.class);
     private String mFlaggedAuctionsTableName = "FlaggedAuctions";
 
-    public void persistFlagOnAccount(Flag flag) {
+    public void persistFlagOnAuction(Flag flag) {
 
         Session session = HibernateUtils.getSessionFactory().openSession();
 

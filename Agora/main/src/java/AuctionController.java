@@ -109,4 +109,24 @@ public class AuctionController {
         }
         return bids;
     }
+
+    public List<Auction> getAllAuctionsByUserId(int userId) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            SQLQuery query = session.createSQLQuery("SELECT * FROM auctions WHERE seller_user_id=" + userId).addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        }
+        catch (HibernateException e){
+
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auction list for user : " + userId + " from database.");
+        }
+        return auctions;
+    }
 }

@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  * Created by drew on 10/19/14.
  */
@@ -7,6 +9,16 @@ public class Flag {
     private Auction mAuctionFlagged;
     private int mAuctionId;
     private int mFlagId;
+
+    public Date getDateFlagged() {
+        return mDateFlagged;
+    }
+
+    public void setDateFlagged(Date dateFlagged) {
+        mDateFlagged = dateFlagged;
+    }
+
+    private Date mDateFlagged;
 
 
     public int getAuctionId() {
@@ -27,6 +39,7 @@ public class Flag {
 
 
     public Flag(FlagType flagType, UserAccount flaggingUser, Auction auctionFlagged) {
+        mDateFlagged = new Date();
         mFlagType = flagType;
         mFlaggingUser = flaggingUser;
         mAuctionFlagged = auctionFlagged;
