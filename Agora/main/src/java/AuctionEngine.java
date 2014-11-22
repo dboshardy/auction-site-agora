@@ -3,6 +3,9 @@ import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by drew on 11/7/14.
@@ -31,7 +34,15 @@ public class AuctionEngine {
         userAccountController.persistUserAccount(user2);
 
         //create auction
-        Auction auction1 = new Auction("Computer", user1, "This is a computer I want to sell.", new BigDecimal(2000.00));
+        Date date = new Date();
+        Date newDate = new Date(date.getTime());
+
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.setTime(newDate);
+        calendar.add(Calendar.DATE, 7);
+        newDate.setTime(calendar.getTime().getTime());
+
+        Auction auction1 = new Auction("Computer", user1, "This is a computer I want to sell.", new BigDecimal(2000.00),newDate);
 
         AuctionController auctionController = new AuctionController();
         auctionController.persistAuction(auction1);

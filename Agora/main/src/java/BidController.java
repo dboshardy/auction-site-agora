@@ -1,8 +1,10 @@
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 import javax.persistence.EntityExistsException;
+import java.util.List;
 
 /**
  * Created by drew on 11/7/14.
@@ -64,5 +66,25 @@ public class BidController {
             }
             LOG.warn("Could not update bid: " + bid.toString() + " in database.");
         }
+    }
+
+    public List<Bid> getBidHistoryForUser(int userId) {
+               Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Bid> bids = null;
+        try {
+            session.beginTransaction();
+            SQLQuery query = session.createSQLQuery("SELECT * FROM bids WHERE bidder_user_id=" + userId).addEntity(Bid.class);
+            bids = query.list();
+            session.getTransaction().commit();
+            session.close();
+        }
+        catch (HibernateException e){
+
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get bids list for user : " + userId + " from database.");
+        }
+        return bids;
     }
 }

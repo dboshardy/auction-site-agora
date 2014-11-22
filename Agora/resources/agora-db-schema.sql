@@ -21,8 +21,10 @@ CREATE TABLE FlaggedAuctions
 (
 		flag_id serial NOT NULL,
 		Auctions_auction_id integer NOT NULL,
+		flag_type character varying(45) NOT NULL,
 		date_flagged timestamp NOT NULL,
-		CONSTRAINT FlaggedAuctions_pk PRIMARY KEY (flag_id,Auctions_auction_id)
+		UserAccounts_user_id integer NOT NULL,
+		CONSTRAINT FlaggedAuctions_pk PRIMARY KEY (flag_id)
 )
 WITH (
     OIDS=FALSE

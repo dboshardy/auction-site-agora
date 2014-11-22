@@ -2,7 +2,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +22,7 @@ public class Auction extends Message{
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
+
 
     public String getDescription() {
         return mDescription;
@@ -143,9 +143,6 @@ public class Auction extends Message{
         return  userAccountController.getUserById(this.getSellerId());
     }
 
-    public void setSeller(UserAccount seller) {
-        mSeller = seller;
-    }
 
     public String getAuctionName() {
         return mAuctionName;
@@ -206,7 +203,7 @@ public class Auction extends Message{
         mListTime = timestamp;
     }
 
-    public void setSeller(Seller mSeller){
+    public void setSeller(UserAccount mSeller){
         this.mSeller=mSeller;
     }
 
@@ -241,7 +238,7 @@ public class Auction extends Message{
                 '}';
     }
 
-    public void setFlag(Flag flag, int userId, Timestamp timestamp) {
+    public void setFlag(Flag flag, int userId) {
         FlagController flagController = new FlagController();
         flagController.persistFlagOnAuction(flag);
     }

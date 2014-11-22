@@ -1,4 +1,3 @@
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -38,29 +37,43 @@ public class UserAccount {
         mLastName = lastName;
         mDescription = description;
         mUserJoinedDate = new Date();
-        
+
     }
 
-    public boolean userHasCurrentHighestBid(){
+    public boolean userHasCurrentHighestBid() {
         boolean result = false;
+        BidController bidController = new BidController();
+        List<Bid> userBids = bidController.getBidHistoryForUser(this.getUserId());
+        AuctionController auctionController = new AuctionController();
+        List<Auction> auctions = null;
+        for (Bid bid : userBids) {
+            auctions = auctionController.getAuctionByBidId(bid.getBidId());
+            if (auctions != null) {
+                for (Auction auction : auctions) {
+                    if (auction != null) {
+                        result = true;
+                    }
+                }
 
-
+            }
+        }
 
         return result;
     }
 
-    public boolean userHasActiveAuction(){
+    public boolean userHasActiveAuction() {
         boolean result = false;
         AuctionController auctionController = new AuctionController();
 
         List<Auction> userAuctions = auctionController.getAllAuctionsByUserId(this.getUserId());
-        for(Auction auction : userAuctions){
-            if(!auction.isEnded()){
+        for (Auction auction : userAuctions) {
+            if (!auction.isEnded()) {
                 result = true;
             }
         }
         return result;
     }
+
     public UserAccount() {
     }
 
@@ -100,10 +113,7 @@ public class UserAccount {
     }
 
     public void flagAuction(Auction auction, Flag flag) {
-        auction.setFlag(flag, this.getUserId(), new Timestamp(new Date().getTime()));
-        //TODO: implement flagAuction
-
-
+        auction.setFlag(flag, this.getUserId());
     }
 
     public void editUserDescription(String newDesc) {
@@ -141,7 +151,7 @@ public class UserAccount {
     }
 
     public void addWatchlist(Watchlist watchlist) {
-        mWatchlists.put(watchlist.getWatchlistName(),watchlist);
+        mWatchlists.put(watchlist.getWatchlistName(), watchlist);
     }
 
     public ShoppingCart getShoppingCart() {
