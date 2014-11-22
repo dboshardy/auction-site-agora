@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -61,7 +62,6 @@ public class Auction {
         return auctionController.getAuctionBids(this);
     }
 
-    //todo: implement buy it now price
     public Auction() {
     }
 
@@ -73,6 +73,7 @@ public class Auction {
         mCurrentHighestBid = currentHighestBid;
         mCategory = category;
         mBuyItNowPrice = buyItNowPrice;
+        mListTime = new Date();
     }
 
     public int getSellerId() {
@@ -83,7 +84,7 @@ public class Auction {
         mSellerId = sellerId;
     }
 
-    public Auction(String auctionName, UserAccount seller, String description, BigDecimal bid) {
+    public Auction(String auctionName, UserAccount seller, String description, BigDecimal bid,Date endTime) {
         mAuctionName = auctionName;
         mSeller = seller;
         mDescription = description;
@@ -91,9 +92,10 @@ public class Auction {
         mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
+        mEndTime = endTime;
     }
 
-    public Auction(String auctionName, int sellerId, String description, BigDecimal bid) {
+    public Auction(String auctionName, int sellerId, String description, BigDecimal bid,Date endTime) {
         mAuctionName = auctionName;
         mSellerId = sellerId;
         mDescription = description;
@@ -101,6 +103,7 @@ public class Auction {
         mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
+        mEndTime = endTime;
     }
     public UserAccount getSeller() {
         UserAccountController userAccountController = new UserAccountController();
@@ -187,9 +190,6 @@ public class Auction {
        return result;
     }
 
-    public void setFlag(Flag flag, int userID, Date timestamp) {
-        //todo: implement this
-    }
 
     @Override
     public String toString() {
@@ -208,4 +208,8 @@ public class Auction {
                 '}';
     }
 
+    public void setFlag(Flag flag, int userId, Timestamp timestamp) {
+        FlagController flagController = new FlagController();
+        flagController.persistFlagOnAuction(flag);
+    }
 }

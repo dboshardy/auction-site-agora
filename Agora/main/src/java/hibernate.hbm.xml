@@ -28,7 +28,7 @@
         <id name = "UserId" type="int" column="user_id">
             <generator class="native"/>
         </id>
-        <property name="UserName" column="username" type="java.lang.String"/>
+        <property name="UserName" column="username" type="java.lang.String" unique="true"/>
         <property name="FirstName" column="first_name" type="java.lang.String"/>
         <property name="LastName" column="last_name" type="java.lang.String"/>
         <property name="Description" column="user_description" type="string" length="255"/>
