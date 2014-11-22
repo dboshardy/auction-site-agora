@@ -21,7 +21,10 @@ CREATE TABLE FlaggedAuctions
 (
 		flag_id serial NOT NULL,
 		Auctions_auction_id integer NOT NULL,
+<<<<<<< HEAD
 		flag_type character varying(45) NOT NULL,
+=======
+>>>>>>> fleshed out methods to check if user has active bids or auctions
 		date_flagged timestamp NOT NULL,
 		UserAccounts_user_id integer NOT NULL,
 		CONSTRAINT FlaggedAuctions_pk PRIMARY KEY (flag_id)
@@ -137,7 +140,10 @@ ALTER TABLE FlaggedAuctions ADD CONSTRAINT fk_FlaggedAuctions1 FOREIGN KEY (Auct
 ALTER TABLE CategoryChildren ADD CONSTRAINT fk_CategoryChildren FOREIGN KEY (child_id)
 				REFERENCES Categories (category_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE UserAccounts ADD CONSTRAINT UniqueUsername UNIQUE (username);
+<<<<<<< HEAD
 
 
 --Write script to add all categories. Maybe get from work.
+=======
+>>>>>>> fleshed out methods to check if user has active bids or auctions
 
