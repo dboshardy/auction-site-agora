@@ -6,10 +6,14 @@
     <class name="Bid" table="bids">
         <id name="BidId" type="int" column="bid_id" >
 <<<<<<< HEAD
+<<<<<<< HEAD
             <generator class="increment"/>
 =======
             <generator class="native"/>
 >>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+=======
+            <generator class="increment"/>
+>>>>>>> 4dfd0e10b0b722de1e895407b69c8f4767523b34
         </id>
         <property name="BidderId" column="bidder_user_id" type="int"/>
         <property name="AuctionId" column="auction_id" type="int"/>
@@ -20,10 +24,14 @@
     <class name="Auction" table="auctions">
         <id name="AuctionId" type="int" column="auction_id">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <generator class="increment"/>
 =======
             <generator class="native"/>
 >>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+=======
+            <generator class="increment"/>
+>>>>>>> 4dfd0e10b0b722de1e895407b69c8f4767523b34
         </id>
         <property name="CurrentHighestBidId" column="current_highest_bid_id" type="int" />
         <property name="SellerId" column="seller_user_id" type="int"/>
@@ -35,10 +43,14 @@
     <class name="UserAccount" table="useraccounts">
         <id name = "UserId" type="int" column="user_id">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <generator class="increment"/>
 =======
             <generator class="native"/>
 >>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+=======
+            <generator class="increment"/>
+>>>>>>> 4dfd0e10b0b722de1e895407b69c8f4767523b34
         </id>
         <property name="UserName" column="username" type="java.lang.String"/>
         <property name="FirstName" column="first_name" type="java.lang.String"/>
@@ -46,9 +58,12 @@
         <property name="Description" column="user_description" type="string" length="255"/>
         <property name="Password" column="password_hash" type="java.lang.String"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <property name="UserJoinedDate" column="user_joined_date" type="timestamp"/>
 >>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+=======
+>>>>>>> 4dfd0e10b0b722de1e895407b69c8f4767523b34
     </class>
     <class name="WatchlistEntity" table="user_has_watchlist_auctions">
         <composite-id>
@@ -57,6 +72,7 @@
             <key-property name="WatchlistName" column="watchlist_name" type="string"/>
         </composite-id>
     </class>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     <class name="Category" table="categories">
@@ -73,4 +89,6 @@
         <property name="AuctionId" column="auctions_auction_id" type="int"/>
     </class>
 >>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+=======
+>>>>>>> 4dfd0e10b0b722de1e895407b69c8f4767523b34
 </hibernate-mapping>
