@@ -109,7 +109,6 @@ class FlagsController < ApplicationController
 
     flag_info = {:id => id, :type => "delete", 
       :flag_id => params[:id]
-   
     }
 
     publish :flag, JSON.generate(flag_info)

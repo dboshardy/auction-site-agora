@@ -93,7 +93,7 @@ class UsersController < ApplicationController
     id = SecureRandom.uuid.to_s
     user_id = params[:id]
 
-    user_info = { :id => id, :type => "create",
+    user_info = { :id => id, :type => "update",
       :user_id => user_id,
       :first_name => user.first_name,
       :last_name => user.last_name,
@@ -142,7 +142,7 @@ class UsersController < ApplicationController
       :user_id => user_id
     }
 
-    publish :auction, JSON.generate(auction_info)
+    publish :user, JSON.generate(user_info)
 
     status, @error = get_success(id)
 
@@ -170,7 +170,7 @@ class UsersController < ApplicationController
         :user_id => user_id
       }
 
-      publish :auction, JSON.generate(auction_info)
+      publish :user, JSON.generate(user_info)
 
       status, @error = get_success(id)
 
@@ -192,18 +192,18 @@ class UsersController < ApplicationController
       id = SecureRandom.uuid.to_s
       user_id = params[:id]
 
-      user_info = {:id => id, :type => "suspend", 
+      user_info = {:id => id, :type => "block", 
         :user_id => user_id
       }
 
-      publish :auction, JSON.generate(auction_info)
+      publish :user, JSON.generate(user_info)
 
       status, @error = get_success(id)
 
       if status == "true"
-        @status = "User suspended!"
+        @status = "User blocked!"
       else
-        @status = "User could not be suspended"
+        @status = "User could not be blocked"
       end
 
       render 'confirm'          

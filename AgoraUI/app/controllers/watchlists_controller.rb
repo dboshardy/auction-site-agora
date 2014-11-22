@@ -11,7 +11,7 @@ class WatchlistsController < ApplicationController
   def show
     id = SecureRandom.uuid.to_s
 
-    watchlist_info = {:id => id, 
+    watchlist_info = {:id => id, type => 'show',
       :watchlist_id => params[:id]
     }
 
@@ -37,7 +37,7 @@ class WatchlistsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    watchlist_info = {:id => id, 
+    watchlist_info = {:id => id, type => "create",
       :watchlist_name => params[:watchlist_name],
       :user_id => session[:user_id]
     }
@@ -72,7 +72,7 @@ class WatchlistsController < ApplicationController
   def update
     id = SecureRandom.uuid.to_s
 
-    watchlist_info = {:id => id, 
+    watchlist_info = {:id => id, type => "update",
       :watchlist_id => params[:id],
       :watchlist_name => params[:watchlist_name]
     }

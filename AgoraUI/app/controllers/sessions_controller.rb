@@ -28,10 +28,12 @@ class SessionsController < ApplicationController
 
     publish :user, JSON.generate(user_info)
 
-    status, @error = get_success(id)
+    status, @error, user_id, is_admin = get_login_success(id)
 
     if status == "true"
       @status = "Login Successful!"
+      session[:user_id] = user_id
+      session[:is_admin] = is_admin
     else
       @status = "Login error:"
     end
