@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <generator class="native"/>
 =======
             <generator class="increment"/>
@@ -21,6 +22,12 @@
 =======
             <generator class="increment"/>
 >>>>>>> adding Agora/out files
+=======
+            <generator class="increment"/>
+=======
+            <generator class="native"/>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+>>>>>>> adding updated files
         </id>
         <property name="BidderId" column="bidder_user_id" type="int"/>
         <property name="AuctionId" column="auction_id" type="int"/>
@@ -33,19 +40,25 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <generator class="native"/>
 =======
             <generator class="increment"/>
 >>>>>>> adding Agora/out files
 =======
+=======
+>>>>>>> adding updated files
             <generator class="increment"/>
 =======
             <generator class="native"/>
 >>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+<<<<<<< HEAD
 >>>>>>> adding updated files
 =======
             <generator class="increment"/>
 >>>>>>> adding Agora/out files
+=======
+>>>>>>> adding updated files
         </id>
         <property name="CurrentHighestBidId" column="current_highest_bid_id" type="int" />
         <property name="SellerId" column="seller_user_id" type="int"/>
@@ -56,6 +69,7 @@
     </class>
     <class name="UserAccount" table="useraccounts">
         <id name = "UserId" type="int" column="user_id">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -73,7 +87,12 @@
         <property name="UserName" column="username" type="java.lang.String"/>
 >>>>>>> adding Agora/out files
 =======
+=======
+>>>>>>> adding updated files
             <generator class="increment"/>
+=======
+            <generator class="native"/>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
         </id>
         <property name="UserName" column="username" type="java.lang.String"/>
 >>>>>>> adding Agora/out files
@@ -81,6 +100,7 @@
         <property name="LastName" column="last_name" type="java.lang.String"/>
         <property name="Description" column="user_description" type="string" length="255"/>
         <property name="Password" column="password_hash" type="java.lang.String"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -94,6 +114,11 @@
 >>>>>>> adding updated files
 =======
 >>>>>>> adding Agora/out files
+=======
+=======
+        <property name="UserJoinedDate" column="user_joined_date" type="timestamp"/>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+>>>>>>> adding updated files
     </class>
     <class name="WatchlistEntity" table="user_has_watchlist_auctions">
         <composite-id>
@@ -105,6 +130,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> adding updated files
 =======
 =======
 >>>>>>> adding updated files
@@ -122,6 +151,7 @@
         <property name="AuctionId" column="auctions_auction_id" type="int"/>
     </class>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> adding Agora/out files
 =======
@@ -129,4 +159,7 @@
 >>>>>>> adding updated files
 =======
 >>>>>>> adding Agora/out files
+=======
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+>>>>>>> adding updated files
 </hibernate-mapping>
