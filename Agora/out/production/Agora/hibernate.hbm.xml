@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <generator class="native"/>
 =======
             <generator class="increment"/>
@@ -22,6 +23,12 @@
 =======
             <generator class="increment"/>
 >>>>>>> adding Agora/out files
+=======
+            <generator class="increment"/>
+=======
+            <generator class="native"/>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+>>>>>>> adding updated files
 =======
             <generator class="increment"/>
 =======
@@ -41,11 +48,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <generator class="native"/>
 =======
             <generator class="increment"/>
 >>>>>>> adding Agora/out files
 =======
+=======
+>>>>>>> adding updated files
 =======
 >>>>>>> adding updated files
             <generator class="increment"/>
@@ -53,10 +63,13 @@
             <generator class="native"/>
 >>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> adding updated files
 =======
             <generator class="increment"/>
 >>>>>>> adding Agora/out files
+=======
+>>>>>>> adding updated files
 =======
 >>>>>>> adding updated files
         </id>
@@ -73,10 +86,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <generator class="native"/>
         </id>
         <property name="UserName" column="username" type="java.lang.String" unique="true"/>
 =======
+=======
+>>>>>>> adding updated files
 =======
 >>>>>>> adding updated files
             <generator class="increment"/>
@@ -104,6 +120,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <property name="UserJoinedDate" column="user_joined_date" type="timestamp"/>
 =======
 >>>>>>> adding Agora/out files
@@ -114,6 +131,11 @@
 >>>>>>> adding updated files
 =======
 >>>>>>> adding Agora/out files
+=======
+=======
+        <property name="UserJoinedDate" column="user_joined_date" type="timestamp"/>
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+>>>>>>> adding updated files
 =======
 =======
         <property name="UserJoinedDate" column="user_joined_date" type="timestamp"/>
@@ -131,6 +153,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> adding updated files
 =======
 =======
 >>>>>>> adding updated files
@@ -152,6 +178,7 @@
     </class>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> adding Agora/out files
 =======
@@ -159,6 +186,9 @@
 >>>>>>> adding updated files
 =======
 >>>>>>> adding Agora/out files
+=======
+>>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
+>>>>>>> adding updated files
 =======
 >>>>>>> cca12dd701c5eeca4a6270dc2a5f8f3032db7159
 >>>>>>> adding updated files
