@@ -86,6 +86,13 @@ class ApplicationController < ActionController::Base
         return watchlist, watchlist_items
     end
 
+    def get_cart(id)
+        message = query_message(id)
+
+        cart = ShoppingCart.new
+        cart.user_id = 
+    end
+
     def get_auction(id)
 
         json = query_message(id)
@@ -116,13 +123,36 @@ class ApplicationController < ActionController::Base
 
 		message = query_message(id)
 
-    	if message.nil?
-    		return nil
-    	else
-    		json_data = JSON.parse(message)
-    		return json_data["categories"]
+        json_flags = message["flags"]
+        flags = []
 
-    	end
+        json_flags.each do |f|
+            flag = Flag.new
+            auction = Auction.new
+
+            flag.flag_id = f["flag_id"]
+            flag.flag_type = f["flag_type"]
+            flag.flag_description = f["flag_desc"]
+            
+            auction.auction_id = f["auction_id"]
+            auction.item_name = f["item_name"]
+            auction.item_desc = f["item_desc"]
+            auction.user_id = f["seller_id"]
+
+            array = [flag, auction]
+
+            flags.push(array)
+
+        end
+
+        return flags
+    end
+
+    def get_flags(id)
+
+        message = query_message(id)
+
+
     end
 
     def get_success(id)
@@ -209,5 +239,19 @@ class ApplicationController < ActionController::Base
 
         return json
 
-    end		  
+    end		
+
+    private
+
+    def confirm_user
+        if session[:user_id].nil?
+            redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+        end
+    end  
+
+    def confirm_admin
+        if (session[:is_admin].nil? || (session[:is_admin] == false))
+            redirect_to root_url, notice: "You do not have sufficient privileges"
+        end
+    end
 end

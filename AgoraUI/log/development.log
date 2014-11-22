@@ -23713,3 +23713,122 @@ Migrating to AddFlagDescriptionToFlag (20141121233336)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141121233336"]]
   [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-21 18:10:24 -0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by AuctionsController#index as HTML
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '5b87aeba-1115-4d96-8273-c3e075f5d884' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '5b87aeba-1115-4d96-8273-c3e075f5d884' LIMIT 1
+  Rendered auctions/_results.html.erb (0.2ms)
+  Rendered auctions/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 244ms (Views: 120.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/auctions.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/bids.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/shopping_carts.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/watchlists.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-21 18:10:25 -0600
+ActiveMessaging: adapter amqp not loaded: cannot load such file -- carrot
+ActiveMessaging: adapter beanstalk not loaded: cannot load such file -- beanstalk-client
+ActiveMessaging: adapter reliable_msg not loaded: cannot load such file -- reliable-msg
+ActiveMessaging: adapter wmq not loaded: cannot load such file -- wmq/wmq
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/application_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/auction_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/bid_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/category_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/email_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/flag_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/item_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/shopping_cart_item_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/shopping_cart_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/transaction_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/user_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/watchlist_item_processor.rb
+ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/watchlist_processor.rb
+ActiveMessaging: Rails available: Adding dispatcher prepare callback.
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateShoppingCartItems (20141122005041)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "shopping_cart_items" ("id" serial primary key, "shopping_cart_id" integer, "item_id" integer, "item_name" character varying(255), "item_desc" text, "item_price" float, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141122005041"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
