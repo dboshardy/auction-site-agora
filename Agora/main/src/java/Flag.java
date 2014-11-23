@@ -45,6 +45,12 @@ public class Flag {
         mAuctionFlagged = auctionFlagged;
     }
 
+    public Flag(String flagType, UserAccount flaggingUser, Auction auctionFlagged) {
+        mDateFlagged = new Date();
+        mFlagType = FlagType.valueOf(flagType);
+        mFlaggingUser = flaggingUser;
+        mAuctionFlagged = auctionFlagged;
+    }
     public Flag() {
     }
 
