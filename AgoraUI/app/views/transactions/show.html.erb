@@ -6,13 +6,43 @@
 </p>
 
 <p>
-  <strong>Bidder:</strong>
-  <%= @transaction.bidder %>
+  <strong>Item:</strong>
+  <%= @auction.item_name %>
 </p>
 
 <p>
-  <strong>Seller:</strong>
-  <%= @transaction.seller %>
+  <strong>Item Description:</strong>
+  <%= @auction.item_desc %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @transaction.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @transaction.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @transaction.state %>
+</p>
+
+<p>
+  <strong>Zip Code:</strong>
+  <%= @transaction.zip_code %>
+</p>
+
+<p>
+  <strong>Payment Type:</strong>
+  <%= @transaction.payment_type %>
+</p>
+
+<p>
+  <strong>Total Cost:</strong>
+  <%= @transaction.total_cost %>
 </p>
 
 <%= link_to 'Edit', edit_transaction_path(@transaction) %> |

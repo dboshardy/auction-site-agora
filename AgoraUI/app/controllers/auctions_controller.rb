@@ -72,15 +72,15 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    status, @error = get_success(id)
+    @auction, @status, @error = get_auction_success(id)
 
-    if status == "true"
-      @status = "New auction created!"
+    if !@auction.nil?
+      redirect_to "/categories/new_categories_for_auction/#{@auction}"
     else
       @status = "Auction could not be created"
+      render 'confirm'
     end
 
-    render 'confirm'
   end
 
   # PATCH/PUT /auctions/1

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/watchlist_items/:id/new" => "watchlist_items#new"
   get "/flags/:id/new" => "flags#new"
   post "flags/:id/create" => "flags#create"
+  get "/transactions/:id/new" => "transactions#new"
 
   resources :watchlists
 

@@ -64,13 +64,26 @@ class ShoppingCartsController < ApplicationController
 
   # # DELETE /shopping_carts/1
   # # DELETE /shopping_carts/1.json
-  # def destroy
-  #   @shopping_cart.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to shopping_carts_url, notice: 'Shopping cart was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    id = SecureRandom.uuid.to_s
+    item_id = params[:id]
+
+    item_info = {:id => id, :type => "delete", 
+      :item_id => item_id     
+    }
+
+    publish :shopping_cart, JSON.generate(item_info)
+
+    status, @error = get_success(id)
+
+    if status == "true"
+      @status = "Cart item deleted!"
+    else
+      @status = "Cart item could not be deleted"
+    end
+
+    render 'confirm' 
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
