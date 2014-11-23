@@ -42,11 +42,7 @@ public class AuctionEngine {
         calendar.add(Calendar.DATE, 7);
         newDate.setTime(calendar.getTime().getTime());
 
-<<<<<<< HEAD
         Auction auction1 = new Auction("Computer", user1, "This is a computer I want to sell.",new BigDecimal(2000.00),newDate);
-=======
-        Auction auction1 = new Auction("Computer", user1, "This is a computer I want to sell.", new BigDecimal(2000.00),newDate);
->>>>>>> fleshed out methods to check if user has active bids or auctions
 
         AuctionController auctionController = new AuctionController();
         auctionController.persistAuction(auction1);

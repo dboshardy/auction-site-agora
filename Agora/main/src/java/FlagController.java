@@ -50,7 +50,6 @@ public class FlagController {
         }
         return flags;
     }
-<<<<<<< HEAD
 
     public String removeFlag(Flag flag){
         String response = "";
@@ -91,6 +90,4 @@ public class FlagController {
         return flags;
     }
 
-=======
->>>>>>> fleshed out methods to check if user has active bids or auctions
 }

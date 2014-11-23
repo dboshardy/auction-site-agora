@@ -2,15 +2,7 @@
  * Created by Miao on 11/22/14.
  */
 
-import org.apache.activemq.transport.stomp.StompConnection;
-import org.apache.activemq.transport.stomp.StompFrame;
-import org.apache.activemq.transport.stomp.Stomp.Headers.*;
-import org.json.*;
-
-import java.lang.ClassCastException;
-import java.lang.Double;
-import java.lang.String;
-import java.util.Locale;
+import org.json.JSONObject;
 
 public class UserQueue extends Message{
 
@@ -19,7 +11,7 @@ public class UserQueue extends Message{
         String result= "";
         String type = obj.getString("type");
 
-        UserAccountController userController= new userController();
+        UserAccountController userController= new UserAccountController();
 
         if (type.equals("create")){
             // take appropriate action to create new tuple in database
@@ -32,7 +24,7 @@ public class UserQueue extends Message{
             String password_hash= obj.getString("password_hash");
 
 
-            UserAccount user= new UserAccount(username,email, password_hash, first_name, last_name, user_description)
+            UserAccount user= new UserAccount(username,email, password_hash, first_name, last_name, user_description);
             result= userController.persistUserAccount(user);
             if(result.equals("true")){
                 output.put("succeed",true);
@@ -50,7 +42,7 @@ public class UserQueue extends Message{
             String password_hash= obj.getString("password_hash");
 
 
-            UserAccount user= new UserAccount(username,email, password_hash, first_name, last_name, user_description)
+            UserAccount user= new UserAccount(username,email, password_hash, first_name, last_name, user_description);
             result= userController.updateUserAccount(user);
             if(result.equals("true")){
                 output.put("succeed",true);
@@ -87,7 +79,7 @@ public class UserQueue extends Message{
         }*/else if(type.equals("show")){
             // you get the idea
             String user_id = obj.getString("user_id");
-            result= userController.getUserById(new UserAccount(Integer.parseInt(user_id)));
+            result = userController.getUserById(Integer.parseInt(user_id)).toString();
             output.put("user",result);
 
         }

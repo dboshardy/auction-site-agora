@@ -38,14 +38,12 @@ public class AuctionController {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not insert auction: " + auction.toString() + " to database. Auction already exists");
-            result="Existed"
+            result="Existed";
         }
 
         BidController bidController = new BidController();
         bidController.persistBid(auction.getNonPersistedBid());
-        //auction.setCurrentHighestBidId(auction.getCurrentHighestBid().getBidId());
         this.updateAuction(auction);
-        //bidController.updateBid(auction.getCurrentHighestBid());
         return result;
 
     }
@@ -83,7 +81,7 @@ public class AuctionController {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not remove auction: " + auction.toString() + " from database.");
-            result=""
+            result="";
         }
         return result;
     }

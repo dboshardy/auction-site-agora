@@ -2,15 +2,11 @@
  * Created by Miao on 11/8/14.
  */
 
-import org.apache.activemq.transport.stomp.StompConnection;
-import org.apache.activemq.transport.stomp.StompFrame;
-import org.apache.activemq.transport.stomp.Stomp.Headers.*;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import java.lang.ClassCastException;
-import java.lang.Double;
-import java.lang.String;
-import java.util.Locale;
+import java.math.BigDecimal;
+import java.util.List;
 
 public class BidQueue extends Message{
 
@@ -33,7 +29,8 @@ public class BidQueue extends Message{
             String start_bid= obj.getString("start_bid");
             Double bidAmount= Double.parseDouble(start_bid);
 
-            Bid bid = new Bid(Bidder(Integer.parseInt(user_id)), auctionController.getAuctionById(Integer.parseInt(auction_id)), bidAmount)
+            UserAccountController userAccountController = new UserAccountController();
+            Bid bid = new Bid(userAccountController.getUserById(Integer.parseInt(user_id)), auctionController.getAuctionById(Integer.parseInt(auction_id)), new BigDecimal(bidAmount));
             result = bidController.persistBid(bid);
             output.put("result",result);
             if(result.equals("true")){
@@ -48,7 +45,7 @@ public class BidQueue extends Message{
             String user_id = obj.getString("user_id");
 
             Auction auction= auctionController.getAuctionById(Integer.parseInt(auction_id));
-            ArrayList<Bid> bids= auctionController.getAuctionBids(auction);
+            List<Bid> bids= auctionController.getAuctionBids(auction);
             JSONArray jsonArray = new JSONArray();
             for(Bid b:bids){
                 JSONObject ele= new JSONObject();
