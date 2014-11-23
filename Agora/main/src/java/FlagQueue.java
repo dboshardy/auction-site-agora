@@ -61,23 +61,7 @@ public class FlagQueue extends Message{
             result= flagController.removeFlag(fc.getFlagById(Integer.parseInt(flag_id)));
             output.put("result",result);
 
-        }/*else if(type.equals("login")){
-            // you get the idea
-            String username = obj.getString("username");
-            String password_hash= obj.getString("password_hash");
-
-
-            UserAccount user= new UserAccount(username,email, password_hash)
-            result= userController.updateUserAccount(user);
-            if(result.equals("true")){
-                output.put("succeed",true);
-            }else{
-                output.put("succeed",false);
-                output.put("Error",result);
-            }
-        }*//*else if(type.equals("suspend")){
-
-        }*/else if(type.equals("index")){
+        }else if(type.equals("index")){
             // you get the idea
             FlagController fc = new FlagController();
             String auction_id = obj.getString("auction_id");

@@ -51,7 +51,8 @@ public class Watchlist {
         // make call to database to get all items in watchlist
     }
 
-    public void deleteAuctionFromWatchlist(Auction auction) {
+    public String deleteAuctionFromWatchlist(Auction auction) {
+        String result="false";
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
         SQLQuery query = session.createSQLQuery("DELETE FROM" + mTableName + "WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND " +
@@ -59,16 +60,21 @@ public class Watchlist {
         query.executeUpdate();
         session.getTransaction().commit();
         session.close();
+        result="true";
+        return result;
     }
 
-    public void deleteWatchlist() {
+    public String deleteWatchlist() {
         // delete from database
+        String result="false";
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
         SQLQuery query = session.createSQLQuery("DELETE FROM " + mTableName + " WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND watchlist_name=" + this.getWatchlistName());
         query.executeUpdate();
         session.getTransaction().commit();
         session.close();
+        result="true";
+        return result;
     }
 
     public String getWatchlistName() {
@@ -108,13 +114,16 @@ public class Watchlist {
         this.mWatchlist = mWatchlist;
     }
 
-    public void addAuctionToWatchlist(Auction auction) {
+    public String addAuctionToWatchlist(Auction auction) {
+        String result="false";
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
         SQLQuery query = session.createSQLQuery("INSERT INTO " + mTableName + "(useraccounts_user_id, auctions_auction_id, watchlist_name) VALUES (" + mUserAccount.getUserId() + "," + auction.getAuctionId() + ", \'" + this.getWatchlistName() + "\')");
         query.executeUpdate();
         session.getTransaction().commit();
         session.close();
+        result="true";
+        return result;
     }
 
 }
