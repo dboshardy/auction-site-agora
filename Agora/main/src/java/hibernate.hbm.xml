@@ -56,4 +56,12 @@
         <property name="AuctionId" column="auctions_auction_id" type="int"/>
         <property name="FlagType" column="flag_type" type="string" length="45"/>
     </class>
+    <class name="Email" table = "emails">
+        <id name = "EmailId" type="int" column="email_id">
+                <generator class="native"/>
+        </id>
+        <property name="SenderId" column="sender_id" type="int"/>
+        <property name="ReceiverId" column="receiver_id" type="int"/>
+    </class>
+
 </hibernate-mapping>
