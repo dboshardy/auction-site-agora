@@ -16,7 +16,7 @@ public class WatchlistQueue extends Message{
 
     public JSONObject createMessageBody(JSONObject obj){
         JSONObject output = new JSONObject();
-        Boolean result= "";
+        String result= "";
         String type = obj.getString("type");
 
         WatchlistModel watchlistModel= new WatchlistModel();
