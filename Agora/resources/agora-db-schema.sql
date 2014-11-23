@@ -120,30 +120,28 @@ WITH (
 ------------------
 
 ALTER TABLE Auctions ADD CONSTRAINT fk_Auctions_UserAccounts1 FOREIGN KEY (seller_user_id)
-        REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+        REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 --ALTER TABLE User_has_Watchlist_Auctions ADD CONSTRAINT fk_Auctions_has_UserAccounts_Auctions FOREIGN KEY (Auctions_auction_id)
-   --     REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+   --     REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE User_has_Watchlist_Auctions ADD CONSTRAINT fk_Auctions_has_UserAccounts_UserAccounts1 FOREIGN KEY (UserAccounts_user_id)
-        REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+        REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE Bids ADD CONSTRAINT fk_Bids_Auctions1 FOREIGN KEY (auction_id)
-        REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+        REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE Bids ADD CONSTRAINT fk_Bids_UserAccounts1 FOREIGN KEY (bidder_user_id)
-        REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+        REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE User_has_ShoppingCart_Auctions ADD CONSTRAINT fk_UserAccounts_has_Auctions_UserAccounts1 FOREIGN KEY (UserAccounts_user_id)
-        REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+        REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE User_has_ShoppingCart_Auctions ADD CONSTRAINT fk_UserAccounts_has_Auctions_Auctions1 FOREIGN KEY (Auctions_auction_id)
-        REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+        REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE FlaggedUsers ADD CONSTRAINT fk_FlaggedUsers1 FOREIGN KEY (UserAccounts_user_id)
-				REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+				REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE FlaggedAuctions ADD CONSTRAINT fk_FlaggedAuctions1 FOREIGN KEY (Auctions_Auction_id)
-				REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+				REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE CategoryChildren ADD CONSTRAINT fk_CategoryChildren FOREIGN KEY (child_id)
-				REFERENCES Categories (category_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+				REFERENCES Categories (category_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE UserAccounts ADD CONSTRAINT UniqueUsername UNIQUE (username);
-<<<<<<< HEAD
+
 
 
 --Write script to add all categories. Maybe get from work.
-=======
->>>>>>> fleshed out methods to check if user has active bids or auctions
 
