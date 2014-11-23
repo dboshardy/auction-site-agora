@@ -48,20 +48,21 @@ public class AuctionController {
 
     }
 
-    public boolean updateAuction(Auction auction) {
-        boolean result = false;
+    public String updateAuction(Auction auction) {
+        String result = "";
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(auction);
             session.getTransaction().commit();
             session.close();
-            result=true;
+            result = "Successfully Updated Auction";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not update auction: " + auction.toString() + " in database.");
+            result = "Could not Update Auction";
         }
         return result;
     }

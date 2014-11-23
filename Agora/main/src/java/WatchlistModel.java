@@ -16,39 +16,43 @@ public class WatchlistModel {
         return false;
     }
 
-    public boolean createWatchlist(Watchlist watchlist){
+    public String createWatchlist(Watchlist watchlist){
         Session session = mSessionFactory.openSession();
         org.hibernate.Transaction transaction = null;
+        String result = "";
         try {
             transaction = session.beginTransaction();
             watchlist.setWatchlistId((Integer) session.save(watchlist));
             transaction.commit();
             session.close();
-            return true;
+            result = "Succesfully created watchlist";
         } catch (HibernateException e) {
             if (transaction != null) {
                 transaction.rollback();
             }
-            return false;
+            result = "Could not create watchlist";
             //LOG.warn("Could not insert user account : {} to database.",user.toString());
         }
+        return result;
     }
-    public boolean removeWatchlist(Watchlist watchlist) {
+    public String removeWatchlist(Watchlist watchlist) {
         Session session = mSessionFactory.openSession();
         org.hibernate.Transaction transaction = null;
+        String result = "";
         try{
             transaction = session.beginTransaction();
             session.delete(watchlist);
             transaction.commit();
             session.close();
-            return true;
+            result = "Successfully removed watchlist";
         }
         catch (HibernateException e){
             if(transaction != null){
                 transaction.rollback();
             }
-            return false;
-            //LOG.warn("Could not remove user account : {} to database.",user.toString());
+            result = "Could not remove watchlist";
+//            LOG.warn("Could not remove watchlist: "+ watchlist.toString()+" from database.");
         }
+        return result;
     }
 }

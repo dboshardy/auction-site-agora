@@ -1,3 +1,5 @@
+import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
@@ -10,49 +12,71 @@ import java.util.List;
 public class ShoppingCart {
 
 
+    private static final org.apache.log4j.Logger LOG = Logger.getLogger(ShoppingCart.class);
     private String mTableName = "user_has_shoppingcart_auctions";
-    private ArrayList<Auction> mShoppingCart;
+    private ArrayList<Auction> mAuctions;
 
     public ShoppingCart() {
         
     }
 
-    public ArrayList<Auction> getShoppingCart(UserAccount user){
+    public ArrayList<Auction> getShoppingCart(int user_id){
         Session session = HibernateUtils.getSessionFactory().openSession();
-        session.beginTransaction();
-        SQLQuery query = (SQLQuery) session.createSQLQuery("SELECT * FROM " + mTableName + " WHERE useraccounts_user_id=" + user.getUserId());
-        List<Object[]> objects = query.list();
-        session.getTransaction().commit();
-        session.close();
+        List<Object[]> objects = null;
+        try {
+            session.beginTransaction();
+            SQLQuery query = (SQLQuery) session.createSQLQuery("SELECT * FROM " + mTableName + " WHERE useraccounts_user_id=" + user_id);
+            objects = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e ){
+
+        }
 
         if (objects.size() > 0) {
             for (Object[] object : objects) {
                 ShoppingCartEntity entity = new ShoppingCartEntity((Integer)object[0],(Integer)object[1]);
-                mShoppingCart.add(entity.getAuctionFromDatabase());
+                mAuctions.add(entity.getAuctionFromDatabase());
             }
         }
-        return mShoppingCart;
+        return mAuctions;
     }
 
     public String removeAuctionFromCart(Auction auction) {
         String result="";
         Session session = HibernateUtils.getSessionFactory().openSession();
-        session.beginTransaction();
-        SQLQuery query = session.createSQLQuery("DELETE FROM "+mTableName+" WHERE auction_id="+auction.getAuctionId());
-        query.executeUpdate();
-        session.getTransaction().commit();
-        session.close();
-
-        session.beginTransaction();
-        result="true";
-    }
-
-    public void addAuctionToShoppingCart(UserAccount user, Auction auction) {
-            Session session = HibernateUtils.getSessionFactory().openSession();
+        try {
             session.beginTransaction();
-            SQLQuery query = session.createSQLQuery("INSERT INTO " + mTableName + "(useraccounts_user_id, auctions_auction_id) VALUES (" + user.getUserId() + "," + auction.getAuctionId()+")");
+            SQLQuery query = session.createSQLQuery("DELETE FROM " + mTableName + " WHERE auction_id=" + auction.getAuctionId());
             query.executeUpdate();
             session.getTransaction().commit();
             session.close();
+            result = "Successfully removed auction from cart";
+        } catch (HibernateException e){
+            if(session.getTransaction() != null){
+                session.getTransaction().rollback();
+            }
+            result = "Could not remove auction from cart";
+        }
+
+        session.beginTransaction();
+        result="true";
+        return result;
+    }
+
+    public void addAuctionToShoppingCart(UserAccount user, Auction auction) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            SQLQuery query = session.createSQLQuery("INSERT INTO " + mTableName + "(useraccounts_user_id, auctions_auction_id) VALUES (" + user.getUserId() + "," + auction.getAuctionId() + ")");
+            query.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e){
+            if(session.getTransaction() != null){
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not add auction: "+auction.toString()+" to shopping cart: "+this.toString());
+        }
     }
 }

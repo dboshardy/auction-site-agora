@@ -21,7 +21,7 @@ public class MessageFactory {
 
         }
         else if (queue.equals("/queue/WatchlistItem")){
-            return new WatchlistItemQueue();
+            return new WatchlistQueue();
 
         }
         else if (queue.equals("/queue/ShoppingCart")){
@@ -29,23 +29,23 @@ public class MessageFactory {
 
         }
          else if (queue.equals("/queue/Flag")){
-            return new FlagQueue();
+//            return new FlagQueue();
 
         }
         else if (queue.equals("/queue/ShoppingCartItem")){
-            return new ShoppingCartItemQueue();
+            return new ShoppingCartQueue();
 
         }
         else if (queue.equals("/queue/Transaction")){
-            return new TransactionQueue();
+//            return new TransactionQueue();
 
         }
         else if (queue.equals("/queue/Category")){
-            return new CategoryQueue();
+//            return new CategoryQueue();
 
         }
         else if (queue.equals("/queue/Email")){
-            return new EmailQueue();
+//            return new EmailQueue();
 
         }
         return null;
