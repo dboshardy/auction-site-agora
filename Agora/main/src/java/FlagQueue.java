@@ -27,9 +27,10 @@ public class FlagQueue extends Message{
             // take appropriate action to create new tuple in database
             // create a JSON object for the return message
             String auction_id = obj.getString("auction_id");
-            String flag_type= obj.getString("flag_type");
+            String f_type= obj.getString("flag_type");
             String flag_desc = obj.getString("flag_desc");
             String user_id= obj.getString("user_id");
+
 
             UserAccountController uac=new UserAccountController();
             AuctionController ac = new AuctionController();
