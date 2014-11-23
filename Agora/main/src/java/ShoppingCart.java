@@ -34,7 +34,8 @@ public class ShoppingCart {
         return mShoppingCart;
     }
 
-    public void removeAuctionFromCart(Auction auction) {
+    public String removeAuctionFromCart(Auction auction) {
+        String result="";
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
         SQLQuery query = session.createSQLQuery("DELETE FROM "+mTableName+" WHERE auction_id="+auction.getAuctionId());
@@ -43,6 +44,7 @@ public class ShoppingCart {
         session.close();
 
         session.beginTransaction();
+        result="true";
     }
 
     public void addAuctionToShoppingCart(UserAccount user, Auction auction) {

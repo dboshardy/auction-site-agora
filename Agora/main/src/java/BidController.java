@@ -12,8 +12,10 @@ import java.util.List;
 public class BidController {
     private static final org.apache.log4j.Logger LOG = Logger.getLogger(BidController.class);
 
-    public void persistBid(Bid bid) {
+    public String persistBid(Bid bid) {
+        String result="";
         if (bid.getBidId() > 0) {
+            result="Existed";
             throw new EntityExistsException();
 
         }
@@ -23,17 +25,21 @@ public class BidController {
             session.save(bid);
             session.getTransaction().commit();
             session.close();
+            result="true";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
+            result="Hibernate failed";
             LOG.warn("Could not insert bid: " + bid.toString() + " to database.");
         } catch (EntityExistsException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
+            result="Existed";
             LOG.warn("Could not insert bid: " + bid.toString() + " to database. Bid already exists.");
         }
+        return result;
     }
 
     public Bid getBidById(int bidId) {
