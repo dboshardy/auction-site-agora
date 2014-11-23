@@ -13,7 +13,8 @@ import java.util.List;
 public class AuctionController {
     private static final Logger LOG = Logger.getLogger(AuctionController.class);
 
-    public void persistAuction(Auction auction) {
+    public String persistAuction(Auction auction) {
+        String result = "";
         if (auction.getAuctionId() > 0) {
             throw new EntityExistsException();
 
@@ -25,16 +26,19 @@ public class AuctionController {
             auction.setAuctionId((Integer) session.save(auction));
             session.getTransaction().commit();
             session.close();
+            result = "true";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not insert account: " + auction.toString() + " to database.");
+            result="Unknown Exception";
         } catch (EntityExistsException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not insert auction: " + auction.toString() + " to database. Auction already exists");
+            result="Existed"
         }
 
         BidController bidController = new BidController();
@@ -42,37 +46,46 @@ public class AuctionController {
         //auction.setCurrentHighestBidId(auction.getCurrentHighestBid().getBidId());
         this.updateAuction(auction);
         //bidController.updateBid(auction.getCurrentHighestBid());
+        return result;
 
     }
 
-    public void updateAuction(Auction auction) {
+    public boolean updateAuction(Auction auction) {
+        boolean result = false;
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(auction);
             session.getTransaction().commit();
             session.close();
+            result=true;
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not update auction: " + auction.toString() + " in database.");
         }
+        return result;
     }
 
-    public void deleteAuction(Auction auction) {
+    public String deleteAuction(Auction auction) {
+        String result="";
+
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.delete(auction);
             session.getTransaction().commit();
             session.close();
+            result="true";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not remove auction: " + auction.toString() + " from database.");
+            result=""
         }
+        return result;
     }
 
     public Auction getAuctionById(int auctionId) {
