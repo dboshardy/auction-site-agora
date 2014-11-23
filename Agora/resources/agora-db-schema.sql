@@ -133,8 +133,6 @@ ALTER TABLE User_has_ShoppingCart_Auctions ADD CONSTRAINT fk_UserAccounts_has_Au
         REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE User_has_ShoppingCart_Auctions ADD CONSTRAINT fk_UserAccounts_has_Auctions_Auctions1 FOREIGN KEY (Auctions_auction_id)
         REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
-ALTER TABLE FlaggedUsers ADD CONSTRAINT fk_FlaggedUsers1 FOREIGN KEY (UserAccounts_user_id)
-				REFERENCES UserAccounts (user_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE FlaggedAuctions ADD CONSTRAINT fk_FlaggedAuctions1 FOREIGN KEY (Auctions_Auction_id)
 				REFERENCES Auctions (auction_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE;
 ALTER TABLE CategoryChildren ADD CONSTRAINT fk_CategoryChildren FOREIGN KEY (child_id)
