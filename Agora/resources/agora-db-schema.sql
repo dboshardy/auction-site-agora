@@ -1,3 +1,13 @@
+DROP TABLE UserAccounts IF EXISTS CASCADE;
+DROP TABLE Auctions IF EXISTS CASCADE;
+DROP TABLE Bids IF EXISTS CASCADE;
+DROP TABLE FlaggedAuctions IF EXISTS CASCADE;
+DROP TABLE User_has_Watchlist_Auctions IF EXISTS CASCADE;
+DROP TABLE Categories IF EXISTS CASCADE;
+DROP TABLE User_has_ShoppingCart_Auctions IF EXISTS CASCADE;
+DROP TABLE CategoryChildren IF EXISTS CASCADE;
+
+
 --------------------------------------------------
 --Definition for Table: UserAccounts 
 --------------------------------------------------
