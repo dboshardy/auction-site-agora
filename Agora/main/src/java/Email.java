@@ -5,17 +5,18 @@ public class Email {
 
     private int mSenderId;
     private int mReceiverId;
+    private String mEmailContent;
 
     public Email(int senderId, int receiverId){
         mSenderId = senderId;
         mReceiverId = receiverId;
     }
-    
-    public void createEmail(){
 
-    }
-
-    public void sendEmail(){};
+    public void sendEmail(UserAccount admin, UserAccount receiver, String content){
+        mSenderId = admin.getUserId();
+        mReceiverId = receiver.getUserId();
+        mEmailContent = content;
+    };
 
     public int getSenderId() {
         return mSenderId;
