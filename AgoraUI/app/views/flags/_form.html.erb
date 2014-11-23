@@ -1,0 +1,29 @@
+<%= form_for(@flag) do |f| %>
+  <% if @flag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flag.errors.count, "error") %> prohibited this flag from being saved:</h2>
+
+      <ul>
+      <% @flag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :flag_type %><br>
+    <%= f.text_field :flag_type %>
+  </div>
+  <div class="field">
+    <%= f.label :flagging_user %><br>
+    <%= f.text_field :flagging_user %>
+  </div>
+  <div class="field">
+    <%= f.label :auction_id %><br>
+    <%= f.text_field :auction_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

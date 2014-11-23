@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+    <class name="Bid" table="bids">
+        <id name="BidId" type="int" column="bid_id" >
+            <generator class="native"/>
+        </id>
+        <property name="BidderId" column="bidder_user_id" type="int"/>
+        <property name="AuctionId" column="auction_id" type="int"/>
+        <property name="Timestamp" column="timestamp" type="timestamp"/>
+        <property name="Currency" column="currency" type="string" length="45"/>
+        <property name="BidAmount" column="bid_amount" type="java.math.BigDecimal"/>
+    </class>
+    <class name="Auction" table="auctions">
+        <id name="AuctionId" type="int" column="auction_id">
+            <generator class="native"/>
+        </id>
+        <property name="CurrentHighestBidId" column="current_highest_bid_id" type="int" />
+        <property name="SellerId" column="seller_user_id" type="int"/>
+        <property name="ListTime" column="list_time" type="timestamp"/>
+        <property name="EndTime" column="end_time" type="timestamp"/>
+        <property name="Description" column="auction_description" type="string" length="255"/>
+        <property name="BuyItNowPrice" column="buy_it_now_price" type="java.math.BigDecimal"/>
+    </class>
+    <class name="UserAccount" table="useraccounts">
+        <id name = "UserId" type="int" column="user_id">
+            <generator class="native"/>
+        </id>
+        <property name="UserName" column="username" type="java.lang.String" unique="true"/>
+        <property name="FirstName" column="first_name" type="java.lang.String"/>
+        <property name="LastName" column="last_name" type="java.lang.String"/>
+        <property name="Description" column="user_description" type="string" length="255"/>
+        <property name="Password" column="password_hash" type="java.lang.String"/>
+        <property name="UserJoinedDate" column="user_joined_date" type="timestamp"/>
+    </class>
+    <class name="WatchlistEntity" table="user_has_watchlist_auctions">
+        <composite-id>
+            <key-property name="AuctionId" column="auctions_auction_id" type="int"/>
+            <key-property name="UserId" column="useraccounts_user_id" type="int"/>
+            <key-property name="WatchlistName" column="watchlist_name" type="string"/>
+        </composite-id>
+    </class>
+    <class name="Category" table="categories">
+        <id name="CategoryId" type="int" column="category_id">
+            <generator class="native"/>
+        </id>
+        <property name="ParentId" column="parent_id" type="int"/>
+        <property name="Name" column="category_name" type="string" length="45"/>
+    </class>
+    <class name="Flag" table="flaggedauctions">
+        <id name="FlagId" type="int" column="flag_id">
+            <generator class="native"/>
+        </id>
+        <property name="AuctionId" column="auctions_auction_id" type="int"/>
+        <property name="FlagType" column="flag_type" type="string" length="45"/>
+    </class>
+</hibernate-mapping>

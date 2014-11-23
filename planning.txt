@@ -1,0 +1,6 @@
+Actors:
+
+Better/Buyer
+Seller
+Admin
+

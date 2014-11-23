@@ -1,0 +1,31 @@
+FRONT:
+Name: UserAccountController
+No Super/Sub
+
+ClassType:
+Concrete
+------------
+
+
+Responsibilities:
+
+Need to know:
+-User Account it is handling (or just UserID)
+-UserAccount table
+
+Need to do:
+-Pull from UserAccount table to send info to view
+-Update UserAccount info in database
+
+
+Collaborations:
+UserAccount - Model Class
+
+
+BACK:
+Pattern: N/A
+
+Attributes:
+UserAccount
+Endpoint for database
+Endpoint for view

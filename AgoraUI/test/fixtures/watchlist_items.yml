@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  watchlist_id: 1
+  user_id: 1
+  item_name: MyString
+  item_description: MyText
+  item_price: 1.5
+
+two:
+  watchlist_id: 1
+  user_id: 1
+  item_name: MyString
+  item_description: MyText
+  item_price: 1.5

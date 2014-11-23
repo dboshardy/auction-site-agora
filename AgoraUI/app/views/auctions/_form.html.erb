@@ -1,0 +1,43 @@
+<%= form_for(@auction) do |f| %>
+  <% if @auction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@auction.errors.count, "error") %> prohibited this auction from being saved:</h2>
+
+      <ul>
+      <% @auction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :auction_start_time %><br>
+    <%= f.datetime_field :auction_start_time %>
+  </div>
+
+  <div class="field"> 
+    <%= f.label :auction_length%>  <br>
+    <%= f.number_field :auction_length, in: 3...8 %>     
+  </div>   
+  <div class="field"> 
+    <%= f.label :item_name  %> <br>
+    <%= f.text_field :item_name %>      
+  </div>  
+  <div class="field"> 
+    <%= f.label :item_desc %> <br>
+    <%= f.text_field :item_desc %>   
+  </div>  
+  <div class="field"> 
+    <%= f.label :quantity  %> <br>
+    <%= f.number_field :quantity, min: 1 %>   
+  </div>  
+  <div class="field"> 
+    <%= f.label :buy_it_now %>  <br>
+    <input type="radio" name=<%= :buy_it_now %> value="true" checked><strong> True</strong><br>
+    <input type="radio" name=<%= :buy_it_now %> value="false"> <strong>False</strong><br><br>
+  </div>      
+  <div class="actions">
+    <%= f.submit %>
+  </div><br>
+<% end %>
