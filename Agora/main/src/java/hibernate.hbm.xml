@@ -17,6 +17,7 @@
         <id name="AuctionId" type="int" column="auction_id">
             <generator class="native"/>
         </id>
+        <property name="AuctionName" column="auction_name" type="string" length="100"/>
         <property name="CurrentHighestBidId" column="current_highest_bid_id" type="int" />
         <property name="SellerId" column="seller_user_id" type="int"/>
         <property name="ListTime" column="list_time" type="timestamp"/>
@@ -34,6 +35,7 @@
         <property name="Description" column="user_description" type="string" length="255"/>
         <property name="Password" column="password_hash" type="java.lang.String"/>
         <property name="UserJoinedDate" column="user_joined_date" type="timestamp"/>
+        <property name="isAdmin" column="is_admin" type="boolean"/>
     </class>
     <class name="WatchlistEntity" table="user_has_watchlist_auctions">
         <composite-id>
