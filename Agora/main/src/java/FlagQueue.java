@@ -3,16 +3,10 @@
  */
 
 
-import org.apache.activemq.transport.stomp.StompConnection;
-import org.apache.activemq.transport.stomp.StompFrame;
-import org.apache.activemq.transport.stomp.Stomp.Headers.*;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import java.lang.ClassCastException;
-import java.lang.Double;
-import java.lang.String;
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.List;
 
 public class FlagQueue extends Message{
 
@@ -33,6 +27,7 @@ public class FlagQueue extends Message{
 
             UserAccountController uac=new UserAccountController();
             AuctionController ac = new AuctionController();
+            //keep an eye on this
             Flag flag= new Flag(flag_type, uac.getUserById(Integer.parseInt(user_id)), ac.getAuctionById(Integer.parseInt(auction_id)));
 
             result= flagController.persistFlagOnAuction(flag);
@@ -87,7 +82,7 @@ public class FlagQueue extends Message{
             FlagController fc = new FlagController();
             String auction_id = obj.getString("auction_id");
             AuctionController ac = new AuctionController();
-            ArrayList<Flag> list = flagController.getAllFlagsOnAuction(ac.getAuctionById(Integer.parseInt(auction_id)));
+            List<Flag> list = flagController.getAllFlagsOnAuction(ac.getAuctionById(Integer.parseInt(auction_id)));
             JSONArray jsonArray = new JSONArray();
             for(Flag f:list){
                 JSONObject ele= new JSONObject();

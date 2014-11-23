@@ -94,4 +94,21 @@ public class FlagController {
         return flags;
     }
 
+    public Flag getFlagById(int flag_id){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Flag flag =  null;
+        try{
+            session.beginTransaction();
+            flag = (Flag) session.get(Flag.class,flag_id);
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e){
+            if(session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not retrieve flag with id: "+flag_id+" from database.");
+        }
+        return flag;
+    }
+
 }
