@@ -12,8 +12,9 @@ public class FlagController {
     private static final org.apache.log4j.Logger LOG = Logger.getLogger(FlagController.class);
     private String mFlaggedAuctionsTableName = "FlaggedAuctions";
 
-    public void persistFlagOnAuction(Flag flag) {
+    public String persistFlagOnAuction(Flag flag) {
 
+        String result= "";
         Session session = HibernateUtils.getSessionFactory().openSession();
 
 
@@ -22,14 +23,17 @@ public class FlagController {
             session.save(flag);
             session.getTransaction().commit();
             session.close();
+            result="true";
 
         }
         catch (HibernateException e){
             if(session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
+            result="Hibernate failed";
             LOG.warn("Could not persist flag: " + flag.toString() + "to database.");
         }
+        return result;
     }
 
     public List<Flag> getAllFlags(){
