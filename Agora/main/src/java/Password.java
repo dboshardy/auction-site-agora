@@ -5,10 +5,6 @@
 public class Password {
 
     private String password;
-<<<<<<< HEAD
-    private ;
-=======
->>>>>>> 8bcff1f6d64425ee33e6dfae53ca10deac21973e
 
     public Password(String password) {
         this.password=password;

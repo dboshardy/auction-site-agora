@@ -1,49 +1,14 @@
-<<<<<<< HEAD
-=======
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Date;
->>>>>>> 8bcff1f6d64425ee33e6dfae53ca10deac21973e
 import java.util.List;
 
 /**
  * Created by Miao Yu on 10/19/14.
  */
-<<<<<<< HEAD
-public class Auction {
-
-    private String timestamp;
-    private ArrayList<Bid> bidList;
-    private Seller seller;
-    public Auction() {
-        
-    }
-
-    public ArrayList<Bid> getBidList(){
-        ArrayList<Item> result= bidList;
-        return result;
-    }
-
-    public void setTimestamp(String time){
-        timestamp=time;
-    }
-
-    public Seller getSeller(){
-        return seller;
-    }
-
-    public void setSeller(Seller seller){
-        this.seller=seller;
-    }
-
-    public boolean addBid(Bid bid){
-        bidList.add(bid);
-        return true;
-    }
-
-=======
 public class Auction extends Message{
 
     private Bid mCurrentHighestBid = null;
@@ -278,5 +243,4 @@ public class Auction extends Message{
         FlagController flagController = new FlagController();
         flagController.persistFlagOnAuction(flag);
     }
->>>>>>> 8bcff1f6d64425ee33e6dfae53ca10deac21973e
 }

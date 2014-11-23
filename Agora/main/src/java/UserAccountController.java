@@ -13,9 +13,11 @@ public class UserAccountController {
     private static SessionFactory mSessionFactory;
 
 
-    public void persistUserAccount(UserAccount user) {
+    public String persistUserAccount(UserAccount user) {
+        String result="";
         Session session = HibernateUtils.getSessionFactory().openSession();
         if (user.getUserId() > 0) {
+            result="Existed";
             throw new EntityExistsException();
 
         }
@@ -23,45 +25,59 @@ public class UserAccountController {
             session.beginTransaction();
             session.save(user);
             session.getTransaction().commit();
+            result="true";
+
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
+            result="Hibernate Failed";
+
             LOG.warn("Could not insert user account: " + user.toString() + " to database.");
         } catch (EntityExistsException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
+            result="Existed";
             LOG.warn("Could not insert user account: " + user.toString() + " to database. User account already exists");
         }
+        return result;
     }
 
-    public void deleteUserAccount(UserAccount user) {
+    public String deleteUserAccount(UserAccount user) {
+        String result= "";
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.delete(user);
             session.getTransaction().commit();
+            result="true";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
+            result="Could not delete";
             LOG.warn("Could not remove user account: " + user.toString() + " from database.");
         }
+        return result;
     }
 
-    public void updateUserAccount(UserAccount user) {
+    public String updateUserAccount(UserAccount user) {
+        String result="";
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(user);
             session.getTransaction().commit();
+            result="true";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
+            result="Could not update";
             LOG.warn("Could not update user account: " + user.toString() + " in database.");
         }
+        return result;
     }
 
     public UserAccount getUserById(int i) {

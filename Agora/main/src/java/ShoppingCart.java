@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
->>>>>>> 8bcff1f6d64425ee33e6dfae53ca10deac21973e
 import java.util.List;
 
 /**
@@ -12,32 +9,14 @@ import java.util.List;
  */
 public class ShoppingCart {
 
-<<<<<<< HEAD
-    private ArrayList<Auction> cart;
-=======
 
     private String mTableName = "user_has_shoppingcart_auctions";
     private ArrayList<Auction> mShoppingCart;
 
->>>>>>> 8bcff1f6d64425ee33e6dfae53ca10deac21973e
     public ShoppingCart() {
         
     }
 
-<<<<<<< HEAD
-    public ArrayList<Auction> getCart(){
-        
-        return cart;
-    }
-
-    public void putToCart(Auction auction){
-        cart.add(auction);
-    }
-
-    public boolean delete(Auction auction){
-        cart.remove(auction);
-        return true;
-=======
     public ArrayList<Auction> getShoppingCart(UserAccount user){
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
@@ -55,7 +34,8 @@ public class ShoppingCart {
         return mShoppingCart;
     }
 
-    public void removeAuctionFromCart(Auction auction) {
+    public String removeAuctionFromCart(Auction auction) {
+        String result="";
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
         SQLQuery query = session.createSQLQuery("DELETE FROM "+mTableName+" WHERE auction_id="+auction.getAuctionId());
@@ -64,6 +44,7 @@ public class ShoppingCart {
         session.close();
 
         session.beginTransaction();
+        result="true";
     }
 
     public void addAuctionToShoppingCart(UserAccount user, Auction auction) {
@@ -73,6 +54,5 @@ public class ShoppingCart {
             query.executeUpdate();
             session.getTransaction().commit();
             session.close();
->>>>>>> 8bcff1f6d64425ee33e6dfae53ca10deac21973e
     }
 }
