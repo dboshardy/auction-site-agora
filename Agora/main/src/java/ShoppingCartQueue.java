@@ -2,15 +2,10 @@
  * Created by Miao on 11/22/14.
  */
 
-import org.apache.activemq.transport.stomp.StompConnection;
-import org.apache.activemq.transport.stomp.StompFrame;
-import org.apache.activemq.transport.stomp.Stomp.Headers.*;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import java.lang.ClassCastException;
-import java.lang.Double;
-import java.lang.String;
-import java.util.Locale;
+import java.util.ArrayList;
 
 public class ShoppingCartQueue extends Message{
 
@@ -39,7 +34,7 @@ public class ShoppingCartQueue extends Message{
         }else if(type.equals("delete")){
             // you get the idea
             String auction_id = obj.getString("auction_id");
-            result= shoppingCart.removeAuctionFromCart(new Auction(Integer.parseInt(auction_id)));
+            result= shoppingCart.removeAuctionFromCart(auctionController.getAuctionById(Integer.parseInt(auction_id)));
             if(result.equals("true")){
                 output.put("succeed",true);
             }else{
