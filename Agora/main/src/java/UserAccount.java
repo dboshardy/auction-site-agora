@@ -12,7 +12,6 @@ public class UserAccount {
     String mPassword;
     Map<String, Watchlist> mWatchlists = new HashMap<String, Watchlist>();
     ShoppingCart mShoppingCart;
-    UserDescription mUserDescription;
     String mUserLocation;
     private int mUserId;
     private String mFirstName;
@@ -158,14 +157,6 @@ public class UserAccount {
         return mShoppingCart;
     }
 
-    public UserDescription getUserDescription() {
-        return mUserDescription;
-    }
-
-    public void setUserDescription(UserDescription userDescription) {
-        mUserDescription = userDescription;
-    }
-
     public String getUserLocation() {
         return mUserLocation;
     }
@@ -182,7 +173,6 @@ public class UserAccount {
                 ", mPassword='" + mPassword + '\'' +
                 ", mWatchlists=" + mWatchlists +
                 ", mShoppingCart=" + mShoppingCart +
-                ", mUserDescription=" + mUserDescription +
                 ", mUserLocation='" + mUserLocation + '\'' +
                 ", mUserId=" + mUserId +
                 ", mFirstName='" + mFirstName + '\'' +
