@@ -11,7 +11,9 @@ public class Email {
         mReceiverId = receiverId;
     }
     
-    public void createEmail(){}
+    public void createEmail(){
+
+    }
 
     public void sendEmail(){};
 
