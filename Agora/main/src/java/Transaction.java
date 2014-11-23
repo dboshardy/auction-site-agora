@@ -5,8 +5,8 @@ import java.util.Date;
  */
 public class Transaction {
     private Date mTransactionDate;
-    private Bidder mTransactionSource;
-    private Seller mTransactionDestination;
+    private UserAccount mTransactionSource;
+    private UserAccount mTransactionDestination;
 
     public Transaction getTransaction(){
         return this;
@@ -17,11 +17,11 @@ public class Transaction {
     }
 
 
-    public void setTransactionSource(Bidder transactionSource) {
+    public void setTransactionSource(UserAccount transactionSource) {
         this.mTransactionSource = transactionSource;
     }
 
-    public void setTransactionDestination(Seller transactionDestination) {
+    public void setTransactionDestination(UserAccount transactionDestination) {
         this.mTransactionDestination = transactionDestination;
     }
 

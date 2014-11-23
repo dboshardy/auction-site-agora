@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   before_action :confirm_user, only: [:new, :edit, :create, :update, :destroy]
-  before_action :confirm_admin, only: [:update, :edit, :destroy]
   publishes_to :category
   
   # GET /categories
@@ -14,37 +13,6 @@ class CategoriesController < ApplicationController
     publish :category, JSON.generate(category_info)  
 
     @categories = get_categories(id)  
-  end
-
-  def new_categories_for_auction
-    @auction_id = params[:id]
-
-    id = SecureRandom.uuid.to_s    
-
-    category_info = {:id => id, :type => "index" }
-
-    publish :category, JSON.generate(category_info)  
-
-    @categories = get_categories(id)      
-
-
-  end
-
-  def create_categories_for_auction
-    auction_id = params[:id]
-    categories = params[:category_ids]
-
-    id = SecureRandom.uuid.to_s    
-
-    category_info = {:id => id, :type => "add_to_auction",
-      :auction_id => auction_id,
-      :categories => categories
-    }
-
-    publish :category, JSON.generate(category_info)  
-
-    @categories = get_categories(id)  
-
   end
 
   # GET /categories/1

@@ -22,6 +22,8 @@ public class Bid {
 
     public void setAuctionId(int auctionId) {
         mAuctionId = auctionId;
+        AuctionController auctionController = new AuctionController();
+        mAuction = auctionController.getAuctionById(mAuctionId);
     }
 
 
@@ -57,16 +59,16 @@ public class Bid {
         mAuction = auction;
     }
 
-    public void setBidder(Bidder bidder) {
+    public void setBidder(UserAccount bidder) {
         mBidder = bidder;
     }
 
     public String getCurrency() {
-        return mCurrency.getCurrencyCode();
+        return mCurrency.toString();
     }
 
-    public void setCurrency(Currency currency) {
-        mCurrency = currency;
+    public void setCurrency(String currency) {
+        mCurrency = Currency.getInstance(currency);
     }
 
     public BigDecimal getBidAmount() {
@@ -89,11 +91,11 @@ public class Bid {
     @Override
     public String toString() {
         return "Bid{" +
-                "mBidder=" + mBidder +
+                "mBidder=" + mBidderId +
                 ", mCurrency=" + mCurrency +
                 ", mBidAmount=" + mBidAmount +
                 ", mTimestamp=" + mTimestamp +
-                ", mAuction=" + mAuction.getAuctionId() +
+                ", mAuction=" + mAuctionId +
                 ", mBidId=" + mBidId +
                 '}';
     }
@@ -103,6 +105,9 @@ public class Bid {
     }
 
     public void setBidderId(int bidderId) {
+
         mBidderId = bidderId;
+        UserAccountController userAccountController = new UserAccountController();
+        mBidder = userAccountController.getUserById(mBidderId);
     }
 }

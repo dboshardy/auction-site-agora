@@ -2,14 +2,14 @@
  * Created by thomkel on 11/11/14.
  */
 public class WatchlistItem {
-    private Item mItem;
+    private Auction mAuction;
     private Watchlist mWatchlist;
     private WatchlistItemModel mWatchlistItemModel;
 
     public WatchlistItem(){}
 
-    public WatchlistItem(Item item, Watchlist watchlist){
-        mItem = item;
+    public WatchlistItem(Auction auction, Watchlist watchlist){
+        mAuction = auction;
         mWatchlist = watchlist;
         mWatchlistItemModel = new WatchlistItemModel();
     }
@@ -49,11 +49,11 @@ public class WatchlistItem {
         this.mWatchlist = mWatchlist;
     }
 
-    public Item getItem() {
-        return mItem;
+    public Auction getAuction() {
+        return mAuction;
     }
 
-    public void setItem(Item mItem) {
-        this.mItem = mItem;
+    public void setAuction(Auction auction) {
+        this.mAuction = auction;
     }
 }

@@ -4,10 +4,8 @@
   <strong>Shopping Cart:</strong>
   <% @items.each do |item| %>
   	<@= "Item name: " + item.item_name %><br>
-  	<@= item.item_description %><br>
-  	<@= item.item_price @><br>
-  	<@= link_to "Purchase Item", "/transactions/#{@item.auction_id}/new"
-  	<@= link_to "Delete Item from Cart", "/shopping_carts/#{item.auction_id}", method: :delete %>
+  	<@= item.item_description %>
+  	<@= item.item_price @>
   <% end %>
 </p>
 

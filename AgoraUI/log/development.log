@@ -23832,34 +23832,3 @@ Migrating to CreateShoppingCartItems (20141122005041)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141122005041"]]
   [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-ActiveMessaging: adapter amqp not loaded: cannot load such file -- carrot
-ActiveMessaging: adapter beanstalk not loaded: cannot load such file -- beanstalk-client
-ActiveMessaging: adapter reliable_msg not loaded: cannot load such file -- reliable-msg
-ActiveMessaging: adapter wmq not loaded: cannot load such file -- wmq/wmq
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/application_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/auction_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/bid_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/category_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/email_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/flag_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/item_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/shopping_cart_item_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/shopping_cart_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/transaction_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/user_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/watchlist_item_processor.rb
-ActiveMessaging: Loading /Users/thomkel/dev/mpcs/mpcs-51210-auction-site/AgoraUI/app/processors/watchlist_processor.rb
-ActiveMessaging: Rails available: Adding dispatcher prepare callback.
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to AddColumnsToTransactions (20141122021209)
-  [1m[35m (0.1ms)[0m  BEGIN
-  [1m[36m (0.6ms)[0m  [1mALTER TABLE "transactions" ADD COLUMN "auction_id" integer[0m
-  [1m[35m (0.1ms)[0m  ALTER TABLE "transactions" ADD COLUMN "address" character varying(255)
-  [1m[36m (2.1ms)[0m  [1mALTER TABLE "transactions" ADD COLUMN "city" character varying(255)[0m
-  [1m[35m (0.2ms)[0m  ALTER TABLE "transactions" ADD COLUMN "state" character varying(255)
-  [1m[36m (0.2ms)[0m  [1mALTER TABLE "transactions" ADD COLUMN "zip_code" integer[0m
-  [1m[35m (0.2ms)[0m  ALTER TABLE "transactions" ADD COLUMN "payment_type" character varying(255)
-  [1m[36m (0.2ms)[0m  [1mALTER TABLE "transactions" ADD COLUMN "payment_details" character varying(255)[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141122021209"]]
-  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
