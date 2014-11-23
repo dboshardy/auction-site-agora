@@ -18,6 +18,24 @@ public class UserAccount {
     private String mLastName;
     private String mDescription;
     private Date mUserJoinedDate;
+    private boolean mIsAdmin = false;
+
+    public boolean getIsAdmin() {
+        return mIsAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        mIsAdmin = isAdmin;
+    }
+
+    public boolean isAdmin() {
+        return mIsAdmin;
+    }
+
+    public void setAdmin(boolean isAdmin) {
+        mIsAdmin = isAdmin;
+    }
+
 
     public Date getUserJoinedDate() {
         return mUserJoinedDate;
@@ -178,6 +196,7 @@ public class UserAccount {
                 ", mFirstName='" + mFirstName + '\'' +
                 ", mLastName='" + mLastName + '\'' +
                 ", mDescription='" + mDescription + '\'' +
+                ", isAdmin='" + mIsAdmin + '\'' +
                 '}';
     }
 }
