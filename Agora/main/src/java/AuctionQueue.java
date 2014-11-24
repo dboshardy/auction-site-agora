@@ -20,19 +20,21 @@ public class AuctionQueue extends Message {
         if (type.equals("create")) {
             // take appropriate action to create new tuple in database
             // create a JSON object for the return message
-            String seller_id = obj.getString("seller_id");
+            String user_id = obj.getString("user_id");
             String auctionName = obj.getString("auctionName");
             String item_desc = obj.getString("item_desc");
-            JSONObject endTime = obj.getJSONObject("endTime");
-            Timestamp stamp = new Timestamp(endTime.getLong("endTime"));
+            JSONObject auction_start_time = obj.getJSONObject("auction_start_time");
+            Timestamp stamp = new Timestamp(auction_start_time.getLong("auction_start_time"));
             Date date = new Date(stamp.getTime());
             String start_bid = obj.getString("start_bid");
             Double bidPrice = Double.parseDouble(start_bid);
 
-            Auction auction = new Auction(auctionName, Integer.parseInt(seller_id),item_desc,new BigDecimal(start_bid),date);
+            Auction auction = new Auction(auctionName, Integer.parseInt(user_id),item_desc,new BigDecimal(bidPrice),date);
             result = auctionController.persistAuction(auction);
+
             output.put("result", result);
             if (result.equals("true")) {
+                output.put("auction_id",auction.getAuctionId());
                 output.put("succeed", true);
             } else {
                 output.put("succeed", false);
