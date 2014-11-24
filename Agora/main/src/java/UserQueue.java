@@ -18,13 +18,13 @@ public class UserQueue extends Message {
             // create a JSON object for the return message
             String username = obj.getString("username");
             String email = obj.getString("email");
-            String first_name = obj.getString("first_name");
-            String last_name = obj.getString("last_name");
-            String user_description = obj.getString("user_description");
-            String password_hash = obj.getString("password_hash");
+            String firstName = obj.getString("first_name");
+            String lastName = obj.getString("last_name");
+            String userDescription = obj.getString("user_description");
+            String passwordHash = obj.getString("password_hash");
 
 
-            UserAccount user = new UserAccount(username, email, password_hash, first_name, last_name, user_description);
+            UserAccount user = new UserAccount(username, email, passwordHash, firstName, lastName, userDescription);
             result = userController.persistUserAccount(user);
             int user_id = user.getUserId();
             if (result.equals("true")) {
@@ -38,13 +38,13 @@ public class UserQueue extends Message {
             // you get the idea
             String username = obj.getString("username");
             String email = obj.getString("email");
-            String first_name = obj.getString("first_name");
-            String last_name = obj.getString("last_name");
-            String user_description = obj.getString("user_description");
-            String password_hash = obj.getString("password_hash");
+            String firstName = obj.getString("first_name");
+            String lastName = obj.getString("last_name");
+            String userDescription = obj.getString("user_description");
+            String passwordHash = obj.getString("password_hash");
 
 
-            UserAccount user = new UserAccount(username, email, password_hash, first_name, last_name, user_description);
+            UserAccount user = new UserAccount(username, email, passwordHash, firstName, lastName, userDescription);
             result = userController.updateUserAccount(user);
             if (result.equals("true")) {
                 output.put("succeed", true);
