@@ -60,7 +60,7 @@ class UsersController < ApplicationController
       :email => user.email,
       :first_name => user.first_name,
       :last_name => user.last_name,
-      :user_description => user.user_description.to_s,
+      :user_description => params[:user_description],
       :password_hash => user.password_digest
     }
 
@@ -101,7 +101,7 @@ class UsersController < ApplicationController
       :email => user.email,
       :first_name => user.first_name,
       :last_name => user.last_name,
-      :user_description => user.user_description,
+      :user_description => params["user_description"],
       :password_hash => user.password_digest
     }
 
