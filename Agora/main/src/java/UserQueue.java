@@ -26,8 +26,10 @@ public class UserQueue extends Message{
 
             UserAccount user= new UserAccount(username,email, password_hash, first_name, last_name, user_description);
             result= userController.persistUserAccount(user);
+	    Int user_id=user.getUserId();
             if(result.equals("true")){
                 output.put("succeed",true);
+		output.put("user_id", user_id);
             }else{
                 output.put("succeed",false);
                 output.put("Error",result);
