@@ -55,6 +55,11 @@ class UsersController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
+    if params[:password] != params[:password_confirmation]
+      redirect_to "/users", notice: "Passwords do not match"
+      return
+    end
+
     user_info = { :id => id, :type => "create",
       :username => user.username,
       :email => user.email,
@@ -63,10 +68,6 @@ class UsersController < ApplicationController
       :user_description => params[:user_description],
       :password_hash => user.password_digest
     }
-
-    if user.errors.any?
-      redirect_to "/users", user.errors.full_messages
-    end
 
     publish :user, JSON.generate(user_info)
 
