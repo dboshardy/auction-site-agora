@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    if session[:user_id] != params[:id]
+    if session[:user_id] != params[:id].to_i
       redirect_to "/users", notice: "You cannot edit this user's information"
     end
   end
@@ -56,11 +56,12 @@ class UsersController < ApplicationController
     id = SecureRandom.uuid.to_s
 
     user_info = { :id => id, :type => "create",
-      :username => user.user_name,
+      :username => user.username,
+      :email => user.email,
       :first_name => user.first_name,
       :last_name => user.last_name,
-      :user_description => user.user_description,
-      :password_hash => user.password
+      :user_description => user.user_description.to_s,
+      :password_hash => user.password_digest
     }
 
     if user.errors.any?
@@ -69,10 +70,11 @@ class UsersController < ApplicationController
 
     publish :user, JSON.generate(user_info)
 
-    status, @error = get_success(id)
+    status, @error, user_id = get_new_user_success(id)
 
-    if status == "true"
+    if status
       @status = "New user created!"
+      session[:user_id] = user_id
     else
       @status = "User could not be created"
     end
@@ -95,10 +97,12 @@ class UsersController < ApplicationController
 
     user_info = { :id => id, :type => "update",
       :user_id => user_id,
+      :username => user.user_name,
+      :email => user.email,
       :first_name => user.first_name,
       :last_name => user.last_name,
       :user_description => user.user_description,
-      :password_hash => user.password
+      :password_hash => user.password_digest
     }
 
     if user.errors.any?
@@ -109,7 +113,7 @@ class UsersController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status
       @status = "New user updated!"
     else
       @status = "User could not be updated"
@@ -131,8 +135,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    if (session[:user_id] != params[:id]) && (session[:is_admin] != "true")
+    if (session[:user_id] != params[:id].to_i) && (session[:is_admin] != true)
         redirect_to "/users", notice: "You cannot delete this user"
+        return
     end    
 
     id = SecureRandom.uuid.to_s
@@ -146,8 +151,11 @@ class UsersController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status
       @status = "User deleted!"
+      if params[:id].to_i == session[:user_id]
+        session[:user_id] = nil
+      end
     else
       @status = "User could not be deleted"
     end
@@ -174,7 +182,7 @@ class UsersController < ApplicationController
 
       status, @error = get_success(id)
 
-      if status == "true"
+      if status
         @status = "User suspended!"
       else
         @status = "User could not be suspended"
@@ -200,7 +208,7 @@ class UsersController < ApplicationController
 
       status, @error = get_success(id)
 
-      if status == "true"
+      if status
         @status = "User blocked!"
       else
         @status = "User could not be blocked"
@@ -214,6 +222,11 @@ class UsersController < ApplicationController
 
   end
 
+  def destroy_session
+    reset_session
+    redirect_to root_url, notice: "Logged Out"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -222,6 +235,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :location, :password)
+      params.permit(:user_id, :username, :email, :location, :password, :first_name, :last_name)
     end
 end

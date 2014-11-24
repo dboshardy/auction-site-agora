@@ -79,9 +79,9 @@ public class QueueHandler implements Runnable{
 //                    String id = JSONobj.getString("id");
 
                     MessageFactory messageFactory = new MessageFactory();
-//                   System.out.println("getting message class of " + mConsumerQueue);
+                   System.out.println("getting message class of " + mConsumerQueue);
                     Message messageClass = messageFactory.getMessageClass(mConsumerQueue);
-//                    System.out.println("Getting response from " + messageClass);
+                    System.out.println("Getting response from " + messageClass);
                     JSONObject response = messageClass.createResponseMessage(body);
 
                     // Produce response message

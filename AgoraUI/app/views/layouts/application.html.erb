@@ -35,9 +35,8 @@
           <li><a href="/users">Sign Up</a></li>
           <li><a href="/sessions">Log In</a></li> 
         <% else %>
-          <li><a href="/findusers">Users</a></li>
           <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>          
-          <li><a href="/endsession">Log Out</a></li>
+          <li><a href="/users/logout">Log Out</a></li>
         <% end %>
       </ul>
     </div>
