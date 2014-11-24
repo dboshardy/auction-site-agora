@@ -2,11 +2,13 @@
  * Created by Miao on 11/8/14.
  */
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 public class AuctionQueue extends Message {
 
@@ -16,7 +18,7 @@ public class AuctionQueue extends Message {
         String type = obj.getString("type");
 
         AuctionController auctionController = new AuctionController();
-
+        UserAccountController uac= new UserAccountController();
         if (type.equals("create")) {
             // take appropriate action to create new tuple in database
             // create a JSON object for the return message
@@ -78,21 +80,28 @@ public class AuctionQueue extends Message {
                 output.put("succeed", false);
                 output.put("Error", result);
             }
-        }/*else if(type.equals("search")){
-            // you get the idea
-            String search_type = obj.getString("search_type");
-            response.put("search_type",search_type);
-        }else if(type.equals("stop")){
-            // you get the idea
-            String auction_id = obj.getString("auction_id");
-            response.put("auction_id",auction_id);
-        }*/ else if (type.equals("show")) {
+        } else if (type.equals("show")) {
             // you get the idea
             String auction_id = obj.getString("auction_id");
             output.put("auction_id", auction_id);
             Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
             //ArrayList<Bid> list= auctionController.getAuctionBids(auction)
             output.put("auction", auction);
+        }else if (type.equals("index")) {
+            // you get the idea
+
+            String user_id = obj.getString("user_id");
+            output.put("user_id", user_id);
+            List<Auction> list=auctionController.getAllAuctionsByUserId(Integer.parseInt(user_id));
+            JSONArray jsonArray = new JSONArray();
+            for(Auction a:list){
+                JSONObject ele= new JSONObject();
+                ele.put("auction_id",a.getAuctionId());
+                ele.put("auction_name",a.getAuctionName());
+                ele.put("getBuyItNowPrice",a.getBuyItNowPrice());
+                jsonArray.put(ele);
+            }
+            output.put("auctions",jsonArray);
         }
         return output;
     }
