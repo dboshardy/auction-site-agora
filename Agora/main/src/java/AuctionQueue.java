@@ -93,12 +93,14 @@ public class AuctionQueue extends Message {
             String user_id = obj.getString("user_id");
             output.put("user_id", user_id);
             List<Auction> list=auctionController.getAllAuctionsByUserId(Integer.parseInt(user_id));
+            //BidController bidController=new BidController();
             JSONArray jsonArray = new JSONArray();
             for(Auction a:list){
                 JSONObject ele= new JSONObject();
-                ele.put("auction_id",a.getAuctionId());
+                ele.put("auction_id", a.getAuctionId());
                 ele.put("auction_name",a.getAuctionName());
-                ele.put("getBuyItNowPrice",a.getBuyItNowPrice());
+                ele.put("highest_bid",a.getCurrentHighestBid().getBidAmount());
+                ele.put("buyItNowPrice",a.getBuyItNowPrice());
                 jsonArray.put(ele);
             }
             output.put("auctions",jsonArray);
