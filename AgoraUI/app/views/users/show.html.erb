@@ -16,17 +16,22 @@
 </p>
 
 <p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @user.user_description %>
 </p>
 
-<%= link_to "See Bid History", "/bids/#{@user.user_id}/user_bid_history" %><br>
-
 <% if session[:is_admin] == "true" %>
   <%= link_to "Suspend User", "/users/#{@seller.id}/suspend", data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
-<% elsif session[:user_id] == params[:id] %>
-	<%= link_to 'Edit', edit_user_path(@user) %> <br>
-	<%= link_to 'Delete', destroy_user_path(@user) %> <br>	
+<% elsif session[:user_id] == params[:id].to_i %>
+	<%= link_to 'Edit User', "/users/#{session[:user_id]}/edit" %> | 
+	<%= link_to 'Delete User', "/users/#{session[:user_id]}", method: :delete %> <br>	<br> 
 <% end %>  
+
+<%= link_to "See Bid History", "/bids/#{@user.user_id}/user_bid_history" %><br><br>
 
 <%= link_to 'Back', users_path %>

@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
 		auction_data = message["auctions"]
         auctions = []
 
+        if auction_data.nil?
+            return nil
+        end
+
         auction_data.each do |auc|
             auction = Auction.new
             auction.auction_id = auc["auction_id"]
@@ -218,8 +222,8 @@ class ApplicationController < ActionController::Base
 
     end
 
-    def get_login_sucess(id)
-        message = query_message
+    def get_login_success(id)
+        message = query_message(id)
 
         status = message["success"]
         error = message["error"]
@@ -232,11 +236,25 @@ class ApplicationController < ActionController::Base
     def get_success(id)
         message = query_message(id)
 
-        status = message["success"]
-        error = message["error"]
+        status = message["succeed"]
+        error = message["Error"]
 
         return status, error
     end
+
+    def get_new_user_success(id)
+        message = query_message(id)
+
+        status = message["succeed"]
+        error = message["Error"]
+        user_id = nil
+
+        if status
+            user_id = message["user_id"]
+        end
+
+        return status, error, user_id
+    end    
 
     def get_user(id)
         json_data = query_message(id)
@@ -245,8 +263,8 @@ class ApplicationController < ActionController::Base
         error = nil
 
         user = User.new
-        user.username = json_data[:username]
-        user.first_name = json_data[:first_name]
+        user.username = json_data["username"]
+        user.first_name = json_data["first_name"]
         user.last_name = json_data[:last_name]
         user.user_description = json_data[:user_description]
 
@@ -302,6 +320,12 @@ class ApplicationController < ActionController::Base
             redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
         end
     end  
+
+    def confirm_correct_user(id)
+        if session[:user_id] != id.to_i
+
+        end
+    end
 
     def confirm_admin
         if (session[:is_admin].nil? || (session[:is_admin] == false))

@@ -16,8 +16,8 @@ class AuctionsController < ApplicationController
 
     @auctions = get_auctions(id)
 
-    if @auctions[0][0].item_name.nil?
-      render 'No auctions found for that user'
+    if @auctions.nil?
+      render 'welcome'
     else
       render 'index'  
     end    
@@ -46,11 +46,13 @@ class AuctionsController < ApplicationController
 
   # GET /auctions/new
   def new
+    @auction = Auction.new
 
   end
 
   # GET /auctions/1/edit
   def edit
+    @auction = Auction.new
 
   end
 

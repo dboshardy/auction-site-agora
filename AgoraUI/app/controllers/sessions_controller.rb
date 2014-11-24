@@ -22,15 +22,11 @@ class SessionsController < ApplicationController
       :password => password
     }
 
-    if user.errors.any?
-      redirect_to "/users", user.errors.full_messages
-    end
-
     publish :user, JSON.generate(user_info)
 
     status, @error, user_id, is_admin = get_login_success(id)
 
-    if status == "true"
+    if status
       @status = "Login Successful!"
       session[:user_id] = user_id
       session[:is_admin] = is_admin
