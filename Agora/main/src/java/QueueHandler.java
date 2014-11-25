@@ -61,7 +61,7 @@ public class QueueHandler implements Runnable{
                 System.out.println("Cannot begin StompConnection: " + e);
             }
 
-            long timeoutWait = 1000;
+            long timeoutWait = 50;
             System.out.println("Consuming message..");
             String body = null;
 
@@ -98,7 +98,7 @@ public class QueueHandler implements Runnable{
                     //System.out.println("No message found");
 
                     try {
-                        Thread.sleep(200);
+                        Thread.sleep(100);
                     } catch (InterruptedException ex) {
                         System.out.println("Cannot sleep: " + ex);
                     }
