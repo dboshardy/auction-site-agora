@@ -88,7 +88,9 @@ public class UserQueue extends Message {
         else if (type.equals("login")){
             String userName = obj.getString("user_name");
             String passwordHash =  obj.getString("password_hash");
+            System.out.println("Getting result...");
             result = userController.getUserAccountByUsernameAndPasswordHash(userName, passwordHash).toString();
+            System.out.println("Found result...");
             if(result != null) {
                 output.put("user", result);
             }

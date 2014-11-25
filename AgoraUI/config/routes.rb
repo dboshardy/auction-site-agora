@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post "flags/:id/create" => "flags#create"
   get "/transactions/:id/new" => "transactions#new"
   get "/users/logout" => "users#destroy_session"
+  post "/users/login" => "users#login"
 
   resources :watchlists
 

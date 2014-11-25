@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Miao Yu on 10/19/14.
  */
-public class Auction extends Message{
+public class Auction {
 
     private Bid mCurrentHighestBid = null;
     private Date mListTime;
@@ -108,35 +108,6 @@ public class Auction extends Message{
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
         mEndTime = endTime;
-    }
-
-    public JSONObject createMessageBody(JSONObject body){
-        JSONObject response = new JSONObject();
-
-        // for index
-        JSONArray auctionsArray = new JSONArray();
-        JSONObject auction = new JSONObject();
-        auction.put("auction_id", 123456);
-        auction.put("item_name", "Wooden clogs");
-        auction.put("item_desc", "Made in Germany");
-        auction.put("highest_bid", 150.15);
-
-        auctionsArray.put(auction);
-        response.put("auctions", auctionsArray);
-
-        // for show
-        response.put("auction_id", 123456);
-        response.put("item_name", "Wooden clogs");
-        response.put("item_desc", "Made in Germany");
-        response.put("highest_bid", 150.15);
-        response.put("buy_it_now", true);
-        response.put("buy_now_price", 200.00);
-        response.put("bidder_username", "fastguy");
-        response.put("bidder_id", 98765);
-        response.put("seller_username", "ABCdude");
-        response.put("seller_id", 506978);
-
-        return response;
     }
 
     public UserAccount getSeller() {

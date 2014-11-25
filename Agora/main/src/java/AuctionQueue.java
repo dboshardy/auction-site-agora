@@ -20,16 +20,24 @@ public class AuctionQueue extends Message {
         if (type.equals("create")) {
             // take appropriate action to create new tuple in database
             // create a JSON object for the return message
-            String seller_id = obj.getString("seller_id");
-            String auctionName = obj.getString("auctionName");
+            Integer seller_id = obj.getInt("user_id");
+            String auctionName = obj.getString("item_name");
             String item_desc = obj.getString("item_desc");
-            JSONObject endTime = obj.getJSONObject("endTime");
-            Timestamp stamp = new Timestamp(endTime.getLong("endTime"));
-            Date date = new Date(stamp.getTime());
-            String start_bid = obj.getString("start_bid");
-            Double bidPrice = Double.parseDouble(start_bid);
+            Integer qty = obj.getInt("quantity");
+            Boolean buy_it_now = obj.getBoolean("buy_it_now");
+            Double start_bid = obj.getDouble("start_bid");
+            Double shipping_cost = obj.getDouble("shipping_cost");
+            Integer auction_length = obj.getInt("auction_length");
+            JSONObject start_time = obj.getJSONObject("auction_start_time");
+            Integer year = start_time.getInt("year");
+            Integer month = start_time.getInt("month");
+            Integer day = start_time.getInt("day");
+            Integer hour = start_time.getInt("hour");
+            Integer minutes = start_time.getInt("minutes");
+            Date date = new Date (year, month, day, hour, minutes);
 
-            Auction auction = new Auction(auctionName, Integer.parseInt(seller_id),item_desc,new BigDecimal(start_bid),date);
+            System.out.println("Creating auction");
+            Auction auction = new Auction(auctionName, seller_id,item_desc,new BigDecimal(start_bid),date);
             result = auctionController.persistAuction(auction);
             output.put("result", result);
             if (result.equals("true")) {

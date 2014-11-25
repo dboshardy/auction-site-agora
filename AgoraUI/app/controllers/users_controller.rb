@@ -48,6 +48,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    user = User.new(user_params)
+
+    id = SecureRandom.uuid.to_s
+    user_info = { :id => id, :type => "login",
+      :user_name => user.username,
+      :password_hash => user.password_digest
+    }
+
+    publish :user, JSON.generate(user_info)
+    
+    status, @error, user_id, is_admin = get_login_success(id)
+
+    if status
+      @status = "Login Successful!"
+      session[:user_id] = user_id
+      session[:is_admin] = is_admin
+    else
+      @status = "Login error:"
+    end
+
+    render 'confirm'
+
+  end
+
   # POST /users
   # POST /users.json
   def create

@@ -121,7 +121,7 @@ public class UserAccountController {
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            SQLQuery query = session.createSQLQuery("SELECT * FROM useraccounts WHERE username=\'" + userName + "\' AND password_hash=\'" + passwordHash + "\'");
+            SQLQuery query = session.createSQLQuery("SELECT * FROM useraccounts WHERE username=\'" + userName + "\' AND password_hash=\'" + passwordHash + "\'").addEntity(UserAccount.class);
             users = query.list();
             session.getTransaction().commit();
             session.close();
