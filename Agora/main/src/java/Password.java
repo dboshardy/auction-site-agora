@@ -5,6 +5,10 @@
 public class Password {
 
     private String password;
+<<<<<<< HEAD
+=======
+    private ;
+>>>>>>> code merge and change
 
     public Password(String password) {
         this.password=password;

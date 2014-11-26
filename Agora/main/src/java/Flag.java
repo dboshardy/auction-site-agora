@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import java.util.Date;
 
+=======
+>>>>>>> code merge and change
 /**
  * Created by drew on 10/19/14.
  */
@@ -7,6 +10,7 @@ public class Flag {
     private FlagType mFlagType;
     private UserAccount mFlaggingUser;
     private Auction mAuctionFlagged;
+<<<<<<< HEAD
     private int mAuctionId;
     private int mFlagId;
 
@@ -40,14 +44,21 @@ public class Flag {
 
     public Flag(FlagType flagType, UserAccount flaggingUser, Auction auctionFlagged) {
         mDateFlagged = new Date();
+=======
+
+    public Flag(FlagType flagType, UserAccount flaggingUser, Auction auctionFlagged) {
+>>>>>>> code merge and change
         mFlagType = flagType;
         mFlaggingUser = flaggingUser;
         mAuctionFlagged = auctionFlagged;
     }
 
+<<<<<<< HEAD
     public Flag() {
     }
 
+=======
+>>>>>>> code merge and change
 
     public FlagType getFlagType() {
         return mFlagType;
@@ -70,6 +81,7 @@ public class Flag {
     }
 
     public void setAuctionFlagged(Auction auctionFlagged) {
+<<<<<<< HEAD
 
         mAuctionFlagged = auctionFlagged;
     }
@@ -83,4 +95,8 @@ public class Flag {
                 ", mFlaggingUser=" + mFlaggingUser.getUserId() +
                 '}';
     }
+=======
+        mAuctionFlagged = auctionFlagged;
+    }
+>>>>>>> code merge and change
 }

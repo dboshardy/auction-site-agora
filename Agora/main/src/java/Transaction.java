@@ -5,8 +5,13 @@ import java.util.Date;
  */
 public class Transaction {
     private Date mTransactionDate;
+<<<<<<< HEAD
     private UserAccount mTransactionSource;
     private UserAccount mTransactionDestination;
+=======
+    private Bidder mTransactionSource;
+    private Seller mTransactionDestination;
+>>>>>>> code merge and change
 
     public Transaction getTransaction(){
         return this;
@@ -17,11 +22,19 @@ public class Transaction {
     }
 
 
+<<<<<<< HEAD
     public void setTransactionSource(UserAccount transactionSource) {
         this.mTransactionSource = transactionSource;
     }
 
     public void setTransactionDestination(UserAccount transactionDestination) {
+=======
+    public void setTransactionSource(Bidder transactionSource) {
+        this.mTransactionSource = transactionSource;
+    }
+
+    public void setTransactionDestination(Seller transactionDestination) {
+>>>>>>> code merge and change
         this.mTransactionDestination = transactionDestination;
     }
 

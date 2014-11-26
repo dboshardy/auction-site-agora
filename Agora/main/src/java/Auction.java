@@ -1,14 +1,18 @@
+<<<<<<< HEAD
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
+=======
+>>>>>>> code merge and change
 import java.util.List;
 
 /**
  * Created by Miao Yu on 10/19/14.
  */
+<<<<<<< HEAD
 public class Auction extends Message{
 
     private Bid mCurrentHighestBid = null;
@@ -243,4 +247,37 @@ public class Auction extends Message{
         FlagController flagController = new FlagController();
         flagController.persistFlagOnAuction(flag);
     }
+=======
+public class Auction {
+
+    private String timestamp;
+    private ArrayList<Bid> bidList;
+    private Seller seller;
+    public Auction() {
+        
+    }
+
+    public ArrayList<Bid> getBidList(){
+        ArrayList<Item> result= bidList;
+        return result;
+    }
+
+    public void setTimestamp(String time){
+        timestamp=time;
+    }
+
+    public Seller getSeller(){
+        return seller;
+    }
+
+    public void setSeller(Seller seller){
+        this.seller=seller;
+    }
+
+    public boolean addBid(Bid bid){
+        bidList.add(bid);
+        return true;
+    }
+
+>>>>>>> code merge and change
 }
