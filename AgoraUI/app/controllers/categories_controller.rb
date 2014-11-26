@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-
+ 
     id = SecureRandom.uuid.to_s
 
     category_info = {:id => id, :type => "index" }

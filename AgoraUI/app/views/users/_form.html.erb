@@ -6,11 +6,14 @@
   <%= label_tag :last_name %><br>
   <%= text_field_tag :last_name %>
   <br>
+  <%= label_tag :username %><br>
+  <%= text_field_tag :username %>
+  <br>  
   <%= label_tag :email %><br>
   <%= text_field_tag :email %>
   <br>
-  <%= label_tag :username %><br>
-  <%= text_field_tag :username %>
+  <%= label_tag :user_description %><br>
+  <%= text_field_tag :user_description %>
   <br>
   <%= label_tag :password %><br>
   <%= password_field_tag :password %>
@@ -18,6 +21,6 @@
   <%= label_tag :password_confirmation %><br>
   <%= password_field_tag :password_confirmation %>
   <br>
-  <%= submit_tag "Sign Me Up!" %>
+  <%= submit_tag "Sign Up" %><br><br>
 
 <% end %>

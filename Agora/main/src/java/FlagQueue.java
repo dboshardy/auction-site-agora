@@ -3,16 +3,10 @@
  */
 
 
-import org.apache.activemq.transport.stomp.StompConnection;
-import org.apache.activemq.transport.stomp.StompFrame;
-import org.apache.activemq.transport.stomp.Stomp.Headers.*;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import java.lang.ClassCastException;
-import java.lang.Double;
-import java.lang.String;
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.List;
 
 public class FlagQueue extends Message{
 
@@ -31,8 +25,10 @@ public class FlagQueue extends Message{
             String flag_desc = obj.getString("flag_desc");
             String user_id= obj.getString("user_id");
 
+
             UserAccountController uac=new UserAccountController();
             AuctionController ac = new AuctionController();
+            //keep an eye on this
             Flag flag= new Flag(flag_type, uac.getUserById(Integer.parseInt(user_id)), ac.getAuctionById(Integer.parseInt(auction_id)));
 
             result= flagController.persistFlagOnAuction(flag);
@@ -66,28 +62,12 @@ public class FlagQueue extends Message{
             result= flagController.removeFlag(fc.getFlagById(Integer.parseInt(flag_id)));
             output.put("result",result);
 
-        }/*else if(type.equals("login")){
-            // you get the idea
-            String username = obj.getString("username");
-            String password_hash= obj.getString("password_hash");
-
-
-            UserAccount user= new UserAccount(username,email, password_hash)
-            result= userController.updateUserAccount(user);
-            if(result.equals("true")){
-                output.put("succeed",true);
-            }else{
-                output.put("succeed",false);
-                output.put("Error",result);
-            }
-        }*//*else if(type.equals("suspend")){
-
-        }*/else if(type.equals("index")){
+        }else if(type.equals("index")){
             // you get the idea
             FlagController fc = new FlagController();
             String auction_id = obj.getString("auction_id");
             AuctionController ac = new AuctionController();
-            ArrayList<Flag> list = flagController.getAllFlagsOnAuction(ac.getAuctionById(Integer.parseInt(auction_id)));
+            List<Flag> list = flagController.getAllFlagsOnAuction(ac.getAuctionById(Integer.parseInt(auction_id)));
             JSONArray jsonArray = new JSONArray();
             for(Flag f:list){
                 JSONObject ele= new JSONObject();

@@ -12,13 +12,30 @@ public class UserAccount {
     String mPassword;
     Map<String, Watchlist> mWatchlists = new HashMap<String, Watchlist>();
     ShoppingCart mShoppingCart;
-    UserDescription mUserDescription;
     String mUserLocation;
     private int mUserId;
     private String mFirstName;
     private String mLastName;
     private String mDescription;
     private Date mUserJoinedDate;
+    private boolean mIsAdmin = false;
+
+    public boolean getIsAdmin() {
+        return mIsAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        mIsAdmin = isAdmin;
+    }
+
+    public boolean isAdmin() {
+        return mIsAdmin;
+    }
+
+    public void setAdmin(boolean isAdmin) {
+        mIsAdmin = isAdmin;
+    }
+
 
     public Date getUserJoinedDate() {
         return mUserJoinedDate;
@@ -158,14 +175,6 @@ public class UserAccount {
         return mShoppingCart;
     }
 
-    public UserDescription getUserDescription() {
-        return mUserDescription;
-    }
-
-    public void setUserDescription(UserDescription userDescription) {
-        mUserDescription = userDescription;
-    }
-
     public String getUserLocation() {
         return mUserLocation;
     }
@@ -182,12 +191,12 @@ public class UserAccount {
                 ", mPassword='" + mPassword + '\'' +
                 ", mWatchlists=" + mWatchlists +
                 ", mShoppingCart=" + mShoppingCart +
-                ", mUserDescription=" + mUserDescription +
                 ", mUserLocation='" + mUserLocation + '\'' +
                 ", mUserId=" + mUserId +
                 ", mFirstName='" + mFirstName + '\'' +
                 ", mLastName='" + mLastName + '\'' +
                 ", mDescription='" + mDescription + '\'' +
+                ", isAdmin='" + mIsAdmin + '\'' +
                 '}';
     }
 }

@@ -61,7 +61,7 @@ public class QueueHandler implements Runnable{
                 System.out.println("Cannot begin StompConnection: " + e);
             }
 
-            long timeoutWait = 1000;
+            long timeoutWait = 50;
             System.out.println("Consuming message..");
             String body = null;
 
@@ -79,9 +79,9 @@ public class QueueHandler implements Runnable{
 //                    String id = JSONobj.getString("id");
 
                     MessageFactory messageFactory = new MessageFactory();
-//                   System.out.println("getting message class of " + mConsumerQueue);
+                   System.out.println("getting message class of " + mConsumerQueue);
                     Message messageClass = messageFactory.getMessageClass(mConsumerQueue);
-//                    System.out.println("Getting response from " + messageClass);
+                    System.out.println("Getting response from " + messageClass);
                     JSONObject response = messageClass.createResponseMessage(body);
 
                     // Produce response message
@@ -98,7 +98,7 @@ public class QueueHandler implements Runnable{
                     //System.out.println("No message found");
 
                     try {
-                        Thread.sleep(200);
+                        Thread.sleep(100);
                     } catch (InterruptedException ex) {
                         System.out.println("Cannot sleep: " + ex);
                     }
