@@ -2,13 +2,15 @@
  * Created by Miao on 11/8/14.
  */
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.lang.Double;
-import java.lang.Integer;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class AuctionQueue extends Message {
 
@@ -25,22 +27,32 @@ public class AuctionQueue extends Message {
             String user_id = obj.getString("user_id");
             String auctionName = obj.getString("auctionName");
             String item_desc = obj.getString("item_desc");
-            String auction_start_time = obj.getJSONObject("auction_start_time");
+            String auction_start_time = String.valueOf(obj.getJSONObject("auction_start_time"));
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date = sdf.parse(auction_start_time);
+            Date date = null;
+            try {
+                date = sdf.parse(auction_start_time);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             Timestamp timestamp = new Timestamp(date.getTime());
 
-            String auction_length= obj.getJSONObject("auction_length");
+            String auction_length= String.valueOf(obj.getJSONObject("auction_length"));
             SimpleDateFormat sdf_l = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date_l = sdf.parse(auction_length);
+            Date date_l = null;
+            try {
+                date_l = sdf.parse(auction_length);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             Timestamp timestamp_l = new Timestamp(date_l.getTime());
 
-            Date s_date = new Date(timestamp.getTime()+timestamp_l.getTime());
+            Date endDate = new Date(timestamp.getTime()+timestamp_l.getTime());
 
             String start_bid = obj.getString("start_bid");
             Double bidPrice = Double.parseDouble(start_bid);
 
-            Auction auction = new Auction(auctionName, Integer.parseInt(user_id),item_desc,bidPrice,s_date);
+            Auction auction = new Auction(auctionName, Integer.parseInt(user_id),item_desc,new BigDecimal(bidPrice),endDate);
             result = auctionController.persistAuction(auction);
             output.put("result", result);
             if (result.equals("true")) {
@@ -56,14 +68,24 @@ public class AuctionQueue extends Message {
             String auction_id = obj.getString("auction_id");
             String buy_it_now = obj.getString("buy_it_now");
             String item_desc = obj.getString("item_desc");
-            String auction_start_time = obj.getJSONObject("auction_start_time");
+            String auction_start_time = String.valueOf(obj.getJSONObject("auction_start_time"));
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date = sdf.parse(auction_start_time);
+            Date date = null;
+            try {
+                date = sdf.parse(auction_start_time);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             Timestamp timestamp = new Timestamp(date.getTime());
 
-            String auction_length= obj.getJSONObject("auction_length");
+            String auction_length= String.valueOf(obj.getJSONObject("auction_length"));
             SimpleDateFormat sdf_l = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date_l = sdf.parse(auction_length);
+            Date date_l = null;
+            try {
+                date_l = sdf.parse(auction_length);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             Timestamp timestamp_l = new Timestamp(date_l.getTime());
 
             Date s_date = new Date(timestamp.getTime()+timestamp_l.getTime());
@@ -72,11 +94,10 @@ public class AuctionQueue extends Message {
             Double bidPrice = Double.parseDouble(start_bid);
 
             Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
-            auction.setBuyItNowPrice(Double.parseDouble(buy_it_now));
+            auction.setBuyItNowPrice(new BigDecimal(buy_it_now));
             auction.setEndTime(s_date);
 
-            result = auctionController.updateAuction(auction);
-            output.put("result", result);
+            result = auctionController.updateAuction(auction); output.put("result", result);
             if (result.equals("true")) {
                 output.put("succeed", true);
             } else {
@@ -99,6 +120,7 @@ public class AuctionQueue extends Message {
             // you get the idea
             String user_id = obj.getString("user_id");
             List<Auction> list = auctionController.getAllAuctionsByUserId(Integer.parseInt(user_id));
+            String auction_id = obj.getString("auction_id");
             Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
             JSONArray jsonArray = new JSONArray();
             for(Auction a:list){
@@ -120,9 +142,9 @@ public class AuctionQueue extends Message {
             output.put("highest_bid",auction.getCurrentHighestBid().getBidAmount());
             output.put("buy_now_price",auction.getBuyItNowPrice());
             output.put("bidder_id",auction.getCurrentHighestBid().getBidderId());
-            output.put("bidder_username",auction.getCurrentHighestBid().getBidderId().getUserName());
-            output.put("seller_id",auction_id.getSellerId());
-            output.put("seller_username",auction.getSellerId().getUserName());
+            output.put("bidder_username",auction.getCurrentHighestBid().getBidder().getUserName());
+            output.put("seller_id",auction.getSellerId());
+            output.put("seller_username",auction.getSeller().getUserName());
         }
         return output;
     }

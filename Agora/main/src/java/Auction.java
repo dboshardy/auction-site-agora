@@ -1,8 +1,4 @@
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +19,7 @@ public class Auction {
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
+
 
 
     public String getDescription() {
