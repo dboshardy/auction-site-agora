@@ -1,3 +1,4 @@
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class Auction {
 
-    private Bid mCurrentHighestBid = null;
+    private Bid mCurrentHighestBid;
     private Timestamp mListTime;
     private Timestamp mEndTime;
     private List<Bid> mBidList;
@@ -25,6 +26,24 @@ public class Auction {
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
+//    private Date ListTime;
+//    private Date EndTime;
+
+    public Timestamp getEndTime() {
+        return mEndTime;
+    }
+
+    public void setEndTime(Timestamp endTime) {
+        mEndTime = endTime;
+    }
+
+    public Timestamp getListTime() {
+        return mListTime;
+    }
+
+    public void setListTime(Timestamp listTime) {
+        mListTime = listTime;
+    }
 
 
     public String getDescription() {
@@ -56,7 +75,7 @@ public class Auction {
     }
 
     public int getCurrentHighestBidId() {
-        return mCurrentHighestBid.getBidId();
+        return mCurrentHighestBidId;
     }
 
     public void setCurrentHighestBidId(int currentHighestBidId) {
@@ -71,22 +90,39 @@ public class Auction {
     public Auction() {
     }
 
+    public Auction(String auctionName, int sellerId, Timestamp listTime, Timestamp endTime, String description,
+                   double buyNowPrice, double startBid){
+        mAuctionName = auctionName;
+        mSellerId = sellerId;
+        mListTime = listTime;
+        mEndTime = endTime;
+        mDescription = description;
+        mBuyItNowPrice = new BigDecimal(buyNowPrice);
+
+        UserAccountController seller = new UserAccountController();
+        mSeller = seller.getUserById(sellerId);
+
+        Bid initialBid = new Bid(mSeller,this,new BigDecimal(startBid));
+        mCurrentHighestBid = initialBid;
+
+    }
+
     public Auction(String auctionName, int sellerId, String description, Calendar listTime,
                    Calendar endTime, Double buyItNowPrice){
         mAuctionName = auctionName;
         mSellerId = sellerId;
         mDescription = description;
-        mEndTime = new java.sql.Timestamp(endTime.getTimeInMillis());
+        mEndTime = new Timestamp(endTime.getTime().getTime());
         BigDecimal d = new BigDecimal(buyItNowPrice);
         mBuyItNowPrice = d;
-        mListTime = new java.sql.Timestamp(listTime.getTimeInMillis());
+        mListTime = new Timestamp(listTime.getTime().getTime());
         System.out.println(mListTime);
     }
 
     public Auction(String auctionName, UserAccount seller, String description, GregorianCalendar listTime,
                    GregorianCalendar endTime, BigDecimal buyItNowPrice) {
         mAuctionName = auctionName;
-        mSeller = seller;
+//        mSeller = seller;
         mDescription = description;
 //        mListTime = listTime;
 //        mEndTime = endTime;
