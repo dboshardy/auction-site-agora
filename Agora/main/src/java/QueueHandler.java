@@ -98,7 +98,7 @@ public class QueueHandler implements Runnable{
                     //System.out.println("No message found");
 
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(50);
                     } catch (InterruptedException ex) {
                         System.out.println("Cannot sleep: " + ex);
                     }

@@ -77,6 +77,7 @@ class AuctionsController < ApplicationController
       :item_desc => params[:auction][:item_desc],
       :quantity => params[:auction][:quantity], 
       :buy_it_now => params[:buy_it_now],
+      :buy_now_price => params[:auction][:buy_now_price],
       :start_bid => params[:auction][:start_bid], 
       :shipping_cost => params[:auction][:shipping_cost],
       :auction_length => params[:auction][:auction_length],
