@@ -24,6 +24,7 @@
         <property name="EndTime" column="end_time" type="timestamp"/>
         <property name="Description" column="auction_description" type="string" length="255"/>
         <property name="BuyItNowPrice" column="buy_it_now_price" type="java.math.BigDecimal"/>
+        <property name="isEnded" column="is_ended" type="boolean"/>
     </class>
     <class name="UserAccount" table="useraccounts">
         <id name = "UserId" type="int" column="user_id">
