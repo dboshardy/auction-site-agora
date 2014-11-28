@@ -19,9 +19,12 @@ public class Auction {
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
+    private boolean mIsEnded;
 
 
-
+    public boolean getIsEnded(){
+        return mIsEnded;
+    }
     public String getDescription() {
         return mDescription;
     }
@@ -210,5 +213,9 @@ public class Auction {
     public void setFlag(Flag flag, int userId) {
         FlagController flagController = new FlagController();
         flagController.persistFlagOnAuction(flag);
+    }
+
+    public void setIsEnded(boolean isEnded) {
+        mIsEnded = isEnded;
     }
 }
