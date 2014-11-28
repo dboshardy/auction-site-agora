@@ -15,8 +15,8 @@ import java.util.List;
 public class Auction {
 
     private Bid mCurrentHighestBid;
-    private Timestamp mListTime;
-    private Timestamp mEndTime;
+    private Date mListTime;
+    private Date mEndTime;
     private List<Bid> mBidList;
     private List<Flag> mFlagList;
     private UserAccount mSeller;
@@ -29,19 +29,19 @@ public class Auction {
 //    private Date ListTime;
 //    private Date EndTime;
 
-    public Timestamp getEndTime() {
+    public Date getEndTime() {
         return mEndTime;
     }
 
-    public void setEndTime(Timestamp endTime) {
+    public void setEndTime(Date endTime) {
         mEndTime = endTime;
     }
 
-    public Timestamp getListTime() {
+    public Date getListTime() {
         return mListTime;
     }
 
-    public void setListTime(Timestamp listTime) {
+    public void setListTime(Date listTime) {
         mListTime = listTime;
     }
 
@@ -90,7 +90,7 @@ public class Auction {
     public Auction() {
     }
 
-    public Auction(String auctionName, int sellerId, Timestamp listTime, Timestamp endTime, String description,
+    public Auction(String auctionName, int sellerId, Date listTime, Date endTime, String description,
                    double buyNowPrice, double startBid){
         mAuctionName = auctionName;
         mSellerId = sellerId;
@@ -131,7 +131,8 @@ public class Auction {
     }
 
     public int getSellerId() {
-        return mSeller.getUserId();
+//        return mSeller.getUserId();
+        return mSellerId;
     }
 
     public void setSellerId(int sellerId) {

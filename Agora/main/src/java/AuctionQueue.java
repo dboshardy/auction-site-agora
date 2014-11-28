@@ -34,24 +34,30 @@ public class AuctionQueue extends Message {
             Integer hour = start_time.getInt("hour");
             Integer minutes = start_time.getInt("minutes");
 
-//            String auction_start_time = year + "-" + month + "-" + day + " " + hour + ":" + minutes + ":00";
+            String auction_start_time = year + "-" + month + "-" + day + " " + hour + ":" + minutes + ":00";
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date startTime = null;
+            try {
+                startTime = sdf.parse(auction_start_time);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+//            Calendar cal = new GregorianCalendar(year, month, day, hour, minutes);
 //
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//            Date date = null;
-//            try {
-//                date = sdf.parse(auction_start_time);
-//            } catch (ParseException e) {
-//                e.printStackTrace();
-//            }
-
-            Calendar cal = new GregorianCalendar(year, month, day, hour, minutes);
-
-            Timestamp startTime = new Timestamp(cal.getTimeInMillis());
+//            Timestamp startTime = new Timestamp(cal.getTimeInMillis());
 
             int auction_length= obj.getInt("auction_length");
+//
+//            cal.add(Calendar.DAY_OF_MONTH, auction_length);
+//            Timestamp endTime = new Timestamp(cal.getTimeInMillis());
 
-            cal.add(Calendar.DAY_OF_MONTH, auction_length);
-            Timestamp endTime = new Timestamp(cal.getTimeInMillis());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(startTime);
+            cal.add(Calendar.DATE, auction_length);
+
+            Date endTime = cal.getTime();
 
             Double bidPrice = obj.getDouble("start_bid");
             Double buyNowPrice = obj.getDouble("buy_now_price");
@@ -122,14 +128,16 @@ public class AuctionQueue extends Message {
             }
         } else if (type.equals("index")) {
             // you get the idea
-            String user_id = obj.getString("user_id");
-            List<Auction> list = auctionController.getAllAuctionsByUserId(Integer.parseInt(user_id));
-            String auction_id = obj.getString("auction_id");
-            Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
+            int user_id = obj.getInt("user_id");
+            List<Auction> list = auctionController.getAllAuctionsByUserId(user_id);
+//            String auction_id = obj.getString("auction_id");
+//            Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
             JSONArray jsonArray = new JSONArray();
             for(Auction a:list){
                 JSONObject ele= new JSONObject();
                 ele.put("auction_id",a.getAuctionId());
+                ele.put("auction_name",a.getAuctionName());
+                ele.put("end_time", a.getEndTime());
                 ele.put("item_desc",a.getDescription());
 //                ele.put("highest_bid",a.getCurrentHighestBid().getBidAmount());
                 jsonArray.put(ele);

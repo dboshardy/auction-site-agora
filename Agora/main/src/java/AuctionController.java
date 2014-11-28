@@ -142,6 +142,8 @@ public class AuctionController {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not get auction list for user : " + userId + " from database.");
+            LOG.warn(e.getCause().getCause());
+            e.printStackTrace();
         }
         return auctions;
     }
