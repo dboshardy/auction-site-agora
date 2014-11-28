@@ -14,8 +14,8 @@ import java.util.List;
 public class Auction {
 
     private Bid mCurrentHighestBid;
-    private Timestamp mListTime;
-    private Timestamp mEndTime;
+    private Date mListTime;
+    private Date mEndTime;
     private List<Bid> mBidList;
     private List<Flag> mFlagList;
     private UserAccount mSeller;
@@ -25,8 +25,12 @@ public class Auction {
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
+    private boolean mIsEnded;
 
 
+    public boolean getIsEnded(){
+        return mIsEnded;
+    }
     public String getDescription() {
         return mDescription;
     }
@@ -71,16 +75,21 @@ public class Auction {
     public Auction() {
     }
 
-    public Auction(String auctionName, int sellerId, String description, Calendar listTime,
-                   Calendar endTime, Double buyItNowPrice){
+    public Auction(String auctionName, int sellerId, Date listTime,
+                   Date endTime, String description, Double buyItNowPrice, Double bidPrice){
         mAuctionName = auctionName;
         mSellerId = sellerId;
         mDescription = description;
-        mEndTime = new java.sql.Timestamp(endTime.getTimeInMillis());
+        mEndTime = endTime;
         BigDecimal d = new BigDecimal(buyItNowPrice);
         mBuyItNowPrice = d;
-        mListTime = new java.sql.Timestamp(listTime.getTimeInMillis());
-        System.out.println(mListTime);
+        mListTime = listTime;
+
+        UserAccountController seller = new UserAccountController();
+        mSeller = seller.getUserById(mSellerId);
+
+        Bid initialBid = new Bid(mSeller,this,new BigDecimal(bidPrice));
+        mCurrentHighestBid = initialBid;
     }
 
     public Auction(String auctionName, UserAccount seller, String description, GregorianCalendar listTime,
@@ -169,26 +178,23 @@ public class Auction {
         mAuctionId = auctionId;
     }
 
-//    public Calendar getListTime() {
-//        return mListTime;
-//    }
-//
-//    public void setListTime(Calendar listTime) {
-//        mListTime = listTime;
-//    }
-//
-//    public Calendar getEndTime() {
-//        return mEndTime;
-//    }
-//
-//    public void setEndTime(Calendar endTime) {
-//        mEndTime = endTime;
-//    }
-//
-//    public void setTimestamp(Calendar timestamp){
-//        mListTime = timestamp;
-//    }
+    public Date getListTime() {
+        return mListTime;
+    }
 
+    public void setListTime(Date listTime) {
+        mListTime = listTime;
+    }
+    public Date getEndTime() {
+        return mEndTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        mEndTime = endTime;
+    }
+    public void setTimestamp(Date timestamp){
+        mListTime = timestamp;
+    }
     public void setSeller(UserAccount mSeller){
         this.mSeller=mSeller;
     }
@@ -228,5 +234,9 @@ public class Auction {
     public void setFlag(Flag flag, int userId) {
         FlagController flagController = new FlagController();
         flagController.persistFlagOnAuction(flag);
+    }
+
+    public void setIsEnded(boolean isEnded) {
+        mIsEnded = isEnded;
     }
 }
