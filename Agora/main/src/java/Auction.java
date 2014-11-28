@@ -1,7 +1,11 @@
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -56,10 +60,7 @@ public class Auction {
     }
 
     public int getCurrentHighestBidId() {
-        //         get null pointer exception when running getAllAuctionsByUserId
-
-//        return mCurrentHighestBid.getBidId();
-        return mCurrentHighestBidId;
+        return mCurrentHighestBid.getBidId();
     }
 
     public void setCurrentHighestBidId(int currentHighestBidId) {
@@ -103,9 +104,7 @@ public class Auction {
     }
 
     public int getSellerId() {
-//         get null pointer exception when running getAllAuctionsByUserId
-//        return mSeller.getUserId();
-        return mSellerId;
+        return mSeller.getUserId();
     }
 
     public void setSellerId(int sellerId) {
@@ -211,7 +210,7 @@ public class Auction {
         if (mEndTime.after(new Timestamp(date.getTime()))){
             result = true;
         }
-        return result;
+       return result;
     }
 
 
