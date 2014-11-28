@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "/transactions/:id/new" => "transactions#new"
   get "/users/logout" => "users#destroy_session"
   post "/users/login" => "users#login"
+  get "/categories/new_categories_for_auction/:id" => "categories#new_categories_for_auction"
 
   resources :watchlists
 
