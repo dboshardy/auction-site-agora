@@ -1,4 +1,10 @@
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Date;
 import java.util.List;
 
@@ -7,9 +13,9 @@ import java.util.List;
  */
 public class Auction {
 
-    private Bid mCurrentHighestBid = null;
-    private Date mListTime;
-    private Date mEndTime;
+    private Bid mCurrentHighestBid;
+    private Timestamp mListTime;
+    private Timestamp mEndTime;
     private List<Bid> mBidList;
     private List<Flag> mFlagList;
     private UserAccount mSeller;
@@ -19,7 +25,6 @@ public class Auction {
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
-
 
 
     public String getDescription() {
@@ -66,15 +71,27 @@ public class Auction {
     public Auction() {
     }
 
-    public Auction(String auctionName, UserAccount seller, String description, Date endTime, Bid currentHighestBid, Category category, BigDecimal buyItNowPrice) {
+    public Auction(String auctionName, int sellerId, String description, Calendar listTime,
+                   Calendar endTime, Double buyItNowPrice){
+        mAuctionName = auctionName;
+        mSellerId = sellerId;
+        mDescription = description;
+        mEndTime = new java.sql.Timestamp(endTime.getTimeInMillis());
+        BigDecimal d = new BigDecimal(buyItNowPrice);
+        mBuyItNowPrice = d;
+        mListTime = new java.sql.Timestamp(listTime.getTimeInMillis());
+        System.out.println(mListTime);
+    }
+
+    public Auction(String auctionName, UserAccount seller, String description, GregorianCalendar listTime,
+                   GregorianCalendar endTime, BigDecimal buyItNowPrice) {
         mAuctionName = auctionName;
         mSeller = seller;
         mDescription = description;
-        mEndTime = endTime;
-        mCurrentHighestBid = currentHighestBid;
-        mCategory = category;
+//        mListTime = listTime;
+//        mEndTime = endTime;
         mBuyItNowPrice = buyItNowPrice;
-        mListTime = new Date();
+
     }
 
     public int getSellerId() {
@@ -90,10 +107,10 @@ public class Auction {
         mSeller = seller;
         mDescription = description;
         //set date as of now
-        mListTime = new Date();
+//        mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
-        mEndTime = endTime;
+//        mEndTime = endTime;
     }
 
     public Auction(String auctionName, int sellerId, String description, BigDecimal bid,Date endTime) {
@@ -101,10 +118,10 @@ public class Auction {
         mSellerId = sellerId;
         mDescription = description;
         //set date as of now
-        mListTime = new Date();
+//        mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
-        mEndTime = endTime;
+//        mEndTime = endTime;
     }
 
     public UserAccount getSeller() {
@@ -152,25 +169,25 @@ public class Auction {
         mAuctionId = auctionId;
     }
 
-    public Date getListTime() {
-        return mListTime;
-    }
-
-    public void setListTime(Date listTime) {
-        mListTime = listTime;
-    }
-
-    public Date getEndTime() {
-        return mEndTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        mEndTime = endTime;
-    }
-
-    public void setTimestamp(Date timestamp){
-        mListTime = timestamp;
-    }
+//    public Calendar getListTime() {
+//        return mListTime;
+//    }
+//
+//    public void setListTime(Calendar listTime) {
+//        mListTime = listTime;
+//    }
+//
+//    public Calendar getEndTime() {
+//        return mEndTime;
+//    }
+//
+//    public void setEndTime(Calendar endTime) {
+//        mEndTime = endTime;
+//    }
+//
+//    public void setTimestamp(Calendar timestamp){
+//        mListTime = timestamp;
+//    }
 
     public void setSeller(UserAccount mSeller){
         this.mSeller=mSeller;
@@ -183,7 +200,8 @@ public class Auction {
 
     public boolean isEnded(){
         boolean result = false;
-        if (mEndTime.after(new Date())){
+        Date date = new Date();
+        if (mEndTime.after(new Timestamp(date.getTime()))){
             result = true;
         }
        return result;

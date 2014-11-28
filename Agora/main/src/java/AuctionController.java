@@ -34,7 +34,8 @@ public class AuctionController {
             }
             LOG.warn("Could not insert account: " + auction.toString() + " to database.");
             result="Unknown Exception";
-            LOG.warn(e.getCause());
+            LOG.warn(e.getCause().getCause());
+            e.printStackTrace();
         } catch (EntityExistsException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
@@ -141,6 +142,8 @@ public class AuctionController {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not get auction list for user : " + userId + " from database.");
+            LOG.warn(e.getCause().getCause());
+            e.printStackTrace();
         }
         return auctions;
     }

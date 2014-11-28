@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
         auction_data.each do |auc|
             auction = Auction.new
             auction.auction_id = auc["auction_id"]
-            auction.item_name = auc["item_name"]
+            auction.item_name = auc["auction_name"]
+            
             auction.item_desc = auc["item_desc"]
 
             bid = Bid.new
