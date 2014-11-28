@@ -25,6 +25,7 @@ public class UserQueue extends Message {
 
 
             UserAccount user = new UserAccount(username, email, passwordHash, firstName, lastName, userDescription);
+            System.out.println("Created user");
             result = userController.persistUserAccount(user);
             int user_id = user.getUserId();
             if (result.equals("true")) {
@@ -92,7 +93,7 @@ public class UserQueue extends Message {
             result = userController.getUserAccountByUsernameAndPasswordHash(userName, passwordHash).toString();
             System.out.println("Found result...");
             if(result != null) {
-                output.put("user", result);
+                output.put("user_id", result);
             }
             else {
                 output.put("Error","Could not get user for this username or password");

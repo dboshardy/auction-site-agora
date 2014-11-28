@@ -6,7 +6,8 @@ import org.json.JSONObject;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class AuctionQueue extends Message {
 
@@ -25,6 +26,7 @@ public class AuctionQueue extends Message {
             String item_desc = obj.getString("item_desc");
             Integer qty = obj.getInt("quantity");
             Boolean buy_it_now = obj.getBoolean("buy_it_now");
+            Double buy_now_price = obj.getDouble("buy_now_price");
             Double start_bid = obj.getDouble("start_bid");
             Double shipping_cost = obj.getDouble("shipping_cost");
             Integer auction_length = obj.getInt("auction_length");
@@ -34,19 +36,27 @@ public class AuctionQueue extends Message {
             Integer day = start_time.getInt("day");
             Integer hour = start_time.getInt("hour");
             Integer minutes = start_time.getInt("minutes");
-            Date date = new Date (year, month, day, hour, minutes);
+
+
+            Calendar listTime = new GregorianCalendar(year, month + 1, day, hour, minutes);
+            Calendar endTime = new GregorianCalendar(year, month, day, hour, minutes);
+            endTime.add(month, auction_length);
 
             System.out.println("Creating auction");
-            Auction auction = new Auction(auctionName, seller_id,item_desc,new BigDecimal(start_bid),date);
+
+            Auction auction = new Auction(auctionName, seller_id, item_desc, listTime, endTime, buy_now_price);
+
             result = auctionController.persistAuction(auction);
             output.put("result", result);
             if (result.equals("true")) {
                 output.put("succeed", true);
+                output.put("auction_id", auction.getAuctionId());
+
             } else {
                 output.put("succeed", false);
                 output.put("Error", result);
             }
-        } else if (type.equals("update")) {
+        } /* else if (type.equals("update")) {
             // you get the idea
             String auction_id = obj.getString("auction_id");
             String seller_id = obj.getString("seller_id");
@@ -66,7 +76,7 @@ public class AuctionQueue extends Message {
                 output.put("succeed", false);
                 output.put("Error", result);
             }
-        } else if (type.equals("delete")) {
+        } */ else if (type.equals("delete")) {
             // you get the idea
             String auction_id = obj.getString("auction_id");
             output.put("auction_id", auction_id);
@@ -87,12 +97,28 @@ public class AuctionQueue extends Message {
             String auction_id = obj.getString("auction_id");
             response.put("auction_id",auction_id);
         }*/ else if (type.equals("show")) {
-            // you get the idea
             String auction_id = obj.getString("auction_id");
             output.put("auction_id", auction_id);
             Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
-            //ArrayList<Bid> list= auctionController.getAuctionBids(auction)
-            output.put("auction", auction);
+
+            output.put("auction_id",auction.getAuctionId());
+            output.put("item_desc",auction.getDescription());
+
+            Bid highestBid = auction.getCurrentHighestBid();
+
+            output.put("highest_bid",highestBid.getBidAmount());
+            output.put("buy_now_price",auction.getBuyItNowPrice());
+
+            UserAccountController userAccount = new UserAccountController();
+            UserAccount bidder = userAccount.getUserById(highestBid.getBidderId());
+
+            output.put("bidder_id",highestBid.getBidderId());
+            output.put("bidder_username",bidder.getUserName());
+            output.put("seller_id",auction.getSellerId());
+
+            UserAccount seller = userAccount.getUserById(auction.getSellerId());
+
+            output.put("seller_username", seller.getUserName());
         }
         return output;
     }
