@@ -86,6 +86,7 @@ class UsersController < ApplicationController
     end
 
     user_info = { :id => id, :type => "create",
+      :user_id => session[:user_id], 
       :username => user.username,
       :email => user.email,
       :first_name => user.first_name,
@@ -112,9 +113,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if session[:user_id] != params[:id]
-        redirect_to "/users", notice: "You cannot edit this user's information"
-    end
 
     user = User.new(user_params)
 
@@ -123,17 +121,13 @@ class UsersController < ApplicationController
 
     user_info = { :id => id, :type => "update",
       :user_id => user_id,
-      :username => user.user_name,
+      :username => user.username,
       :email => user.email,
       :first_name => user.first_name,
       :last_name => user.last_name,
       :user_description => params["user_description"],
       :password_hash => user.password_digest
     }
-
-    if user.errors.any?
-      redirect_to "/users", user.errors.full_messages
-    end
 
     publish :user, JSON.generate(user_info)
 

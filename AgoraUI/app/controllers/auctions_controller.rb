@@ -6,6 +6,11 @@ class AuctionsController < ApplicationController
   # GET /auctions.json
   def index
 
+    if session[:user_id].nil?
+      render 'welcome'
+      return
+    end
+
     id = SecureRandom.uuid.to_s
 
     auction_info = {:id => id, :type => "index", 

@@ -57,6 +57,18 @@ public class UserAccount {
 
     }
 
+    public UserAccount(int id, String userName, String email, String password, String firstName, String lastName, String description) {
+        mUserId = id;
+        mUserName = userName;
+        mEmail = email;
+        mPassword = password;
+        mFirstName = firstName;
+        mLastName = lastName;
+        mDescription = description;
+        mUserJoinedDate = new Date();
+
+    }
+
     public boolean userHasCurrentHighestBid() {
         boolean result = false;
         BidController bidController = new BidController();

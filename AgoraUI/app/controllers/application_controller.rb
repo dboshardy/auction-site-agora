@@ -227,7 +227,7 @@ class ApplicationController < ActionController::Base
         message = query_message(id)
 
         status = message["success"]
-        error = message["error"]
+        error = message["Error"]
         user_id = message["user_id"]
         is_admin = message["is_admin"]
 
@@ -266,8 +266,8 @@ class ApplicationController < ActionController::Base
         user = User.new
         user.username = json_data["username"]
         user.first_name = json_data["first_name"]
-        user.last_name = json_data[:last_name]
-        user.user_description = json_data[:user_description]
+        user.last_name = json_data["last_name"]
+        user.user_description = json_data["user_description"]
 
         return user, error
     end
@@ -318,7 +318,7 @@ class ApplicationController < ActionController::Base
 
     def confirm_user
         if session[:user_id].nil?
-            redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+            redirect_to "/users/new", notice: "You must log in or sign up"
         end
     end  
 
