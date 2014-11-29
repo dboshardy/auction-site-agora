@@ -8,6 +8,6 @@ public class BidChangeJanitor extends Janitor {
         //check for changes to highest bids
     }
     public BidChangeJanitor(){
-        Listener listener = new Listener();
+        //Listener listener = new Listener();
     }
 }
