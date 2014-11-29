@@ -107,10 +107,13 @@ public class UserAccountController {
         String result = "Could not place bid";
         if (currentHighestBid.getBidAmount().compareTo(bid.getBidAmount()) == -1) {
             //if currentHightestBid is less than proposed bid
+            //old bidder before change
+            String oldBidderEmail = auction.getCurrentHighestBid().getBidder().getEmail();
             bidController.persistBid(bid);
             auction.setCurrentHighestBid(bid);
             auctionController.updateAuction(auction);
-
+            String sellerEmail = auction.getSeller().getEmail();
+            //todo:send notification to bidder who was outbid, and seller notifying of bid placement
             result = "Successfully placed bid";
         }
         return result;
