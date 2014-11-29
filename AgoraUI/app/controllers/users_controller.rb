@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :confirm_user, only: [:show, :edit, :update, :destroy]
-  before_action :confirm_admin, only: [:block]
+  before_action :confirm_admin, only: [:destroy, :block]
   publishes_to :user
   # GET /users
   # GET /users.json
@@ -155,11 +155,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    if (session[:user_id] != params[:id].to_i) && (session[:is_admin] != true)
-        redirect_to "/users", notice: "You cannot delete this user"
-        return
-    end    
-
+ 
     id = SecureRandom.uuid.to_s
     user_id = params[:id]
 

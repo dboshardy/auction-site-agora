@@ -20,12 +20,9 @@ public class AuctionQueue extends Message {
         AuctionController auctionController = new AuctionController();
 
         if (type.equals("create")) {
-            // take appropriate action to create new tuple in database
-            // create a JSON object for the return message
             int user_id = obj.getInt("user_id");
             String auctionName = obj.getString("item_name");
             String item_desc = obj.getString("item_desc");
-            //String auction_start_time = String.valueOf(obj.getJSONObject("auction_start_time"));
 
             JSONObject start_time = obj.getJSONObject("auction_start_time");
             Integer year = start_time.getInt("year");
@@ -44,14 +41,7 @@ public class AuctionQueue extends Message {
                 e.printStackTrace();
             }
 
-//            Calendar cal = new GregorianCalendar(year, month, day, hour, minutes);
-//
-//            Timestamp startTime = new Timestamp(cal.getTimeInMillis());
-
             int auction_length= obj.getInt("auction_length");
-//
-//            cal.add(Calendar.DAY_OF_MONTH, auction_length);
-//            Timestamp endTime = new Timestamp(cal.getTimeInMillis());
 
             Calendar cal = Calendar.getInstance();
             cal.setTime(startTime);
@@ -130,8 +120,6 @@ public class AuctionQueue extends Message {
             // you get the idea
             int user_id = obj.getInt("user_id");
             List<Auction> list = auctionController.getAllAuctionsByUserId(user_id);
-//            String auction_id = obj.getString("auction_id");
-//            Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
             JSONArray jsonArray = new JSONArray();
             for(Auction a:list){
                 JSONObject ele= new JSONObject();
@@ -139,7 +127,11 @@ public class AuctionQueue extends Message {
                 ele.put("auction_name",a.getAuctionName());
                 ele.put("end_time", a.getEndTime());
                 ele.put("item_desc",a.getDescription());
-                ele.put("highest_bid",a.getCurrentHighestBid().getBidAmount());
+
+                BidController bid = new BidController();
+                Bid highestBid = bid.getBidById(a.getCurrentHighestBidId());
+                ele.put("highest_bid",highestBid.getBidAmount());
+
                 jsonArray.put(ele);
             }
             output.put("auctions",jsonArray);

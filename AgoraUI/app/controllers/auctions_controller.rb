@@ -1,15 +1,10 @@
 class AuctionsController < ApplicationController
-  before_action :confirm_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :confirm_user, only: [:index, :new, :edit, :create, :update, :destroy]
   publishes_to :auction
 
   # GET /auctions
   # GET /auctions.json
   def index
-
-    if session[:user_id].nil?
-      render 'welcome'
-      return
-    end
 
     id = SecureRandom.uuid.to_s
 

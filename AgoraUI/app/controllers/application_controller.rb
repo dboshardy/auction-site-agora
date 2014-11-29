@@ -317,7 +317,7 @@ class ApplicationController < ActionController::Base
     private
 
     def confirm_user
-        if session[:user_id].nil?
+        if session[:user_id].nil? && !session[:is_admin]
             redirect_to "/users/new", notice: "You must log in or sign up"
         end
     end  
