@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>Auction Bids</th>
+      <th>Bidder</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -9,7 +10,7 @@
   <tbody>
     <% @bids.each do |bid| %>
       <tr>
-        <td><%= "Bid Amount: " + bid.bid_amount %></td>
+        <td><%= "Bid Amount: " + bid.amount.to_s %></td>
         <td><%= link_to "See Bidder", "/users/#{bid.bidder_id}" %></td>   
       </tr>
     <% end %>

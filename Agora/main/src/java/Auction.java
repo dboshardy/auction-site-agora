@@ -56,7 +56,10 @@ public class Auction {
     }
 
     public int getCurrentHighestBidId() {
-        return mCurrentHighestBid.getBidId();
+        //         get null pointer exception when running getAllAuctionsByUserId
+
+//        return mCurrentHighestBid.getBidId();
+        return mCurrentHighestBidId;
     }
 
     public void setCurrentHighestBidId(int currentHighestBidId) {
@@ -100,7 +103,9 @@ public class Auction {
     }
 
     public int getSellerId() {
-        return mSeller.getUserId();
+//         get null pointer exception when running getAllAuctionsByUserId
+//        return mSeller.getUserId();
+        return mSellerId;
     }
 
     public void setSellerId(int sellerId) {
