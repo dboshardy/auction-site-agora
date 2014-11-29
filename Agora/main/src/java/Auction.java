@@ -162,6 +162,7 @@ public class Auction {
     public Bid getNonPersistedBid(){
         return mCurrentHighestBid;
     }
+
     public Bid getCurrentHighestBid() {
         BidController bidController = new BidController();
         return bidController.getBidById(this.getCurrentHighestBidId());

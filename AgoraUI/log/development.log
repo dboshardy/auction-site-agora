@@ -41891,3 +41891,1442 @@ Started GET "/assets/watchlists.js?body=1" for 127.0.0.1 at 2014-11-29 12:44:06 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-29 12:44:06 -0600
+
+
+Started GET "/users" for 127.0.0.1 at 2014-11-29 13:00:41 -0600
+Processing by UsersController#index as HTML
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 113ms (Views: 112.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-29 13:01:08 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WsexmS6snhnFzu5IduWJfGev/0IfQ3GVPfpMF7qs9Bg=", "first_name"=>"T", "last_name"=>"Kelly", "username"=>"Durant", "email"=>"test@test.com", "user_description"=>"Broken foot", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "commit"=>"Sign Up"}
+Unpermitted parameters: utf8, authenticity_token, user_description, password_confirmation, commit
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '9ed67c42-cd2e-47ed-a646-6847de768754' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '9ed67c42-cd2e-47ed-a646-6847de768754' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '9ed67c42-cd2e-47ed-a646-6847de768754' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '9ed67c42-cd2e-47ed-a646-6847de768754' LIMIT 1
+  Rendered users/confirm.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 515ms (Views: 130.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/auctions.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/bids.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/shopping_cart_items.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/shopping_carts.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/assets/watchlists.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:09 -0600
+
+
+Started GET "/auctions" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+Processing by AuctionsController#index as HTML
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '11fc0f63-b329-467f-a014-6c2415901bf3' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '11fc0f63-b329-467f-a014-6c2415901bf3' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '11fc0f63-b329-467f-a014-6c2415901bf3' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '11fc0f63-b329-467f-a014-6c2415901bf3' LIMIT 1
+  Rendered auctions/_results.html.erb (0.0ms)
+  Rendered auctions/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 438ms (Views: 131.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/auctions.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/bids.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/shopping_cart_items.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/shopping_carts.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/watchlists.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-29 13:01:45 -0600
+
+
+Started GET "/auctions/new" for 127.0.0.1 at 2014-11-29 13:01:57 -0600
+Processing by AuctionsController#new as HTML
+  Rendered auctions/_form.html.erb (23.5ms)
+  Rendered auctions/new.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 160ms (Views: 148.4ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/auctions" for 127.0.0.1 at 2014-11-29 13:02:43 -0600
+Processing by AuctionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WsexmS6snhnFzu5IduWJfGev/0IfQ3GVPfpMF7qs9Bg=", "auction"=>{"auction_start_time(1i)"=>"2014", "auction_start_time(2i)"=>"11", "auction_start_time(3i)"=>"29", "auction_start_time(4i)"=>"19", "auction_start_time(5i)"=>"01", "auction_length"=>"5", "item_name"=>"Signed Basketball", "item_desc"=>"Signed by Durant", "quantity"=>"1", "buy_now_price"=>"100.00", "start_bid"=>"10.00", "shipping_cost"=>"5.00"}, "buy_it_now"=>"false", "commit"=>"Create Auction"}
+Unpermitted parameters: auction_start_time(1i), auction_start_time(2i), auction_start_time(3i), auction_start_time(4i), auction_start_time(5i), auction_length, item_name, item_desc, quantity, buy_now_price, start_bid, shipping_cost
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '30b22ab4-03ab-492c-9a2b-3e8cc955c91e' LIMIT 1
+Redirected to http://localhost:3000/categories/new_categories_for_auction/76
+Completed 302 Found in 915ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/categories/new_categories_for_auction/76" for 127.0.0.1 at 2014-11-29 13:02:44 -0600
+Processing by CategoriesController#new_categories_for_auction as HTML
+  Parameters: {"id"=>"76"}
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.8ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (1.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.7ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3a63f753-e03f-4451-9e0b-8c919bb6d441' LIMIT 1[0m
+Completed 500 Internal Server Error in 10199ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:126:in `get_categories'
+  app/controllers/categories_controller.rb:28:in `new_categories_for_auction'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 13:03:22 -0600
+Processing by AuctionsController#index as HTML
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.7ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.8ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '3b919a7d-6e23-487c-9fce-a091386e9e21' LIMIT 1
+Completed 500 Internal Server Error in 10195ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:26:in `get_auctions'
+  app/controllers/auctions_controller.rb:22:in `index'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2014-11-29 13:03:44 -0600
+Processing by AuctionsController#index as HTML
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7b069a68-4baa-4e82-accf-4551cefa5b3d' LIMIT 1[0m
+Completed 500 Internal Server Error in 10204ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:26:in `get_auctions'
+  app/controllers/auctions_controller.rb:22:in `index'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.5ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2014-11-29 13:03:54 -0600
+Processing by AuctionsController#index as HTML
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.8ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.7ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.9ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+  [1m[36mMessage Load (0.9ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '794157b6-7afc-482b-a83d-d6e75b9c8930' LIMIT 1
+Completed 500 Internal Server Error in 10198ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:26:in `get_auctions'
+  app/controllers/auctions_controller.rb:22:in `index'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2014-11-29 13:04:05 -0600
+Processing by AuctionsController#index as HTML
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.8ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '47cbca35-4dba-44ef-9acc-d0887f7fe843' LIMIT 1[0m
+Completed 500 Internal Server Error in 10195ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:26:in `get_auctions'
+  app/controllers/auctions_controller.rb:22:in `index'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.8ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2014-11-29 13:04:15 -0600
+Processing by AuctionsController#index as HTML
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (1.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.8ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.7ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '92889167-db41-4fd1-b34f-64ddd29cac3a' LIMIT 1
+Completed 500 Internal Server Error in 10205ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:26:in `get_auctions'
+  app/controllers/auctions_controller.rb:22:in `index'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2014-11-29 13:04:25 -0600
+Processing by AuctionsController#index as HTML
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.7ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1
+  [1m[36mMessage Load (0.7ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '7f6a1539-48d8-4089-8542-5bcf70d889ce' LIMIT 1[0m
+Completed 500 Internal Server Error in 10202ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:26:in `get_auctions'
+  app/controllers/auctions_controller.rb:22:in `index'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2014-11-29 13:11:14 -0600
+Processing by AuctionsController#index as HTML
+  [1m[35mMessage Load (0.2ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.8ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.8ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '24127e96-d077-4046-8694-95017b2107cd' LIMIT 1
+Completed 500 Internal Server Error in 10199ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:26:in `get_auctions'
+  app/controllers/auctions_controller.rb:17:in `index'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.9ms)
+
+
+Started POST "/auctions" for 127.0.0.1 at 2014-11-29 13:19:22 -0600
+Processing by AuctionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WsexmS6snhnFzu5IduWJfGev/0IfQ3GVPfpMF7qs9Bg=", "auction"=>{"auction_start_time(1i)"=>"2014", "auction_start_time(2i)"=>"11", "auction_start_time(3i)"=>"29", "auction_start_time(4i)"=>"19", "auction_start_time(5i)"=>"01", "auction_length"=>"5", "item_name"=>"Signed Basketball", "item_desc"=>"Signed by Durant", "quantity"=>"1", "buy_now_price"=>"100.00", "start_bid"=>"10.00", "shipping_cost"=>"5.00"}, "buy_it_now"=>"false", "commit"=>"Create Auction"}
+Unpermitted parameters: auction_start_time(1i), auction_start_time(2i), auction_start_time(3i), auction_start_time(4i), auction_start_time(5i), auction_length, item_name, item_desc, quantity, buy_now_price, start_bid, shipping_cost
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '2b76d1a2-69fc-407f-9fc3-829e6db6e3c5' LIMIT 1[0m
+Redirected to http://localhost:3000/categories/new_categories_for_auction/78
+Completed 302 Found in 1024ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/categories/new_categories_for_auction/78" for 127.0.0.1 at 2014-11-29 13:19:23 -0600
+Processing by CategoriesController#new_categories_for_auction as HTML
+  Parameters: {"id"=>"78"}
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.7ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.9ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (1.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (1.0ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (1.1ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '6738b5a4-3344-4767-b824-0812f65469a8' LIMIT 1
+Completed 500 Internal Server Error in 10219ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:126:in `get_categories'
+  app/controllers/categories_controller.rb:28:in `new_categories_for_auction'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started POST "/auctions" for 127.0.0.1 at 2014-11-29 13:20:27 -0600
+Processing by AuctionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WsexmS6snhnFzu5IduWJfGev/0IfQ3GVPfpMF7qs9Bg=", "auction"=>{"auction_start_time(1i)"=>"2014", "auction_start_time(2i)"=>"11", "auction_start_time(3i)"=>"29", "auction_start_time(4i)"=>"19", "auction_start_time(5i)"=>"01", "auction_length"=>"5", "item_name"=>"Signed Basketball", "item_desc"=>"Signed by Durant", "quantity"=>"1", "buy_now_price"=>"100.00", "start_bid"=>"10.00", "shipping_cost"=>"5.00"}, "buy_it_now"=>"true", "commit"=>"Create Auction"}
+Unpermitted parameters: auction_start_time(1i), auction_start_time(2i), auction_start_time(3i), auction_start_time(4i), auction_start_time(5i), auction_length, item_name, item_desc, quantity, buy_now_price, start_bid, shipping_cost
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = 'e40c5bcb-44a3-42db-9af2-70bae26a3503' LIMIT 1
+Redirected to http://localhost:3000/categories/new_categories_for_auction/80
+Completed 302 Found in 915ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/categories/new_categories_for_auction/80" for 127.0.0.1 at 2014-11-29 13:20:28 -0600
+Processing by CategoriesController#new_categories_for_auction as HTML
+  Parameters: {"id"=>"80"}
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."message_id" = '20c64511-4500-4e01-afc9-c01dcf141cea' LIMIT 1[0m
+Completed 500 Internal Server Error in 10186ms
+
+NoMethodError (undefined method `body' for nil:NilClass):
+  app/controllers/application_controller.rb:310:in `query_message'
+  app/controllers/application_controller.rb:126:in `get_categories'
+  app/controllers/categories_controller.rb:28:in `new_categories_for_auction'
+
+
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/thomkel/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.4ms)
