@@ -139,24 +139,24 @@ public class AuctionQueue extends Message {
                 ele.put("auction_name",a.getAuctionName());
                 ele.put("end_time", a.getEndTime());
                 ele.put("item_desc",a.getDescription());
-//                ele.put("highest_bid",a.getCurrentHighestBid().getBidAmount());
+                ele.put("highest_bid",a.getCurrentHighestBid().getBidAmount());
                 jsonArray.put(ele);
             }
             output.put("auctions",jsonArray);
         }else if (type.equals("show")) {
             // you get the idea
             String auction_id = obj.getString("auction_id");
-            output.put("auction_id", auction_id);
             Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
             //ArrayList<Bid> list= auctionController.getAuctionBids(auction)
+            output.put("item_name", auction.getAuctionName());
             output.put("auction_id",auction.getAuctionId());
             output.put("item_desc",auction.getDescription());
-//            output.put("highest_bid",auction.getCurrentHighestBid().getBidAmount());
+            output.put("highest_bid",auction.getCurrentHighestBid().getBidAmount());
             output.put("buy_now_price",auction.getBuyItNowPrice());
-//            output.put("bidder_id",auction.getCurrentHighestBid().getBidderId());
-//            output.put("bidder_username",auction.getCurrentHighestBid().getBidder().getUserName());
-//            output.put("seller_id",auction.getSellerId());
-//            output.put("seller_username",auction.getSeller().getUserName());
+            output.put("bidder_id",auction.getCurrentHighestBid().getBidderId());
+            output.put("bidder_username",auction.getCurrentHighestBid().getBidder().getUserName());
+            output.put("seller_id",auction.getSellerId());
+            output.put("seller_username",auction.getSeller().getUserName());
         }
         return output;
     }

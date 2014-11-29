@@ -41,10 +41,10 @@ public class BidQueue extends Message{
             }
         }else if(type.equals("show")){
             // you get the idea
-            String auction_id = obj.getString("auction_id");
-            String user_id = obj.getString("user_id");
+            int auction_id = obj.getInt("auction_id");
+//            int user_id = obj.getInt("user_id");
 
-            Auction auction= auctionController.getAuctionById(Integer.parseInt(auction_id));
+            Auction auction= auctionController.getAuctionById(auction_id);
             List<Bid> bids= auctionController.getAuctionBids(auction);
             JSONArray jsonArray = new JSONArray();
             for(Bid b:bids){

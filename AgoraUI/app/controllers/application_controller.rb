@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
             auction = Auction.new
             auction.auction_id = auc["auction_id"]
             auction.item_name = auc["auction_name"]
-            
+            auction.end_time = auc["end_time"]
             auction.item_desc = auc["item_desc"]
 
             bid = Bid.new
@@ -274,13 +274,13 @@ class ApplicationController < ActionController::Base
 
     def get_bids(id)
         message = query_message(id)
-        bid_data = message["auctions"]
+        bid_data = message["bids"]
         bids = []
 
         bid_data.each do |bid|
             b = Bid.new
-            b.bid_amount = bid["bid_amount"]
-            b.bidder_id = bid["bidder"]
+            b.amount = bid["bid_amount"]
+            b.bidder_id = bid["bidder_id"]
             b.auction_id = bid["auction_id"]
 
             bids.push(b)
