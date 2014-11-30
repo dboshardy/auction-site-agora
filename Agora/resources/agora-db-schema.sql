@@ -54,6 +54,7 @@ CREATE TABLE Auctions
     end_time timestamp,
     buy_it_now_price numeric,
     seller_user_id integer NOT NULL,
+    category_id integer,
     is_ended boolean default false,
     CONSTRAINT Auctions_pk PRIMARY KEY (auction_id)
 )
