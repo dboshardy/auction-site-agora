@@ -4,11 +4,13 @@ import java.util.Date;
  * Created by drew on 10/19/14.
  */
 public class Flag {
-    private FlagType mFlagType;
+    private String mFlagType;
     private UserAccount mFlaggingUser;
     private Auction mAuctionFlagged;
     private int mAuctionId;
     private int mFlagId;
+    private int mUserId;
+    private Date mDateFlagged;
 
     public Date getDateFlagged() {
         return mDateFlagged;
@@ -18,7 +20,6 @@ public class Flag {
         mDateFlagged = dateFlagged;
     }
 
-    private Date mDateFlagged;
 
 
     public int getAuctionId() {
@@ -38,28 +39,30 @@ public class Flag {
     }
 
 
-    public Flag(FlagType flagType, UserAccount flaggingUser, Auction auctionFlagged) {
+//    public Flag(FlagType flagType, UserAccount flaggingUser, Auction auctionFlagged) {
+//        mDateFlagged = new Date();
+//        mFlagType = flagType;
+//        mFlaggingUser = flaggingUser;
+//        mAuctionFlagged = auctionFlagged;
+//    }
+
+    public Flag(String flagType, UserAccount flaggingUser, Auction auctionFlagged) {
         mDateFlagged = new Date();
         mFlagType = flagType;
         mFlaggingUser = flaggingUser;
         mAuctionFlagged = auctionFlagged;
-    }
-
-    public Flag(String flagType, UserAccount flaggingUser, Auction auctionFlagged) {
-        mDateFlagged = new Date();
-        mFlagType = FlagType.valueOf(flagType);
-        mFlaggingUser = flaggingUser;
-        mAuctionFlagged = auctionFlagged;
+        mAuctionId = auctionFlagged.getAuctionId();
+        mUserId = flaggingUser.getUserId();
     }
     public Flag() {
     }
 
 
-    public FlagType getFlagType() {
+    public String getFlagType() {
         return mFlagType;
     }
 
-    public void setFlagType(FlagType flagType) {
+    public void setFlagType(String flagType) {
         mFlagType = flagType;
     }
 
@@ -73,6 +76,14 @@ public class Flag {
 
     public Auction getAuctionFlagged() {
         return mAuctionFlagged;
+    }
+
+    public int getmUserId() {
+        return mUserId;
+    }
+
+    public void setmUserId(int mUserId) {
+        this.mUserId = mUserId;
     }
 
     public void setAuctionFlagged(Auction auctionFlagged) {

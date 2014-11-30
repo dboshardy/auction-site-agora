@@ -35,13 +35,13 @@
       <%= submit_tag "Place Bid" %><br><br>
 
     <% end %>
-    <%= link_to 'Flag Auction', "/flags/create/#{@auction.auction_id}" %><br> 
+    <%= link_to 'Flag Auction', "/flags/#{@auction.auction_id}/new" %><br> 
   <% end %>
 <% end %>
 
 <% if session["is_admin"]  %>
   <%= link_to "ADMIN: Stop Auction", "/auctions/#{@auction.auction_id}/stop", data: { confirm: 'Are you sure you want to stop this auction?' } %><br>
-  <%= link_to "ADMIN: Remove User", "/users/#{@seller.id}/suspend", data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
+  <%= link_to "ADMIN: Remove User", "/users/#{@seller.user_id}", method: :delete, data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
 <% end %>    
 
 <%= link_to 'Back', auctions_path %>

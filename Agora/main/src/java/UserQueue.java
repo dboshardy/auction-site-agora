@@ -56,7 +56,8 @@ public class UserQueue extends Message {
             }
         } else if (type.equals("delete")) {
             int user_id = obj.getInt("user_id");
-            result = userController.deleteUserAccount(new UserAccount(user_id));
+            UserAccount user = userController.getUserById(user_id);
+            result = userController.deleteUserAccount(user);
             if (result.equals("true")) {
                 output.put("succeed", true);
             } else {
