@@ -20,15 +20,13 @@ public class WatchlistQueue extends Message{
         JSONObject output = new JSONObject();
         String result = "";
         String type = obj.getString("type");
-        String user_id;
 
         if (type.equals("create")){
             // take appropriate action to create new tuple in database
             // create a JSON object for the return message
-            user_id = obj.getString("user_id");
-            String auction_id = obj.getString("auction_id");
+            int auction_id = obj.getInt("auction_id");
+            int user_id = obj.getInt("user_id");
             String watchlist_name= obj.getString("watchlist_name");
-            AuctionController ac= new AuctionController();
 
             Watchlist watchlist = new Watchlist(new UserAccount(Integer.parseInt(user_id)), watchlist_name);
             result = watchlist.addAuctionToWatchlist(ac.getAuctionById(Integer.parseInt(auction_id)));
