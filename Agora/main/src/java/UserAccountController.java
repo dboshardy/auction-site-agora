@@ -4,6 +4,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 import javax.persistence.EntityExistsException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -99,20 +100,24 @@ public class UserAccountController {
     }
 
     public String placeBidOnAuction(UserAccount user, Bid bid, Auction auction) {
-        BidController bidController = new BidController();
-        AuctionController auctionController = new AuctionController();
-        Bid currentHighestBid = auction.getCurrentHighestBid();
+        Date today = new Date();
         String result = "Could not place bid";
-        if (currentHighestBid.getBidAmount().compareTo(bid.getBidAmount()) == -1) {
-            //if currentHightestBid is less than proposed bid
-            //old bidder before change
-            String oldBidderEmail = auction.getCurrentHighestBid().getBidder().getEmail();
-            bidController.persistBid(bid);
-            auction.setCurrentHighestBid(bid);
-            auctionController.updateAuction(auction);
-            String sellerEmail = auction.getSeller().getEmail();
-            //todo:send notification to bidder who was outbid, and seller notifying of bid placement
-            result = "Successfully placed bid";
+        if(auction.getListTime().before(today)
+            && !auction.getIsEnded()) {
+            BidController bidController = new BidController();
+            AuctionController auctionController = new AuctionController();
+            Bid currentHighestBid = auction.getCurrentHighestBid();
+            if (currentHighestBid.getBidAmount().compareTo(bid.getBidAmount()) == -1) {
+                //if currentHightestBid is less than proposed bid
+                //old bidder before change
+                String oldBidderEmail = auction.getCurrentHighestBid().getBidder().getEmail();
+                bidController.persistBid(bid);
+                auction.setCurrentHighestBid(bid);
+                auctionController.updateAuction(auction);
+                String sellerEmail = auction.getSeller().getEmail();
+                //todo:send notification to bidder who was outbid, and seller notifying of bid placement
+                result = "Successfully placed bid";
+            }
         }
         return result;
     }
@@ -139,12 +144,19 @@ public class UserAccountController {
     }
 
     public String placeBuyItNow(UserAccount user, Auction auction){
-        AuctionController auctionController = new AuctionController();
-        ShoppingCart cart = user.getShoppingCart();
-        auction.setIsEnded(true);
-        cart.addAuctionToShoppingCart(user.getUserId(),auction.getAuctionId());
-        auctionController.updateAuction(auction);
-        return "Success";
+        Date today = new Date();
+        if(auction.getListTime().before(today)
+                && !auction.getIsEnded()) {
+            AuctionController auctionController = new AuctionController();
+            ShoppingCart cart = user.getShoppingCart();
+            auction.setIsEnded(true);
+            cart.addAuctionToShoppingCart(user.getUserId(), auction.getAuctionId());
+            auctionController.updateAuction(auction);
+            return "Success";
+        }
+        else {
+            return "Failure";
+        }
     }
 
 }

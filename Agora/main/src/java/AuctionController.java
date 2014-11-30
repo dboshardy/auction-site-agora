@@ -237,4 +237,19 @@ public class AuctionController {
         }
         return auctions;
     }
+    public List<Auction> getAllActiveAuctionsBidOnForUser(UserAccount user){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        BidController bidController = new BidController();
+        AuctionController auctionController = new AuctionController();
+        List<Bid> bids = bidController.getBidHistoryForUser(user.getUserId());
+        for(Bid bid : bids){
+            Auction auction = auctionController.getAuctionById(bid.getAuctionId());
+            if(!auction.getIsEnded()){
+               auctions.add(auction);
+            }
+        }
+        return auctions;
+
+    }
 }
