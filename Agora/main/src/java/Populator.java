@@ -17,6 +17,8 @@ public class Populator {
         UserAccount user4 = new UserAccount("tHanks", "forrest@gmail.com", "0202935i09r0;alkjfnbklskdjf", "Tom", "Hanks", "Stupid is as stupid does.");
         UserAccount user5 = new UserAccount("cpt. falcon", "falconPunch@gmail.com", "20395lksj;dlkan40238u;d", "The", "Captain", "Show me your moves!");
         UserAccount user6 = new UserAccount("puff", "jiggles@gmail.com", "2002398l;j02ilelkan40238u;d", "Jiggly", "Puff", "PUFF!");
+        UserAccount admin = new UserAccount("TheDude","elduderino@agora.com","qp9834jf;ansdjjrjoai","The","Dude","Well, that's just... like... your opinion, man.");
+        admin.setIsAdmin(true);
 
         Date today = new Date();
         Calendar cal = Calendar.getInstance();
@@ -47,6 +49,7 @@ public class Populator {
         UserAccountController userAccountController = new UserAccountController();
         AuctionController auctionController = new AuctionController();
 
+        userAccountController.persistUserAccount(admin);
         userAccountController.persistUserAccount(user1);
         userAccountController.persistUserAccount(user2);
         userAccountController.persistUserAccount(user3);
