@@ -5,6 +5,7 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class ShoppingCartQueue extends Message{
@@ -44,12 +45,20 @@ public class ShoppingCartQueue extends Message{
         }else if(type.equals("show")){
             // you get the idea
             int user_id = obj.getInt("user_id");
-            if(result.equals("true")){
-                output.put("succeed",true);
-            }else{
-                output.put("succeed",false);
-                output.put("Error",result);
+            ArrayList<Auction> auctions = shoppingCart.getShoppingCart(user_id);
+            JSONArray jsonArray = new JSONArray();
+            for(Auction a:auctions){
+                JSONObject ele= new JSONObject();
+                ele.put("auction_id",a.getAuctionId());
+                ele.put("auction_name",a.getAuctionName());
+                ele.put("item_desc",a.getDescription());
+
+                BigDecimal highestBid = a.getCurrentHighestBid().getBidAmount();
+
+                ele.put("item_price",highestBid);
+                jsonArray.put(ele);
             }
+            output.put("items",jsonArray);
         }
         return output;
     }
