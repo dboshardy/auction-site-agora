@@ -152,8 +152,8 @@ public class AuctionQueue extends Message {
             output.put("auction_id",auction.getAuctionId());
             output.put("item_desc",auction.getDescription());
 
-            BidController bid = new BidController();
-            Bid highestBid = bid.getBidById(auction.getCurrentHighestBidId());
+//            BidController bid = new BidController();
+            Bid highestBid = auction.getCurrentHighestBid();
 
             output.put("highest_bid", highestBid.getBidAmount());
             output.put("buy_now_price",auction.getBuyItNowPrice());
