@@ -207,7 +207,7 @@ public class AuctionController {
         List<Auction> auctions = null;
         try {
             session.beginTransaction();
-            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE auction_name ILIKE \'%"+keyword+"%\' OR auction_description LIKE \'"+keyword+"\'").addEntity(Auction.class);
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE auctions.auction_name ILIKE \'%"+keyword+"%\' OR auctions.auction_description ILIKE \'%"+keyword+"%\'").addEntity(Auction.class);
             auctions = query.list();
             session.getTransaction().commit();
             session.close();
