@@ -47,6 +47,8 @@ class AuctionsController < ApplicationController
   def new
     @auction = Auction.new
 
+    id = SecureRandom.uuid.to_s
+
     auction_info = {:id => id, :type => "categories" }
 
     publish :auction, JSON.generate(auction_info)
@@ -92,7 +94,8 @@ class AuctionsController < ApplicationController
       :start_bid => params[:auction][:start_bid], 
       :shipping_cost => params[:auction][:shipping_cost],
       :auction_length => params[:auction][:auction_length],
-      :auction_start_time => auction_start_time      
+      :auction_start_time => auction_start_time, 
+      :category_id => params[:category]    
     }
 
 

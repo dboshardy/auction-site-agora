@@ -23,16 +23,16 @@ public class Auction {
     private boolean mIsEnded;
     private int mCategoryId;
 
-
-    public void setEnded(boolean isEnded) {
-        mIsEnded = isEnded;
-    }
-
     public int getCategoryId() {
         return mCategoryId;
     }
-    public void setCategoryId(int id){
-        mCategoryId = id;
+
+    public void setCategoryId(int categoryId) {
+        mCategoryId = categoryId;
+    }
+
+    public void setEnded(boolean isEnded) {
+        mIsEnded = isEnded;
     }
 
     public String getDescription() {
@@ -84,7 +84,7 @@ public class Auction {
     }
 
     public Auction(String auctionName, int sellerId, Date listTime,
-                   Date endTime, String description, Double buyItNowPrice, Double bidPrice){
+                   Date endTime, String description, Double buyItNowPrice, Double bidPrice, int category){
         mAuctionName = auctionName;
         mSellerId = sellerId;
         mDescription = description;
@@ -92,6 +92,7 @@ public class Auction {
         BigDecimal d = new BigDecimal(buyItNowPrice);
         mBuyItNowPrice = d;
         mListTime = listTime;
+        mCategoryId = category;
 
         UserAccountController seller = new UserAccountController();
         mSeller = seller.getUserById(mSellerId);
@@ -101,12 +102,13 @@ public class Auction {
     }
 
     public Auction(String auctionName, int sellerId, Date listTime,
-                   Date endTime, String description, Double bidPrice){
+                   Date endTime, String description, Double bidPrice, int category){
         mAuctionName = auctionName;
         mSellerId = sellerId;
         mDescription = description;
         mEndTime = endTime;
         mListTime = listTime;
+        mCategoryId = category;
 
         UserAccountController seller = new UserAccountController();
         mSeller = seller.getUserById(mSellerId);
@@ -125,18 +127,16 @@ public class Auction {
         mSellerId = sellerId;
     }
 
-    public Auction(String auctionName, UserAccount seller, String description, BigDecimal bid,Date endTime) {
+    public Auction(String auctionName, UserAccount seller, String description, BigDecimal bid, Date endTime, int categoryId) {
         mAuctionName = auctionName;
         mSeller = seller;
         mDescription = description;
-//        this.mCategoryId = categoryId;
+        this.mCategoryId = categoryId;
         //set date as of now
 //        mListTime = new Date();
-//        this.mCategoryId = categoryId;
-        mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
-        mEndTime = endTime;
+//        mEndTime = endTime;
     }
 
 
