@@ -1,21 +1,16 @@
-<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.Set;
 
-=======
->>>>>>> code merge and change
 /**
  * Created by drew on 10/19/14.
  */
 public class Category {
-<<<<<<< HEAD
     private String mName;
     private Category mParent;
     private Set<Category> mChildren = new HashSet<Category>();
     private int mCategoryId;
     private int mParentId;
 
-    //todo: make this work
     public int getParentId() {
         return mParentId;
     }
@@ -38,18 +33,11 @@ public class Category {
     public Category(String name, Category parent) {
         mName = name;
         mParent = parent;
-=======
-    public String mName;
-
-    public Category(String name) {
-        mName = name;
->>>>>>> code merge and change
     }
 
     public String getName() {
         return mName;
     }
-<<<<<<< HEAD
 
     public void setName(String name) {
         mName = name;
@@ -72,9 +60,12 @@ public class Category {
         mChildren = children;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> code merge and change
 =======
+=======
+>>>>>>> 981e7d85c0c4653c1ee943e9b064a28b3bf3fc6b
 
     @Override
     public String toString() {
@@ -84,5 +75,8 @@ public class Category {
                 ", mParentId=" + mParentId +
                 '}';
     }
+<<<<<<< HEAD
 >>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
+=======
+>>>>>>> 981e7d85c0c4653c1ee943e9b064a28b3bf3fc6b
 }

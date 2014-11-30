@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import java.util.Date;
 
-=======
->>>>>>> code merge and change
 /**
  * Created by drew on 10/19/14.
  */
@@ -10,7 +7,6 @@ public class Flag {
     private String mFlagType;
     private UserAccount mFlaggingUser;
     private Auction mAuctionFlagged;
-<<<<<<< HEAD
     private int mAuctionId;
     private int mFlagId;
     private int mUserId;
@@ -52,10 +48,6 @@ public class Flag {
 
     public Flag(String flagType, UserAccount flaggingUser, Auction auctionFlagged) {
         mDateFlagged = new Date();
-=======
-
-    public Flag(FlagType flagType, UserAccount flaggingUser, Auction auctionFlagged) {
->>>>>>> code merge and change
         mFlagType = flagType;
         mFlaggingUser = flaggingUser;
         mAuctionFlagged = auctionFlagged;
@@ -63,15 +55,16 @@ public class Flag {
         mUserId = flaggingUser.getUserId();
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
 >>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
+=======
+>>>>>>> 981e7d85c0c4653c1ee943e9b064a28b3bf3fc6b
     public Flag() {
     }
 
-=======
->>>>>>> code merge and change
 
     public String getFlagType() {
         return mFlagType;
@@ -102,7 +95,6 @@ public class Flag {
     }
 
     public void setAuctionFlagged(Auction auctionFlagged) {
-<<<<<<< HEAD
 
         mAuctionFlagged = auctionFlagged;
     }
@@ -116,8 +108,4 @@ public class Flag {
                 ", mFlaggingUser=" + mFlaggingUser.getUserId() +
                 '}';
     }
-=======
-        mAuctionFlagged = auctionFlagged;
-    }
->>>>>>> code merge and change
 }

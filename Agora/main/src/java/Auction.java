@@ -1,15 +1,16 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 =======
 >>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
+=======
+>>>>>>> 981e7d85c0c4653c1ee943e9b064a28b3bf3fc6b
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
-=======
->>>>>>> code merge and change
 import java.util.List;
 
 /**
@@ -17,10 +18,14 @@ import java.util.List;
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class Auction extends Message{
 =======
 public class Auction {
 >>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
+=======
+public class Auction {
+>>>>>>> 981e7d85c0c4653c1ee943e9b064a28b3bf3fc6b
 
     private Bid mCurrentHighestBid;
     private Date mListTime;
@@ -257,6 +262,7 @@ public class Auction {
         flagController.persistFlagOnAuction(flag);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 public class Auction {
 
@@ -302,3 +308,22 @@ public class Auction {
     }
 }
 >>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
+=======
+
+    public boolean getIsEnded(){
+        return mIsEnded;
+    }
+
+    public void setIsEnded(boolean isEnded) {
+        mIsEnded = isEnded;
+    }
+
+    public String toPrettyString() {
+            return  ", mAuctionName='" + mAuctionName + '\'' + "\n" +
+                    "mListTime=" + mListTime + "\n" +
+                    ", mEndTime=" + mEndTime + "\n" +
+                    ", mDescription='" + mDescription + '\'' + "\n" +
+                    ", mBuyItNowPrice=" + mBuyItNowPrice +"\n";
+        }
+}
+>>>>>>> 981e7d85c0c4653c1ee943e9b064a28b3bf3fc6b

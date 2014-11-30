@@ -20,14 +20,16 @@ public class EndedAuctionJanitor extends Janitor {
             for(Auction auction : endedAuctions){
                 auction.setIsEnded(true);
                 auctionController.updateAuction(auction);
-                //todo: notify seller and winner of completion and move to shopping cart
                 String sellerEmail = auction.getSeller().getEmail();
                 String winnerEmail = auction.getCurrentHighestBid().getBidder().getEmail();
+                Email.notifyUsersOfEndedAuction(auction, sellerEmail, winnerEmail);
                 cart = auction.getCurrentHighestBid().getBidder().getShoppingCart();
-                cart.addAuctionToShoppingCart(auction.getCurrentHighestBid().getBidder().getUserId(),auction.getAuctionId());
+                cart.addAuctionToShoppingCart(auction.getCurrentHighestBid().getBidder().getUserId(), auction.getAuctionId());
+
             }
         }
     }
+
 
     public List<Auction> getEndedAuctions(){
         List<Auction> endedAuctions = null;

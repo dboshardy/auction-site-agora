@@ -1,12 +1,9 @@
-<<<<<<< HEAD
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
-=======
->>>>>>> code merge and change
 import java.util.List;
 
 /**
@@ -14,20 +11,15 @@ import java.util.List;
  */
 public class ShoppingCart {
 
-<<<<<<< HEAD
 
     private static final org.apache.log4j.Logger LOG = Logger.getLogger(ShoppingCart.class);
     private String mTableName = "user_has_shoppingcart_auctions";
     private ArrayList<Auction> mAuctions;
 
-=======
-    private ArrayList<Auction> cart;
->>>>>>> code merge and change
     public ShoppingCart() {
         
     }
 
-<<<<<<< HEAD
     public ArrayList<Auction> getShoppingCart(int user_id){
         Session session = HibernateUtils.getSessionFactory().openSession();
         List<Object[]> objects = null;
@@ -95,6 +87,7 @@ public class ShoppingCart {
             result = "Failure";
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public ArrayList<Auction> getCart(){
         
@@ -112,5 +105,8 @@ public class ShoppingCart {
 =======
         return result;
 >>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
+=======
+        return result;
+>>>>>>> 981e7d85c0c4653c1ee943e9b064a28b3bf3fc6b
     }
 }

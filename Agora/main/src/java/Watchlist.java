@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.json.JSONObject;
@@ -7,14 +6,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-=======
->>>>>>> code merge and change
 /**
  * Created by thomkel on 10/19/14.
  */
 public class Watchlist {
 
-<<<<<<< HEAD
     private WatchlistModel mWatchlistModel;
     private String mWatchlistName;
     private ArrayList<Auction> mWatchlist;
@@ -80,21 +76,6 @@ public class Watchlist {
         result="true";
         return result;
     }
-=======
-    private String mWatchlistName;
-    private Item[] mWatchlist;
-
-    public Watchlist(String watchlistName){
-        mWatchlistName = watchlistName;
-        mWatchlist = new Item[0];
-    }
-
-    public void addItemToWatchlist(){}
-
-    public void deleteItemFromWatchlist(){}
-
-    public void deleteWatchlist(){}
->>>>>>> code merge and change
 
     public String getWatchlistName() {
         return mWatchlistName;
@@ -103,7 +84,6 @@ public class Watchlist {
     public void setWatchlistName(String mWatchlistName) {
         this.mWatchlistName = mWatchlistName;
     }
-<<<<<<< HEAD
 
     public Integer getWatchlistId() {
         return mWatchlistId;
@@ -147,9 +127,13 @@ public class Watchlist {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> code merge and change
 }
 =======
 }
 >>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
+=======
+}
+>>>>>>> 981e7d85c0c4653c1ee943e9b064a28b3bf3fc6b

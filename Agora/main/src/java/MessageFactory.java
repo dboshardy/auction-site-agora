@@ -4,7 +4,6 @@
 public class MessageFactory {
 
     public Message getMessageClass(String queue){
-        //todo: fix this, thom :D
         if (queue.equals("/queue/Auction")){
             return new AuctionQueue();
         }
