@@ -3,24 +3,24 @@
 ##Part 2. Description of Development methodology##
 ###2a. Development Approach###
 We definitely took a risk-based approach to this.  We tackled the big set pieces first (foundations).  I took the database, Thom took the frontend and Miao and Bowen took the messaging aspect.  This approach lent itself well for me as I required some time to get acquainted with Hibernate.  Then, once those two pieces were in place, we connected them with the messaging.  After that, adding new functionality was super easy. 
-###2a. High-Level Architecture###
+###2b. High-Level Architecture###
 1. Diagram
 2. MVC
 3. Systems used
-###2b. Class UML###
+###2c. Class UML###
 Patterns used:
 
 1. Strategy (Payment)
 2. Abstract Class (Janitor)
-###2c. Communication Diagrams###
+###2d. Communication Diagrams###
 1. Search for Auctions
 2. Flag Auction
 3. Checkout/Transaction
-###2d. Use Case Diagrams###
+###2e. Use Case Diagrams###
 This didn't really change must past the 3rd iteration.  The requirements never changed and we analyzed them and created good use cases for them in the first place.  
-###2e. Story Map###
+###2f. Story Map###
 This only changed later when we realized one epic was a little too broad and needed to be broken into two epics. (View Auction details and View Auctions)
-###2f. Did it work?###
+###2g. Did it work?###
 ##Part 3. Individual Presentations##
 ###3a. Drew -- Hibernate###
 Hibernate ended up working out really well.  It was both the best and the most difficult part of the project for me.  It was great in that it took care of a lot of things automagically.  It wasn't great simply because I used it wrong.  I didn't let Hibernate create its own schema. We had a schema that worked and wanted to use that. So I mapped that schema to the classes we had created.  This ended up working just fine.  It only meant a little bit of extra work to get things like join tables (Shopping Cart, Watchlist, Categories) working with pure SQL instead of the fancy methods Hibernate provides. ANd the SQL to do so was not very difficult.  
