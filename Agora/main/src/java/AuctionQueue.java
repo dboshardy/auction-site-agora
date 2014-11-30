@@ -16,6 +16,7 @@ public class AuctionQueue extends Message {
         String type = obj.getString("type");
 
         AuctionController auctionController = new AuctionController();
+        CategoryController categoryController = new CategoryController();
 
         if (type.equals("create")) {
             int user_id = obj.getInt("user_id");
@@ -154,7 +155,19 @@ public class AuctionQueue extends Message {
                 jsonArray.put(ele);
             }
             output.put("auctions",jsonArray);
-        }else if (type.equals("show")) {
+        } else if (type.equals("categories")) {
+            List<Category> list = categoryController.getAllCategories();
+            JSONArray jsonArray = new JSONArray();
+            for(Category c:list){
+                JSONObject ele= new JSONObject();
+                ele.put("category",c.getName());
+                ele.put("category_id",c.getCategoryId());
+
+                jsonArray.put(ele);
+            }
+            output.put("categories",jsonArray);
+
+        } else if (type.equals("show")) {
             String auction_id = obj.getString("auction_id");
             Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
             output.put("item_name", auction.getAuctionName());
