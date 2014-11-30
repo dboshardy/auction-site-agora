@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Shopping Cart:</strong>
-  <% @items.each do |item| %>
-  	<@= "Item name: " + item.item_name %><br>
-  	<@= item.item_description %><br>
-  	<@= item.item_price @><br>
-  	<@= link_to "Purchase Item", "/transactions/#{@item.auction_id}/new"
-  	<@= link_to "Delete Item from Cart", "/shopping_carts/#{item.auction_id}", method: :delete %>
-  <% end %>
-</p>
+
+  <h3><strong>Shopping Cart</strong></h3><br>
+  <% @items.each do |array| %>
+  	<% auction = array[0] %>
+  	<% bid = array[1] %>
+  	<%= auction.item_name %><br>
+  	<%= auction.item_desc %><br>
+  	<%= "Price: " + bid.amount.to_s %><br>
+  	<%= link_to "Purchase Item", "/transactions/#{auction.auction_id}/new" %><br><br>
+  <% end %><br>
 
 <%= link_to 'Back', shopping_carts_path %>

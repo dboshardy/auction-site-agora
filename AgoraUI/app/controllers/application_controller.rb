@@ -78,22 +78,25 @@ class ApplicationController < ActionController::Base
     def get_cart(id)
         message = query_message(id)
 
-        cart = ShoppingCart.new
-        cart.user_id = message["cart_id"]
-
         items = []
 
-        message["items"].each do |item|
-            cart_auction = Auction.new
-            cart_auction.auction_id = item["item_id"]
-            cart_auction.item_name = item["item_name"]
-            cart_auction.item_desc = item["item_desc"]
-            cart_item.item_price = item["item_price"]
+        cart_items = message["items"]
 
-            items.push(cart_item)
+        cart_items.each do |item|
+            auction = Auction.new
+            bid = Bid.new
+            auction.auction_id = item["auction_id"]
+            auction.item_name = item["auction_name"]
+            auction.item_desc = item["item_desc"]
+
+            bid.amount = item["item_price"]
+
+            array = [auction, bid]
+
+            items.push(array)
         end
 
-        return cart, items
+        return items
     end
 
     def get_auction(id)
