@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   post "/users/:id/suspend" => "users#suspend"
   get "/auctions/search" => "auctions#search"
-  post "/auction/keyword_search" => "auctions#keyword_search"
-  post "/auction/category_search" => "auctions#category_search"
+  post "/auctions/keyword_search" => "auctions#keyword_search"
+  post "/auctions/category_search" => "auctions#category_search"
+  post "/auctions/:id/update" => "auctions#update"
   post "/bids/:id/create" => "bids#create"
   post "/bids/:id/buy_now" => "bids#create_buy_now"
   get "/bids/:id/auction_bid_history" => "bids#show_auction_history"
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   get "/transactions/:id/new" => "transactions#new"
   post "/users/:id/edit" => "users#update"
   get "/users/logout" => "users#destroy_session"
+  get "/users/login_page" => "users#login_page"
   post "/users/login" => "users#login"
   get "/categories/new_categories_for_auction/:id" => "categories#new_categories_for_auction"
 

@@ -83,8 +83,8 @@ public class UserQueue extends Message {
             UserAccount user = userController.getUserAccountByUsernameAndPasswordHash(userName, passwordHash);
             System.out.println("Found result...");
             if(user != null) {
-                output.put("status", true);
-                output.put("user_id", user.getUserName());
+                output.put("succeed", true);
+                output.put("user_id", user.getUserId());
                 output.put("is_admin", user.getIsAdmin());
             }
             else {

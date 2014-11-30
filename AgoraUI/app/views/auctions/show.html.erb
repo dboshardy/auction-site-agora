@@ -13,10 +13,10 @@
   <%= link_to "See Bid History", "/bids/#{@auction.auction_id}/auction_bid_history" %>
 </p>
 
-<% if (!session[:user_id].nil?) && (session["user_id"] == @auction.user_id) %>
-  <%= link_to 'Edit', "/auctions/#{@auction.auction_id}/edit" %><br>
+<% if (!session[:user_id].nil?) && (session[:user_id].to_i == @seller.user_id) %>
+  <%= link_to 'Edit Auction', "/auctions/#{@auction.auction_id}/edit" %><br>
   <% if @bidder.user_id == session[:user_id] %>  
-    <%= link_to 'Destroy', "/auctions/#{@auction.auction_id}", method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    <%= link_to 'Delete Auction', "/auctions/#{@auction.auction_id}", method: :delete, data: { confirm: 'Are you sure?' } %><br><br>
   <% end %>
 
 <% else %>
@@ -30,7 +30,7 @@
     <%= form_tag "/bids/#{@auction.auction_id}/create" do %>
 
       <%= label_tag :bid_amount %><br>
-      <%= number_field_tag :bid_amount, min: min_bid %><br>
+      <%= number_field_tag :bid_amount, nil, min: min_bid, step: 0.01 %><br>
       <%= submit_tag "Place Bid" %><br><br>
 
     <% end %>

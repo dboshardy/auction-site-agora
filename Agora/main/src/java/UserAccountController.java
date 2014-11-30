@@ -2,7 +2,6 @@ import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 import javax.persistence.EntityExistsException;
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.List;
  */
 public class UserAccountController {
     private Logger LOG = Logger.getLogger(UserAccountController.class);
-    private static SessionFactory mSessionFactory;
 
 
     public String persistUserAccount(UserAccount user) {
@@ -138,6 +136,15 @@ public class UserAccountController {
             return users.get(0);
         }
         else return null;
+    }
+
+    public String placeBuyItNow(UserAccount user, Auction auction){
+        AuctionController auctionController = new AuctionController();
+        ShoppingCart cart = user.getShoppingCart();
+        auction.setIsEnded(true);
+        cart.addAuctionToShoppingCart(user.getUserId(),auction.getAuctionId());
+        auctionController.updateAuction(auction);
+        return "Success";
     }
 
 }

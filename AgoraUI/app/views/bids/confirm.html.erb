@@ -3,4 +3,4 @@
 <%= @status %><br>
 <%= @message %>
 
-<%= link_to 'Back', bids_path %>
+<%= link_to 'Back', "/bids/#{session[:user_id]}/user_bid_history" %>

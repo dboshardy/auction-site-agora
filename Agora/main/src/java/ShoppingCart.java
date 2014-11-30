@@ -64,19 +64,23 @@ public class ShoppingCart {
         return result;
     }
 
-    public void addAuctionToShoppingCart(UserAccount user, Auction auction) {
+    public String addAuctionToShoppingCart(int userId, int auctionId) {
+        String result;
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            SQLQuery query = session.createSQLQuery("INSERT INTO " + mTableName + "(useraccounts_user_id, auctions_auction_id) VALUES (" + user.getUserId() + "," + auction.getAuctionId() + ")");
+            SQLQuery query = session.createSQLQuery("INSERT INTO " + mTableName + "(useraccounts_user_id, auctions_auction_id) VALUES (" + userId + "," + auctionId + ")");
             query.executeUpdate();
             session.getTransaction().commit();
             session.close();
+            result = "Success";
         } catch (HibernateException e){
             if(session.getTransaction() != null){
                 session.getTransaction().rollback();
             }
-            LOG.warn("Could not add auction: "+auction.toString()+" to shopping cart: "+this.toString());
+            LOG.warn("Could not add auction: "+auctionId+" to shopping cart: "+this.toString());
+            result = "Failure";
         }
+        return result;
     }
 }
