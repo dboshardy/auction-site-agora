@@ -231,6 +231,17 @@ public class AuctionQueue extends Message {
                 jsonArray.put(ele);
             }
             output.put("auctions",jsonArray);
+        } else if (type.equals("stop")) {
+            int auction_id = obj.getInt("auction_id");
+            Auction auction = auctionController.getAuctionById(auction_id);
+            auction.setIsEnded(true);
+            result = auctionController.updateAuction(auction);
+            if (result.equals("true")) {
+                output.put("succeed", true);
+            } else {
+                output.put("succeed", false);
+                output.put("Error", result);
+            }
         }
         return output;
     }

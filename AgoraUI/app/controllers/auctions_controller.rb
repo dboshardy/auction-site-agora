@@ -245,6 +245,27 @@ class AuctionsController < ApplicationController
     render 'results'     
   end
 
+  def stop
+    id = SecureRandom.uuid.to_s
+    auction_id = params[:id]
+
+    auction_info = {:id => id, :type => "stop", 
+      :auction_id => auction_id     
+    }
+
+    publish :auction, JSON.generate(auction_info)
+
+    status, @error = get_success(id)
+
+    if status 
+      @status = "Auction stopped!"
+    else
+      @status = "Auction could not be stopped"
+    end
+
+    render 'confirm' 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     # def set_auction
