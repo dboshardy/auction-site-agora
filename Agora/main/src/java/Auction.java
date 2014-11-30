@@ -166,7 +166,6 @@ public class Auction {
     public Bid getNonPersistedBid(){
         return mCurrentHighestBid;
     }
-
     public Bid getCurrentHighestBid() {
         BidController bidController = new BidController();
         return bidController.getBidById(this.getCurrentHighestBidId());
@@ -216,7 +215,7 @@ public class Auction {
         if (mEndTime.after(new Timestamp(date.getTime()))){
             result = true;
         }
-       return result;
+        return result;
     }
 
 
