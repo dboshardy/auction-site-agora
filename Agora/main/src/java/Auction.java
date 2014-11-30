@@ -23,6 +23,16 @@ public class Auction {
     private boolean mIsEnded;
     private int mCategoryId;
 
+    public Auction(String auctionName, UserAccount user, String description, BigDecimal bidAmount, Date endDate, int categoryId) {
+        mAuctionName = auctionName;
+        mSeller = user;
+        mDescription = description;
+        Bid initialBid = new Bid(mSeller,this,bidAmount);
+        mCurrentHighestBid = initialBid;
+        mEndTime = endDate;
+        mCategoryId = categoryId;
+    }
+
 
     public void setEnded(boolean isEnded) {
         mIsEnded = isEnded;
