@@ -39,10 +39,9 @@ public class BidQueue extends Message{
                 output.put("succeed",false);
                 output.put("Error",result);
             }
-        }else if(type.equals("show")){
-            // you get the idea
+        }else if(type.equals("show_auction")){
+
             int auction_id = obj.getInt("auction_id");
-//            int user_id = obj.getInt("user_id");
 
             Auction auction= auctionController.getAuctionById(auction_id);
             List<Bid> bids= auctionController.getAuctionBids(auction);
@@ -51,6 +50,22 @@ public class BidQueue extends Message{
                 JSONObject ele= new JSONObject();
                 ele.put("auction_id",b.getAuctionId());
                 ele.put("bidder_id",b.getBidderId());
+                ele.put("bidder_username", b.getBidder().getUserName());
+                ele.put("bid_amount",b.getBidAmount());
+                jsonArray.put(ele);
+            }
+            output.put("bids",jsonArray);
+        }else if(type.equals("show_user")){
+
+            int user_id = obj.getInt("user_id");
+
+            List<Bid> bids = bidController.getBidHistoryForUser(user_id);
+            JSONArray jsonArray = new JSONArray();
+            for(Bid b:bids){
+                JSONObject ele= new JSONObject();
+                ele.put("auction_id",b.getAuctionId());
+                ele.put("bidder_id",b.getBidderId());
+                ele.put("bidder_username", b.getBidder().getUserName());
                 ele.put("bid_amount",b.getBidAmount());
                 jsonArray.put(ele);
             }

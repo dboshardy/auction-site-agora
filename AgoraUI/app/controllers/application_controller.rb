@@ -264,6 +264,7 @@ class ApplicationController < ActionController::Base
         error = nil
 
         user = User.new
+        user.user_id = json_data["user_id"]
         user.username = json_data["username"]
         user.first_name = json_data["first_name"]
         user.last_name = json_data["last_name"]
@@ -283,7 +284,12 @@ class ApplicationController < ActionController::Base
             b.bidder_id = bid["bidder_id"]
             b.auction_id = bid["auction_id"]
 
-            bids.push(b)
+            u = User.new
+            u.username = bid["bidder_username"]
+
+            array = [b, u]
+
+            bids.push(array)
         end
 
         return bids
