@@ -210,27 +210,27 @@ public class AuctionQueue extends Message {
                 }
                 jsonArray.put(ele);
             }
+            output.put("auctions",jsonArray);
         } else if (type.equals("category")) {
-            String auction_id = obj.getString("auction_id");
-            Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
-            output.put("item_name", auction.getAuctionName());
-            output.put("auction_id",auction.getAuctionId());
-            output.put("item_desc",auction.getDescription());
+            int category = obj.getInt("category");
+            List<Auction> list = auctionController.getAllAuctionsByCategory(category);
+            JSONArray jsonArray = new JSONArray();
+            for(Auction a:list) {
+                JSONObject ele = new JSONObject();
+                ele.put("auction_id", a.getAuctionId());
+                ele.put("auction_name", a.getAuctionName());
+                ele.put("end_time", a.getEndTime());
+                ele.put("item_desc", a.getDescription());
 
-//            BidController bid = new BidController();
-            Bid highestBid = auction.getCurrentHighestBid();
+                BidController bid = new BidController();
+                Bid highestBid = bid.getBidById(a.getCurrentHighestBidId());
 
-            output.put("highest_bid", highestBid.getBidAmount());
-            output.put("buy_now_price",auction.getBuyItNowPrice());
-            output.put("bidder_id",highestBid.getBidderId());
-            output.put("bidder_username",highestBid.getBidder().getUserName());
-
-            UserAccountController sellerController = new UserAccountController();
-            UserAccount seller = sellerController.getUserById(auction.getSellerId());
-
-            output.put("seller_id",seller.getUserId());
-            output.put("seller_username",seller.getUserName());
-            output.put("category",auction.getCategory().getName());
+                if (highestBid != null) {
+                    ele.put("highest_bid", highestBid.getBidAmount());
+                }
+                jsonArray.put(ele);
+            }
+            output.put("auctions",jsonArray);
         }
         return output;
     }
