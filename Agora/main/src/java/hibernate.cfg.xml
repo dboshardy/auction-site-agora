@@ -19,7 +19,7 @@
         <property name="hibernate.connection.password">
             postgres
         </property>
-        <property name="connection_pool_size">1</property>
+        <property name="connection_pool_size">10</property>
 
         <property name="hbm2ddl.auto">create</property>
 
