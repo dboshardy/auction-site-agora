@@ -63,11 +63,7 @@ public class FlagQueue extends Message{
             output.put("result",result);
 
         }else if(type.equals("index")){
-            // you get the idea
-            FlagController fc = new FlagController();
-            String auction_id = obj.getString("auction_id");
-            AuctionController ac = new AuctionController();
-            List<Flag> list = flagController.getAllFlagsOnAuction(ac.getAuctionById(Integer.parseInt(auction_id)));
+            List<Flag> list = flagController.getAllFlags();
             JSONArray jsonArray = new JSONArray();
             for(Flag f:list){
                 JSONObject ele= new JSONObject();
@@ -77,7 +73,7 @@ public class FlagQueue extends Message{
                 ele.put("getFlaggingUser",f.getFlaggingUser());
                 jsonArray.put(ele);
             }
-            output.put("flag",jsonArray);
+            output.put("flags",jsonArray);
 
         }
         return output;
