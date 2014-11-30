@@ -15,17 +15,25 @@ Patterns used:
 2. Flag Auction
 3. Checkout/Transaction
 ###2d. Use Case Diagrams###
+This didn't really change must past the 3rd iteration.  The requirements never changed and we analyzed them and created good use cases for them in the first place.  
 ###2e. Story Map###
+This only changed later when we realized one epic was a little too broad and needed to be broken into two epics. (View Auction details and View Auctions)
 ###2f. Did it work?###
 ##Part 3. Individual Presentations##
 ###3a. Drew -- Hibernate###
-Hibernate ended up working out really well.  It was both the best and the most difficult part of the project for me.  It was great in that it took care of a lot of things automagically.  It wasn\'t great simply because I used it wrong.  I didn\'t let Hibernate create its own schema. We had a schema that worked and wanted to use that. So I mapped that schema to the classes we had created.  This ended up working just fine.  It only meant a little bit of extra work to get things like join tables (Shopping Cart, Watchlist, Categories) working with pure SQL instead of the fancy methods Hibernate provides. ANd the SQL to do so was not very difficult.  
+Hibernate ended up working out really well.  It was both the best and the most difficult part of the project for me.  It was great in that it took care of a lot of things automagically.  It wasn't great simply because I used it wrong.  I didn't let Hibernate create its own schema. We had a schema that worked and wanted to use that. So I mapped that schema to the classes we had created.  This ended up working just fine.  It only meant a little bit of extra work to get things like join tables (Shopping Cart, Watchlist, Categories) working with pure SQL instead of the fancy methods Hibernate provides. ANd the SQL to do so was not very difficult.  
 
-However, this did lead to a pain point.  I had never worked with Hibernate before, nor had I ever had to design or build a database controller.  That said, once I started, it only got easier.  
+####Pain Points####
+However, this did lead to a pain point.  I had never worked with Hibernate before, nor had I ever had to design or build a database controller.  That said, once I started, it only got easier.  Not being collocated was another. Also, not knowing enough about the front end. 
 
+####Eureka Moment####
 My Eureka Moment was when I first got Hibernate running and realized how simple it could be.
 
-What was easy but turned out hard. 
+####What I thought was going to be hard but turned out easy. ####
+I thought getting the controllers set up and the database ready to go was going to be very difficult.  But, once I got hibernate and postgres working, it was a cinch.  
+####What I thought was going to be easy but turned out hard. ####
+Not much really. I anticipated a lot being hard, and was pleasantly surprised. But that may be my outlook on life. 
+
 ###3b. Thom -- Frontend###
 ###3c. Miao -- Messaging###
 ###3d. Bowen -- Email/Transactions?###
