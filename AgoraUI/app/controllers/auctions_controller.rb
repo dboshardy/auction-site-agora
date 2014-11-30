@@ -47,6 +47,12 @@ class AuctionsController < ApplicationController
   def new
     @auction = Auction.new
 
+    auction_info = {:id => id, :type => "categories" }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @categories = get_categories(id)
+
   end
 
   # GET /auctions/1/edit
@@ -95,11 +101,12 @@ class AuctionsController < ApplicationController
     @auction, @status, @error = get_auction_success(id)
 
     if !@auction.nil?
-      redirect_to "/categories/new_categories_for_auction/#{@auction}"
+      @status = 'auction created!'
     else
       @status = "Auction could not be created"
-      render 'confirm'
     end
+
+    render 'confirm'
 
   end
 
