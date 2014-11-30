@@ -34,7 +34,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auction, @bid, @bidder, @seller = get_auction(id)
+    @auction, @bid, @bidder, @seller, @category = get_auction(id)
 
     # if @auction.item_name.nil?
     #   @error = "Auction not found"

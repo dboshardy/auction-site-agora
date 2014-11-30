@@ -55,6 +55,23 @@ public class BidQueue extends Message{
                 output.put("succeed",false);
                 output.put("Error",result);
             }
+        } else if(type.equals("buy_now")){
+            int user_id = obj.getInt("user_id");
+            int auction_id= obj.getInt("auction_id");
+
+            // useraccount, bid, auction
+            UserAccount user = userAccountController.getUserById(user_id);
+            auction = auctionController.getAuctionById(auction_id);
+
+            result = userAccountController.placeBuyItNow(user, auction);
+            output.put("result",result);
+
+            if(result.equals("true")){
+                output.put("succeed",true);
+            }else{
+                output.put("succeed",false);
+                output.put("Error",result);
+            }
         } else if(type.equals("show_auction")){
 
             int auction_id = obj.getInt("auction_id");
