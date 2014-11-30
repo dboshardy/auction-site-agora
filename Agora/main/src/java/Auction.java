@@ -1,11 +1,8 @@
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -14,8 +11,8 @@ import java.util.List;
 public class Auction {
 
     private Bid mCurrentHighestBid;
-    private Timestamp mListTime;
-    private Timestamp mEndTime;
+    private Date mListTime;
+    private Date mEndTime;
     private List<Bid> mBidList;
     private List<Flag> mFlagList;
     private UserAccount mSeller;
@@ -25,6 +22,7 @@ public class Auction {
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
+    private int mCategoryId;
 
 
     public String getDescription() {
@@ -169,25 +167,25 @@ public class Auction {
         mAuctionId = auctionId;
     }
 
-//    public Calendar getListTime() {
-//        return mListTime;
-//    }
-//
-//    public void setListTime(Calendar listTime) {
-//        mListTime = listTime;
-//    }
-//
-//    public Calendar getEndTime() {
-//        return mEndTime;
-//    }
-//
-//    public void setEndTime(Calendar endTime) {
-//        mEndTime = endTime;
-//    }
-//
-//    public void setTimestamp(Calendar timestamp){
-//        mListTime = timestamp;
-//    }
+    public Date getListTime() {
+        return mListTime;
+    }
+
+    public void setListTime(Date listTime) {
+        mListTime = listTime;
+    }
+
+    public Date getEndTime() {
+        return mEndTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        mEndTime = endTime;
+    }
+
+    public void setTimestamp(Date timestamp){
+        mListTime = timestamp;
+    }
 
     public void setSeller(UserAccount mSeller){
         this.mSeller=mSeller;
