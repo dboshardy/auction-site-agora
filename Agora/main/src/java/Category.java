@@ -57,6 +57,16 @@ public class Category {
     }
 
     public void setChildren(Set<Category> children) {
+
         mChildren = children;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "mName='" + mName + '\'' +
+                ", mCategoryId=" + mCategoryId +
+                ", mParentId=" + mParentId +
+                '}';
     }
 }
