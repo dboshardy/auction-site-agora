@@ -1,4 +1,7 @@
+import java.lang.System;
+
 <<<<<<< HEAD
+import java.net.PasswordAuthentication;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -6,6 +9,18 @@ import java.util.Map;
 
 =======
 >>>>>>> code merge and change
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+import java.util.Properties;
+
+
 /**
  * Created by drew on 10/19/14.
  */
@@ -227,5 +242,60 @@ public class UserAccount {
         //TODO: implement editUserDescription()
     }
 
+    public boolean sendEmail(Email email){
+        // JavaMail
+        // Send an Email via Gmail SMTP server using SSL connection.
+        // Should add external jar module before running
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "465");
+
+        boolean sendResult = false;
+        String sender = email.getSenderAccount();
+        String receiver = email.getReceiverAccount();
+        String emailSubject = email.getEmailSubject();
+        String emailContent = email.getEmailContent();
+
+        // can test admin user account: agoraemailnoreply@gmail.com
+        Session session = Session.getDefaultInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        //return new PasswordAuthentication("agoraemailnoreply","agoraagora");
+                        String senderPassword = email.getSenderPassword();
+
+                        if (sender.contains("gmail.com")){
+                            sender = sender.split("@")[0];
+                        }
+                        return new PasswordAuthentication(sender, email.getSenderPassword());
+                    }
+                });
+
+        try {
+            Message message = new MimeMessage(session);
+
+            message.setFrom(new InternetAddress(sender));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(receiver));
+            message.setSubject(emailSubject);
+            message.setText(emailContent);
+            Transport.send(message);
+
+//            System.out.println("Done");
+            sendResult = true;
+
+        } catch (MessagingException e) {
+//            System.out.println("May not received.");
+            sendResult = false;
+            throw new RuntimeException(e);
+        }
+
+        return sendResult;
+
+    }
 >>>>>>> code merge and change
 }

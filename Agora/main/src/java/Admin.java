@@ -15,8 +15,7 @@ public class Admin extends UserAccount{
     public String updateItem(Auction auction){return "response";}
 =======
     public Item updateItem(Item item){return item;}
->>>>>>> code merge and change
-    public Email updateEmail(Email email){return email;}
+
     public Payment updatePayment(Payment payment){return payment;}
 
 }
