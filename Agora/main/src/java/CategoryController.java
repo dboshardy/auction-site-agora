@@ -57,7 +57,7 @@ public class CategoryController {
         List<Category> categories = null;
         try{
             session.beginTransaction();
-            SQLQuery query = session.createSQLQuery("SELECT * FROM categories").addEntity(Category.class);
+            SQLQuery query = session.createSQLQuery("SELECT * FROM categories WHERE category_name!=\'root\'").addEntity(Category.class);
             categories = query.list();
             session.getTransaction().commit();
             session.close();
