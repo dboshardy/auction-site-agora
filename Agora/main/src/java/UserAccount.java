@@ -11,7 +11,7 @@ public class UserAccount {
     String mEmail;
     String mPassword;
     Map<String, Watchlist> mWatchlists = new HashMap<String, Watchlist>();
-    ShoppingCart mShoppingCart;
+    ShoppingCart mShoppingCart = new ShoppingCart();
     String mUserLocation;
     private int mUserId;
     private String mFirstName;
