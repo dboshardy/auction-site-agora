@@ -100,6 +100,21 @@ public class Auction {
         mCurrentHighestBid = initialBid;
     }
 
+    public Auction(String auctionName, int sellerId, Date listTime,
+                   Date endTime, String description, Double bidPrice){
+        mAuctionName = auctionName;
+        mSellerId = sellerId;
+        mDescription = description;
+        mEndTime = endTime;
+        mListTime = listTime;
+
+        UserAccountController seller = new UserAccountController();
+        mSeller = seller.getUserById(mSellerId);
+
+        Bid initialBid = new Bid(mSeller,this,new BigDecimal(bidPrice));
+        mCurrentHighestBid = initialBid;
+    }
+
     public int getSellerId() {
 //         get null pointer exception when running getAllAuctionsByUserId
 //        return mSeller.getUserId();

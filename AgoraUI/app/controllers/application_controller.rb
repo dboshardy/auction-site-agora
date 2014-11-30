@@ -295,6 +295,23 @@ class ApplicationController < ActionController::Base
         return bids
     end
 
+    def get_categories(id)
+        message = query_message(id)
+        categories = message["categories"]
+
+        cats = []
+
+        categories.each do |category|
+            c = Category.new
+            c.category = category["category"]
+            c.category_id = category["category_id"]
+
+            cats.push(c)
+        end
+
+        return cats
+    end
+
 	def query_message(id)
 	    attempts = 0
 
