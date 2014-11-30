@@ -12,8 +12,8 @@
 
 <%= form_tag "/auctions/category_search" do %>
 	<% @categories.each do |category| %>
-		<%= check_box_tag :category, category["category"] %>
-		<%= label_tag category["category"] %><br>
+		<%= check_box_tag :category, category.category_id %>
+		<%= label_tag category.category %><br>
 	<% end %>
   	<%= submit_tag "Search" %>
 
