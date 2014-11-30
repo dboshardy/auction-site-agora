@@ -142,7 +142,7 @@ public class UserAccountController {
         AuctionController auctionController = new AuctionController();
         ShoppingCart cart = user.getShoppingCart();
         auction.setIsEnded(true);
-        cart.addAuctionToShoppingCart(user,auction);
+        cart.addAuctionToShoppingCart(user.getUserId(),auction.getAuctionId());
         auctionController.updateAuction(auction);
         return "Success";
     }
