@@ -18,12 +18,37 @@ public class Watchlist {
     private UserAccount mUserAccount;
     private final String mTableName = "user_has_watchlist_auctions";
     private Integer mWatchlistId;
+    public int mUserId;
+    public int mAuctionId;
+
+    public int getUserId() {
+        return mUserId;
+    }
+
+    public void setUserId(int mUserId) {
+        this.mUserId = mUserId;
+    }
+
+    public int getAuctionId() {
+        return mAuctionId;
+    }
+
+    public void setAuctionId(int mAuctionId) {
+        this.mAuctionId = mAuctionId;
+    }
 
     public Watchlist(UserAccount user, String watchlistName) {
         mUserAccount = user;
         mWatchlistName = watchlistName;
         mWatchlistModel = new WatchlistModel();
         mWatchlist = new ArrayList<Auction>();
+
+    }
+
+    public Watchlist(int user_id, int auction_id, String watchlistName){
+        mUserId = user_id;
+        mAuctionId = auction_id;
+        mWatchlistName = watchlistName;
 
     }
 
