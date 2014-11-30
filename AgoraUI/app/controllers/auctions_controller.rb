@@ -62,6 +62,12 @@ class AuctionsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
+    if params[:buy_it_now] == "false"
+      buy_it_now_price = "0.00"
+    else
+      buy_it_now_price = params[:auction][:buy_now_price]
+    end
+
     auction_start_time = {
       :year => params[:auction]["auction_start_time(1i)"],
       :month => params[:auction]["auction_start_time(2i)"], 
@@ -76,7 +82,7 @@ class AuctionsController < ApplicationController
       :item_desc => params[:auction][:item_desc],
       :quantity => params[:auction][:quantity], 
       :buy_it_now => params[:buy_it_now],
-      :buy_now_price => params[:auction][:buy_now_price],
+      :buy_now_price => buy_it_now_price,
       :start_bid => params[:auction][:start_bid], 
       :shipping_cost => params[:auction][:shipping_cost],
       :auction_length => params[:auction][:auction_length],
