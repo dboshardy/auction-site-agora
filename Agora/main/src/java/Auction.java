@@ -1,10 +1,5 @@
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.Date;
 import java.util.List;
 
@@ -44,6 +39,9 @@ public class Auction {
 
     public int getCategoryId() {
         return mCategoryId;
+    }
+    public void setCategoryId(int id){
+        mCategoryId = id;
     }
 
     public String getDescription() {
@@ -108,17 +106,6 @@ public class Auction {
 
         Bid initialBid = new Bid(mSeller,this,new BigDecimal(bidPrice));
         mCurrentHighestBid = initialBid;
-    }
-
-    public Auction(String auctionName, UserAccount seller, String description, GregorianCalendar listTime,
-                   GregorianCalendar endTime, BigDecimal buyItNowPrice) {
-        mAuctionName = auctionName;
-        mSeller = seller;
-        mDescription = description;
-//        mListTime = listTime;
-//        mEndTime = endTime;
-        mBuyItNowPrice = buyItNowPrice;
-
     }
 
     public int getSellerId() {
@@ -254,6 +241,10 @@ public class Auction {
     public void setFlag(Flag flag, int userId) {
         FlagController flagController = new FlagController();
         flagController.persistFlagOnAuction(flag);
+    }
+
+    public boolean getIsEnded(){
+        return mIsEnded;
     }
 
     public void setIsEnded(boolean isEnded) {

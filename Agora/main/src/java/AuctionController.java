@@ -60,7 +60,7 @@ public class AuctionController {
             session.update(auction);
             session.getTransaction().commit();
             session.close();
-            result = "Successfully Updated Auction";
+            result = "true";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();

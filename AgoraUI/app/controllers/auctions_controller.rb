@@ -106,13 +106,25 @@ class AuctionsController < ApplicationController
     id = SecureRandom.uuid.to_s
     auction_id = params[:id]
 
+    auction_start_time = {
+      :year => params["auction_start_time"]["auction_start_time(1i)"],
+      :month => params["auction_start_time"]["auction_start_time(2i)"], 
+      :day => params["auction_start_time"]["auction_start_time(3i)"],
+      :hour => params["auction_start_time"]["auction_start_time(4i)"],
+      :minutes => params["auction_start_time"]["auction_start_time(5i)"]
+    }
+
     auction_info = {:id => id, :type => "update", 
       :auction_id => auction_id,     
-      :auction_start_time => auction.auction_start_time, 
-      :auction_length => auction.auction_length,
-      :item_name => auction.item_name, :item_desc => auction.item_desc,
-      :quantity => auction.quantity, :buy_it_now => auction.buy_it_now,
-      :start_id => auction.start_bid, :shipping_cost => auction.shipping_cost
+      :item_name => params[:item_name], 
+      :item_desc => params[:item_desc],
+      :quantity => params[:quantity], 
+      :buy_it_now => params[:buy_it_now],
+      :buy_now_price => params[:buy_now_price],
+      :start_bid => params[:start_bid], 
+      :shipping_cost => params[:shipping_cost],
+      :auction_length => params[:auction_length],
+      :auction_start_time => auction_start_time      
     }
 
     publish :auction, JSON.generate(auction_info)
@@ -201,6 +213,6 @@ class AuctionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction_params
-      params.require(:auction).permit(:seller_id)
+      params.permit(:seller_id)
     end
 end
