@@ -24,7 +24,7 @@ public class EndedAuctionJanitor extends Janitor {
                 String sellerEmail = auction.getSeller().getEmail();
                 String winnerEmail = auction.getCurrentHighestBid().getBidder().getEmail();
                 cart = auction.getCurrentHighestBid().getBidder().getShoppingCart();
-                cart.addAuctionToShoppingCart(auction.getCurrentHighestBid().getBidderId(),auction.getAuctionId());
+                cart.addAuctionToShoppingCart(auction.getCurrentHighestBid().getBidder().getUserId(),auction.getAuctionId());
             }
         }
     }
