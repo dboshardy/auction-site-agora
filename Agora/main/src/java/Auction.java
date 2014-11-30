@@ -250,4 +250,12 @@ public class Auction {
     public void setIsEnded(boolean isEnded) {
         mIsEnded = isEnded;
     }
+
+    public String toPrettyString() {
+            return  ", mAuctionName='" + mAuctionName + '\'' + "\n" +
+                    "mListTime=" + mListTime + "\n" +
+                    ", mEndTime=" + mEndTime + "\n" +
+                    ", mDescription='" + mDescription + '\'' + "\n" +
+                    ", mBuyItNowPrice=" + mBuyItNowPrice +"\n";
+        }
 }

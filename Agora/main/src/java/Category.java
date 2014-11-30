@@ -11,7 +11,6 @@ public class Category {
     private int mCategoryId;
     private int mParentId;
 
-    //todo: make this work
     public int getParentId() {
         return mParentId;
     }
