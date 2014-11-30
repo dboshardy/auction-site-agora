@@ -30,7 +30,7 @@
     <%= form_tag "/bids/#{@auction.auction_id}/create" do %>
 
       <%= label_tag :bid_amount %><br>
-      <%= number_field_tag :bid_amount, min: min_bid %><br>
+      <%= number_field_tag :bid_amount, nil, min: min_bid, step: 0.01 %><br>
       <%= submit_tag "Place Bid" %><br><br>
 
     <% end %>

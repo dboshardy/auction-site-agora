@@ -57,7 +57,7 @@ class BidsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    bid_info = {:id => id, :type => "create", 
+    bid_info = {:id => id, :type => "new", 
       :user_id => session[:user_id],     
       :auction_id => params[:id],
       :bid_amount => params[:bid_amount],
@@ -144,6 +144,6 @@ class BidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params
-      params.require(:bid).permit(:bidder_id, :currency_id, :amount, :auction_id)
+      params.permit(:bidder_id, :currency_id, :amount, :auction_id)
     end
 end

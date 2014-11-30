@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :shopping_cart_items
 
-  root "auctions#welcome"
+  root "auctions#index"
 
   post "/users/:id/suspend" => "users#suspend"
   get "/auctions/search" => "auctions#search"

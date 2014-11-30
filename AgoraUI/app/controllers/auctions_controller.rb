@@ -15,12 +15,7 @@ class AuctionsController < ApplicationController
     publish :auction, JSON.generate(auction_info)
 
     @auctions = get_auctions(id)
-
-    if @auctions.nil?
-      render 'welcome'
-    else
-      render 'index'  
-    end    
+ 
   end
 
   def welcome
