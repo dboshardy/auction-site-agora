@@ -59,5 +59,7 @@
         </id>
         <property name="AuctionId" column="auctions_auction_id" type="int"/>
         <property name="FlagType" column="flag_type" type="string" length="45"/>
+        <property name="DateFlagged" column="date_flagged" type="timestamp"/>
+        <property name="mUserId" column="useraccounts_user_id" type="int"/>
     </class>
 </hibernate-mapping>
