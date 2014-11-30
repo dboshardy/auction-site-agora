@@ -25,7 +25,7 @@ public class WatchlistModel {
             watchlist.setWatchlistId((Integer) session.save(watchlist));
             transaction.commit();
             session.close();
-            result = "Succesfully created watchlist";
+            result = "true";
         } catch (HibernateException e) {
             if (transaction != null) {
                 transaction.rollback();

@@ -84,7 +84,7 @@ public class Auction {
     }
 
     public Auction(String auctionName, int sellerId, Date listTime,
-                   Date endTime, String description, Double buyItNowPrice, Double bidPrice){
+                   Date endTime, String description, Double buyItNowPrice, Double bidPrice, int categoryId){
         mAuctionName = auctionName;
         mSellerId = sellerId;
         mDescription = description;
@@ -92,6 +92,7 @@ public class Auction {
         BigDecimal d = new BigDecimal(buyItNowPrice);
         mBuyItNowPrice = d;
         mListTime = listTime;
+        mCategoryId = categoryId;
 
         UserAccountController seller = new UserAccountController();
         mSeller = seller.getUserById(mSellerId);
@@ -101,12 +102,13 @@ public class Auction {
     }
 
     public Auction(String auctionName, int sellerId, Date listTime,
-                   Date endTime, String description, Double bidPrice){
+                   Date endTime, String description, Double bidPrice, int categoryId){
         mAuctionName = auctionName;
         mSellerId = sellerId;
         mDescription = description;
         mEndTime = endTime;
         mListTime = listTime;
+        mCategoryId = categoryId;
 
         UserAccountController seller = new UserAccountController();
         mSeller = seller.getUserById(mSellerId);
