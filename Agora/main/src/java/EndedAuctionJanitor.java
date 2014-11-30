@@ -22,20 +22,14 @@ public class EndedAuctionJanitor extends Janitor {
                 auctionController.updateAuction(auction);
                 String sellerEmail = auction.getSeller().getEmail();
                 String winnerEmail = auction.getCurrentHighestBid().getBidder().getEmail();
-                Email sellerNotifyEmail = new Email(UserAccount.ADMIN_EMAIL_ADDRESS,UserAccount.ADMIN_PASSWORD,sellerEmail,
-                        "Your auction has ended!","Your auction, "+auction.toPrettyString()+" has ended. The winning bid was: "+
-                auction.getCurrentHighestBid().getBidAmount()+".");
-                Email winnerNotifyEmail = new Email(UserAccount.ADMIN_EMAIL_ADDRESS,UserAccount.ADMIN_PASSWORD,winnerEmail,
-                        "You won an auction!", "Hello,"+auction.getCurrentHighestBid().getBidder().getFirstName()+",\n\n You had the winning bid on auction: "+auction.toPrettyString()
-                        +".\n\nCongratulations! You can find the auction in your shopping cart.");
+                Email.notifyUsersOfEndedAuction(auction, sellerEmail, winnerEmail);
                 cart = auction.getCurrentHighestBid().getBidder().getShoppingCart();
-                cart.addAuctionToShoppingCart(auction.getCurrentHighestBid().getBidder().getUserId(),auction.getAuctionId());
-                Email.sendEmail(sellerNotifyEmail);
-                Email.sendEmail(winnerNotifyEmail);
+                cart.addAuctionToShoppingCart(auction.getCurrentHighestBid().getBidder().getUserId(), auction.getAuctionId());
 
             }
         }
     }
+
 
     public List<Auction> getEndedAuctions(){
         List<Auction> endedAuctions = null;
