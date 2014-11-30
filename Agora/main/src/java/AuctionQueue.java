@@ -132,19 +132,25 @@ public class AuctionQueue extends Message {
             }
             output.put("auctions",jsonArray);
         }else if (type.equals("show")) {
-            // you get the idea
             String auction_id = obj.getString("auction_id");
-            output.put("auction_id", auction_id);
             Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
-            //ArrayList<Bid> list= auctionController.getAuctionBids(auction)
+            output.put("item_name", auction.getAuctionName());
             output.put("auction_id",auction.getAuctionId());
             output.put("item_desc",auction.getDescription());
-//            output.put("highest_bid",auction.getCurrentHighestBid().getBidAmount());
+
+            BidController bid = new BidController();
+            Bid highestBid = bid.getBidById(auction.getCurrentHighestBidId());
+
+            output.put("highest_bid", highestBid.getBidAmount());
             output.put("buy_now_price",auction.getBuyItNowPrice());
-//            output.put("bidder_id",auction.getCurrentHighestBid().getBidderId());
-//            output.put("bidder_username",auction.getCurrentHighestBid().getBidder().getUserName());
-//            output.put("seller_id",auction.getSellerId());
-//            output.put("seller_username",auction.getSeller().getUserName());
+            output.put("bidder_id",highestBid.getBidderId());
+            output.put("bidder_username",highestBid.getBidder().getUserName());
+
+            UserAccountController sellerController = new UserAccountController();
+            UserAccount seller = sellerController.getUserById(auction.getSellerId());
+
+            output.put("seller_id",seller.getUserId());
+            output.put("seller_username",seller.getUserName());
         }
         return output;
     }
