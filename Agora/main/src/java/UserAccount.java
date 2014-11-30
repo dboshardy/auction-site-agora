@@ -1,24 +1,8 @@
-import java.lang.System;
-
-<<<<<<< HEAD
-import java.net.PasswordAuthentication;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-=======
->>>>>>> code merge and change
-
 import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-import java.util.Properties;
+import java.util.*;
 
 
 /**
@@ -229,39 +213,8 @@ public class UserAccount {
                 ", isAdmin='" + mIsAdmin + '\'' +
                 '}';
     }
-    Password mPassword;
-    //TODO: define "history" for user account
-    Watchlist mWatchlist;
-    ShoppingCart mShoppingCart;
-    UserDescription mUserDescription;
-    String mUserLocation;
-    UserID mUserID;
 
-    public UserAccount(UserID userID) {
-        mUserID = userID;
-    }
-
-    public UserAccount(String userName, String email, Password password, Watchlist watchlist, ShoppingCart shoppingCart, UserDescription userDescription, String userLocation) {
-        mUserName = userName;
-        mEmail = email;
-        mPassword = password;
-        mWatchlist = watchlist;
-        mShoppingCart = shoppingCart;
-        mUserDescription = userDescription;
-        mUserLocation = userLocation;
-    }
-
-    public void flagAuction(Auction auction,Flag flag){
-        //TODO: implement flagAuction
-
-
-    }
-
-    public void editUserDescription(){
-        //TODO: implement editUserDescription()
-    }
-
-    public boolean sendEmail(Email email){
+    public boolean sendEmail(final Email email){
         // JavaMail
         // Send an Email via Gmail SMTP server using SSL connection.
         // Should add external jar module before running
@@ -275,7 +228,7 @@ public class UserAccount {
         props.put("mail.smtp.port", "465");
 
         boolean sendResult = false;
-        String sender = email.getSenderAccount();
+        final String[] sender = {email.getSenderAccount()};
         String receiver = email.getReceiverAccount();
         String emailSubject = email.getEmailSubject();
         String emailContent = email.getEmailContent();
@@ -287,17 +240,17 @@ public class UserAccount {
                         //return new PasswordAuthentication("agoraemailnoreply","agoraagora");
                         String senderPassword = email.getSenderPassword();
 
-                        if (sender.contains("gmail.com")){
-                            sender = sender.split("@")[0];
+                        if (sender[0].contains("gmail.com")){
+                            sender[0] = sender[0].split("@")[0];
                         }
-                        return new PasswordAuthentication(sender, email.getSenderPassword());
+                        return new PasswordAuthentication(sender[0], email.getSenderPassword());
                     }
                 });
 
         try {
             Message message = new MimeMessage(session);
 
-            message.setFrom(new InternetAddress(sender));
+            message.setFrom(new InternetAddress(sender[0]));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(receiver));
             message.setSubject(emailSubject);
@@ -316,5 +269,4 @@ public class UserAccount {
         return sendResult;
 
     }
->>>>>>> code merge and change
 }
