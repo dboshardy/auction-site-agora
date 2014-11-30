@@ -4,6 +4,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 import javax.persistence.EntityExistsException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -99,20 +100,33 @@ public class UserAccountController {
     }
 
     public String placeBidOnAuction(UserAccount user, Bid bid, Auction auction) {
-        BidController bidController = new BidController();
-        AuctionController auctionController = new AuctionController();
-        Bid currentHighestBid = auction.getCurrentHighestBid();
+        Date today = new Date();
         String result = "Could not place bid";
-        if (currentHighestBid.getBidAmount().compareTo(bid.getBidAmount()) == -1) {
-            //if currentHightestBid is less than proposed bid
-            //old bidder before change
-            String oldBidderEmail = auction.getCurrentHighestBid().getBidder().getEmail();
-            bidController.persistBid(bid);
-            auction.setCurrentHighestBid(bid);
-            auctionController.updateAuction(auction);
-            String sellerEmail = auction.getSeller().getEmail();
-            //todo:send notification to bidder who was outbid, and seller notifying of bid placement
-            result = "Successfully placed bid";
+        if(auction.getListTime().before(today)
+            && !auction.getIsEnded()) {
+            BidController bidController = new BidController();
+            AuctionController auctionController = new AuctionController();
+            Bid currentHighestBid = auction.getCurrentHighestBid();
+            if (currentHighestBid.getBidAmount().compareTo(bid.getBidAmount()) == -1) {
+                //if currentHightestBid is less than proposed bid
+                //old bidder before change
+                String oldBidderEmail = auction.getCurrentHighestBid().getBidder().getEmail();
+                UserAccount oldBidder = auction.getCurrentHighestBid().getBidder();
+                bidController.persistBid(bid);
+                auction.setCurrentHighestBid(bid);
+                auctionController.updateAuction(auction);
+                String sellerEmail = auction.getSeller().getEmail();
+
+                Email sellerNotifyEmail = new Email(UserAccount.ADMIN_EMAIL_ADDRESS,UserAccount.ADMIN_PASSWORD,sellerEmail,
+                        "Hello "+auction.getSeller().getFirstName()+",\n\nSomeone has bid on your auction!","Someone has bid on your auction: "+auction.toPrettyString()+
+                        "with the bid amount: "+auction.getCurrentHighestBid().getBidAmount()+". Click here to go to the auction: \n\nhttp://localhost:3000/auctions/"+auction.getAuctionId());
+                Email oldBidderNotifyEmail = new Email(UserAccount.ADMIN_EMAIL_ADDRESS,UserAccount.ADMIN_PASSWORD,oldBidderEmail,
+                        "You have been outbid!", "Hello,"+oldBidder.getFirstName()+",\n\n You have been outbid on auction: "+auction.toPrettyString()
+                        +". Click here to go to the auction: \n\nhttp://localhost:3000/auctions/"+auction.getAuctionId());
+                Email.sendEmail(oldBidderNotifyEmail);
+                Email.sendEmail(sellerNotifyEmail);
+                result = "Successfully placed bid";
+            }
         }
         return result;
     }
@@ -139,13 +153,42 @@ public class UserAccountController {
     }
 
     public String placeBuyItNow(UserAccount user, Auction auction){
-        AuctionController auctionController = new AuctionController();
-        ShoppingCart cart = user.getShoppingCart();
-        auction.setIsEnded(true);
-        cart.addAuctionToShoppingCart(user.getUserId(),auction.getAuctionId());
-        auctionController.updateAuction(auction);
-        return "Success";
+        Date today = new Date();
+        if(auction.getListTime().before(today)
+                && !auction.getIsEnded()) {
+            AuctionController auctionController = new AuctionController();
+            ShoppingCart cart = user.getShoppingCart();
+            auction.setIsEnded(true);
+            cart.addAuctionToShoppingCart(user.getUserId(), auction.getAuctionId());
+            auctionController.updateAuction(auction);
+            Email.notifyUsersOfEndedAuction(auction, auction.getSeller().getEmail(),user.getEmail());
+            return "Success";
+        }
+        else {
+            return "Failure";
+        }
     }
 
+    public UserAccount getSystemUser() {
+        UserAccount user = null;
+        List<UserAccount> users = null;
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            SQLQuery query = session.createSQLQuery("SELECT * FROM useraccounts WHERE username=\'SYSTEM_SUPER_USER\'").addEntity(UserAccount.class);
+            users = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get system user account");
+        }
+        if (users.size() > 0) {
+            return users.get(0);
+        }
+        else return null;
+    }
 }
 

@@ -16,11 +16,13 @@ public class AuctionQueue extends Message {
         String type = obj.getString("type");
 
         AuctionController auctionController = new AuctionController();
+        CategoryController categoryController = new CategoryController();
 
         if (type.equals("create")) {
             int user_id = obj.getInt("user_id");
             String auctionName = obj.getString("item_name");
             String item_desc = obj.getString("item_desc");
+            int category_id = obj.getInt("category_id");
             JSONObject start_time = obj.getJSONObject("auction_start_time");
             Integer year = start_time.getInt("year");
             Integer month = start_time.getInt("month");
@@ -47,9 +49,18 @@ public class AuctionQueue extends Message {
             Date endTime = cal.getTime();
 
             Double bidPrice = obj.getDouble("start_bid");
-            Double buyNowPrice = obj.getDouble("buy_now_price");
 
-            Auction auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, buyNowPrice, bidPrice);
+            boolean buyNow = obj.getBoolean("buy_it_now");
+            Double buyNowPrice;
+            Auction auction;
+
+            if (buyNow) {
+                buyNowPrice = obj.getDouble("buy_now_price");
+                auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, buyNowPrice, bidPrice, category_id);
+            } else {
+                auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, bidPrice, category_id);
+            }
+
             result = auctionController.persistAuction(auction);
             output.put("result", result);
             if (result.equals("true")) {
@@ -66,6 +77,7 @@ public class AuctionQueue extends Message {
 
             String auctionName = obj.getString("item_name");
             String item_desc = obj.getString("item_desc");
+            int category_id = obj.getInt("category");
             JSONObject start_time = obj.getJSONObject("auction_start_time");
             Integer year = start_time.getInt("year");
             Integer month = start_time.getInt("month");
@@ -99,6 +111,7 @@ public class AuctionQueue extends Message {
             auction.setEndTime(endTime);
             auction.setDescription(item_desc);
             auction.setBuyItNowPrice(new BigDecimal(buyNowPrice));
+            auction.setCategoryId(category_id);
             result = auctionController.updateAuction(auction);
             output.put("result", result);
             if (result.equals("true")) {
@@ -145,15 +158,27 @@ public class AuctionQueue extends Message {
                 jsonArray.put(ele);
             }
             output.put("auctions",jsonArray);
-        }else if (type.equals("show")) {
+        } else if (type.equals("categories")) {
+            List<Category> list = categoryController.getAllCategories();
+            JSONArray jsonArray = new JSONArray();
+            for(Category c:list){
+                JSONObject ele= new JSONObject();
+                ele.put("category",c.getName());
+                ele.put("category_id",c.getCategoryId());
+
+                jsonArray.put(ele);
+            }
+            output.put("categories",jsonArray);
+
+        } else if (type.equals("show")) {
             String auction_id = obj.getString("auction_id");
             Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
             output.put("item_name", auction.getAuctionName());
             output.put("auction_id",auction.getAuctionId());
             output.put("item_desc",auction.getDescription());
 
-            BidController bid = new BidController();
-            Bid highestBid = bid.getBidById(auction.getCurrentHighestBidId());
+//            BidController bid = new BidController();
+            Bid highestBid = auction.getCurrentHighestBid();
 
             output.put("highest_bid", highestBid.getBidAmount());
             output.put("buy_now_price",auction.getBuyItNowPrice());
@@ -165,6 +190,58 @@ public class AuctionQueue extends Message {
 
             output.put("seller_id",seller.getUserId());
             output.put("seller_username",seller.getUserName());
+            output.put("category",auction.getCategory().getName());
+        } else if (type.equals("keyword")) {
+            String keyword = obj.getString("keyword");
+            List<Auction> list = auctionController.getAllAuctionsByKeyword(keyword);
+            JSONArray jsonArray = new JSONArray();
+            for(Auction a:list) {
+                JSONObject ele = new JSONObject();
+                ele.put("auction_id", a.getAuctionId());
+                ele.put("auction_name", a.getAuctionName());
+                ele.put("end_time", a.getEndTime());
+                ele.put("item_desc", a.getDescription());
+
+                BidController bid = new BidController();
+                Bid highestBid = bid.getBidById(a.getCurrentHighestBidId());
+
+                if (highestBid != null) {
+                    ele.put("highest_bid", highestBid.getBidAmount());
+                }
+                jsonArray.put(ele);
+            }
+            output.put("auctions",jsonArray);
+        } else if (type.equals("category")) {
+            int category = obj.getInt("category");
+            List<Auction> list = auctionController.getAllAuctionsByCategory(category);
+            JSONArray jsonArray = new JSONArray();
+            for(Auction a:list) {
+                JSONObject ele = new JSONObject();
+                ele.put("auction_id", a.getAuctionId());
+                ele.put("auction_name", a.getAuctionName());
+                ele.put("end_time", a.getEndTime());
+                ele.put("item_desc", a.getDescription());
+
+                BidController bid = new BidController();
+                Bid highestBid = bid.getBidById(a.getCurrentHighestBidId());
+
+                if (highestBid != null) {
+                    ele.put("highest_bid", highestBid.getBidAmount());
+                }
+                jsonArray.put(ele);
+            }
+            output.put("auctions",jsonArray);
+        } else if (type.equals("stop")) {
+            int auction_id = obj.getInt("auction_id");
+            Auction auction = auctionController.getAuctionById(auction_id);
+            auction.setIsEnded(true);
+            result = auctionController.updateAuction(auction);
+            if (result.equals("true")) {
+                output.put("succeed", true);
+            } else {
+                output.put("succeed", false);
+                output.put("Error", result);
+            }
         }
         return output;
     }

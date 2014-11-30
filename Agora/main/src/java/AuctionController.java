@@ -207,7 +207,7 @@ public class AuctionController {
         List<Auction> auctions = null;
         try {
             session.beginTransaction();
-            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE auction_name ILIKE \'%"+keyword+"%\' OR auction_description LIKE \'"+keyword+"\'").addEntity(Auction.class);
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE auctions.auction_name ILIKE \'%"+keyword+"%\' OR auctions.auction_description ILIKE \'%"+keyword+"%\'").addEntity(Auction.class);
             auctions = query.list();
             session.getTransaction().commit();
             session.close();
@@ -236,5 +236,21 @@ public class AuctionController {
             LOG.warn("Could not get auctions matching the category: "+categoryId+" from database.");
         }
         return auctions;
+    }
+    public List<Auction> getAllActiveAuctionsBidOnForUser(UserAccount user){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        BidController bidController = new BidController();
+        AuctionController auctionController = new AuctionController();
+        List<Bid> bids = bidController.getBidHistoryForUser(user.getUserId());
+        for(Bid bid : bids){
+            Auction auction = auctionController.getAuctionById(bid.getAuctionId());
+            if(!auction.getIsEnded()){
+//                    && auction.getCurrentHighestBid().equals(bid)){
+               auctions.add(auction);
+            }
+        }
+        return auctions;
+
     }
 }

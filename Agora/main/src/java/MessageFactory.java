@@ -4,7 +4,6 @@
 public class MessageFactory {
 
     public Message getMessageClass(String queue){
-        //todo: fix this, thom :D
         if (queue.equals("/queue/Auction")){
             return new AuctionQueue();
         }
@@ -20,22 +19,15 @@ public class MessageFactory {
             return new WatchlistQueue();
 
         }
-//        else if (queue.equals("/queue/WatchlistItem")){
-//            return new WatchlistItemQueue();
-//
-//        }
         else if (queue.equals("/queue/ShoppingCart")){
             return new ShoppingCartQueue();
 
         }
-//         else if (queue.equals("/queue/Flag")){
-//            return new FlagQueue();
-//
-//        }
-//        else if (queue.equals("/queue/ShoppingCartItem")){
-//            return new ShoppingCartItemQueue();
-//
-//        }
+         else if (queue.equals("/queue/Flag")){
+            return new FlagQueue();
+
+        }
+
 //        else if (queue.equals("/queue/Transaction")){
 //            return new TransactionQueue();
 //

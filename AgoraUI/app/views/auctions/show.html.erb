@@ -7,11 +7,12 @@
   <%= "Highest bid: " + @bid.amount.to_s %><br>
   <%= "Highest bidder: " + @bidder.username %><br>
   <%= "Seller: " + @seller.username %><br>
-  <% if @auction.buy_it_now == "true" %>
-    <%= "Buy It Now Price: " + @auction.buy_now_price %><br>
+  <%= "Category: " + @category.category %><br>
+  <% if !@auction.buy_now_price.nil?  %>
+    <%= "Buy It Now Price: " + @auction.buy_now_price.to_s %><br>
   <% end %>
   <%= link_to "See Bid History", "/bids/#{@auction.auction_id}/auction_bid_history" %>
-</p>
+</p><br>
 
 <% if (!session[:user_id].nil?) && (session[:user_id].to_i == @seller.user_id) %>
   <%= link_to 'Edit Auction', "/auctions/#{@auction.auction_id}/edit" %><br>
@@ -20,8 +21,8 @@
   <% end %>
 
 <% else %>
-  <% if @auction.buy_it_now == "true" %>
-    <%= button_to "Buy It Now", "bids/#{@auction.auction_id}/create_buy_now?#{@auction.buy_now_price}", data: { confirm: 'Are you sure?' }%><br>
+  <% if !@auction.buy_now_price.nil?  %>
+    <%= button_to "Buy It Now", "/bids/#{@auction.auction_id}/buy_now",  data: { confirm: 'Are you sure?' }%><br>
   <% end %>
 
   <% if session[:user_id] != @seller.user_id %>
@@ -34,13 +35,13 @@
       <%= submit_tag "Place Bid" %><br><br>
 
     <% end %>
-    <%= link_to 'Flag Auction', "/flags/create/#{@auction.auction_id}" %> | 
+    <%= link_to 'Flag Auction', "/flags/#{@auction.auction_id}/new" %><br> 
   <% end %>
 <% end %>
 
-<% if session["is_admin"] == "true" %>
-  <%= link_to "Stop Auction", "/auctions/stop/#{auction["auction_id"]}" %><br>
-  <%= link_to "Suspend User", "/users/#{@seller.id}/suspend", data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
+<% if session["is_admin"]  %>
+  <%= link_to "ADMIN: Stop Auction", "/auctions/#{@auction.auction_id}/stop", data: { confirm: 'Are you sure you want to stop this auction?' } %><br>
+  <%= link_to "ADMIN: Remove User", "/users/#{@seller.user_id}", method: :delete, data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
 <% end %>    
 
 <%= link_to 'Back', auctions_path %>

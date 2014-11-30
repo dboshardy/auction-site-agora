@@ -16,20 +16,20 @@ public class FlagQueue extends Message{
         String type = obj.getString("type");
 
         FlagController flagController= new FlagController();
+        UserAccountController userAccountController = new UserAccountController();
+        AuctionController auctionController = new AuctionController();
 
         if (type.equals("create")){
             // take appropriate action to create new tuple in database
             // create a JSON object for the return message
-            String auction_id = obj.getString("auction_id");
+            int auction_id = obj.getInt("auction_id");
             String flag_type= obj.getString("flag_type");
-            String flag_desc = obj.getString("flag_desc");
-            String user_id= obj.getString("user_id");
+            int user_id= obj.getInt("user_id");
 
+            UserAccount user = userAccountController.getUserById(user_id);
+            Auction auction = auctionController.getAuctionById(auction_id);
 
-            UserAccountController uac=new UserAccountController();
-            AuctionController ac = new AuctionController();
-            //keep an eye on this
-            Flag flag= new Flag(flag_type, uac.getUserById(Integer.parseInt(user_id)), ac.getAuctionById(Integer.parseInt(auction_id)));
+            Flag flag = new Flag(flag_type, user, auction);
 
             result= flagController.persistFlagOnAuction(flag);
             if(result.equals("true")){

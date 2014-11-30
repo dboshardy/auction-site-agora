@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * Created by drew on 10/19/14.
  */
@@ -19,6 +20,8 @@ public class UserAccount {
     private String mDescription;
     private Date mUserJoinedDate;
     private boolean mIsAdmin = false;
+    public static final String ADMIN_PASSWORD = "agoraagora";
+    public static final String ADMIN_EMAIL_ADDRESS = "agoraemailnoreply@gmail.com";
 
     public boolean getIsAdmin() {
         return mIsAdmin;
@@ -211,4 +214,5 @@ public class UserAccount {
                 ", isAdmin='" + mIsAdmin + '\'' +
                 '}';
     }
+
 }

@@ -15,21 +15,17 @@ public class BidQueue extends Message{
         String result= "";
         String type = obj.getString("type");
 
+        UserAccountController userAccountController = new UserAccountController();
         BidController bidController= new BidController();
         AuctionController auctionController= new AuctionController();
+        Auction auction;
 
         if (type.equals("create")){
-            // take appropriate action to create new tuple in database
-            // create a JSON object for the return message
             String user_id = obj.getString("user_id");
             String auction_id= obj.getString("auction_id");
-//            JSONObject endTime=obj.getJSONObject("endTime");
-//            Timestamp stamp = new Timestamp(endTime.getLong("endTime"));
-//            Date date = new Date(stamp.getTime());
             String start_bid= obj.getString("start_bid");
             Double bidAmount= Double.parseDouble(start_bid);
 
-            UserAccountController userAccountController = new UserAccountController();
             Bid bid = new Bid(userAccountController.getUserById(Integer.parseInt(user_id)), auctionController.getAuctionById(Integer.parseInt(auction_id)), new BigDecimal(bidAmount));
             result = bidController.persistBid(bid);
             output.put("result",result);
@@ -39,11 +35,48 @@ public class BidQueue extends Message{
                 output.put("succeed",false);
                 output.put("Error",result);
             }
-        }else if(type.equals("show_auction")){
+        } else if(type.equals("new")){
+            int user_id = obj.getInt("user_id");
+            int auction_id= obj.getInt("auction_id");
+            Double bid_amount = obj.getDouble("bid_amount");
+
+            // useraccount, bid, auction
+            UserAccount user = userAccountController.getUserById(user_id);
+            Bid bid = new Bid(user, auctionController.getAuctionById(auction_id),
+                    new BigDecimal(bid_amount));
+            auction = auctionController.getAuctionById(auction_id);
+
+            result = userAccountController.placeBidOnAuction(user, bid, auction);
+            output.put("result",result);
+
+            if(result.equals("true")){
+                output.put("succeed",true);
+            }else{
+                output.put("succeed",false);
+                output.put("Error",result);
+            }
+        } else if(type.equals("buy_now")){
+            int user_id = obj.getInt("user_id");
+            int auction_id= obj.getInt("auction_id");
+
+            // useraccount, bid, auction
+            UserAccount user = userAccountController.getUserById(user_id);
+            auction = auctionController.getAuctionById(auction_id);
+
+            result = userAccountController.placeBuyItNow(user, auction);
+            output.put("result",result);
+
+            if(result.equals("true")){
+                output.put("succeed",true);
+            }else{
+                output.put("succeed",false);
+                output.put("Error",result);
+            }
+        } else if(type.equals("show_auction")){
 
             int auction_id = obj.getInt("auction_id");
 
-            Auction auction= auctionController.getAuctionById(auction_id);
+            auction= auctionController.getAuctionById(auction_id);
             List<Bid> bids= auctionController.getAuctionBids(auction);
             JSONArray jsonArray = new JSONArray();
             for(Bid b:bids){

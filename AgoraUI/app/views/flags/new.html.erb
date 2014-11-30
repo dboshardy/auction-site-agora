@@ -1,5 +1,14 @@
 <h1>New flag</h1>
 
-<%= render 'form' %>
+<%= form_tag "/flags/#{params[:id]}/create" do %>
 
-<%= link_to 'Back', flags_path %>
+   <%= label_tag :flag_type %>  <br>
+    <%= radio_button_tag :flag_type, :inappropriate, true %> 
+       <%= label_tag :inappropriate %>  <br>
+    <%= radio_button_tag :flag_type, :counterfeit %> 
+       <%= label_tag :counterfeit %>  <br><br>
+
+    <%= submit_tag "Flag Auction" %>
+
+<% end %>
+

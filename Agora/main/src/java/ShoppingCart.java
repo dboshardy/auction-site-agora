@@ -23,6 +23,7 @@ public class ShoppingCart {
     public ArrayList<Auction> getShoppingCart(int user_id){
         Session session = HibernateUtils.getSessionFactory().openSession();
         List<Object[]> objects = null;
+        mAuctions = new ArrayList<>();
         try {
             session.beginTransaction();
             SQLQuery query = (SQLQuery) session.createSQLQuery("SELECT * FROM " + mTableName + " WHERE useraccounts_user_id=" + user_id);
@@ -30,7 +31,11 @@ public class ShoppingCart {
             session.getTransaction().commit();
             session.close();
         } catch (HibernateException e ){
-
+//            if(session.getTransaction() != null){
+//                session.getTransaction().rollback();
+//            }
+            LOG.warn("Could not find shopping cart for user: " + user_id);
+            LOG.warn(e.getCause());
         }
 
         if (objects.size() > 0) {
