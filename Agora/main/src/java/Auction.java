@@ -115,11 +115,10 @@ public class Auction {
         mSeller = seller;
         mDescription = description;
         this.mCategoryId = categoryId;
-        //set date as of now
-//        mListTime = new Date();
+        mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
-//        mEndTime = endTime;
+        mEndTime = endTime;
     }
 
 
