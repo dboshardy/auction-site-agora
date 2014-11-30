@@ -144,7 +144,7 @@ public class UserAccountController {
         auction.setIsEnded(true);
         cart.addAuctionToShoppingCart(user,auction);
         auctionController.updateAuction(auction);
-        return "Success";
+        return "true";
     }
 
 }

@@ -34,7 +34,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auction, @bid, @bidder, @seller = get_auction(id)
+    @auction, @bid, @bidder, @seller, @category = get_auction(id)
 
     # if @auction.item_name.nil?
     #   @error = "Auction not found"
@@ -60,6 +60,14 @@ class AuctionsController < ApplicationController
   # GET /auctions/1/edit
   def edit
     @auction = Auction.new
+
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "categories" }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @categories = get_categories(id)
 
   end
 
@@ -139,7 +147,8 @@ class AuctionsController < ApplicationController
       :start_bid => params[:start_bid], 
       :shipping_cost => params[:shipping_cost],
       :auction_length => params[:auction_length],
-      :auction_start_time => auction_start_time      
+      :auction_start_time => auction_start_time,
+      :category => params[:category]      
     }
 
     publish :auction, JSON.generate(auction_info)

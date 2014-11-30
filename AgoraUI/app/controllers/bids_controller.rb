@@ -91,11 +91,9 @@ class BidsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    bid_info = {:id => id, :type => "create", 
+    bid_info = {:id => id, :type => "buy_now", 
       :user_id => session[:user_id],     
-      :auction_id => params[:id],
-      :bid_amount => params[:buy_now_price],
-      :buy_now => "true"
+      :auction_id => params[:id].to_i
     }
 
     publish :bid, JSON.generate(bid_info)

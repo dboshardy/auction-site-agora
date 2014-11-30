@@ -77,6 +77,7 @@ public class AuctionQueue extends Message {
 
             String auctionName = obj.getString("item_name");
             String item_desc = obj.getString("item_desc");
+            int category_id = obj.getInt("category");
             JSONObject start_time = obj.getJSONObject("auction_start_time");
             Integer year = start_time.getInt("year");
             Integer month = start_time.getInt("month");
@@ -110,6 +111,7 @@ public class AuctionQueue extends Message {
             auction.setEndTime(endTime);
             auction.setDescription(item_desc);
             auction.setBuyItNowPrice(new BigDecimal(buyNowPrice));
+            auction.setCategoryId(category_id);
             result = auctionController.updateAuction(auction);
             output.put("result", result);
             if (result.equals("true")) {
@@ -188,6 +190,7 @@ public class AuctionQueue extends Message {
 
             output.put("seller_id",seller.getUserId());
             output.put("seller_username",seller.getUserName());
+            output.put("category",auction.getCategory().getName());
         }
         return output;
     }
