@@ -7,12 +7,13 @@
 3. Systems used
 ###2b. Class UML###
 Patterns used:
+
 1. Strategy (Payment)
 2. Abstract Class (Janitor)
 ###2c. Communication Diagrams###
-1. Flag Auction
-2. Search for Auctions
-3. 
+1. Search for Auctions
+2. Flag Auction
+3. Checkout/Transaction
 ###2d. Use Case Diagrams###
 ###2e. Story Map###
 ###2f. Did it work?###

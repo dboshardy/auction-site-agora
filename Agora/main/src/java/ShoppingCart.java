@@ -64,7 +64,8 @@ public class ShoppingCart {
         return result;
     }
 
-    public void addAuctionToShoppingCart(int userId, int auctionId) {
+    public String addAuctionToShoppingCart(int userId, int auctionId) {
+        String result;
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
@@ -72,11 +73,14 @@ public class ShoppingCart {
             query.executeUpdate();
             session.getTransaction().commit();
             session.close();
+            result = "Success";
         } catch (HibernateException e){
             if(session.getTransaction() != null){
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not add auction: "+auctionId+" to shopping cart: "+this.toString());
+            result = "Failure";
         }
+        return result;
     }
 }
