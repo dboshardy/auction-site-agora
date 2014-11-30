@@ -187,7 +187,8 @@ public class UserAccount {
     }
 
     public ShoppingCart getShoppingCart() {
-        return mShoppingCart;
+        ShoppingCart cart = new ShoppingCart();
+        return mShoppingCart = cart;
     }
 
     public String getUserLocation() {
