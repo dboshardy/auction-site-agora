@@ -201,12 +201,12 @@ public class AuctionController {
         return auctions;
 
     }
-    public List<Auction> getAllAuctionsByCategory(String category){
+    public List<Auction> getAllAuctionsByCategory(int categoryId){
         Session session = HibernateUtils.getSessionFactory().openSession();
         List<Auction> auctions = null;
         try {
             session.beginTransaction();
-            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE =\'"+category+"\'").addEntity(Auction.class);
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE category_id="+categoryId).addEntity(Auction.class);
             auctions = query.list();
             session.getTransaction().commit();
             session.close();
@@ -214,7 +214,7 @@ public class AuctionController {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-            LOG.warn("Could not get auctions matching the category: "+category+" from database.");
+            LOG.warn("Could not get auctions matching the category: "+categoryId+" from database.");
         }
         return auctions;
     }
