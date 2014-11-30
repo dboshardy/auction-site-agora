@@ -1,5 +1,7 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,49 +59,62 @@ public class AuctionQueue extends Message {
                 output.put("succeed", false);
                 output.put("Error", result);
             }
-        } /*else if (type.equals("update")) {
-            // you get the idea
-            String user_id = obj.getString("user_id");
-            String auction_id = obj.getString("auction_id");
-            String buy_it_now = obj.getString("buy_it_now");
+        } else if (type.equals("update")) {
+            int auction_id = obj.getInt("auction_id");
+
+            Auction auction = auctionController.getAuctionById(auction_id);
+
+            String auctionName = obj.getString("item_name");
             String item_desc = obj.getString("item_desc");
-            String auction_start_time = String.valueOf(obj.getJSONObject("auction_start_time"));
+            JSONObject start_time = obj.getJSONObject("auction_start_time");
+            Integer year = start_time.getInt("year");
+            Integer month = start_time.getInt("month");
+            Integer day = start_time.getInt("day");
+            Integer hour = start_time.getInt("hour");
+            Integer minutes = start_time.getInt("minutes");
+
+            String auction_start_time = year + "-" + month + "-" + day + " " + hour + ":" + minutes + ":00";
+
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date = null;
+            Date startTime = null;
             try {
-                date = sdf.parse(auction_start_time);
+                startTime = sdf.parse(auction_start_time);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            Timestamp timestamp = new Timestamp(date.getTime());
 
-            String auction_length= String.valueOf(obj.getJSONObject("auction_length"));
-            SimpleDateFormat sdf_l = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date_l = null;
-            try {
-                date_l = sdf.parse(auction_length);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            Timestamp timestamp_l = new Timestamp(date_l.getTime());
+            int auction_length= obj.getInt("auction_length");
 
-            Date s_date = new Date(timestamp.getTime()+timestamp_l.getTime());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(startTime);
+            cal.add(Calendar.DATE, auction_length);
 
-            String start_bid = obj.getString("start_bid");
-            Double bidPrice = Double.parseDouble(start_bid);
+            Date endTime = cal.getTime();
 
-            Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
-            auction.setBuyItNowPrice(new BigDecimal(buy_it_now));
-            auction.setEndTime(s_date);
+            Double bidPrice = obj.getDouble("start_bid");
+            Double buyNowPrice = obj.getDouble("buy_now_price");
 
-            result = auctionController.updateAuction(auction); output.put("result", result);
+            auction.setAuctionName(auctionName);
+            auction.setListTime(startTime);
+            auction.setEndTime(endTime);
+            auction.setDescription(item_desc);
+            auction.setBuyItNowPrice(new BigDecimal(buyNowPrice));
+            result = auctionController.updateAuction(auction);
+            output.put("result", result);
             if (result.equals("true")) {
                 output.put("succeed", true);
+                output.put("auction_id", auction.getAuctionId());
             } else {
                 output.put("succeed", false);
                 output.put("Error", result);
             }
-        }*/ else if (type.equals("delete")) {
+
+            BidController bidController = new BidController();
+            Bid bid = bidController.getBidById(auction.getCurrentHighestBidId());
+            bid.setBidAmount(new BigDecimal(bidPrice));
+            bidController.updateBid(bid);
+
+        } else if (type.equals("delete")) {
             // you get the idea
             String auction_id = obj.getString("auction_id");
             output.put("auction_id", auction_id);

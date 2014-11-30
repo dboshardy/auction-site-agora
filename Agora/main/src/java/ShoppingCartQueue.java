@@ -41,6 +41,15 @@ public class ShoppingCartQueue extends Message{
                 output.put("succeed",false);
                 output.put("Error",result);
             }
+        }else if(type.equals("show")){
+            // you get the idea
+            int user_id = obj.getInt("user_id");
+            if(result.equals("true")){
+                output.put("succeed",true);
+            }else{
+                output.put("succeed",false);
+                output.put("Error",result);
+            }
         }
         return output;
     }

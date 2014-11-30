@@ -12,7 +12,7 @@ public class KickoffQueues {
         QueueHandler watchlistHandler = new QueueHandler("Watchlist", "WatchlistConfirm");
         QueueHandler flagHandler = new QueueHandler("Flag", "FlagConfirm");
         QueueHandler bidHandler = new QueueHandler("Bid", "BidConfirm");
-        QueueHandler cartHandler = new QueueHandler("Cart", "CartConfirm");
+        QueueHandler cartHandler = new QueueHandler("ShoppingCart", "ShoppingCartConfirm");
 
 
         Thread auctionThread = new Thread(auctionHandler);
@@ -37,7 +37,7 @@ public class KickoffQueues {
             flagThread.start();
             System.out.println("Kicking off bid queue connection...");
             bidThread.start();
-            System.out.println("Kicking off cart queue connection...");
+            System.out.println("Kicking off shopping cart queue connection...");
             cartThread.start();
 //          example.after();
 
