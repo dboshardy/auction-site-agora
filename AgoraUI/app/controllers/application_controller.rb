@@ -264,6 +264,7 @@ class ApplicationController < ActionController::Base
         error = nil
 
         user = User.new
+        user.user_id = json_data["user_id"]
         user.username = json_data["username"]
         user.first_name = json_data["first_name"]
         user.last_name = json_data["last_name"]

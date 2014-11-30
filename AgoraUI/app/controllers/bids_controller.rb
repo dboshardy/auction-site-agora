@@ -14,7 +14,7 @@ class BidsController < ApplicationController
   def show_auction_history
     id = SecureRandom.uuid.to_s
 
-    bid_info = {:id => id, :type => "show",   
+    bid_info = {:id => id, :type => "show_auction",   
       :auction_id => params[:id]
     }
 
@@ -29,7 +29,7 @@ class BidsController < ApplicationController
   def show_user_history
     id = SecureRandom.uuid.to_s
 
-    bid_info = {:id => id, :type => "show",   
+    bid_info = {:id => id, :type => "show_user",   
       :user_id => params[:id]
     }
 
