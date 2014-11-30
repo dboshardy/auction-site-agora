@@ -46,6 +46,7 @@ public class AuctionController {
 
         BidController bidController = new BidController();
         bidController.persistBid(auction.getNonPersistedBid());
+        auction.setCurrentHighestBidId(auction.getNonPersistedBid().getBidId());
         this.updateAuction(auction);
         return result;
 
