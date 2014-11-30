@@ -68,7 +68,5 @@ public class CategoryController {
             LOG.warn("Could not get categories from database.");
         }
         return categories;
-
-
     }
 }
