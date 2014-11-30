@@ -165,4 +165,57 @@ public class AuctionController {
         }
         return auction;
     }
+    public List<Auction> getAllAuctionsWithLimit(int limit){
+        //returns ending soonest
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("SELECT * FROM auctions ORDER BY end_time DESC LIMIT "+limit).addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auctions from database.");
+        }
+        return auctions;
+    }
+    public List<Auction> getAllAuctionsByKeyword(String keyword){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE auction_name LIKE \'"+keyword+"\' OR auction_description LIKE \'"+keyword+"\'").addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auctions matching the keyword: "+keyword+" from database.");
+        }
+        return auctions;
+
+    }
+    public List<Auction> getAllAuctionsByCategory(int categoryId){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE category_id="+categoryId).addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auctions matching the category: "+categoryId+" from database.");
+        }
+        return auctions;
+    }
 }
