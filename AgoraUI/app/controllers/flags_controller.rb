@@ -46,7 +46,7 @@ class FlagsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Flag created!"
     else
       @status = "Flag could not be created"
@@ -84,7 +84,7 @@ class FlagsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Flag updated!"
     else
       @status = "Flag could not be updated"
@@ -115,7 +115,7 @@ class FlagsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Flag deleted!"
     else
       @status = "Flag could not be deleted"

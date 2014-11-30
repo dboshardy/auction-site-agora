@@ -86,7 +86,7 @@ public class AuctionController {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not remove auction: " + auction.toString() + " from database.");
-            result="";
+            result="Could not delete auction";
         }
         return result;
     }

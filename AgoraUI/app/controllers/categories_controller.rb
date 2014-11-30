@@ -76,7 +76,7 @@ class CategoriesController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "New category created!"
     else
       @status = "Category could not be created"
@@ -112,7 +112,7 @@ class CategoriesController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Category updated!"
     else
       @status = "Category could not be updated"
@@ -143,7 +143,7 @@ class CategoriesController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Category deleted!"
     else
       @status = "Category could not be deleted"

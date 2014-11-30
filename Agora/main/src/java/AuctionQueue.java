@@ -115,7 +115,6 @@ public class AuctionQueue extends Message {
             bidController.updateBid(bid);
 
         } else if (type.equals("delete")) {
-            // you get the idea
             String auction_id = obj.getString("auction_id");
             output.put("auction_id", auction_id);
             Auction auction = auctionController.getAuctionById(Integer.parseInt(auction_id));
