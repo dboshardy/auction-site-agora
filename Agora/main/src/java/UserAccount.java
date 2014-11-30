@@ -30,14 +30,31 @@ public class UserAccount {
 <<<<<<< HEAD
     String mPassword;
     Map<String, Watchlist> mWatchlists = new HashMap<String, Watchlist>();
-    ShoppingCart mShoppingCart;
-    UserDescription mUserDescription;
+    ShoppingCart mShoppingCart = new ShoppingCart();
     String mUserLocation;
     private int mUserId;
     private String mFirstName;
     private String mLastName;
     private String mDescription;
     private Date mUserJoinedDate;
+    private boolean mIsAdmin = false;
+
+    public boolean getIsAdmin() {
+        return mIsAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        mIsAdmin = isAdmin;
+    }
+
+    public boolean isAdmin() {
+        return mIsAdmin;
+    }
+
+    public void setAdmin(boolean isAdmin) {
+        mIsAdmin = isAdmin;
+    }
+
 
     public Date getUserJoinedDate() {
         return mUserJoinedDate;
@@ -49,6 +66,18 @@ public class UserAccount {
 
 
     public UserAccount(String userName, String email, String password, String firstName, String lastName, String description) {
+        mUserName = userName;
+        mEmail = email;
+        mPassword = password;
+        mFirstName = firstName;
+        mLastName = lastName;
+        mDescription = description;
+        mUserJoinedDate = new Date();
+
+    }
+
+    public UserAccount(int id, String userName, String email, String password, String firstName, String lastName, String description) {
+        mUserId = id;
         mUserName = userName;
         mEmail = email;
         mPassword = password;
@@ -177,14 +206,6 @@ public class UserAccount {
         return mShoppingCart;
     }
 
-    public UserDescription getUserDescription() {
-        return mUserDescription;
-    }
-
-    public void setUserDescription(UserDescription userDescription) {
-        mUserDescription = userDescription;
-    }
-
     public String getUserLocation() {
         return mUserLocation;
     }
@@ -201,12 +222,12 @@ public class UserAccount {
                 ", mPassword='" + mPassword + '\'' +
                 ", mWatchlists=" + mWatchlists +
                 ", mShoppingCart=" + mShoppingCart +
-                ", mUserDescription=" + mUserDescription +
                 ", mUserLocation='" + mUserLocation + '\'' +
                 ", mUserId=" + mUserId +
                 ", mFirstName='" + mFirstName + '\'' +
                 ", mLastName='" + mLastName + '\'' +
                 ", mDescription='" + mDescription + '\'' +
+                ", isAdmin='" + mIsAdmin + '\'' +
                 '}';
     }
 =======

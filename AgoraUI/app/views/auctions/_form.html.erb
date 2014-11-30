@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :auction_start_time %><br>
-    <%= f.datetime_field :auction_start_time %>
+    <%= f.datetime_select :auction_start_time %>
   </div>
 
   <div class="field"> 
@@ -30,12 +30,34 @@
   </div>  
   <div class="field"> 
     <%= f.label :quantity  %> <br>
-    <%= f.number_field :quantity, min: 1 %>   
+    <%= f.number_field :quantity, min: 1 %>   <br><br>
   </div>  
   <div class="field"> 
     <%= f.label :buy_it_now %>  <br>
     <input type="radio" name=<%= :buy_it_now %> value="true" checked><strong> True</strong><br>
     <input type="radio" name=<%= :buy_it_now %> value="false"> <strong>False</strong><br><br>
+  </div>  
+  <div class="field"> 
+    <%= f.label :buy_now_price  %> <br>
+    <%= f.number_field :buy_now_price, min: 0, step: 0.01 %>   <br>
+  </div>    
+  <div class="field"> 
+    <%= f.label :start_bid  %> <br>
+    <%= f.number_field :start_bid, min: 0, step: 0.01 %>   <br>
+  </div>  
+  <div class="field"> 
+    <%= f.label :shipping_cost  %> <br>
+    <%= f.number_field :shipping_cost, min: 0, step: 0.01 %>   <br><br>
+  </div>       
+  <div class="field"> 
+    <%= f.label :category %>  <br>
+    <% @categories.each_with_index do |category, index| %>
+    <input type="radio" name=<%= :category %> value=<%= "#{category.category_id}" %> 
+      <% if index == 0 %>
+        checked
+      <% end %>
+      ><strong><%= "#{category.category}" %></strong><br>
+    <% end %>
   </div>      
   <div class="actions">
     <%= f.submit %>

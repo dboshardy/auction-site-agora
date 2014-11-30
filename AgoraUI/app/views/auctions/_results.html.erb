@@ -1,8 +1,14 @@
 <table>
+  <col width="200">
+  <col width="300">
+  <col width="100">
+  <col width="100">
+
   <thead>
     <tr>
       <th>Item</th>
       <th>Description</th>
+      <th>End Time</th>
       <th>Highest Bid</th>
 
       <th colspan="500"></th>
@@ -16,6 +22,7 @@
         <% bid = array[1] %>
         <td><%= link_to "#{auction.item_name}", "/auctions/#{auction.auction_id}" %></td>
         <td><%= auction.item_desc %></td>
+        <td><%= auction.end_time.to_s %></td>
         <td><%= bid.amount.to_s %></td>
         <% if (!session["user_id"].nil?) && (session["user_id"] == auction.user_id) %>
           <td><%= link_to 'Edit', edit_auction_path(auction) %></td>

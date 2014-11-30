@@ -27,12 +27,15 @@ public class AuctionController {
             session.getTransaction().commit();
             session.close();
             result = "true";
+
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not insert account: " + auction.toString() + " to database.");
             result="Unknown Exception";
+            LOG.warn(e.getCause().getCause());
+            e.printStackTrace();
         } catch (EntityExistsException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
@@ -43,6 +46,7 @@ public class AuctionController {
 
         BidController bidController = new BidController();
         bidController.persistBid(auction.getNonPersistedBid());
+        auction.setCurrentHighestBidId(auction.getNonPersistedBid().getBidId());
         this.updateAuction(auction);
         return result;
 
@@ -56,7 +60,7 @@ public class AuctionController {
             session.update(auction);
             session.getTransaction().commit();
             session.close();
-            result = "Successfully Updated Auction";
+            result = "true";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
@@ -82,7 +86,7 @@ public class AuctionController {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not remove auction: " + auction.toString() + " from database.");
-            result="";
+            result="Could not delete auction";
         }
         return result;
     }
@@ -139,6 +143,8 @@ public class AuctionController {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not get auction list for user : " + userId + " from database.");
+            LOG.warn(e.getCause().getCause());
+            e.printStackTrace();
         }
         return auctions;
     }
@@ -159,5 +165,92 @@ public class AuctionController {
             LOG.warn("Could not get auction : " + auction.toString() + " from database.");
         }
         return auction;
+    }
+    public List<Auction> getAllAuctionsByEndLatestWithLimit(int limit){
+        //returns ending soonest
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE is_ended=FALSE BY end_time DESC LIMIT "+limit).addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auctions from database.");
+        }
+        return auctions;
+    }
+    public List<Auction> getAllAuctionsByEndingSoonestWithLimit(int limit){
+        //returns ending soonest
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE is_ended=FALSE BY end_time ASC LIMIT "+limit).addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auctions from database.");
+        }
+        return auctions;
+    }
+    public List<Auction> getAllAuctionsByKeyword(String keyword){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE auctions.auction_name ILIKE \'%"+keyword+"%\' OR auctions.auction_description ILIKE \'%"+keyword+"%\'").addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auctions matching the keyword: "+keyword+" from database.");
+        }
+        return auctions;
+
+    }
+    public List<Auction> getAllAuctionsByCategory(int categoryId){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE category_id="+categoryId).addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auctions matching the category: "+categoryId+" from database.");
+        }
+        return auctions;
+    }
+    public List<Auction> getAllActiveAuctionsBidOnForUser(UserAccount user){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        BidController bidController = new BidController();
+        AuctionController auctionController = new AuctionController();
+        List<Bid> bids = bidController.getBidHistoryForUser(user.getUserId());
+        for(Bid bid : bids){
+            Auction auction = auctionController.getAuctionById(bid.getAuctionId());
+            if(!auction.getIsEnded()){
+//                    && auction.getCurrentHighestBid().equals(bid)){
+               auctions.add(auction);
+            }
+        }
+        return auctions;
+
     }
 }

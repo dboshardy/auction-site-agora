@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="384.0" y="390.0">AuctionController</node>
+    <node x="803.0" y="834.0">Search</node>
+    <node x="355.0" y="464.0">WatchlistModel</node>
+    <node x="164.0" y="686.0">com</node>
+    <node x="560.0" y="89.0">WatchlistQueue</node>
+    <node x="193.0" y="390.0">javassist</node>
+    <node x="217.0" y="908.0">Bid</node>
+    <node x="399.0" y="316.0">netscape</node>
+    <node x="595.0" y="316.0">CategoryController</node>
+    <node x="544.0" y="834.0">Payment</node>
+    <node x="168.0" y="612.0">KickoffQueues</node>
+    <node x="139.0" y="834.0">Watchlist</node>
+    <node x="327.0" y="686.0">WatchlistItem</node>
+    <node x="266.0" y="89.0">BidQueue</node>
+    <node x="507.0" y="538.0">javax</node>
+    <node x="124.0" y="89.0">AuctionQueue</node>
+    <node x="0.0" y="316.0">WatchlistItemModel</node>
+    <node x="410.0" y="834.0">FlagType</node>
+    <node x="380.0" y="89.0">ShoppingCartQueue</node>
+    <node x="536.0" y="242.0">PayWithPaypal</node>
+    <node x="712.0" y="89.0">FlagQueue</node>
+    <node x="335.0" y="612.0">antlr</node>
+    <node x="367.0" y="242.0">PayWithCreditCard</node>
+    <node x="0.0" y="538.0">AuctionEngine</node>
+    <node x="528.0" y="464.0">javafx</node>
+    <node x="0.0" y="908.0">Email</node>
+    <node x="129.0" y="163.0">Janitor</node>
+    <node x="0.0" y="834.0">Password</node>
+    <node x="677.0" y="834.0">Auction</node>
+    <node x="812.0" y="686.0">UserAccount</node>
+    <node x="159.0" y="760.0">org</node>
+    <node x="179.0" y="464.0">oracle</node>
+    <node x="675.0" y="538.0">ViewController</node>
+    <node x="652.0" y="686.0">sun</node>
+    <node x="667.0" y="612.0">ShoppingCart</node>
+    <node x="766.0" y="760.0">Populator</node>
+    <node x="705.0" y="163.0">UserAccountController</node>
+    <node x="169.0" y="538.0">sunw</node>
+    <node x="200.0" y="316.0">ShoppingCartEntity</node>
+    <node x="338.0" y="538.0">QueueHandler</node>
+    <node x="449.25" y="163.0">PaymentStrategy</node>
+    <node x="181.0" y="242.0">BidChangeJanitor</node>
+    <node x="700.0" y="464.0">WatchlistEntity</node>
+    <node x="571.0" y="390.0">classes</node>
+    <node x="472.0" y="760.0">Transaction</node>
+    <node x="112.0" y="908.0">Flag</node>
+    <node x="0.0" y="242.0">EndedAuctionJanitor</node>
+    <node x="341.5" y="0.0">Message</node>
+    <node x="0.0" y="464.0">UserDescription</node>
+    <node x="501.0" y="612.0">FlagController</node>
+    <node x="0.0" y="686.0">junit</node>
+    <node x="0.0" y="612.0">HibernateUtils</node>
+    <node x="0.0" y="390.0">META-INF</node>
+    <node x="275.0" y="834.0">Category</node>
+    <node x="0.0" y="760.0">BidController</node>
+    <node x="755.0" y="390.0">MessageFactory</node>
+    <node x="317.0" y="760.0">jdk</node>
+    <node x="490.0" y="686.0">java</node>
+    <node x="625.0" y="760.0">Taxonomy</node>
+    <node x="0.0" y="89.0">UserQueue</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="AuctionQueue" target="Message">
+      <point x="0.0" y="-14.5" />
+      <point x="185.0" y="59.0" />
+      <point x="364.0" y="59.0" />
+      <point x="-22.5" y="14.5" />
+    </edge>
+    <edge source="ShoppingCartQueue" target="Message">
+      <point x="0.0" y="-14.5" />
+      <point x="460.0" y="69.0" />
+      <point x="394.0" y="69.0" />
+      <point x="7.5" y="14.5" />
+    </edge>
+    <edge source="WatchlistQueue" target="Message">
+      <point x="0.0" y="-14.5" />
+      <point x="626.0" y="59.0" />
+      <point x="409.0" y="59.0" />
+      <point x="22.5" y="14.5" />
+    </edge>
+    <edge source="BidChangeJanitor" target="Janitor">
+      <point x="0.0" y="-14.5" />
+      <point x="251.5" y="217.0" />
+      <point x="184.5" y="217.0" />
+      <point x="18.5" y="14.5" />
+    </edge>
+    <edge source="PayWithCreditCard" target="PaymentStrategy">
+      <point x="0.0" y="-14.5" />
+      <point x="441.5" y="217.0" />
+      <point x="484.5" y="217.0" />
+      <point x="-35.25" y="14.5" />
+    </edge>
+    <edge source="FlagQueue" target="Message">
+      <point x="0.0" y="-14.5" />
+      <point x="762.5" y="49.0" />
+      <point x="424.0" y="49.0" />
+      <point x="37.5" y="14.5" />
+    </edge>
+    <edge source="UserQueue" target="Message">
+      <point x="0.0" y="-14.5" />
+      <point x="52.0" y="49.0" />
+      <point x="349.0" y="49.0" />
+      <point x="-37.5" y="14.5" />
+    </edge>
+    <edge source="BidQueue" target="Message">
+      <point x="0.0" y="-14.5" />
+      <point x="313.0" y="69.0" />
+      <point x="379.0" y="69.0" />
+      <point x="-7.5" y="14.5" />
+    </edge>
+    <edge source="EndedAuctionJanitor" target="Janitor">
+      <point x="0.0" y="-14.5" />
+      <point x="80.5" y="217.0" />
+      <point x="147.5" y="217.0" />
+      <point x="-18.5" y="14.5" />
+    </edge>
+    <edge source="PayWithPaypal" target="PaymentStrategy">
+      <point x="0.0" y="-14.5" />
+      <point x="598.0" y="217.0" />
+      <point x="555.0" y="217.0" />
+      <point x="35.25" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.632183908045977" x="463.6090909090909" y="607.1454545454545" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

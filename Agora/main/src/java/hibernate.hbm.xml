@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-    <hibernate-mapping>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
     <class name="Bid" table="bids">
         <id name="BidId" type="int" column="bid_id" >
             <generator class="native"/>
@@ -17,12 +17,15 @@
         <id name="AuctionId" type="int" column="auction_id">
             <generator class="native"/>
         </id>
+        <property name="AuctionName" column="auction_name" type="string" length="100"/>
         <property name="CurrentHighestBidId" column="current_highest_bid_id" type="int" />
         <property name="SellerId" column="seller_user_id" type="int"/>
         <property name="ListTime" column="list_time" type="timestamp"/>
         <property name="EndTime" column="end_time" type="timestamp"/>
         <property name="Description" column="auction_description" type="string" length="255"/>
         <property name="BuyItNowPrice" column="buy_it_now_price" type="java.math.BigDecimal"/>
+        <property name="isEnded" column="is_ended" type="boolean"/>
+        <property name="CategoryId" column="category_id" type="int"/>
     </class>
     <class name="UserAccount" table="useraccounts">
         <id name = "UserId" type="int" column="user_id">
@@ -34,6 +37,7 @@
         <property name="Description" column="user_description" type="string" length="255"/>
         <property name="Password" column="password_hash" type="java.lang.String"/>
         <property name="UserJoinedDate" column="user_joined_date" type="timestamp"/>
+        <property name="isAdmin" column="is_admin" type="boolean"/>
     </class>
     <class name="WatchlistEntity" table="user_has_watchlist_auctions">
         <composite-id>
@@ -55,6 +59,8 @@
         </id>
         <property name="AuctionId" column="auctions_auction_id" type="int"/>
         <property name="FlagType" column="flag_type" type="string" length="45"/>
+        <property name="DateFlagged" column="date_flagged" type="timestamp"/>
+        <property name="mUserId" column="useraccounts_user_id" type="int"/>
     </class>
     <class name="Email" table = "emails">
         <id name = "EmailId" type="int" column="email_id">

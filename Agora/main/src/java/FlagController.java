@@ -12,8 +12,9 @@ public class FlagController {
     private static final org.apache.log4j.Logger LOG = Logger.getLogger(FlagController.class);
     private String mFlaggedAuctionsTableName = "FlaggedAuctions";
 
-    public void persistFlagOnAuction(Flag flag) {
+    public String persistFlagOnAuction(Flag flag) {
 
+        String result= "";
         Session session = HibernateUtils.getSessionFactory().openSession();
 
 
@@ -22,14 +23,17 @@ public class FlagController {
             session.save(flag);
             session.getTransaction().commit();
             session.close();
+            result="true";
 
         }
         catch (HibernateException e){
             if(session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
+            result="Hibernate failed";
             LOG.warn("Could not persist flag: " + flag.toString() + "to database.");
         }
+        return result;
     }
 
     public List<Flag> getAllFlags(){
@@ -88,6 +92,23 @@ public class FlagController {
             LOG.warn("Could not retrieve flags for auction: "+auction.toString()+" from database.");
         }
         return flags;
+    }
+
+    public Flag getFlagById(int flag_id){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Flag flag =  null;
+        try{
+            session.beginTransaction();
+            flag = (Flag) session.get(Flag.class,flag_id);
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e){
+            if(session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not retrieve flag with id: "+flag_id+" from database.");
+        }
+        return flag;
     }
 
 }

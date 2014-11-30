@@ -7,12 +7,14 @@ import java.util.Date;
  * Created by drew on 10/19/14.
  */
 public class Flag {
-    private FlagType mFlagType;
+    private String mFlagType;
     private UserAccount mFlaggingUser;
     private Auction mAuctionFlagged;
 <<<<<<< HEAD
     private int mAuctionId;
     private int mFlagId;
+    private int mUserId;
+    private Date mDateFlagged;
 
     public Date getDateFlagged() {
         return mDateFlagged;
@@ -22,7 +24,6 @@ public class Flag {
         mDateFlagged = dateFlagged;
     }
 
-    private Date mDateFlagged;
 
 
     public int getAuctionId() {
@@ -42,7 +43,14 @@ public class Flag {
     }
 
 
-    public Flag(FlagType flagType, UserAccount flaggingUser, Auction auctionFlagged) {
+//    public Flag(FlagType flagType, UserAccount flaggingUser, Auction auctionFlagged) {
+//        mDateFlagged = new Date();
+//        mFlagType = flagType;
+//        mFlaggingUser = flaggingUser;
+//        mAuctionFlagged = auctionFlagged;
+//    }
+
+    public Flag(String flagType, UserAccount flaggingUser, Auction auctionFlagged) {
         mDateFlagged = new Date();
 =======
 
@@ -51,20 +59,25 @@ public class Flag {
         mFlagType = flagType;
         mFlaggingUser = flaggingUser;
         mAuctionFlagged = auctionFlagged;
+        mAuctionId = auctionFlagged.getAuctionId();
+        mUserId = flaggingUser.getUserId();
     }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
+=======
+>>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
     public Flag() {
     }
 
 =======
 >>>>>>> code merge and change
 
-    public FlagType getFlagType() {
+    public String getFlagType() {
         return mFlagType;
     }
 
-    public void setFlagType(FlagType flagType) {
+    public void setFlagType(String flagType) {
         mFlagType = flagType;
     }
 
@@ -78,6 +91,14 @@ public class Flag {
 
     public Auction getAuctionFlagged() {
         return mAuctionFlagged;
+    }
+
+    public int getmUserId() {
+        return mUserId;
+    }
+
+    public void setmUserId(int mUserId) {
+        this.mUserId = mUserId;
     }
 
     public void setAuctionFlagged(Auction auctionFlagged) {

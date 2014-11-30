@@ -19,7 +19,7 @@ class ShoppingCartsController < ApplicationController
 
     publish :shopping_cart, JSON.generate(cart_info)
 
-    @cart, @items = get_cart(id)
+    @items = get_cart(id)
 
   end
 
@@ -76,7 +76,7 @@ class ShoppingCartsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Cart item deleted!"
     else
       @status = "Cart item could not be deleted"

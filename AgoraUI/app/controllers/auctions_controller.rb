@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-  before_action :confirm_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :confirm_user, only: [:index, :new, :edit, :create, :update, :destroy]
   publishes_to :auction
 
   # GET /auctions
@@ -15,12 +15,11 @@ class AuctionsController < ApplicationController
     publish :auction, JSON.generate(auction_info)
 
     @auctions = get_auctions(id)
+ 
+  end
 
-    if @auctions[0][0].item_name.nil?
-      render 'No auctions found for that user'
-    else
-      render 'index'  
-    end    
+  def welcome
+
   end
 
   # GET /auctions/1
@@ -35,7 +34,7 @@ class AuctionsController < ApplicationController
 
     publish :auction, JSON.generate(auction_info)
 
-    @auction, @bid, @bidder, @seller = get_auction(id)
+    @auction, @bid, @bidder, @seller, @category = get_auction(id)
 
     # if @auction.item_name.nil?
     #   @error = "Auction not found"
@@ -46,11 +45,29 @@ class AuctionsController < ApplicationController
 
   # GET /auctions/new
   def new
+    @auction = Auction.new
+
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "categories" }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @categories = get_categories(id)
 
   end
 
   # GET /auctions/1/edit
   def edit
+    @auction = Auction.new
+
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "categories" }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @categories = get_categories(id)
 
   end
 
@@ -61,25 +78,46 @@ class AuctionsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
+    if params[:buy_it_now] == "false"
+      buy_it_now_price = "0.00"
+    else
+      buy_it_now_price = params[:auction][:buy_now_price]
+    end
+
+    auction_start_time = {
+      :year => params[:auction]["auction_start_time(1i)"],
+      :month => params[:auction]["auction_start_time(2i)"], 
+      :day => params[:auction]["auction_start_time(3i)"],
+      :hour => params[:auction]["auction_start_time(4i)"],
+      :minutes => params[:auction]["auction_start_time(5i)"]
+    }
+
     auction_info = {:id => id, :type => "create", 
       :user_id => session[:user_id],     
-      :auction_start_time => auction.auction_start_time, 
-      :auction_length => auction.auction_length,
-      :item_name => auction.item_name, :item_desc => auction.item_desc,
-      :quantity => auction.quantity, :buy_it_now => auction.buy_it_now,
-      :start_id => auction.start_bid, :shipping_cost => auction.shipping_cost
+      :item_name => params[:auction][:item_name], 
+      :item_desc => params[:auction][:item_desc],
+      :quantity => params[:auction][:quantity], 
+      :buy_it_now => params[:buy_it_now],
+      :buy_now_price => buy_it_now_price,
+      :start_bid => params[:auction][:start_bid], 
+      :shipping_cost => params[:auction][:shipping_cost],
+      :auction_length => params[:auction][:auction_length],
+      :auction_start_time => auction_start_time, 
+      :category_id => params[:category]    
     }
+
 
     publish :auction, JSON.generate(auction_info)
 
     @auction, @status, @error = get_auction_success(id)
 
     if !@auction.nil?
-      redirect_to "/categories/new_categories_for_auction/#{@auction}"
+      @status = 'auction created!'
     else
       @status = "Auction could not be created"
-      render 'confirm'
     end
+
+    render 'confirm'
 
   end
 
@@ -91,20 +129,33 @@ class AuctionsController < ApplicationController
     id = SecureRandom.uuid.to_s
     auction_id = params[:id]
 
+    auction_start_time = {
+      :year => params["auction_start_time"]["auction_start_time(1i)"],
+      :month => params["auction_start_time"]["auction_start_time(2i)"], 
+      :day => params["auction_start_time"]["auction_start_time(3i)"],
+      :hour => params["auction_start_time"]["auction_start_time(4i)"],
+      :minutes => params["auction_start_time"]["auction_start_time(5i)"]
+    }
+
     auction_info = {:id => id, :type => "update", 
       :auction_id => auction_id,     
-      :auction_start_time => auction.auction_start_time, 
-      :auction_length => auction.auction_length,
-      :item_name => auction.item_name, :item_desc => auction.item_desc,
-      :quantity => auction.quantity, :buy_it_now => auction.buy_it_now,
-      :start_id => auction.start_bid, :shipping_cost => auction.shipping_cost
+      :item_name => params[:item_name], 
+      :item_desc => params[:item_desc],
+      :quantity => params[:quantity], 
+      :buy_it_now => params[:buy_it_now],
+      :buy_now_price => params[:buy_now_price],
+      :start_bid => params[:start_bid], 
+      :shipping_cost => params[:shipping_cost],
+      :auction_length => params[:auction_length],
+      :auction_start_time => auction_start_time,
+      :category => params[:category]      
     }
 
     publish :auction, JSON.generate(auction_info)
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Auction updated!"
     else
       @status = "Auction could not be updated"
@@ -128,7 +179,7 @@ class AuctionsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Auction deleted!"
     else
       @status = "Auction could not be deleted"
@@ -139,7 +190,13 @@ class AuctionsController < ApplicationController
 
   def search
 
-    @categories = get_categories
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "categories" }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @categories = get_categories(id)
 
   end
 
@@ -149,13 +206,18 @@ class AuctionsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    auction_info = {:id => id, :type => "search", 
-      :search_type => "keyword"     
+    auction_info = {:id => id, :type => "keyword", 
+      :keyword => keyword     
     }
 
     publish :auction, JSON.generate(auction_info)
 
     @auctions = get_auctions(id)
+
+    if @auctions.nil?
+      redirect_to "/auctions/search", notice: "No auctions found"
+      return
+    end
 
     render 'results'    
 
@@ -167,15 +229,41 @@ class AuctionsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    auction_info = {:id => id, :type => "search", 
-      :search_type => "category"     
+    auction_info = {:id => id, :type => "category", 
+      :category => category
     }
 
     publish :auction, JSON.generate(auction_info)
 
     @auctions = get_auctions(id)
 
-    render 'results'   
+    if @auctions.nil?
+      redirect_to "/auctions/search", notice: "No auctions found"
+      return
+    end
+
+    render 'results'     
+  end
+
+  def stop
+    id = SecureRandom.uuid.to_s
+    auction_id = params[:id]
+
+    auction_info = {:id => id, :type => "stop", 
+      :auction_id => auction_id     
+    }
+
+    publish :auction, JSON.generate(auction_info)
+
+    status, @error = get_success(id)
+
+    if status 
+      @status = "Auction stopped!"
+    else
+      @status = "Auction could not be stopped"
+    end
+
+    render 'confirm' 
   end
 
   private
@@ -186,6 +274,6 @@ class AuctionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction_params
-      params.require(:auction).permit(:seller_id)
+      params.permit(:seller_id)
     end
 end

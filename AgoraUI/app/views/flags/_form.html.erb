@@ -11,18 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :flag_type %><br>
-    <%= f.text_field :flag_type %>
-  </div>
-  <div class="field">
-    <%= f.label :flagging_user %><br>
-    <%= f.text_field :flagging_user %>
-  </div>
-  <div class="field">
-    <%= f.label :auction_id %><br>
-    <%= f.text_field :auction_id %>
-  </div>
+  <div class="field"> 
+    <%= f.label :flag_type %>  <br>
+    <input type="radio" name=<%= :flag_type %> value="Inappropriate" checked><strong> Inappropriate</strong><br>
+    <input type="radio" name=<%= :flag_type %> value="Counterfeit"> <strong>Counterfeit</strong><br><br>
+  </div>  
+
   <div class="actions">
     <%= f.submit %>
   </div>

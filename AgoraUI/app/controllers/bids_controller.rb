@@ -14,7 +14,7 @@ class BidsController < ApplicationController
   def show_auction_history
     id = SecureRandom.uuid.to_s
 
-    bid_info = {:id => id, :type => "show",   
+    bid_info = {:id => id, :type => "show_auction",   
       :auction_id => params[:id]
     }
 
@@ -29,7 +29,7 @@ class BidsController < ApplicationController
   def show_user_history
     id = SecureRandom.uuid.to_s
 
-    bid_info = {:id => id, :type => "show",   
+    bid_info = {:id => id, :type => "show_user",   
       :user_id => params[:id]
     }
 
@@ -57,7 +57,7 @@ class BidsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    bid_info = {:id => id, :type => "create", 
+    bid_info = {:id => id, :type => "new", 
       :user_id => session[:user_id],     
       :auction_id => params[:id],
       :bid_amount => params[:bid_amount],
@@ -68,7 +68,7 @@ class BidsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Bid Placed!"
     else
       @status = "Bid could not be placed"
@@ -91,18 +91,16 @@ class BidsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    bid_info = {:id => id, :type => "create", 
+    bid_info = {:id => id, :type => "buy_now", 
       :user_id => session[:user_id],     
-      :auction_id => params[:id],
-      :bid_amount => params[:buy_now_price],
-      :buy_now => "true"
+      :auction_id => params[:id].to_i
     }
 
     publish :bid, JSON.generate(bid_info)
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Bid Placed!"
     else
       @status = "Bid could not be placed"
@@ -144,6 +142,6 @@ class BidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params
-      params.require(:bid).permit(:bidder_id, :currency_id, :amount, :auction_id)
+      params.permit(:bidder_id, :currency_id, :amount, :auction_id)
     end
 end

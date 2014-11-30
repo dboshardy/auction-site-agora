@@ -27,10 +27,15 @@ class ApplicationController < ActionController::Base
 		auction_data = message["auctions"]
         auctions = []
 
+        if auction_data.nil?
+            return nil
+        end
+
         auction_data.each do |auc|
             auction = Auction.new
             auction.auction_id = auc["auction_id"]
-            auction.item_name = auc["item_name"]
+            auction.item_name = auc["auction_name"]
+            auction.end_time = auc["end_time"]
             auction.item_desc = auc["item_desc"]
 
             bid = Bid.new
@@ -73,22 +78,25 @@ class ApplicationController < ActionController::Base
     def get_cart(id)
         message = query_message(id)
 
-        cart = ShoppingCart.new
-        cart.user_id = message["cart_id"]
-
         items = []
 
-        message["items"].each do |item|
-            cart_auction = Auction.new
-            cart_auction.auction_id = item["item_id"]
-            cart_auction.item_name = item["item_name"]
-            cart_auction.item_desc = item["item_desc"]
-            cart_item.item_price = item["item_price"]
+        cart_items = message["items"]
 
-            items.push(cart_item)
+        cart_items.each do |item|
+            auction = Auction.new
+            bid = Bid.new
+            auction.auction_id = item["auction_id"]
+            auction.item_name = item["auction_name"]
+            auction.item_desc = item["item_desc"]
+
+            bid.amount = item["item_price"]
+
+            array = [auction, bid]
+
+            items.push(array)
         end
 
-        return cart, items
+        return items
     end
 
     def get_auction(id)
@@ -113,7 +121,10 @@ class ApplicationController < ActionController::Base
         seller.user_id = json["seller_id"]
         seller.username = json["seller_username"]
 
-        return auction, bid, bidder, seller
+        category = Category.new
+        category.category = json["category"]
+
+        return auction, bid, bidder, seller, category
 
     end
 
@@ -218,11 +229,11 @@ class ApplicationController < ActionController::Base
 
     end
 
-    def get_login_sucess(id)
-        message = query_message
+    def get_login_success(id)
+        message = query_message(id)
 
-        status = message["success"]
-        error = message["error"]
+        status = message["succeed"]
+        error = message["Error"]
         user_id = message["user_id"]
         is_admin = message["is_admin"]
 
@@ -232,11 +243,25 @@ class ApplicationController < ActionController::Base
     def get_success(id)
         message = query_message(id)
 
-        status = message["success"]
-        error = message["error"]
+        status = message["succeed"]
+        error = message["Error"]
 
         return status, error
     end
+
+    def get_new_user_success(id)
+        message = query_message(id)
+
+        status = message["succeed"]
+        error = message["Error"]
+        user_id = nil
+
+        if status
+            user_id = message["user_id"]
+        end
+
+        return status, error, user_id
+    end    
 
     def get_user(id)
         json_data = query_message(id)
@@ -245,29 +270,52 @@ class ApplicationController < ActionController::Base
         error = nil
 
         user = User.new
-        user.username = json_data[:username]
-        user.first_name = json_data[:first_name]
-        user.last_name = json_data[:last_name]
-        user.user_description = json_data[:user_description]
+        user.user_id = json_data["user_id"]
+        user.username = json_data["username"]
+        user.first_name = json_data["first_name"]
+        user.last_name = json_data["last_name"]
+        user.user_description = json_data["user_description"]
 
         return user, error
     end
 
     def get_bids(id)
         message = query_message(id)
-        bid_data = message["auctions"]
+        bid_data = message["bids"]
         bids = []
 
         bid_data.each do |bid|
             b = Bid.new
-            b.bid_amount = bid["bid_amount"]
-            b.bidder_id = bid["bidder"]
+            b.amount = bid["bid_amount"]
+            b.bidder_id = bid["bidder_id"]
             b.auction_id = bid["auction_id"]
 
-            bids.push(b)
+            u = User.new
+            u.username = bid["bidder_username"]
+
+            array = [b, u]
+
+            bids.push(array)
         end
 
         return bids
+    end
+
+    def get_categories(id)
+        message = query_message(id)
+        categories = message["categories"]
+
+        cats = []
+
+        categories.each do |category|
+            c = Category.new
+            c.category = category["category"]
+            c.category_id = category["category_id"]
+
+            cats.push(c)
+        end
+
+        return cats
     end
 
 	def query_message(id)
@@ -298,10 +346,16 @@ class ApplicationController < ActionController::Base
     private
 
     def confirm_user
-        if session[:user_id].nil?
-            redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+        if session[:user_id].nil? && !session[:is_admin]
+            redirect_to "/users/new", notice: "You must log in or sign up"
         end
     end  
+
+    def confirm_correct_user(id)
+        if session[:user_id] != id.to_i
+
+        end
+    end
 
     def confirm_admin
         if (session[:is_admin].nil? || (session[:is_admin] == false))

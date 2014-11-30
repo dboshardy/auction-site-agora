@@ -7,38 +7,41 @@
   <%= "Highest bid: " + @bid.amount.to_s %><br>
   <%= "Highest bidder: " + @bidder.username %><br>
   <%= "Seller: " + @seller.username %><br>
-  <% if @auction.buy_it_now == "true" %>
-    <%= "Buy It Now Price: " + @auction.buy_now_price %><br>
+  <%= "Category: " + @category.category %><br>
+  <% if !@auction.buy_now_price.nil?  %>
+    <%= "Buy It Now Price: " + @auction.buy_now_price.to_s %><br>
   <% end %>
   <%= link_to "See Bid History", "/bids/#{@auction.auction_id}/auction_bid_history" %>
-</p>
+</p><br>
 
-<% if (!session[:user_id].nil?) && (session["user_id"] == @auction.user_id) %>
-  <%= link_to 'Edit', "/auctions/#{@auction.auction_id}/edit" %><br>
+<% if (!session[:user_id].nil?) && (session[:user_id].to_i == @seller.user_id) %>
+  <%= link_to 'Edit Auction', "/auctions/#{@auction.auction_id}/edit" %><br>
   <% if @bidder.user_id == session[:user_id] %>  
-    <%= link_to 'Destroy', "/auctions/#{@auction.auction_id}", method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    <%= link_to 'Delete Auction', "/auctions/#{@auction.auction_id}", method: :delete, data: { confirm: 'Are you sure?' } %><br><br>
   <% end %>
 
 <% else %>
-  <% if @auction.buy_it_now == "true" %>
-    <%= button_to "Buy It Now", "bids/#{@auction.auction_id}/create_buy_now?#{@auction.buy_now_price}", data: { confirm: 'Are you sure?' }%><br>
+  <% if !@auction.buy_now_price.nil?  %>
+    <%= button_to "Buy It Now", "/bids/#{@auction.auction_id}/buy_now",  data: { confirm: 'Are you sure?' }%><br>
   <% end %>
 
-  <% min_bid = @bid.amount + 0.01 %>
+  <% if session[:user_id] != @seller.user_id %>
+    <% min_bid = @bid.amount + 0.01 %>
 
-  <%= form_tag "/bids/#{@auction.auction_id}/create" do %>
+    <%= form_tag "/bids/#{@auction.auction_id}/create" do %>
 
-    <%= label_tag :bid_amount %><br>
-    <%= number_field_tag :bid_amount, min: min_bid %><br>
-    <%= submit_tag "Place Bid" %><br><br>
+      <%= label_tag :bid_amount %><br>
+      <%= number_field_tag :bid_amount, nil, min: min_bid, step: 0.01 %><br>
+      <%= submit_tag "Place Bid" %><br><br>
 
+    <% end %>
+    <%= link_to 'Flag Auction', "/flags/#{@auction.auction_id}/new" %><br> 
   <% end %>
 <% end %>
 
-<% if session["is_admin"] == "true" %>
-  <%= link_to "Stop Auction", "/auctions/stop/#{auction["auction_id"]}" %><br>
-  <%= link_to "Suspend User", "/users/#{@seller.id}/suspend", data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
+<% if session["is_admin"]  %>
+  <%= link_to "ADMIN: Stop Auction", "/auctions/#{@auction.auction_id}/stop", data: { confirm: 'Are you sure you want to stop this auction?' } %><br>
+  <%= link_to "ADMIN: Remove User", "/users/#{@seller.user_id}", method: :delete, data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
 <% end %>    
 
-<%= link_to 'Flag Auction', "/flags/create/#{@auction.auction_id}" %> | 
 <%= link_to 'Back', auctions_path %>

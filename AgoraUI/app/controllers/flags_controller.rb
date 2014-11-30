@@ -22,6 +22,7 @@ class FlagsController < ApplicationController
 
   # GET /flags/new
   def new
+    @flag = Flag.new
   end
 
   # GET /flags/1/edit
@@ -36,9 +37,8 @@ class FlagsController < ApplicationController
     id = SecureRandom.uuid.to_s
 
     flag_info = {:id => id, :type => "create", 
-      :flag_id => params[:id],
+      :auction_id => params[:id].to_i,
       :flag_type => flag.flag_type,
-      :flag_desc => flag.flag_description,
       :user_id => session[:user_id]     
     }
 
@@ -46,7 +46,7 @@ class FlagsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Flag created!"
     else
       @status = "Flag could not be created"
@@ -84,7 +84,7 @@ class FlagsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Flag updated!"
     else
       @status = "Flag could not be updated"
@@ -115,7 +115,7 @@ class FlagsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Flag deleted!"
     else
       @status = "Flag could not be deleted"
@@ -130,12 +130,9 @@ class FlagsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def confirm_user
-      redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def flag_params
-      params.require(:flag).permit(:flag_type, :flagging_user, :auction_id)
+      params.permit(:flag_type, :flagging_user, :auction_id)
     end
 end

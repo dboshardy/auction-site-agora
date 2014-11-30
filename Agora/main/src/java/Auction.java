@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+=======
+>>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -13,9 +16,13 @@ import java.util.List;
  * Created by Miao Yu on 10/19/14.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class Auction extends Message{
+=======
+public class Auction {
+>>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1
 
-    private Bid mCurrentHighestBid = null;
+    private Bid mCurrentHighestBid;
     private Date mListTime;
     private Date mEndTime;
     private List<Bid> mBidList;
@@ -27,14 +34,28 @@ public class Auction extends Message{
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
+    private boolean mIsEnded;
+    private int mCategoryId;
 
+
+    public void setEnded(boolean isEnded) {
+        mIsEnded = isEnded;
+    }
+
+    public int getCategoryId() {
+        return mCategoryId;
+    }
+    public void setCategoryId(int id){
+        mCategoryId = id;
+    }
 
     public String getDescription() {
         return mDescription;
     }
 
     public Category getCategory() {
-        return mCategory;
+        CategoryController categoryController = new CategoryController();
+        return categoryController.getCategoryById(mCategoryId);
     }
 
     public void setCategory(Category category) {
@@ -58,7 +79,10 @@ public class Auction extends Message{
     }
 
     public int getCurrentHighestBidId() {
-        return mCurrentHighestBid.getBidId();
+        //         get null pointer exception when running getAllAuctionsByUserId
+
+//        return mCurrentHighestBid.getBidId();
+        return mCurrentHighestBidId;
     }
 
     public void setCurrentHighestBidId(int currentHighestBidId) {
@@ -73,19 +97,42 @@ public class Auction extends Message{
     public Auction() {
     }
 
-    public Auction(String auctionName, UserAccount seller, String description, Date endTime, Bid currentHighestBid, Category category, BigDecimal buyItNowPrice) {
+    public Auction(String auctionName, int sellerId, Date listTime,
+                   Date endTime, String description, Double buyItNowPrice, Double bidPrice){
         mAuctionName = auctionName;
-        mSeller = seller;
+        mSellerId = sellerId;
         mDescription = description;
         mEndTime = endTime;
-        mCurrentHighestBid = currentHighestBid;
-        mCategory = category;
-        mBuyItNowPrice = buyItNowPrice;
-        mListTime = new Date();
+        BigDecimal d = new BigDecimal(buyItNowPrice);
+        mBuyItNowPrice = d;
+        mListTime = listTime;
+
+        UserAccountController seller = new UserAccountController();
+        mSeller = seller.getUserById(mSellerId);
+
+        Bid initialBid = new Bid(mSeller,this,new BigDecimal(bidPrice));
+        mCurrentHighestBid = initialBid;
+    }
+
+    public Auction(String auctionName, int sellerId, Date listTime,
+                   Date endTime, String description, Double bidPrice){
+        mAuctionName = auctionName;
+        mSellerId = sellerId;
+        mDescription = description;
+        mEndTime = endTime;
+        mListTime = listTime;
+
+        UserAccountController seller = new UserAccountController();
+        mSeller = seller.getUserById(mSellerId);
+
+        Bid initialBid = new Bid(mSeller,this,new BigDecimal(bidPrice));
+        mCurrentHighestBid = initialBid;
     }
 
     public int getSellerId() {
-        return mSeller.getUserId();
+//         get null pointer exception when running getAllAuctionsByUserId
+//        return mSeller.getUserId();
+        return mSellerId;
     }
 
     public void setSellerId(int sellerId) {
@@ -96,52 +143,16 @@ public class Auction extends Message{
         mAuctionName = auctionName;
         mSeller = seller;
         mDescription = description;
+//        this.mCategoryId = categoryId;
         //set date as of now
+//        mListTime = new Date();
+//        this.mCategoryId = categoryId;
         mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
         mEndTime = endTime;
     }
 
-    public Auction(String auctionName, int sellerId, String description, BigDecimal bid,Date endTime) {
-        mAuctionName = auctionName;
-        mSellerId = sellerId;
-        mDescription = description;
-        //set date as of now
-        mListTime = new Date();
-        Bid initialBid = new Bid(mSeller,this,bid);
-        mCurrentHighestBid = initialBid;
-        mEndTime = endTime;
-    }
-
-    public JSONObject createMessageBody(JSONObject body){
-        JSONObject response = new JSONObject();
-
-        // for index
-        JSONArray auctionsArray = new JSONArray();
-        JSONObject auction = new JSONObject();
-        auction.put("auction_id", 123456);
-        auction.put("item_name", "Wooden clogs");
-        auction.put("item_desc", "Made in Germany");
-        auction.put("highest_bid", 150.15);
-
-        auctionsArray.put(auction);
-        response.put("auctions", auctionsArray);
-
-        // for show
-        response.put("auction_id", 123456);
-        response.put("item_name", "Wooden clogs");
-        response.put("item_desc", "Made in Germany");
-        response.put("highest_bid", 150.15);
-        response.put("buy_it_now", true);
-        response.put("buy_now_price", 200.00);
-        response.put("bidder_username", "fastguy");
-        response.put("bidder_id", 98765);
-        response.put("seller_username", "ABCdude");
-        response.put("seller_id", 506978);
-
-        return response;
-    }
 
     public UserAccount getSeller() {
         UserAccountController userAccountController = new UserAccountController();
@@ -195,7 +206,6 @@ public class Auction extends Message{
     public void setListTime(Date listTime) {
         mListTime = listTime;
     }
-
     public Date getEndTime() {
         return mEndTime;
     }
@@ -203,11 +213,9 @@ public class Auction extends Message{
     public void setEndTime(Date endTime) {
         mEndTime = endTime;
     }
-
     public void setTimestamp(Date timestamp){
         mListTime = timestamp;
     }
-
     public void setSeller(UserAccount mSeller){
         this.mSeller=mSeller;
     }
@@ -219,10 +227,11 @@ public class Auction extends Message{
 
     public boolean isEnded(){
         boolean result = false;
-        if (mEndTime.after(new Date())){
+        Date date = new Date();
+        if (mEndTime.after(new Timestamp(date.getTime()))){
             result = true;
         }
-       return result;
+        return result;
     }
 
 
@@ -247,6 +256,7 @@ public class Auction extends Message{
         FlagController flagController = new FlagController();
         flagController.persistFlagOnAuction(flag);
     }
+<<<<<<< HEAD
 =======
 public class Auction {
 
@@ -281,3 +291,14 @@ public class Auction {
 
 >>>>>>> code merge and change
 }
+=======
+
+    public boolean getIsEnded(){
+        return mIsEnded;
+    }
+
+    public void setIsEnded(boolean isEnded) {
+        mIsEnded = isEnded;
+    }
+}
+>>>>>>> 7f8760962d6d08baed4ced092bb09bc1b39253b1

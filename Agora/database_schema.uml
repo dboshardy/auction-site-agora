@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.schema:agora-db.public</OriginalElement>
+  <nodes>
+    <node x="0.0" y="739.0">c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.categories</node>
+    <node x="215.75" y="580.5">c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.user_has_shoppingcart_auctions</node>
+    <node x="702.75" y="538.0">c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.bids</node>
+    <node x="419.75" y="248.0">c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.auctions</node>
+    <node x="17.5" y="882.0">c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.categorychildren</node>
+    <node x="297.625" y="0.0">c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.useraccounts</node>
+    <node x="0.0" y="322.0">c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.user_has_watchlist_auctions</node>
+    <node x="482.75" y="548.5">c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.flaggedauctions</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.user_has_shoppingcart_auctions" target="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.useraccounts">
+      <point x="-61.75" y="-35.5" />
+      <point x="277.5" y="228.0" />
+      <point x="397.0" y="228.0" />
+      <point x="-33.125" y="99.0" />
+    </edge>
+    <edge source="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.bids" target="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.useraccounts">
+      <point x="53.75" y="-78.0" />
+      <point x="864.0" y="218.0" />
+      <point x="529.5" y="218.0" />
+      <point x="99.375" y="99.0" />
+    </edge>
+    <edge source="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.user_has_watchlist_auctions" target="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.useraccounts">
+      <point x="0.0" y="-46.0" />
+      <point x="133.5" y="218.0" />
+      <point x="330.75" y="218.0" />
+      <point x="-99.375" y="99.0" />
+    </edge>
+    <edge source="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.auctions" target="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.useraccounts">
+      <point x="0.0" y="-120.0" />
+      <point x="582.75" y="228.0" />
+      <point x="463.25" y="228.0" />
+      <point x="33.125" y="99.0" />
+    </edge>
+    <edge source="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.bids" target="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.auctions">
+      <point x="-53.75" y="-78.0" />
+      <point x="756.5" y="513.0" />
+      <point x="691.4166666666667" y="513.0" />
+      <point x="108.66666666666674" y="120.0" />
+    </edge>
+    <edge source="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.user_has_shoppingcart_auctions" target="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.auctions">
+      <point x="61.75" y="-35.5" />
+      <point x="401.0" y="513.0" />
+      <point x="474.0833333333333" y="513.0" />
+      <point x="-108.66666666666669" y="120.0" />
+    </edge>
+    <edge source="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.categorychildren" target="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.categories">
+      <point x="0.0" y="-35.5" />
+      <point x="0.0" y="46.5" />
+    </edge>
+    <edge source="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.flaggedauctions" target="c9f6cd7c-627d-43d0-b5ff-afeae2c42f56.table:agora-db.public.auctions">
+      <point x="0.0" y="-67.5" />
+      <point x="0.0" y="120.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6166495375128469" x="459.0" y="476.49999999999994" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

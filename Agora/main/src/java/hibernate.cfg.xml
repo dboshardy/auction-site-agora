@@ -11,7 +11,7 @@
         </property>
 
         <property name="hibernate.connection.url">
-           jdbc:postgresql://localhost:5432/agora-db
+            jdbc:postgresql://localhost:5432/agora-db
         </property>
         <property name="hibernate.connection.username">
             postgres
@@ -19,7 +19,7 @@
         <property name="hibernate.connection.password">
             postgres
         </property>
-        <property name="connection_pool_size">1</property>
+        <property name="connection_pool_size">10</property>
 
         <property name="hbm2ddl.auto">create</property>
 
@@ -28,4 +28,4 @@
         <mapping resource="hibernate.hbm.xml"/>
 
     </session-factory>
-    </hibernate-configuration>
+</hibernate-configuration>

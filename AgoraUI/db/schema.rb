@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122021209) do
+ActiveRecord::Schema.define(version: 20141128225358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,17 +38,18 @@ ActiveRecord::Schema.define(version: 20141122021209) do
     t.decimal  "shipping_cost"
     t.integer  "auction_id"
     t.integer  "buy_now_price"
+    t.datetime "end_time"
   end
 
   create_table "bids", force: true do |t|
     t.integer  "bidder_id"
     t.integer  "currency_id"
-    t.integer  "amount"
     t.integer  "auction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "bid_id"
     t.boolean  "buy_now"
+    t.decimal  "amount"
   end
 
   create_table "categories", force: true do |t|
@@ -124,13 +125,14 @@ ActiveRecord::Schema.define(version: 20141122021209) do
 
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.text     "user_description"
     t.integer  "user_id"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "user_description"
   end
 
   create_table "watchlist_items", force: true do |t|
