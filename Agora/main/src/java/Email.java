@@ -1,32 +1,28 @@
+import java.lang.String;
+
 /**
  * Created by thomkel on 10/19/14.
  */
 public class Email {
 
     private int mSenderId;
+    private String mSenderAccount;
+    private String mSenderPassword;
+
     private int mReceiverId;
-<<<<<<< HEAD
+    private String mReceiverAccount;
+
     private String mEmailContent;
-=======
->>>>>>> code merge and change
+    private String mEmailSubject;
 
-    public Email(int senderId, int receiverId){
-        mSenderId = senderId;
-        mReceiverId = receiverId;
+    public Email(String senderAccount, String senderPassword, String receiverAccount,
+                 String emailSubject, String emailContent){
+        mSenderAccount = senderAccount;
+        mSenderPassword = senderPassword;
+        mReceiverAccount = receiverAccount;
+        mEmailSubject = emailSubject;
+        mEmailContent = emailContent;
     }
-<<<<<<< HEAD
-
-    public void sendEmail(UserAccount admin, UserAccount receiver, String content){
-        mSenderId = admin.getUserId();
-        mReceiverId = receiver.getUserId();
-        mEmailContent = content;
-    };
-=======
-    
-    public void createEmail(){}
-
-    public void sendEmail(){};
->>>>>>> code merge and change
 
     public int getSenderId() {
         return mSenderId;
@@ -42,5 +38,45 @@ public class Email {
 
     public void setReceiverId(int mReceiverId) {
         this.mReceiverId = mReceiverId;
+    }
+
+    public String getSenderAccount() {
+        return mSenderAccount;
+    }
+
+    public String getSenderPassword() {
+        return mSenderPassword;
+    }
+
+    public void setSenderPassword(String senderPassword) {
+        mSenderPassword = senderPassword;
+    }
+
+    public String getEmailSubject() {
+        return mEmailSubject;
+    }
+
+    public void setEmailSubject(String emailSubject) {
+        mEmailSubject = emailSubject;
+    }
+
+    public void setSenderAccount(String senderAccount) {
+        mSenderAccount = senderAccount;
+    }
+
+    public String getReceiverAccount() {
+        return mReceiverAccount;
+    }
+
+    public void setReceiverAccount(String receiverAccount) {
+        mReceiverAccount = receiverAccount;
+    }
+
+    public String getEmailContent() {
+        return mEmailContent;
+    }
+
+    public void setEmailContent(String emailContent) {
+        mEmailContent = emailContent;
     }
 }
