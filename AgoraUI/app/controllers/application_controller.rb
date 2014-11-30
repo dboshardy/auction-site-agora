@@ -118,7 +118,10 @@ class ApplicationController < ActionController::Base
         seller.user_id = json["seller_id"]
         seller.username = json["seller_username"]
 
-        return auction, bid, bidder, seller
+        category = Category.new
+        category.category = json["category"]
+
+        return auction, bid, bidder, seller, category
 
     end
 

@@ -190,6 +190,7 @@ public class AuctionQueue extends Message {
 
             output.put("seller_id",seller.getUserId());
             output.put("seller_username",seller.getUserName());
+            output.put("category",auction.getCategory().getName());
         }
         return output;
     }
