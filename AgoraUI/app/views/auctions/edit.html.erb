@@ -31,6 +31,15 @@
    
     <%= label_tag :shipping_cost  %> <br>
     <%= number_field_tag :shipping_cost, nil, min: 0, step: 0.01 %>   <br>         
+
+   <%= label_tag :category %>  <br>
+    <% @categories.each_with_index do |category, index| %>
+    <input type="radio" name=<%= :category %> value=<%= "#{category.category_id}" %> 
+      <% if index == 0 %>
+        checked
+      <% end %>
+      ><strong><%= "#{category.category}" %></strong><br>
+    <% end %>
     <%= submit_tag "Update Auction" %>
   <br><br>
 <% end %>
