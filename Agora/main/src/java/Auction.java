@@ -23,16 +23,16 @@ public class Auction {
     private boolean mIsEnded;
     private int mCategoryId;
 
-    public int getCategoryId() {
-        return mCategoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        mCategoryId = categoryId;
-    }
 
     public void setEnded(boolean isEnded) {
         mIsEnded = isEnded;
+    }
+
+    public int getCategoryId() {
+        return mCategoryId;
+    }
+    public void setCategoryId(int id){
+        mCategoryId = id;
     }
 
     public String getDescription() {
@@ -125,11 +125,14 @@ public class Auction {
         mSellerId = sellerId;
     }
 
-    public Auction(String auctionName, UserAccount seller, String description, BigDecimal bid, Date endTime, int categoryId) {
+    public Auction(String auctionName, UserAccount seller, String description, BigDecimal bid,Date endTime) {
         mAuctionName = auctionName;
         mSeller = seller;
         mDescription = description;
-        this.mCategoryId = categoryId;
+//        this.mCategoryId = categoryId;
+        //set date as of now
+//        mListTime = new Date();
+//        this.mCategoryId = categoryId;
         mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;

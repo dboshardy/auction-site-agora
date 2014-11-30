@@ -22,6 +22,7 @@ public class AuctionQueue extends Message {
             int user_id = obj.getInt("user_id");
             String auctionName = obj.getString("item_name");
             String item_desc = obj.getString("item_desc");
+            int category_id = obj.getInt("category_id");
             JSONObject start_time = obj.getJSONObject("auction_start_time");
             Integer year = start_time.getInt("year");
             Integer month = start_time.getInt("month");
@@ -55,9 +56,9 @@ public class AuctionQueue extends Message {
 
             if (buyNow) {
                 buyNowPrice = obj.getDouble("buy_now_price");
-                auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, buyNowPrice, bidPrice);
+                auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, buyNowPrice, bidPrice, category_id);
             } else {
-                auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, bidPrice);
+                auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, bidPrice, category_id);
             }
 
             result = auctionController.persistAuction(auction);
