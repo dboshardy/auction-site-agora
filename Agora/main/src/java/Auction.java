@@ -32,14 +32,6 @@ public class Auction {
         return mCategoryId;
     }
 
-    public void setCategoryId(int categoryId) {
-        mCategoryId = categoryId;
-    }
-
-
-    public boolean getIsEnded(){
-        return mIsEnded;
-    }
     public String getDescription() {
         return mDescription;
     }

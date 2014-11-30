@@ -66,8 +66,9 @@ public class UserQueue extends Message {
         }/*else if(type.equals("suspend")){
 
         }*/ else if (type.equals("show")) {
-            String user_id = obj.getString("user_id");
-            UserAccount user = userController.getUserById(Integer.parseInt(user_id));
+            int user_id = obj.getInt("user_id");
+            UserAccount user = userController.getUserById(user_id);
+            output.put("user_id", user.getUserId());
             output.put("username", user.getUserName());
             output.put("first_name", user.getFirstName());
             output.put("last_name", user.getLastName());
