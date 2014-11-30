@@ -283,7 +283,12 @@ class ApplicationController < ActionController::Base
             b.bidder_id = bid["bidder_id"]
             b.auction_id = bid["auction_id"]
 
-            bids.push(b)
+            u = User.new
+            u.username = bid["bidder_username"]
+
+            array = [b, u]
+
+            bids.push(array)
         end
 
         return bids

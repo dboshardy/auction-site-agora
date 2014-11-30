@@ -51,6 +51,7 @@ public class BidQueue extends Message{
                 JSONObject ele= new JSONObject();
                 ele.put("auction_id",b.getAuctionId());
                 ele.put("bidder_id",b.getBidderId());
+                ele.put("bidder_username", b.getBidder().getUserName());
                 ele.put("bid_amount",b.getBidAmount());
                 jsonArray.put(ele);
             }
