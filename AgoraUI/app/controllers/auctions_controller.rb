@@ -61,6 +61,14 @@ class AuctionsController < ApplicationController
   def edit
     @auction = Auction.new
 
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "categories" }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @categories = get_categories(id)
+
   end
 
   # POST /auctions
@@ -139,7 +147,8 @@ class AuctionsController < ApplicationController
       :start_bid => params[:start_bid], 
       :shipping_cost => params[:shipping_cost],
       :auction_length => params[:auction_length],
-      :auction_start_time => auction_start_time      
+      :auction_start_time => auction_start_time,
+      :category => params[:category]      
     }
 
     publish :auction, JSON.generate(auction_info)
