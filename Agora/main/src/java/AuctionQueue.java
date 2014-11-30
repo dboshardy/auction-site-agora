@@ -47,9 +47,18 @@ public class AuctionQueue extends Message {
             Date endTime = cal.getTime();
 
             Double bidPrice = obj.getDouble("start_bid");
-            Double buyNowPrice = obj.getDouble("buy_now_price");
 
-            Auction auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, buyNowPrice, bidPrice);
+            boolean buyNow = obj.getBoolean("buy_it_now");
+            Double buyNowPrice;
+            Auction auction;
+
+            if (buyNow) {
+                buyNowPrice = obj.getDouble("buy_now_price");
+                auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, buyNowPrice, bidPrice);
+            } else {
+                auction = new Auction(auctionName, user_id, startTime, endTime, item_desc, bidPrice);
+            }
+
             result = auctionController.persistAuction(auction);
             output.put("result", result);
             if (result.equals("true")) {
@@ -152,8 +161,8 @@ public class AuctionQueue extends Message {
             output.put("auction_id",auction.getAuctionId());
             output.put("item_desc",auction.getDescription());
 
-            BidController bid = new BidController();
-            Bid highestBid = bid.getBidById(auction.getCurrentHighestBidId());
+//            BidController bid = new BidController();
+            Bid highestBid = auction.getCurrentHighestBid();
 
             output.put("highest_bid", highestBid.getBidAmount());
             output.put("buy_now_price",auction.getBuyItNowPrice());

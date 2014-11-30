@@ -47,6 +47,12 @@ class AuctionsController < ApplicationController
   def new
     @auction = Auction.new
 
+    auction_info = {:id => id, :type => "categories" }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @categories = get_categories(id)
+
   end
 
   # GET /auctions/1/edit
@@ -62,6 +68,12 @@ class AuctionsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
+    if params[:buy_it_now] == "false"
+      buy_it_now_price = "0.00"
+    else
+      buy_it_now_price = params[:auction][:buy_now_price]
+    end
+
     auction_start_time = {
       :year => params[:auction]["auction_start_time(1i)"],
       :month => params[:auction]["auction_start_time(2i)"], 
@@ -76,7 +88,7 @@ class AuctionsController < ApplicationController
       :item_desc => params[:auction][:item_desc],
       :quantity => params[:auction][:quantity], 
       :buy_it_now => params[:buy_it_now],
-      :buy_now_price => params[:auction][:buy_now_price],
+      :buy_now_price => buy_it_now_price,
       :start_bid => params[:auction][:start_bid], 
       :shipping_cost => params[:auction][:shipping_cost],
       :auction_length => params[:auction][:auction_length],
@@ -89,11 +101,12 @@ class AuctionsController < ApplicationController
     @auction, @status, @error = get_auction_success(id)
 
     if !@auction.nil?
-      redirect_to "/categories/new_categories_for_auction/#{@auction}"
+      @status = 'auction created!'
     else
       @status = "Auction could not be created"
-      render 'confirm'
     end
+
+    render 'confirm'
 
   end
 
