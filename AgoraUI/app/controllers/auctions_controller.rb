@@ -190,7 +190,13 @@ class AuctionsController < ApplicationController
 
   def search
 
-    @categories = get_categories
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "categories" }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @categories = get_categories(id)
 
   end
 
@@ -200,13 +206,18 @@ class AuctionsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    auction_info = {:id => id, :type => "search", 
-      :search_type => "keyword"     
+    auction_info = {:id => id, :type => "keyword", 
+      :keyword => keyword     
     }
 
     publish :auction, JSON.generate(auction_info)
 
     @auctions = get_auctions(id)
+
+    if @auctions.nil?
+      redirect_to "/auctions/search", notice: "No auctions found"
+      return
+    end
 
     render 'results'    
 
