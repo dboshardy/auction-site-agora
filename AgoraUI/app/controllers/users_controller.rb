@@ -1,3 +1,5 @@
+require 'digest'
+
 class UsersController < ApplicationController
   before_action :confirm_user, only: [:show, :edit, :update, :destroy]
   before_action :confirm_admin, only: [:destroy, :block]
@@ -48,13 +50,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def login_page
+
+  end
+
   def login
     user = User.new(user_params)
 
     id = SecureRandom.uuid.to_s
     user_info = { :id => id, :type => "login",
       :user_name => user.username,
-      :password_hash => user.password_digest
+      :password_hash => Digest::SHA256.hexdigest(params[:password])
     }
 
     publish :user, JSON.generate(user_info)
@@ -92,7 +98,7 @@ class UsersController < ApplicationController
       :first_name => user.first_name,
       :last_name => user.last_name,
       :user_description => params[:user_description],
-      :password_hash => user.password_digest
+      :password_hash => Digest::SHA256.hexdigest(params[:password])
     }
 
     publish :user, JSON.generate(user_info)
@@ -126,7 +132,7 @@ class UsersController < ApplicationController
       :first_name => user.first_name,
       :last_name => user.last_name,
       :user_description => params["user_description"],
-      :password_hash => user.password_digest
+      :password_hash => Digest::SHA256.hexdigest(params[:password])
     }
 
     publish :user, JSON.generate(user_info)

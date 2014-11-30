@@ -23,6 +23,10 @@ class AuctionsController < ApplicationController
     end    
   end
 
+  def welcome
+
+  end
+
   # GET /auctions/1
   # GET /auctions/1.json
   def show

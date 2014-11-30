@@ -226,7 +226,7 @@ class ApplicationController < ActionController::Base
     def get_login_success(id)
         message = query_message(id)
 
-        status = message["success"]
+        status = message["succeed"]
         error = message["Error"]
         user_id = message["user_id"]
         is_admin = message["is_admin"]

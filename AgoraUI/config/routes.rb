@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :shopping_cart_items
 
-  root "auctions#index"
+  root "auctions#welcome"
 
   post "/users/:id/suspend" => "users#suspend"
   get "/auctions/search" => "auctions#search"
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "/transactions/:id/new" => "transactions#new"
   post "/users/:id/edit" => "users#update"
   get "/users/logout" => "users#destroy_session"
+  get "/users/login_page" => "users#login_page"
   post "/users/login" => "users#login"
   get "/categories/new_categories_for_auction/:id" => "categories#new_categories_for_auction"
 
