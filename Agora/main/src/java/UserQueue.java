@@ -25,6 +25,7 @@ public class UserQueue extends Message {
 
 
             UserAccount user = new UserAccount(username, email, passwordHash, firstName, lastName, userDescription);
+            System.out.println("Created user");
             result = userController.persistUserAccount(user);
             int user_id = user.getUserId();
             if (result.equals("true")) {
@@ -36,6 +37,7 @@ public class UserQueue extends Message {
             }
         } else if (type.equals("update")) {
             // you get the idea
+            int id = obj.getInt("user_id");
             String username = obj.getString("username");
             String email = obj.getString("email");
             String firstName = obj.getString("first_name");
@@ -44,7 +46,7 @@ public class UserQueue extends Message {
             String passwordHash = obj.getString("password_hash");
 
 
-            UserAccount user = new UserAccount(username, email, passwordHash, firstName, lastName, userDescription);
+            UserAccount user = new UserAccount(id, username, email, passwordHash, firstName, lastName, userDescription);
             result = userController.updateUserAccount(user);
             if (result.equals("true")) {
                 output.put("succeed", true);
@@ -53,46 +55,40 @@ public class UserQueue extends Message {
                 output.put("Error", result);
             }
         } else if (type.equals("delete")) {
-            // you get the idea
-            String user_id = obj.getString("user_id");
-            result = userController.deleteUserAccount(new UserAccount(Integer.parseInt(user_id)));
+            int user_id = obj.getInt("user_id");
+            result = userController.deleteUserAccount(new UserAccount(user_id));
             if (result.equals("true")) {
                 output.put("succeed", true);
             } else {
                 output.put("succeed", false);
                 output.put("Error", result);
             }
-        }/*else if(type.equals("login")){
-            // you get the idea
-            String username = obj.getString("username");
-            String password_hash= obj.getString("password_hash");
-
-
-            UserAccount user= new UserAccount(username,email, password_hash)
-            result= userController.updateUserAccount(user);
-            if(result.equals("true")){
-                output.put("succeed",true);
-            }else{
-                output.put("succeed",false);
-                output.put("Error",result);
-            }
-        }*//*else if(type.equals("suspend")){
+        }/*else if(type.equals("suspend")){
 
         }*/ else if (type.equals("show")) {
-            // you get the idea
-            String user_id = obj.getString("user_id");
-            result = userController.getUserById(Integer.parseInt(user_id)).toString();
-            output.put("user", result);
+            int user_id = obj.getInt("user_id");
+            UserAccount user = userController.getUserById(user_id);
+            output.put("user_id", user.getUserId());
+            output.put("username", user.getUserName());
+            output.put("first_name", user.getFirstName());
+            output.put("last_name", user.getLastName());
+            output.put("user_description", user.getDescription());
+            output.put("email", user.getEmail());
 
         }
         else if (type.equals("login")){
             String userName = obj.getString("user_name");
             String passwordHash =  obj.getString("password_hash");
-            result = userController.getUserAccountByUsernameAndPasswordHash(userName, passwordHash).toString();
-            if(result != null) {
-                output.put("user", result);
+            System.out.println("Getting result...");
+            UserAccount user = userController.getUserAccountByUsernameAndPasswordHash(userName, passwordHash);
+            System.out.println("Found result...");
+            if(user != null) {
+                output.put("status", true);
+                output.put("user_id", user.getUserName());
+                output.put("is_admin", user.getIsAdmin());
             }
             else {
+                output.put("status", false);
                 output.put("Error","Could not get user for this username or password");
             }
         }

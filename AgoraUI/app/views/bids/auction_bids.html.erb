@@ -1,16 +1,21 @@
 <table>
+  <col width="200">
+  <col width="200">
   <thead>
     <tr>
       <th>Auction Bids</th>
+      <th>Bidder</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @bids.each do |bid| %>
+    <% @bids.each do |array| %>
+      <% bid = array[0] %>
+      <% bidder = array[1] %>
       <tr>
-        <td><%= "Bid Amount: " + bid.bid_amount %></td>
-        <td><%= link_to "See Bidder", "/users/#{bid.bidder_id}" %></td>   
+        <td><%= "Bid Amount: " + bid.amount.to_s %></td>
+        <td><%= link_to "#{bidder.username}", "/users/#{bid.bidder_id}" %></td>   
       </tr>
     <% end %>
   </tbody>

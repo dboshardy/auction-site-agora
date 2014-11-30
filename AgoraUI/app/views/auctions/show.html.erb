@@ -24,14 +24,17 @@
     <%= button_to "Buy It Now", "bids/#{@auction.auction_id}/create_buy_now?#{@auction.buy_now_price}", data: { confirm: 'Are you sure?' }%><br>
   <% end %>
 
-  <% min_bid = @bid.amount + 0.01 %>
+  <% if session[:user_id] != @seller.user_id %>
+    <% min_bid = @bid.amount + 0.01 %>
 
-  <%= form_tag "/bids/#{@auction.auction_id}/create" do %>
+    <%= form_tag "/bids/#{@auction.auction_id}/create" do %>
 
-    <%= label_tag :bid_amount %><br>
-    <%= number_field_tag :bid_amount, min: min_bid %><br>
-    <%= submit_tag "Place Bid" %><br><br>
+      <%= label_tag :bid_amount %><br>
+      <%= number_field_tag :bid_amount, min: min_bid %><br>
+      <%= submit_tag "Place Bid" %><br><br>
 
+    <% end %>
+    <%= link_to 'Flag Auction', "/flags/create/#{@auction.auction_id}" %> | 
   <% end %>
 <% end %>
 
@@ -40,5 +43,4 @@
   <%= link_to "Suspend User", "/users/#{@seller.id}/suspend", data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
 <% end %>    
 
-<%= link_to 'Flag Auction', "/flags/create/#{@auction.auction_id}" %> | 
 <%= link_to 'Back', auctions_path %>

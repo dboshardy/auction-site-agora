@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :confirm_user, only: [:show, :edit, :update, :destroy]
-  before_action :confirm_admin, only: [:block]
+  before_action :confirm_admin, only: [:destroy, :block]
   publishes_to :user
   # GET /users
   # GET /users.json
@@ -48,6 +48,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    user = User.new(user_params)
+
+    id = SecureRandom.uuid.to_s
+    user_info = { :id => id, :type => "login",
+      :user_name => user.username,
+      :password_hash => user.password_digest
+    }
+
+    publish :user, JSON.generate(user_info)
+    
+    status, @error, user_id, is_admin = get_login_success(id)
+
+    if status
+      @status = "Login Successful!"
+      session[:user_id] = user_id
+      session[:is_admin] = is_admin
+    else
+      @status = "Login error:"
+    end
+
+    render 'confirm'
+
+  end
+
   # POST /users
   # POST /users.json
   def create
@@ -61,6 +86,7 @@ class UsersController < ApplicationController
     end
 
     user_info = { :id => id, :type => "create",
+      :user_id => session[:user_id], 
       :username => user.username,
       :email => user.email,
       :first_name => user.first_name,
@@ -87,9 +113,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if session[:user_id] != params[:id]
-        redirect_to "/users", notice: "You cannot edit this user's information"
-    end
 
     user = User.new(user_params)
 
@@ -98,17 +121,13 @@ class UsersController < ApplicationController
 
     user_info = { :id => id, :type => "update",
       :user_id => user_id,
-      :username => user.user_name,
+      :username => user.username,
       :email => user.email,
       :first_name => user.first_name,
       :last_name => user.last_name,
       :user_description => params["user_description"],
       :password_hash => user.password_digest
     }
-
-    if user.errors.any?
-      redirect_to "/users", user.errors.full_messages
-    end
 
     publish :user, JSON.generate(user_info)
 
@@ -136,11 +155,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    if (session[:user_id] != params[:id].to_i) && (session[:is_admin] != true)
-        redirect_to "/users", notice: "You cannot delete this user"
-        return
-    end    
-
+ 
     id = SecureRandom.uuid.to_s
     user_id = params[:id]
 

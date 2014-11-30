@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    username = params[:username]
-    password = params[:password]
+    username = params[:user_name]
+    password = params[:password_hash]
 
     id = SecureRandom.uuid.to_s
 

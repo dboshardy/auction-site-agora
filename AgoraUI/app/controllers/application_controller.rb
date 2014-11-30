@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
         auction_data.each do |auc|
             auction = Auction.new
             auction.auction_id = auc["auction_id"]
-            auction.item_name = auc["item_name"]
+            auction.item_name = auc["auction_name"]
+            auction.end_time = auc["end_time"]
             auction.item_desc = auc["item_desc"]
 
             bid = Bid.new
@@ -226,7 +227,7 @@ class ApplicationController < ActionController::Base
         message = query_message(id)
 
         status = message["success"]
-        error = message["error"]
+        error = message["Error"]
         user_id = message["user_id"]
         is_admin = message["is_admin"]
 
@@ -263,26 +264,32 @@ class ApplicationController < ActionController::Base
         error = nil
 
         user = User.new
+        user.user_id = json_data["user_id"]
         user.username = json_data["username"]
         user.first_name = json_data["first_name"]
-        user.last_name = json_data[:last_name]
-        user.user_description = json_data[:user_description]
+        user.last_name = json_data["last_name"]
+        user.user_description = json_data["user_description"]
 
         return user, error
     end
 
     def get_bids(id)
         message = query_message(id)
-        bid_data = message["auctions"]
+        bid_data = message["bids"]
         bids = []
 
         bid_data.each do |bid|
             b = Bid.new
-            b.bid_amount = bid["bid_amount"]
-            b.bidder_id = bid["bidder"]
+            b.amount = bid["bid_amount"]
+            b.bidder_id = bid["bidder_id"]
             b.auction_id = bid["auction_id"]
 
-            bids.push(b)
+            u = User.new
+            u.username = bid["bidder_username"]
+
+            array = [b, u]
+
+            bids.push(array)
         end
 
         return bids
@@ -316,8 +323,8 @@ class ApplicationController < ActionController::Base
     private
 
     def confirm_user
-        if session[:user_id].nil?
-            redirect_to "/users/new", notice: "You must log in or sign up to create a new auction"
+        if session[:user_id].nil? && !session[:is_admin]
+            redirect_to "/users/new", notice: "You must log in or sign up"
         end
     end  
 

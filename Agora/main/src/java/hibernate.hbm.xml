@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-    <hibernate-mapping>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
     <class name="Bid" table="bids">
         <id name="BidId" type="int" column="bid_id" >
             <generator class="native"/>
@@ -24,6 +24,8 @@
         <property name="EndTime" column="end_time" type="timestamp"/>
         <property name="Description" column="auction_description" type="string" length="255"/>
         <property name="BuyItNowPrice" column="buy_it_now_price" type="java.math.BigDecimal"/>
+        <property name="isEnded" column="is_ended" type="boolean"/>
+        <property name="CategoryId" column="category_id" type="int"/>
     </class>
     <class name="UserAccount" table="useraccounts">
         <id name = "UserId" type="int" column="user_id">

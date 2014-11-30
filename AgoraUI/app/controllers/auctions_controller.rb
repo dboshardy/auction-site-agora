@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-  before_action :confirm_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :confirm_user, only: [:index, :new, :edit, :create, :update, :destroy]
   publishes_to :auction
 
   # GET /auctions
@@ -77,6 +77,7 @@ class AuctionsController < ApplicationController
       :item_desc => params[:auction][:item_desc],
       :quantity => params[:auction][:quantity], 
       :buy_it_now => params[:buy_it_now],
+      :buy_now_price => params[:auction][:buy_now_price],
       :start_bid => params[:auction][:start_bid], 
       :shipping_cost => params[:auction][:shipping_cost],
       :auction_length => params[:auction][:auction_length],

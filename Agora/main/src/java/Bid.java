@@ -110,4 +110,9 @@ public class Bid {
         UserAccountController userAccountController = new UserAccountController();
         mBidder = userAccountController.getUserById(mBidderId);
     }
+
+    public UserAccount getBidder() {
+        UserAccountController userAccountController = new UserAccountController();
+        return userAccountController.getUserById(mBidderId);
+    }
 }

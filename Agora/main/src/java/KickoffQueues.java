@@ -1,16 +1,26 @@
 /**
  * Created by thomkel on 11/14/14.
  */
+import org.hibernate.Session;
+
+
 public class KickoffQueues {
 
     public static void main(String[] args) {
         QueueHandler auctionHandler = new QueueHandler("Auction", "AuctionConfirm");
         QueueHandler userHandler = new QueueHandler("User", "UserConfirm");
-        //QueueHandler watchlistHandler = new QueueHandler("Watchlist", "WatchlistConfirm");
+        QueueHandler watchlistHandler = new QueueHandler("Watchlist", "WatchlistConfirm");
+        QueueHandler flagHandler = new QueueHandler("Flag", "FlagConfirm");
+        QueueHandler bidHandler = new QueueHandler("Bid", "BidConfirm");
+        QueueHandler cartHandler = new QueueHandler("Cart", "CartConfirm");
+
 
         Thread auctionThread = new Thread(auctionHandler);
         Thread userThread = new Thread(userHandler);
-        //Thread watchlistThread = new Thread(watchlistHandler);
+        Thread watchlistThread = new Thread(watchlistHandler);
+        Thread flagThread = new Thread(flagHandler);
+        Thread bidThread = new Thread(bidHandler);
+        Thread cartThread = new Thread(cartHandler);
 
         System.out.print("\n\n\n");
         System.out.println("Starting Queues...");
@@ -21,8 +31,14 @@ public class KickoffQueues {
             auctionThread.start();
             System.out.println("Kicking off user queue connection ...");
             userThread.start();
-            //System.out.println("Kicking off watchlist queue connection...");
-            //watchlistThread.start();
+            System.out.println("Kicking off watchlist queue connection...");
+            watchlistThread.start();
+            System.out.println("Kicking off flag queue connection...");
+            flagThread.start();
+            System.out.println("Kicking off bid queue connection...");
+            bidThread.start();
+            System.out.println("Kicking off cart queue connection...");
+            cartThread.start();
 //          example.after();
 
         } catch (Exception e) {

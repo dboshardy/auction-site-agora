@@ -9,13 +9,16 @@ Rails.application.routes.draw do
   post "/auction/category_search" => "auctions#category_search"
   post "/bids/:id/create" => "bids#create"
   post "/bids/:id/buy_now" => "bids#create_buy_now"
-  post "/bids/:id/auction_bid_history" => "bids#show_auction_history"
-  post "/bids/:id/user_bid_history" => "bids#show_user_history"
+  get "/bids/:id/auction_bid_history" => "bids#show_auction_history"
+  get "/bids/:id/user_bid_history" => "bids#show_user_history"
   get "/watchlist_items/:id/new" => "watchlist_items#new"
   get "/flags/:id/new" => "flags#new"
   post "flags/:id/create" => "flags#create"
   get "/transactions/:id/new" => "transactions#new"
+  post "/users/:id/edit" => "users#update"
   get "/users/logout" => "users#destroy_session"
+  post "/users/login" => "users#login"
+  get "/categories/new_categories_for_auction/:id" => "categories#new_categories_for_auction"
 
   resources :watchlists
 
