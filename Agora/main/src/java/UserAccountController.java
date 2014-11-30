@@ -140,5 +140,14 @@ public class UserAccountController {
         else return null;
     }
 
+    public String placeBuyItNow(UserAccount user, Auction auction){
+        AuctionController auctionController = new AuctionController();
+        ShoppingCart cart = user.getShoppingCart();
+        auction.setIsEnded(true);
+        cart.addAuctionToShoppingCart(user,auction);
+        auctionController.updateAuction(auction);
+        return "Success";
+    }
+
 }
 
