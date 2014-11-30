@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -26,10 +27,15 @@ public class Auction {
     public int getCategoryId() {
         return mCategoryId;
     }
-    public void setCategoryId(int id){
-        mCategoryId = id;
+
+    public void setCategoryId(int categoryId) {
+        mCategoryId = categoryId;
     }
 
+
+    public boolean getIsEnded(){
+        return mIsEnded;
+    }
     public String getDescription() {
         return mDescription;
     }
@@ -93,6 +99,7 @@ public class Auction {
         Bid initialBid = new Bid(mSeller,this,new BigDecimal(bidPrice));
         mCurrentHighestBid = initialBid;
     }
+
 
     public int getSellerId() {
 //         get null pointer exception when running getAllAuctionsByUserId
@@ -227,10 +234,6 @@ public class Auction {
     public void setFlag(Flag flag, int userId) {
         FlagController flagController = new FlagController();
         flagController.persistFlagOnAuction(flag);
-    }
-
-    public boolean getIsEnded(){
-        return mIsEnded;
     }
 
     public void setIsEnded(boolean isEnded) {
