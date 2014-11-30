@@ -19,7 +19,7 @@ class ShoppingCartsController < ApplicationController
 
     publish :shopping_cart, JSON.generate(cart_info)
 
-    @cart, @items = get_cart(id)
+    @items = get_cart(id)
 
   end
 

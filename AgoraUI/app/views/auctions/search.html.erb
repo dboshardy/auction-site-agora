@@ -1,20 +1,20 @@
-<%= Search by Keyword %>
+<h3>Search Auctions</h4><br>
+<h4>By Keyword</h4>
 
-<%= form_tag "/keyword_search" do %>
+<%= form_tag "/auctions/keyword_search" do %>
 
-  <%= label_tag :keyword %>
-  <%= text_field_tag :keyword %>
+  <%= text_field_tag :keyword %><br>
   <%= submit_tag "Search" %>
 
-<% end %>
+<% end %><br>
 
-<%= Search by Category %>
+<h4>By Category</h4>
 
-<%= form_tag "/category_search" do %>
+<%= form_tag "/auctions/category_search" do %>
 	<% @categories.each do |category| %>
-		<%= label_tag category["category"] %>
-		<%= check_box_tag :category, category["category"] %><br>
+		<%= check_box_tag :category, category["category"] %>
+		<%= label_tag category["category"] %><br>
 	<% end %>
-  	<%= submit_tag "Sign Me Up!" %>
+  	<%= submit_tag "Search" %>
 
 <% end %>
