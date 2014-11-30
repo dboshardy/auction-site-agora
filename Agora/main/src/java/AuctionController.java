@@ -166,13 +166,31 @@ public class AuctionController {
         }
         return auction;
     }
-    public List<Auction> getAllAuctionsByEndTimeWithLimit(int limit){
+    public List<Auction> getAllAuctionsByEndLatestWithLimit(int limit){
         //returns ending soonest
         Session session = HibernateUtils.getSessionFactory().openSession();
         List<Auction> auctions = null;
         try {
             session.beginTransaction();
             Query query = session.createSQLQuery("SELECT * FROM auctions WHERE is_ended=FALSE BY end_time DESC LIMIT "+limit).addEntity(Auction.class);
+            auctions = query.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get auctions from database.");
+        }
+        return auctions;
+    }
+    public List<Auction> getAllAuctionsByEndingSoonestWithLimit(int limit){
+        //returns ending soonest
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        List<Auction> auctions = null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE is_ended=FALSE BY end_time ASC LIMIT "+limit).addEntity(Auction.class);
             auctions = query.list();
             session.getTransaction().commit();
             session.close();
