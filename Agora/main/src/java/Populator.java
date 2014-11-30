@@ -44,11 +44,11 @@ public class Populator {
         Date in3Minutes = cal.getTime();
 
         //auctions
-        Auction auction1 = new Auction("Brand new iPhone 6!",user2,"The best iPhone on the market", new BigDecimal(500.00),oneWeek);
-        Auction auction2 = new Auction("First Edition The Hobbit, signed by Tolkein",user4,"First run copy of th The hobbit signed by J.R.R. Tolkein", new BigDecimal(3000.00),tomorrow);
-        Auction auction3 = new Auction("Lenovo Laptop 13\" Display",user6,"Used laptop.  Screen may be cracked.",new BigDecimal(250.00),dayAfterTomorrow);
-        Auction auction4 = new Auction("Variety pack of buttons",user3,"Various buttons, 500+ count.",new BigDecimal(50.00),dayAfterTomorrow);
-        Auction auction5 = new Auction("Like New Nintendo 3DS XL",user5,"Nintendo 3DS XL. Like new. Barely used. Comes with stylus.",new BigDecimal(250.00),in3Minutes);
+        Auction auction1 = new Auction("Brand new iPhone 6!",user2,"The best iPhone on the market", new BigDecimal(500.00),oneWeek, categoryId);
+        Auction auction2 = new Auction("First Edition The Hobbit, signed by Tolkein",user4,"First run copy of th The hobbit signed by J.R.R. Tolkein", new BigDecimal(3000.00),tomorrow, categoryId);
+        Auction auction3 = new Auction("Lenovo Laptop 13\" Display",user6,"Used laptop.  Screen may be cracked.",new BigDecimal(250.00),dayAfterTomorrow, categoryId);
+        Auction auction4 = new Auction("Variety pack of buttons",user3,"Various buttons, 500+ count.",new BigDecimal(50.00),dayAfterTomorrow, categoryId);
+        Auction auction5 = new Auction("Like New Nintendo 3DS XL",user5,"Nintendo 3DS XL. Like new. Barely used. Comes with stylus.",new BigDecimal(250.00),in3Minutes, categoryId);
 
         //categories
         Category rootCategory = new Category("root",null);

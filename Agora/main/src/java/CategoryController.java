@@ -32,4 +32,20 @@ public class CategoryController {
         return result;
     }
 
+    public Category getCategoryById(int categoryId) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Category category = null;
+        try {
+            session.beginTransaction();
+            category = (Category) session.get(Category.class, categoryId);
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not get category with id: " + categoryId + " in database.");
+        }
+        return category;
+    }
 }
