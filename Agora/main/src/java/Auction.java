@@ -132,10 +132,13 @@ public class Auction {
 //        this.mCategoryId = categoryId;
         //set date as of now
 //        mListTime = new Date();
+//        this.mCategoryId = categoryId;
+        mListTime = new Date();
         Bid initialBid = new Bid(mSeller,this,bid);
         mCurrentHighestBid = initialBid;
-//        mEndTime = endTime;
+        mEndTime = endTime;
     }
+
 
     public UserAccount getSeller() {
         UserAccountController userAccountController = new UserAccountController();
