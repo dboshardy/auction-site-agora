@@ -139,4 +139,14 @@ public class Email {
         return sendResult;
 
     }
+    static void notifyUsersOfEndedAuction(Auction auction, String sellerEmail, String winnerEmail) {
+        Email sellerNotifyEmail = new Email(UserAccount.ADMIN_EMAIL_ADDRESS,UserAccount.ADMIN_PASSWORD,sellerEmail,
+                "Your auction has ended!","Your auction, "+auction.toPrettyString()+" has ended. The winning bid was: "+
+                auction.getCurrentHighestBid().getBidAmount()+". Click here to view the auction: \n\n http://localhost:3000/auctions/"+auction.getAuctionId());
+        Email winnerNotifyEmail = new Email(UserAccount.ADMIN_EMAIL_ADDRESS,UserAccount.ADMIN_PASSWORD,winnerEmail,
+                "You won an auction!", "Hello,"+auction.getCurrentHighestBid().getBidder().getFirstName()+",\n\n You had the winning bid on auction: "+auction.toPrettyString()
+                +".\n\nCongratulations! You can find the auction in your shopping cart located here:\n\nhttp://localhost:3000/shopping_carts/"+auction.getCurrentHighestBid().getBidderId());
+        Email.sendEmail(sellerNotifyEmail);
+        Email.sendEmail(winnerNotifyEmail);
+    }
 }

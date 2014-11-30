@@ -119,10 +119,10 @@ public class UserAccountController {
 
                 Email sellerNotifyEmail = new Email(UserAccount.ADMIN_EMAIL_ADDRESS,UserAccount.ADMIN_PASSWORD,sellerEmail,
                         "Hello "+auction.getSeller().getFirstName()+",\n\nSomeone has bid on your auction!","Someone has bid on your auction: "+auction.toPrettyString()+
-                        "with the bid amount: "+auction.getCurrentHighestBid().getBidAmount()+".");
+                        "with the bid amount: "+auction.getCurrentHighestBid().getBidAmount()+". Click here to go to the auction: \n\nhttp://localhost:3000/auctions/"+auction.getAuctionId());
                 Email oldBidderNotifyEmail = new Email(UserAccount.ADMIN_EMAIL_ADDRESS,UserAccount.ADMIN_PASSWORD,oldBidderEmail,
                         "You have been outbid!", "Hello,"+oldBidder.getFirstName()+",\n\n You have been outbid on auction: "+auction.toPrettyString()
-                        +".");
+                        +". Click here to go to the auction: \n\nhttp://localhost:3000/auctions/"+auction.getAuctionId());
                 Email.sendEmail(oldBidderNotifyEmail);
                 Email.sendEmail(sellerNotifyEmail);
                 result = "Successfully placed bid";
@@ -161,6 +161,7 @@ public class UserAccountController {
             auction.setIsEnded(true);
             cart.addAuctionToShoppingCart(user.getUserId(), auction.getAuctionId());
             auctionController.updateAuction(auction);
+            Email.notifyUsersOfEndedAuction(auction, auction.getSeller().getEmail(),user.getEmail());
             return "Success";
         }
         else {
