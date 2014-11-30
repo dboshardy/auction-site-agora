@@ -1,5 +1,13 @@
 <h1>New watchlist</h1>
 
-<%= render 'form' %>
+<%= form_tag "/watchlists/#{params[:id]}/create" do %>
 
-<%= link_to 'Back', watchlists_path %>
+  <div class="field">
+    <%= label_tag :watchlist_name %><br>
+    <%= text_field_tag :watchlist_name %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Create Watchlist" %>
+  </div>
+<% end %>
+
