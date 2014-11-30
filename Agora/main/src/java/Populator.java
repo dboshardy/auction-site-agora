@@ -43,25 +43,19 @@ public class Populator {
         cal.add(Calendar.MINUTE,3);
         Date in3Minutes = cal.getTime();
 
-        //auctions
-        Auction auction1 = new Auction("Brand new iPhone 6!",user2,"The best iPhone on the market", new BigDecimal(500.00),oneWeek, categoryId);
-        Auction auction2 = new Auction("First Edition The Hobbit, signed by Tolkein",user4,"First run copy of th The hobbit signed by J.R.R. Tolkein", new BigDecimal(3000.00),tomorrow, categoryId);
-        Auction auction3 = new Auction("Lenovo Laptop 13\" Display",user6,"Used laptop.  Screen may be cracked.",new BigDecimal(250.00),dayAfterTomorrow, categoryId);
-        Auction auction4 = new Auction("Variety pack of buttons",user3,"Various buttons, 500+ count.",new BigDecimal(50.00),dayAfterTomorrow, categoryId);
-        Auction auction5 = new Auction("Like New Nintendo 3DS XL",user5,"Nintendo 3DS XL. Like new. Barely used. Comes with stylus.",new BigDecimal(250.00),in3Minutes, categoryId);
 
         //categories
         Category rootCategory = new Category("root",null);
         Category category1 = new Category("Collectibles & Art",rootCategory);
         Category category2 = new Category("Fashion",rootCategory);
         Category category3 = new Category("Electronics",rootCategory);
-        Category category4 = new Category("Electronics",rootCategory);
         Category category5 = new Category("Entertainment",rootCategory);
         Category category6 = new Category("Home & Garden",rootCategory);
         Category category7 = new Category("Motors",rootCategory);
         Category category8 = new Category("Sporting Goods",rootCategory);
         Category category9 = new Category("Toys & Hobbies",rootCategory);
         Category category10 = new Category("Everything Else",rootCategory);
+
 
         //controllers
         CategoryController categoryController = new CategoryController();
@@ -81,7 +75,6 @@ public class Populator {
         categoryController.persistCategory(category1);
         categoryController.persistCategory(category2);
         categoryController.persistCategory(category3);
-        categoryController.persistCategory(category4);
         categoryController.persistCategory(category5);
         categoryController.persistCategory(category6);
         categoryController.persistCategory(category7);
@@ -89,7 +82,14 @@ public class Populator {
         categoryController.persistCategory(category9);
         categoryController.persistCategory(category10);
 
+        //auctions
+        Auction auction1 = new Auction("Brand new iPhone 6!",user2,"The best iPhone on the market", new BigDecimal(500.00),oneWeek, category3.getCategoryId());
+        Auction auction2 = new Auction("First Edition The Hobbit, signed by Tolkein",user4,"First run copy of th The hobbit signed by J.R.R. Tolkein", new BigDecimal(3000.00),tomorrow, category5.getCategoryId());
+        Auction auction3 = new Auction("Lenovo Laptop 13\" Display",user6,"Used laptop.  Screen may be cracked.",new BigDecimal(250.00),dayAfterTomorrow, category3.getCategoryId()  );
+        Auction auction4 = new Auction("Variety pack of buttons",user3,"Various buttons, 500+ count.",new BigDecimal(50.00),dayAfterTomorrow, category10.getCategoryId());
+        Auction auction5 = new Auction("Like New Nintendo 3DS XL",user5,"Nintendo 3DS XL. Like new. Barely used. Comes with stylus.",new BigDecimal(250.00),in3Minutes, category3.getCategoryId());
 
+        //persist
         auctionController.persistAuction(auction1);
         auctionController.persistAuction(auction2);
         auctionController.persistAuction(auction3);
