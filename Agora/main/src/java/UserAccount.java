@@ -27,7 +27,6 @@ import java.util.Properties;
 public class UserAccount {
     String mUserName;
     String mEmail;
-<<<<<<< HEAD
     String mPassword;
     Map<String, Watchlist> mWatchlists = new HashMap<String, Watchlist>();
     ShoppingCart mShoppingCart = new ShoppingCart();
@@ -230,7 +229,6 @@ public class UserAccount {
                 ", isAdmin='" + mIsAdmin + '\'' +
                 '}';
     }
-=======
     Password mPassword;
     //TODO: define "history" for user account
     Watchlist mWatchlist;

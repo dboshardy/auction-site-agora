@@ -24,6 +24,9 @@ public class Email {
         mEmailContent = emailContent;
     }
 
+    public Email() {
+    }
+
     public int getSenderId() {
         return mSenderId;
     }
