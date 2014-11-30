@@ -245,7 +245,8 @@ public class AuctionController {
         List<Bid> bids = bidController.getBidHistoryForUser(user.getUserId());
         for(Bid bid : bids){
             Auction auction = auctionController.getAuctionById(bid.getAuctionId());
-            if(!auction.getIsEnded()){
+            if(!auction.getIsEnded()
+                    && auction.getCurrentHighestBid().equals(bid)){
                auctions.add(auction);
             }
         }

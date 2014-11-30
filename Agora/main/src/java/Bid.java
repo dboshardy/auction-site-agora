@@ -115,4 +115,26 @@ public class Bid {
         UserAccountController userAccountController = new UserAccountController();
         return userAccountController.getUserById(mBidderId);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Bid bid = (Bid) o;
+
+        if (mAuctionId != bid.mAuctionId) return false;
+        if (mBidId != bid.mBidId) return false;
+        if (mBidderId != bid.mBidderId) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = mBidderId;
+        result = 31 * result + mAuctionId;
+        result = 31 * result + mBidId;
+        return result;
+    }
 }
