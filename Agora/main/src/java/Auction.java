@@ -26,6 +26,15 @@ public class Auction {
     private int mSellerId;
     private Category mCategory;
     private boolean mIsEnded;
+    private int mCategoryId;
+
+    public int getCategoryId() {
+        return mCategoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        mCategoryId = categoryId;
+    }
 
 
     public boolean getIsEnded(){
