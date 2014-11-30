@@ -68,7 +68,7 @@ class TransactionsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status
       @status = "Transaction successful!"
     else
       @status = "Transaction not successful"

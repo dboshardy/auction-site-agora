@@ -46,7 +46,7 @@ class WatchlistsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "New watchlist created!"
     else
       @status = "Watchlist could not be created"
@@ -81,7 +81,7 @@ class WatchlistsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Watchlist updated!"
     else
       @status = "Watchlist could not be updated"
@@ -112,7 +112,7 @@ class WatchlistsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Watchlist deleted!"
     else
       @status = "Watchlist could not be deleted"

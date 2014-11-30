@@ -131,7 +131,7 @@ class AuctionsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Auction updated!"
     else
       @status = "Auction could not be updated"
@@ -155,7 +155,7 @@ class AuctionsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Auction deleted!"
     else
       @status = "Auction could not be deleted"

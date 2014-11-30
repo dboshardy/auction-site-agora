@@ -68,7 +68,7 @@ class BidsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Bid Placed!"
     else
       @status = "Bid could not be placed"
@@ -102,7 +102,7 @@ class BidsController < ApplicationController
 
     status, @error = get_success(id)
 
-    if status == "true"
+    if status 
       @status = "Bid Placed!"
     else
       @status = "Bid could not be placed"
