@@ -20,6 +20,7 @@ public class WatchlistQueue extends Message{
         JSONObject output = new JSONObject();
         String result = "";
         String type = obj.getString("type");
+        WatchlistModel watchlistModel = new WatchlistModel();
 
         if (type.equals("create")){
             // take appropriate action to create new tuple in database
@@ -28,8 +29,8 @@ public class WatchlistQueue extends Message{
             int user_id = obj.getInt("user_id");
             String watchlist_name= obj.getString("watchlist_name");
 
-            Watchlist watchlist = new Watchlist(new UserAccount(Integer.parseInt(user_id)), watchlist_name);
-            result = watchlist.addAuctionToWatchlist(ac.getAuctionById(Integer.parseInt(auction_id)));
+            Watchlist watchlist = new Watchlist(user_id, auction_id, watchlist_name);
+            result = watchlistModel.createWatchlist(watchlist);
             output.put("succeed",result);
 
         } else if(type.equals("add")) {
@@ -51,10 +52,10 @@ public class WatchlistQueue extends Message{
 //            result=watchlist.deleteAuctionFromWatchlist(ac.getAuctionById(Integer.parseInt(auction_id)));
 //            output.put("succeed",result);
         }else if(type.equals("deleteWatchlist")){
-            String watchlist_name= obj.getString("watchlist_name");
-            user_id = obj.getString("user_id");
-            UserAccountController uac= new UserAccountController();
-            Watchlist watchlist = uac.getUserById(Integer.parseInt(user_id)).getWatchlist(watchlist_name);
+//            String watchlist_name= obj.getString("watchlist_name");
+//            user_id = obj.getString("user_id");
+//            UserAccountController uac= new UserAccountController();
+//            Watchlist watchlist = uac.getUserById(Integer.parseInt(user_id)).getWatchlist(watchlist_name);
 //            result = watchlist.removeWatchlist();
 //            output.put("succeed",result);
         }else if(type.equals("index")) {
