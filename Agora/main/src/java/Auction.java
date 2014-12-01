@@ -20,7 +20,7 @@ public class Auction {
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
-    private boolean mIsEnded=false;
+    private boolean mIsEnded;
     private int mCategoryId;
 
     public Auction(String auctionName, UserAccount user, String description, BigDecimal bidAmount, Date endDate, int categoryId) {
@@ -32,7 +32,6 @@ public class Auction {
         mEndTime = endDate;
         mCategoryId = categoryId;
     }
-
 
     public void setEnded(boolean isEnded) {
         mIsEnded = isEnded;
@@ -112,20 +111,19 @@ public class Auction {
     }
 
     public Auction(String auctionName, int sellerId, Date listTime,
-                   Date endTime, String description, Double bidPrice, int category_id){
+                   Date endTime, String description, Double bidPrice, int categoryId){
         mAuctionName = auctionName;
         mSellerId = sellerId;
         mDescription = description;
         mEndTime = endTime;
         mListTime = listTime;
-        mCategoryId = category_id;
+        mCategoryId = categoryId;
 
         UserAccountController seller = new UserAccountController();
         mSeller = seller.getUserById(mSellerId);
 
         Bid initialBid = new Bid(mSeller,this,new BigDecimal(bidPrice));
         mCurrentHighestBid = initialBid;
-
     }
 
     public int getSellerId() {

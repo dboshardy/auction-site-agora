@@ -29,6 +29,7 @@ public class WatchlistQueue extends Message{
             int user_id = obj.getInt("user_id");
             String watchlist_name= obj.getString("watchlist_name");
 
+
             Watchlist watchlist = new Watchlist(user_id, auction_id, watchlist_name);
             result = watchlistModel.createWatchlist(watchlist);
             output.put("succeed",result);
