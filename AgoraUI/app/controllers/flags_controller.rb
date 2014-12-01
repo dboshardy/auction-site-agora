@@ -12,7 +12,7 @@ class FlagsController < ApplicationController
 
     publish :flag, JSON.generate(flag_info)
 
-    @flags = get_flags(id)
+    @flags, @auctions = get_flags(id)
   end
 
   # GET /flags/1

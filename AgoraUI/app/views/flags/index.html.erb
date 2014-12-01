@@ -11,12 +11,10 @@
   </thead>
 
   <tbody>
-    <% @flags.each do |flag| %>
+    <% @flags.each_with_index do |flag, index| %>
       <tr>
-        <% flag = flag[0] %>
-        <% auction = flag[1] %>
         <td><%= flag.flag_type %></td> 
-        <td><%= link_to 'See Auction', "auctions/#{auction.auction_id}" %></td>
+        <td><%= link_to "See flagged auction", "/auctions/#{@auctions[index]}" %></td> 
       </tr>
     <% end %>
   </tbody>

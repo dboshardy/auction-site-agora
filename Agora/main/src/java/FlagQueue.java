@@ -67,10 +67,9 @@ public class FlagQueue extends Message{
             JSONArray jsonArray = new JSONArray();
             for(Flag f:list){
                 JSONObject ele= new JSONObject();
+                ele.put("auction_id",f.getAuctionId());
                 ele.put("flag_type",f.getFlagType());
                 ele.put("flag_id",f.getFlagId());
-                ele.put("auction_id",f.getAuctionId());
-                ele.put("getFlaggingUser",f.getFlaggingUser());
                 jsonArray.put(ele);
             }
             output.put("flags",jsonArray);

@@ -149,23 +149,23 @@ class ApplicationController < ActionController::Base
 
         json_flags = message["flags"]
         flags = []
+        auctions = []
 
         json_flags.each do |f|
             flag = Flag.new
-            auction = Auction.new
 
             flag.flag_id = f["flag_id"]
             flag.flag_type = f["flag_type"]
             
-            auction.auction_id = f["auction_id"].to_i
+            auction = Auction.new
+            auction_id = f["auction_id"]
 
-            array = [flag, auction]
-
-            flags.push(array)
+            flags.push(flag)
+            auctions.push(auction_id)
 
         end
 
-        return flags
+        return flags, auctions
     end
 
     def get_transaction(id)
