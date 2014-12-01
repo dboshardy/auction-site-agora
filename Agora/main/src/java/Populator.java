@@ -12,13 +12,13 @@ public class Populator {
 
     public static void main(String[] args) {
         //users
-        UserAccount user1 = new UserAccount("upham", "upham@gmail.com", "0293u5r0jf8o;kljwer09ew8", "Steve", "Cozminski", "I like turtles.");
-        UserAccount user2 = new UserAccount("caparzo", "caparzo@gmail.com", "020938r293;kljwer09ew8", "Eric", "Riparte", "I've got a lovely bunch of coconuts.");
-        UserAccount user3 = new UserAccount("mdamon", "maaaatdaaaamon@gmail.com", "020938r293;kljwer09ew8", "James", "Ryan", "I invented the longer lasting lightbulb.");
-        UserAccount user4 = new UserAccount("tHanks", "forrest@gmail.com", "0202935i09r0;alkjfnbklskdjf", "Tom", "Hanks", "Stupid is as stupid does.");
-        UserAccount user5 = new UserAccount("cpt. falcon", "falconPunch@gmail.com", "20395lksj;dlkan40238u;d", "The", "Captain", "Show me your moves!");
-        UserAccount user6 = new UserAccount("puff", "jiggles@gmail.com", "2002398l;j02ilelkan40238u;d", "Jiggly", "Puff", "PUFF!");
-        UserAccount admin = new UserAccount("TheDude","elduderino@agora.com","qp9834jf;ansdjjrjoai","The","Dude","Well, that's just... like... your opinion, man.");
+        UserAccount user1 = new UserAccount("upham", "upham@gmail.com", "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "Steve", "Cozminski", "I like turtles.");
+        UserAccount user2 = new UserAccount("caparzo", "caparzo@gmail.com", "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "Eric", "Riparte", "I've got a lovely bunch of coconuts.");
+        UserAccount user3 = new UserAccount("mdamon", "maaaatdaaaamon@gmail.com", "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "James", "Ryan", "I invented the longer lasting lightbulb.");
+        UserAccount user4 = new UserAccount("tHanks", "forrest@gmail.com", "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "Tom", "Hanks", "Stupid is as stupid does.");
+        UserAccount user5 = new UserAccount("cpt. falcon", "falconPunch@gmail.com", "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "The", "Captain", "Show me your moves!");
+        UserAccount user6 = new UserAccount("puff", "jiggles@gmail.com", "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "Jiggly", "Puff", "PUFF!");
+        UserAccount admin = new UserAccount("TheDude","elduderino@agora.com","9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08","The","Dude","Well, that's just... like... your opinion, man.");
         admin.setIsAdmin(true);
 
         //dates
