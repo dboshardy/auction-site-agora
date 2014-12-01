@@ -69,4 +69,39 @@ public class CategoryController {
         }
         return categories;
     }
+
+    public String updateCategory(Category category){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        String result = "Failure";
+        try {
+            session.beginTransaction();
+            session.update(category);
+            session.getTransaction().commit();
+            session.close();
+            result = "Success";
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not update category: "+category.toString()+" in database.");
+        }
+        return result;
+    }
+    public String deleteCategory(Category category){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        String result = "Failure";
+        try {
+            session.beginTransaction();
+            session.delete(category);
+            session.getTransaction().commit();
+            session.close();
+            result = "Success";
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            LOG.warn("Could not delete category: "+category.toString()+" from database.");
+        }
+        return result;
+    }
 }

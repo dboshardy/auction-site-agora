@@ -21,7 +21,8 @@ CREATE TABLE UserAccounts
     email character varying(100) NOT NULL,
     password_hash character varying(256) NOT NULL,
     user_joined_date timestamp NOT NULL,
-    is_admin boolean NOT NULL,
+    is_admin boolean default false NOT NULL,
+    is_suspended boolean default false NOT NULL,
     CONSTRAINT UserAccounts_pk PRIMARY KEY (user_id)
 )
 WITH (
