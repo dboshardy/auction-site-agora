@@ -193,29 +193,28 @@ class UsersController < ApplicationController
 
   # GET "/users/1/suspend"
   def suspend
-    if session[:is_admin] == "true"
-      id = SecureRandom.uuid.to_s
-      user_id = params[:id]
+    id = SecureRandom.uuid.to_s
+    user_id = params[:id]
 
-      user_info = {:id => id, :type => "suspend", 
-        :user_id => user_id
-      }
+    user_info = {:id => id, :type => "suspend", 
+      :user_id => user_id
+    }
 
-      publish :user, JSON.generate(user_info)
+    publish :user, JSON.generate(user_info)
 
-      status, @error = get_success(id)
+    status, @error = get_success(id)
 
-      if status
-        @status = "User suspended!"
-      else
-        @status = "User could not be suspended"
+    if status
+      @status = "User suspended!"
+      if session[:user_id] == user_id.to_i
+        session[:is_suspended] = true
       end
-
-      render 'confirm'          
-
     else
-      redirect_to "/users", notice: "You cannot suspend this user"
+      @status = "User could not be suspended"
     end
+
+    render 'confirm'          
+
   end
 
   def block

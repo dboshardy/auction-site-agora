@@ -25,11 +25,12 @@
   <%= @user.user_description %>
 </p>
 
-<% if session[:is_admin] == "true" %>
-  <%= link_to "Suspend User", "/users/#{@seller.id}/suspend", data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
+<% if session[:is_admin] %>
+  <%= link_to "ADMIN: Suspend User", "/users/#{params[:id]}/suspend", data: { confirm: 'Are you sure you want to suspend this user?' } %><br>
 <% elsif session[:user_id] == params[:id].to_i %>
 	<%= link_to 'Edit User', "/users/#{session[:user_id]}/edit" %> | 
-	<%= link_to 'Delete User', "/users/#{session[:user_id]}", method: :delete %> <br>	<br> 
+	<%= link_to 'Delete User', "/users/#{session[:user_id]}", method: :delete %> | 
+    <%= link_to 'Suspend Account', "/users/#{params[:id]}/suspend", data: { confirm: 'Are you sure you want to suspend your account? You will need to contact customer service (they are VERY slow) to reactivate your account' } %> <br>	<br> 
 <% end %>  
 
 <%= link_to "See Bid History", "/bids/#{@user.user_id}/user_bid_history" %><br><br>

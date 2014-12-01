@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "auctions#index"
 
-  post "/users/:id/suspend" => "users#suspend"
+  get "/users/:id/suspend" => "users#suspend"
   get "/auctions/search" => "auctions#search"
   get "/auctions/:id/stop" => "auctions#stop"
   post "/auctions/keyword_search" => "auctions#keyword_search"

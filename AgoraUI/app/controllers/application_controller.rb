@@ -291,6 +291,7 @@ class ApplicationController < ActionController::Base
         user.username = json_data["username"]
         user.first_name = json_data["first_name"]
         user.last_name = json_data["last_name"]
+        user.email = json_data["email"]
         user.user_description = json_data["user_description"]
 
         return user, error
