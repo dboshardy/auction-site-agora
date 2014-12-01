@@ -4,10 +4,10 @@
   <strong>Watchlist name:</strong>
   <%= @watchlist.watchlist_name %><br>
   <% @items.each do |item| %>
-  	<@= item.name + ": $" + item.item_price %><br>
-  	<@= item.item_description %><br>
-  	<@= link_to "Delete Item", "/watchlist_items/#{item.item_id}", method: :delete %> | 
-  	<@= link_to "Edit Item", "/watchlist_items/#{item.item_id}/edit" %>
+  	<%= item.name + ": $" + item.item_price %><br>
+  	<%= item.item_description %><br>
+  	<%= link_to "Delete Item", "/watchlist_items/#{item.item_id}", method: :delete %> | 
+  	<%= link_to "Edit Item", "/watchlist_items/#{item.item_id}/edit" %>
   <% end %>
   <%= link_to "Add Item to Watchlist", "/watchlist_items/#{@watchlist.watchlist_id}/new" %>
 

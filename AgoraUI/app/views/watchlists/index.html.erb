@@ -3,18 +3,17 @@
 <table>
   <thead>
     <tr>
-      <th>Watchlist name</th>
+      <th>Watchlist Auction</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @watchlists.each do |watchlist| %>
+    <% @auctions.each do |auction| %>
       <tr>
-        <td><%= watchlist.watchlist_name %></td>
-        <td><%= link_to 'Show', watchlist %></td>
-        <td><%= link_to 'Edit', edit_watchlist_path(watchlist) %></td>
-        <td><%= link_to 'Destroy', watchlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= auction.item_name%></td>
+        <td><%= link_to 'See Auction', "/auctions/#{auction.auction_id}" %></td>
+        <td><%= link_to 'Delete from Watchlist', "/watchlists/#{auction.auction_id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +21,3 @@
 
 <br>
 
-<%= link_to 'New Watchlist', new_watchlist_path %>

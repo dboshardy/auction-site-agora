@@ -49,6 +49,28 @@ class ApplicationController < ActionController::Base
         return auctions
 	end
 
+    def get_watchlists(id)
+        message = query_message(id)
+
+        watchlists = message["watchlists"]
+
+        auctions = []
+
+        if !watchlists.nil?
+
+            watchlists.each do |watchlist|
+                auction = Auction.new
+                auction.auction_id = watchlist["auction_id"]
+                auction.item_name = watchlist["auction_name"]
+
+                auctions.push(auction)
+            end
+        end
+
+        return auctions
+
+    end
+
     def get_watchlist(id)
         json = query_message(id)
 
@@ -59,20 +81,18 @@ class ApplicationController < ActionController::Base
 
         items = json["watchlist_items"]
 
-        if !items[0].nil? 
-            items.each do |item|
-                w_item = WatchlistItem.new
-                w_item.item_id = item["item_id"]
-                w_item.item_name = item["item_name"]
-                w_item.item_description = item["item_desc"]
-                w_item.item_price = item["item_price"]
+        items.each do |item|
+            w_item = WatchlistItem.new
+            w_item.item_id = item["item_id"]
+            w_item.item_name = item["item_name"]
+            w_item.item_description = item["item_desc"]
+            w_item.item_price = item["item_price"]
 
-                watchlist_items.push(w_item)
+            watchlist_items.push(w_item)
 
-            end
         end
 
-        return watchlist, watchlist_items
+        return watchlist
     end
 
     def get_cart(id)

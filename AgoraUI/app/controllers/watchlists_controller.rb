@@ -1,9 +1,18 @@
 class WatchlistsController < ApplicationController
-  before_action :confirm_use, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :confirm_user, only: [:new, :create, :show, :edit, :update, :destroy]
   publishes_to :watchlist
   # GET /watchlists
   # GET /watchlists.json
   def index
+    id = SecureRandom.uuid.to_s
+
+    watchlist_info = {:id => id, :type => 'index',
+      :user_id => session[:user_id]
+    }
+
+    publish :watchlist, JSON.generate(watchlist_info)
+
+    @auctions = get_watchlists(id)
   end
 
   # GET /watchlists/1
@@ -11,7 +20,7 @@ class WatchlistsController < ApplicationController
   def show
     id = SecureRandom.uuid.to_s
 
-    watchlist_info = {:id => id, type => 'show',
+    watchlist_info = {:id => id, :type => 'show',
       :watchlist_id => params[:id]
     }
 

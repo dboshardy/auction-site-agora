@@ -60,24 +60,19 @@ public class WatchlistQueue extends Message{
 //            result = watchlist.removeWatchlist();
 //            output.put("succeed",result);
         }else if(type.equals("index")) {
-            // you get the idea
-//            String watchlist_name= obj.getString("watchlist_name");
-//            String auction_id = obj.getString("auction_id");
-//            AuctionController ac= new AuctionController();
-//            UserAccountController uac= new UserAccountController();
-//            Watchlist watchlist = uac.getUserById(Integer.parseInt(user_id)).getWatchlist(watchlist_name);
-//            ArrayList<Auction> list=watchlist.getWatchlist();
-//            JSONArray jsonArray = new JSONArray();
-//            AuctionController ac= new AuctionController();
-//            for(Auction a:list){
-//                JSONObject ele= new JSONObject();
-//                ele.put("watchlist_name",watchlist_name);
-//                ele.put("auction_id",ac.getAuctionId());
-//                jsonArray.put(ele);
+            int user_id = obj.getInt("user_id");
+            Watchlist watchlist = new Watchlist();
+            ArrayList<Auction> list = watchlist.getWatchlist(user_id);
+            JSONArray jsonArray = new JSONArray();
+            for(Auction a:list){
+                JSONObject ele= new JSONObject();
+                ele.put("auction_id",a.getAuctionId());
+                ele.put("auction_name", a.getAuctionName());
+                jsonArray.put(ele);
             }
-//            output.put("auction",jsonArray);
-//
-//        }
+            output.put("auctions",jsonArray);
+
+        }
         return output;
     }
 

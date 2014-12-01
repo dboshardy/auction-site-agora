@@ -37,6 +37,8 @@ public class Watchlist {
         this.mAuctionId = mAuctionId;
     }
 
+    public Watchlist(){}
+
     public Watchlist(UserAccount user, String watchlistName) {
         mUserAccount = user;
         mWatchlistName = watchlistName;
@@ -118,10 +120,10 @@ public class Watchlist {
         this.mWatchlistId = mWatchlistId;
     }
 
-    public ArrayList<Auction> getWatchlist() {
+    public ArrayList<Auction> getWatchlist(int user_id) {
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
-        SQLQuery query = (SQLQuery) session.createSQLQuery("SELECT * FROM " + mTableName + " WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND watchlist_name=\'" + this.getWatchlistName() + "\'");
+        SQLQuery query = (SQLQuery) session.createSQLQuery("SELECT * FROM " + mTableName + " WHERE useraccounts_user_id=" + user_id);
         List<Object[]> objects = query.list();
         session.getTransaction().commit();
         session.close();
