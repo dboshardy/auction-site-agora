@@ -20,8 +20,17 @@ public class UserAccount {
     private String mDescription;
     private Date mUserJoinedDate;
     private boolean mIsAdmin = false;
+    private boolean mIsSuspended;
     public static final String ADMIN_PASSWORD = "agoraagora";
     public static final String ADMIN_EMAIL_ADDRESS = "agoraemailnoreply@gmail.com";
+
+    public boolean getIsSuspended() {
+        return mIsSuspended;
+    }
+
+    public void setIsSuspended(boolean mIsSuspended) {
+        this.mIsSuspended = mIsSuspended;
+    }
 
     public boolean getIsAdmin() {
         return mIsAdmin;

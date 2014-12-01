@@ -10625,3 +10625,965 @@
 2014-11-30 22:21:49 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
 2014-11-30 22:21:49 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
 2014-11-30 22:21:49 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:37:35 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-30 22:37:35 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-30 22:37:35 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-30 22:37:35 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-30 22:37:35 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:37:35 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:37:35 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:37:35 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:37:35 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:37:35 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:37:35 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:37:35 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:37:35 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:37:36 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:37:36 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:37:36 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:37:36 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:37:36 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:37:36 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:37:36 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:37:36 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:37:36 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:37:36 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:37:36 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:37:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:37:36 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:37:36 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:37:36 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:37:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:37:36 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:37:36 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:37:36 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:37:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:37:36 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:37:36 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:37:36 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:37:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:37:36 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:37:36 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:37:36 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:37:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:37:36 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:37:36 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:37:36 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:37:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:37:36 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:37:36 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:37:56 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:37:56 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:37:56 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:37:56 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:37:56 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:37:56 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:37:56 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:37:56 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:37:56 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:37:56 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:37:56 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:37:56 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:37:56 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:37:56 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:37:56 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:37:56 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:37:56 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:37:56 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:37:56 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:37:56 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:37:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:37:56 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:37:56 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:37:56 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:37:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:37:56 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:37:56 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:37:56 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:37:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:37:56 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:37:56 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:37:56 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:37:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:37:56 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:37:56 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:37:56 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:37:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:37:56 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:37:56 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:37:56 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:37:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:37:56 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:37:56 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:38:13 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:38:13 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:38:13 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:38:13 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:38:13 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:38:13 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:38:13 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:38:13 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:38:13 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:38:14 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:38:14 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:38:14 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:38:14 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:38:14 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:38:14 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:38:14 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:38:14 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:38:14 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:38:14 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:38:14 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:38:14 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:38:14 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:38:14 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:38:14 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:38:14 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:38:14 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:38:14 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:38:14 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:38:14 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:14 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:38:14 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:38:14 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:38:14 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:38:14 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:38:14 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:38:14 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:38:14 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:38:14 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:38:14 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:38:14 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:38:14 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:14 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:38:14 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:38:22 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:38:22 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:38:22 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:38:22 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:38:22 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:38:22 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:38:22 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:38:22 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:38:22 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:38:23 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:38:23 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:38:23 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:38:23 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:38:23 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:38:23 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:38:23 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:38:23 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:38:23 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:38:23 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:38:23 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:38:23 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:38:23 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:38:23 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:38:23 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:38:23 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:38:23 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:38:23 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:38:23 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:38:23 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:23 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:38:23 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:38:23 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:38:23 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:38:23 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:38:23 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:38:23 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:38:23 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:38:23 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:38:23 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:38:23 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:38:23 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:23 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:38:23 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:38:26 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:38:26 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:38:26 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:38:26 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:38:26 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:38:26 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:38:26 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:38:26 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:38:26 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:38:27 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:38:27 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:38:27 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:38:27 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:38:27 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:38:27 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:38:27 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:38:27 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:38:27 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:38:27 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:38:27 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:38:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:38:27 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:38:27 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:38:27 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:38:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:38:27 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:38:27 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:38:27 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:38:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:27 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:38:27 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:38:27 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:38:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:38:27 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:38:27 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:38:27 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:38:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:38:27 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:38:27 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:38:27 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:38:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:27 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:38:27 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:38:30 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:38:30 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:38:30 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:38:30 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:38:30 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:38:30 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:38:30 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:38:30 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:38:30 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:38:30 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:38:30 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:38:30 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:38:30 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:38:30 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:38:30 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:38:30 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:38:30 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:38:30 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:38:30 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:38:30 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:38:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:38:30 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:38:30 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:38:30 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:38:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:38:30 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:38:30 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:38:30 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:38:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:30 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:38:30 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:38:30 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:38:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:38:30 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:38:30 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:38:30 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:38:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:38:30 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:38:30 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:38:30 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:38:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:30 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:38:30 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:38:32 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:38:32 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:38:32 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:38:32 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:38:32 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:38:32 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:38:32 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:38:32 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:38:32 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:38:32 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:38:32 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:38:32 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:38:32 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:38:32 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:38:32 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:38:32 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:38:32 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:38:32 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:38:32 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:38:32 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:38:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:38:32 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:38:32 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:38:32 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:38:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:38:32 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:38:32 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:38:32 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:38:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:32 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:38:32 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:38:32 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:38:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:38:32 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:38:32 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:38:32 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:38:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:38:32 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:38:32 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:38:32 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:38:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:38:32 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:38:32 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:39:34 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-30 22:39:34 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-30 22:39:34 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-30 22:39:34 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-30 22:39:34 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:39:34 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:39:34 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:39:34 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:39:34 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:39:34 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:39:34 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:39:34 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:39:34 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:39:34 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:39:34 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:39:34 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:39:34 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:39:34 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:39:34 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:39:34 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:39:34 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:39:34 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:39:34 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:39:34 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:39:34 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:39:34 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:39:34 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:39:34 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:39:34 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:39:34 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:39:34 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:39:34 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:39:34 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:39:34 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:39:34 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:39:34 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:39:34 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:39:34 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:39:34 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:39:34 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:39:34 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:39:34 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:39:34 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:39:34 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:39:34 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:39:34 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:39:34 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:41:27 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-30 22:41:27 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-30 22:41:27 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-30 22:41:27 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-30 22:41:27 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:41:27 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:41:27 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:41:27 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:41:27 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:41:27 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:41:27 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:41:27 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:41:27 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:41:27 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:41:27 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:41:27 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:41:27 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:41:27 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:41:27 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:41:27 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:41:27 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:41:27 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:41:27 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:41:27 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:41:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:41:27 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:41:27 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:41:27 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:41:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:41:27 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:41:27 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:41:27 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:41:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:41:27 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:41:27 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:41:27 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:41:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:41:27 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:41:27 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:41:27 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:41:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:41:27 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:41:27 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:41:27 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:41:27 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:41:27 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:41:27 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:41:50 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:41:50 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:41:50 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:41:50 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:41:50 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:41:50 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:41:50 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:41:50 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:41:50 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:41:50 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:41:50 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:41:50 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:41:50 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:41:50 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:41:50 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:41:50 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:41:50 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:41:50 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:41:50 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:41:50 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:41:50 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:41:50 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:41:50 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:41:50 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:41:50 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:41:50 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:41:50 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:41:50 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:41:50 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:41:50 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:41:50 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:41:50 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:41:50 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:41:50 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:41:50 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:41:50 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:41:50 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:41:50 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:41:50 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:41:50 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:41:50 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:41:50 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:41:50 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:42:15 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:42:15 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:42:15 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:42:15 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:42:15 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:42:15 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:42:15 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:42:15 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:42:15 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:42:15 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:42:15 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:42:15 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:42:15 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:42:15 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:42:15 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:42:15 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:42:15 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:42:15 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:42:15 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:42:15 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:42:15 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:42:15 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:42:15 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:42:15 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:42:15 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:42:15 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:42:15 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:42:15 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:42:15 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:42:15 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:42:15 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:42:15 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:42:15 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:42:15 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:42:15 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:42:15 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:42:15 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:42:15 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:42:15 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:42:15 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:42:15 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:42:15 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:42:15 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:48:45 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-11-30 22:48:45 INFO  Version:41 - HHH000412: Hibernate Core {4.2.2.Final}
+2014-11-30 22:48:45 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-30 22:48:45 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-30 22:48:45 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:48:45 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:48:45 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:48:45 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:48:46 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:48:46 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:48:46 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:48:46 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:48:46 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:48:46 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:48:46 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:48:46 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:48:46 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:48:46 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:48:46 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:48:46 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:48:46 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:48:46 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:48:46 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:48:46 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:48:46 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:48:46 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:48:46 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:48:46 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:48:46 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:48:46 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:48:46 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:48:46 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:48:46 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:48:46 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:48:46 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:48:46 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:48:46 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:48:46 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:48:46 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:48:46 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:48:46 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:48:46 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:48:46 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:48:46 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:48:46 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:48:46 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:48:46 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:48:51 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:48:51 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:48:51 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:48:51 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:48:51 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:48:51 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:48:51 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:48:51 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:48:51 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:48:51 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:48:51 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:48:51 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:48:51 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:48:51 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:48:51 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:48:52 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:48:52 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:48:52 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:48:52 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:48:52 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:48:52 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:48:52 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:48:52 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:48:52 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:48:52 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:48:52 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:48:52 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:48:52 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:48:52 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:48:52 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:48:52 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:48:52 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:48:52 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:48:52 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:48:52 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:48:52 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:48:52 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:48:52 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:48:52 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:48:52 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:48:52 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:48:52 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:48:52 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:48:53 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:48:53 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:48:53 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:48:53 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:48:53 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:48:53 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:48:53 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:48:53 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:48:53 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:48:53 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:48:53 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:48:53 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:48:53 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:48:53 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:48:53 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:48:53 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:48:53 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:48:53 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:48:53 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:48:53 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:48:53 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:48:53 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:48:53 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:48:53 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:48:53 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:48:53 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:48:53 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:48:53 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:48:53 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:48:53 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:48:53 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:48:53 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:48:53 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:48:53 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:48:53 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:48:53 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:48:53 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:48:53 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:48:53 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:48:53 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:48:53 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:48:53 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:48:53 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:48:56 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:48:56 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:48:56 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:48:56 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:48:56 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:48:56 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:48:56 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:48:56 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:48:56 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:48:56 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:48:56 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:48:56 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:48:56 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:48:56 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:48:56 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:48:56 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:48:56 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:48:56 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:48:56 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:48:56 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:48:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:48:56 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:48:56 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:48:56 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:48:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:48:56 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:48:56 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:48:56 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:48:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:48:56 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:48:56 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:48:56 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:48:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:48:56 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:48:56 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:48:56 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:48:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:48:56 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:48:56 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:48:56 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:48:56 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:48:56 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:48:56 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:50:29 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:50:29 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:50:29 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:50:29 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:50:29 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:50:29 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:50:29 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:50:29 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:50:29 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:50:30 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:50:30 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:50:30 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:50:30 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:50:30 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:50:30 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:50:30 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:50:30 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:50:30 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:50:30 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:50:30 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:50:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:50:30 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:50:30 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:50:30 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:50:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:50:30 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:50:30 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:50:30 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:50:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:50:30 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:50:30 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:50:30 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:50:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:50:30 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:50:30 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:50:30 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:50:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:50:30 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:50:30 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:50:30 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:50:30 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:50:30 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:50:30 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:50:32 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:50:32 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:50:32 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:50:32 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:50:32 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:50:32 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:50:32 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:50:32 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:50:32 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:50:32 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:50:32 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:50:32 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:50:32 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:50:32 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:50:32 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:50:32 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:50:32 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:50:32 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:50:32 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:50:32 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:50:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:50:32 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:50:32 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:50:32 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:50:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:50:32 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:50:32 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:50:32 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:50:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:50:32 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:50:32 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:50:32 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:50:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:50:32 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:50:32 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:50:32 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:50:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:50:32 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:50:32 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:50:32 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:50:32 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:50:32 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:50:32 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:50:36 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:50:36 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:50:36 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:50:36 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:50:36 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:50:36 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:50:36 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:50:36 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:50:36 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:50:36 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:50:36 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:50:36 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:50:36 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:50:36 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:50:36 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:50:36 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:50:36 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:50:36 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:50:36 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:50:36 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:50:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:50:36 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:50:36 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:50:36 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:50:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:50:36 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:50:36 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:50:36 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:50:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:50:36 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:50:36 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:50:36 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:50:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:50:36 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:50:36 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:50:36 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:50:36 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:50:36 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:50:37 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:50:37 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:50:37 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:50:37 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:50:37 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:50:40 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:50:40 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:50:40 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:50:40 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:50:40 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:50:40 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:50:40 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:50:40 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:50:40 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:50:40 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:50:40 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:50:40 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:50:40 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:50:40 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:50:40 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:50:40 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:50:40 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:50:40 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:50:40 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:50:40 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:50:40 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:50:40 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:50:40 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:50:40 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:50:40 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:50:40 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:50:40 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:50:40 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:50:40 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:50:40 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:50:40 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:50:40 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:50:40 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:50:40 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:50:40 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:50:40 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:50:40 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:50:40 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:50:40 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:50:40 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:50:40 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:50:40 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:50:40 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:51:03 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:51:03 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:51:03 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:51:03 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:51:03 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:51:03 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:51:03 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:51:03 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:51:03 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:51:03 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:51:03 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:51:03 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:51:03 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:51:03 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:51:03 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:51:03 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:51:03 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:51:03 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:51:03 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:51:03 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:51:03 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:51:03 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:51:03 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:51:03 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:51:03 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:51:03 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:51:03 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:51:03 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:51:03 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:51:03 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:51:03 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:51:03 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:51:03 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:51:03 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:51:03 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:51:03 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:51:03 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:51:03 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:51:03 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:51:03 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:51:03 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:51:03 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:51:03 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:51:05 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:51:05 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:51:05 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:51:05 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:51:05 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:51:05 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:51:05 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:51:05 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:51:05 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:51:05 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:51:05 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:51:05 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:51:05 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:51:05 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:51:05 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:51:05 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:51:05 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:51:05 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:51:05 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:51:05 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:51:05 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:51:05 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:51:05 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:51:05 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:51:05 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:51:05 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:51:05 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:51:05 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:51:05 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:51:05 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:51:05 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:51:05 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:51:05 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:51:05 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:51:05 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:51:05 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:51:05 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:51:05 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:51:05 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:51:05 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:51:05 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:51:05 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:51:05 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2014-11-30 22:51:33 INFO  Configuration:1985 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2014-11-30 22:51:33 INFO  Configuration:2004 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2014-11-30 22:51:33 INFO  Configuration:728 - HHH000221: Reading mappings from resource: hibernate.hbm.xml
+2014-11-30 22:51:33 INFO  Configuration:2126 - HHH000041: Configured SessionFactory: null
+2014-11-30 22:51:33 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-11-30 22:51:33 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-11-30 22:51:33 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: false
+2014-11-30 22:51:33 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/agora-db]
+2014-11-30 22:51:33 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=postgres, password=****, pool_size=10}
+2014-11-30 22:51:33 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2014-11-30 22:51:33 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2014-11-30 22:51:33 WARN  RootClass:288 - HHH000038: Composite-id class does not override equals(): WatchlistEntity
+2014-11-30 22:51:33 WARN  RootClass:289 - HHH000039: Composite-id class does not override hashCode(): WatchlistEntity
+2014-11-30 22:51:33 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-30 22:51:33 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-11-30 22:51:33 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2014-11-30 22:51:33 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2014-11-30 22:51:33 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2014-11-30 22:51:33 INFO  TableMetadata:65 - HHH000261: Table found: public.auctions
+2014-11-30 22:51:33 INFO  TableMetadata:66 - HHH000037: Columns: [buy_it_now_price, auction_description, current_highest_bid_id, list_time, auction_id, end_time, seller_user_id, category_id, is_ended, auction_name]
+2014-11-30 22:51:33 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_useraccounts1]
+2014-11-30 22:51:33 INFO  TableMetadata:69 - HHH000126: Indexes: [auctions_pk]
+2014-11-30 22:51:33 INFO  TableMetadata:65 - HHH000261: Table found: public.bids
+2014-11-30 22:51:33 INFO  TableMetadata:66 - HHH000037: Columns: [timestamp, bid_id, auction_id, bidder_user_id, bid_amount, currency]
+2014-11-30 22:51:33 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_bids_useraccounts1, fk_bids_auctions1]
+2014-11-30 22:51:33 INFO  TableMetadata:69 - HHH000126: Indexes: [bids_pk]
+2014-11-30 22:51:33 INFO  TableMetadata:65 - HHH000261: Table found: public.categories
+2014-11-30 22:51:33 INFO  TableMetadata:66 - HHH000037: Columns: [category_name, category_id, parent_id]
+2014-11-30 22:51:33 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:51:33 INFO  TableMetadata:69 - HHH000126: Indexes: [categories_pk]
+2014-11-30 22:51:33 INFO  TableMetadata:65 - HHH000261: Table found: public.flaggedauctions
+2014-11-30 22:51:33 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, flag_id, date_flagged, flag_type]
+2014-11-30 22:51:33 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_flaggedauctions1]
+2014-11-30 22:51:33 INFO  TableMetadata:69 - HHH000126: Indexes: [flaggedauctions_pk]
+2014-11-30 22:51:33 INFO  TableMetadata:65 - HHH000261: Table found: public.user_has_watchlist_auctions
+2014-11-30 22:51:33 INFO  TableMetadata:66 - HHH000037: Columns: [auctions_auction_id, useraccounts_user_id, watchlist_name]
+2014-11-30 22:51:33 INFO  TableMetadata:68 - HHH000108: Foreign keys: [fk_auctions_has_useraccounts_useraccounts1]
+2014-11-30 22:51:33 INFO  TableMetadata:69 - HHH000126: Indexes: [user_has_watchlist_auctions_pk]
+2014-11-30 22:51:33 INFO  TableMetadata:65 - HHH000261: Table found: public.useraccounts
+2014-11-30 22:51:33 INFO  TableMetadata:66 - HHH000037: Columns: [first_name, username, is_suspended, is_admin, user_description, email, password_hash, last_name, user_id, user_joined_date]
+2014-11-30 22:51:33 INFO  TableMetadata:68 - HHH000108: Foreign keys: []
+2014-11-30 22:51:33 INFO  TableMetadata:69 - HHH000126: Indexes: [useraccounts_pk, uniqueusername]
+2014-11-30 22:51:33 INFO  SchemaUpdate:242 - HHH000232: Schema update complete

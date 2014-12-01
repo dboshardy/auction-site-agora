@@ -252,8 +252,9 @@ class ApplicationController < ActionController::Base
         error = message["Error"]
         user_id = message["user_id"]
         is_admin = message["is_admin"]
+        is_suspended = message["is_suspended"]
 
-        return status, error, user_id, is_admin      
+        return status, error, user_id, is_admin, is_suspended     
     end
 
     def get_success(id)
@@ -362,8 +363,12 @@ class ApplicationController < ActionController::Base
     private
 
     def confirm_user
-        if session[:user_id].nil? && !session[:is_admin]
-            redirect_to "/users/new", notice: "You must log in or sign up"
+        if (session[:user_id].nil? && !session[:is_admin]) || (session[:is_suspended])
+            if session[:is_suspended]
+                redirect_to "/users/new", notice: "YOU ARE SUSPENDED!!"
+            else
+                redirect_to "/users/new", notice: "You must log in or sign up"
+            end
         end
     end  
 

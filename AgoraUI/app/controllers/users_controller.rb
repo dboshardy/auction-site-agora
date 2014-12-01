@@ -65,12 +65,13 @@ class UsersController < ApplicationController
 
     publish :user, JSON.generate(user_info)
     
-    status, @error, user_id, is_admin = get_login_success(id)
+    status, @error, user_id, is_admin, is_suspended = get_login_success(id)
 
     if status
       @status = "Login Successful!"
       session[:user_id] = user_id
       session[:is_admin] = is_admin
+      session[:is_suspended] = is_suspended
     else
       @status = "Login error:"
     end

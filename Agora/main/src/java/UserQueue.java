@@ -2,6 +2,7 @@
  * Created by Miao on 11/22/14.
  */
 
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.json.JSONObject;
 
 public class UserQueue extends Message {
@@ -64,9 +65,18 @@ public class UserQueue extends Message {
                 output.put("succeed", false);
                 output.put("Error", result);
             }
-        }/*else if(type.equals("suspend")){
-
-        }*/ else if (type.equals("show")) {
+        } else if(type.equals("suspend")){
+            int user_id = obj.getInt("user_id");
+            UserAccount user = userController.getUserById(user_id);
+            user.setIsSuspended(true);
+            result = userController.updateUserAccount(user);
+            if (result.equals("true")) {
+                output.put("succeed", true);
+            } else {
+                output.put("succeed", false);
+                output.put("Error", result);
+            }
+        } else if (type.equals("show")) {
             int user_id = obj.getInt("user_id");
             UserAccount user = userController.getUserById(user_id);
             output.put("user_id", user.getUserId());
@@ -80,13 +90,12 @@ public class UserQueue extends Message {
         else if (type.equals("login")){
             String userName = obj.getString("user_name");
             String passwordHash =  obj.getString("password_hash");
-            System.out.println("Getting result...");
             UserAccount user = userController.getUserAccountByUsernameAndPasswordHash(userName, passwordHash);
-            System.out.println("Found result...");
             if(user != null) {
                 output.put("succeed", true);
                 output.put("user_id", user.getUserId());
                 output.put("is_admin", user.getIsAdmin());
+                output.put("is_suspended", user.getIsSuspended());
             }
             else {
                 output.put("status", false);

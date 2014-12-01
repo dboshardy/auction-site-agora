@@ -1,5 +1,5 @@
 class FlagsController < ApplicationController
-  before_action :confirm_user, only: [:show, :create, :new, :edit, :update, :destroy]
+  before_action :confirm_user, only: [:index, :show, :create, :new, :edit, :update, :destroy]
   before_action :confirm_admin, only: [:index]
   publishes_to :flag
 
