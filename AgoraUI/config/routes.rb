@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/users/:id/suspend" => "users#suspend"
   get "/auctions/search" => "auctions#search"
   get "/auctions/:id/stop" => "auctions#stop"
+  get "/auctions/auctions_bid_on" => "auctions#auctions_bid_on"
   post "/auctions/keyword_search" => "auctions#keyword_search"
   post "/auctions/category_search" => "auctions#category_search"
   post "/auctions/:id/update" => "auctions#update"

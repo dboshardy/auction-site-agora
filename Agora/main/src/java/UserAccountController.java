@@ -114,6 +114,7 @@ public class UserAccountController {
                 UserAccount oldBidder = auction.getCurrentHighestBid().getBidder();
                 bidController.persistBid(bid);
                 auction.setCurrentHighestBid(bid);
+                auction.setCurrentHighestBidId(bid.getBidId());
                 auctionController.updateAuction(auction);
                 String sellerEmail = auction.getSeller().getEmail();
 
@@ -125,7 +126,7 @@ public class UserAccountController {
                         +". Click here to go to the auction: \n\nhttp://localhost:3000/auctions/"+auction.getAuctionId());
                 Email.sendEmail(oldBidderNotifyEmail);
                 Email.sendEmail(sellerNotifyEmail);
-                result = "Successfully placed bid";
+                result = "true";
             }
         }
         return result;

@@ -6,6 +6,7 @@ import org.hibernate.Session;
 
 import javax.persistence.EntityExistsException;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by drew on 11/7/14.
@@ -237,9 +238,9 @@ public class AuctionController {
         }
         return auctions;
     }
-    public List<Auction> getAllActiveAuctionsBidOnForUser(UserAccount user){
+    public ArrayList<Auction> getAllActiveAuctionsBidOnForUser(UserAccount user){
         Session session = HibernateUtils.getSessionFactory().openSession();
-        List<Auction> auctions = null;
+        ArrayList<Auction> auctions = new ArrayList<>();
         BidController bidController = new BidController();
         AuctionController auctionController = new AuctionController();
         List<Bid> bids = bidController.getBidHistoryForUser(user.getUserId());

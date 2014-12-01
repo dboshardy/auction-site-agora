@@ -55,6 +55,8 @@ public class BidController {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not get bid: " + bidId + " from database.");
+            LOG.warn(e.getCause().getCause());
+            e.printStackTrace();
         }
         return bid;
     }

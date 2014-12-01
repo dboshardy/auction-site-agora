@@ -17,6 +17,7 @@ public class AuctionQueue extends Message {
 
         AuctionController auctionController = new AuctionController();
         CategoryController categoryController = new CategoryController();
+        UserAccountController userAccountController = new UserAccountController();
 
         if (type.equals("create")) {
             int user_id = obj.getInt("user_id");
@@ -264,6 +265,27 @@ public class AuctionQueue extends Message {
                 output.put("succeed", false);
                 output.put("Error", result);
             }
+        } else if (type.equals("auctions_bid_on")) {
+            int user_id = obj.getInt("user_id");
+            UserAccount user = userAccountController.getUserById(user_id);
+            List<Auction> list = auctionController.getAllActiveAuctionsBidOnForUser(user);
+            JSONArray jsonArray = new JSONArray();
+            for(Auction a:list) {
+                JSONObject ele = new JSONObject();
+                ele.put("auction_id", a.getAuctionId());
+                ele.put("auction_name", a.getAuctionName());
+                ele.put("end_time", a.getEndTime());
+                ele.put("item_desc", a.getDescription());
+
+                BidController bid = new BidController();
+                Bid highestBid = bid.getBidById(a.getCurrentHighestBidId());
+
+                if (highestBid != null) {
+                    ele.put("highest_bid", highestBid.getBidAmount());
+                }
+                jsonArray.put(ele);
+            }
+            output.put("auctions",jsonArray);
         }
         return output;
     }

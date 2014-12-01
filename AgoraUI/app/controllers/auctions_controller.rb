@@ -266,6 +266,28 @@ class AuctionsController < ApplicationController
     render 'confirm' 
   end
 
+  def auctions_bid_on
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "auctions_bid_on", 
+      :user_id => session[:user_id]    
+    }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @auctions = get_auctions(id)    
+
+    if @auctions.nil?
+      @status = "No auctions found"
+      @error = ""
+      render 'confirm'
+      return
+    end
+
+    render 'results'
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     # def set_auction
