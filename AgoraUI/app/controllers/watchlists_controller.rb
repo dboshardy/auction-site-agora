@@ -47,10 +47,9 @@ class WatchlistsController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    watchlist_info = {:id => id, type => "create",
+    watchlist_info = {:id => id, :type => "add",
       :auction_id => params[:id],
-      :user_id => session[:user_id],
-      :watchlist_name => params[:watchlist_name]
+      :user_id => session[:user_id]
     }
 
     publish :watchlist, JSON.generate(watchlist_info)
@@ -58,9 +57,9 @@ class WatchlistsController < ApplicationController
     status, @error = get_success(id)
 
     if status 
-      @status = "New watchlist created!"
+      @status = "Auction Added to Watchlist"
     else
-      @status = "Watchlist could not be created"
+      @status = "Auction Could Not Be Added to Watchlist"
     end    
 
     render 'confirm'

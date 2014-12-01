@@ -13,6 +13,7 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Locale;
 import java.util.ArrayList;
+import java.util.List;
 
 public class WatchlistQueue extends Message{
 
@@ -22,27 +23,12 @@ public class WatchlistQueue extends Message{
         String type = obj.getString("type");
         WatchlistModel watchlistModel = new WatchlistModel();
 
-        if (type.equals("create")){
-            // take appropriate action to create new tuple in database
-            // create a JSON object for the return message
+         if(type.equals("add")) {
             int auction_id = obj.getInt("auction_id");
             int user_id = obj.getInt("user_id");
-            String watchlist_name= obj.getString("watchlist_name");
-
-
-            Watchlist watchlist = new Watchlist(user_id, auction_id, watchlist_name);
-            result = watchlistModel.createWatchlist(watchlist);
-            output.put("succeed",result);
-
-        } else if(type.equals("add")) {
-            // you get the idea
-            String watchlist_name= obj.getString("watchlist_name");
-            String auction_id = obj.getString("auction_id");
-            AuctionController ac= new AuctionController();
-            UserAccountController uac= new UserAccountController();
-//            Watchlist watchlist = uac.getUserById(Integer.parseInt(user_id)).getWatchlist(watchlist_name);
-//            result=watchlist.addAuctionToWatchlist(ac.getAuctionById(Integer.parseInt(auction_id)));
-//            output.put("succeed",result);
+            Watchlist watchlist = new Watchlist(user_id, auction_id);
+            result = watchlist.addAuctionToWatchlist(user_id, auction_id);
+            output.put("succeed", result);
 
         }else if(type.equals("deleteAuction")){
             String watchlist_name= obj.getString("watchlist_name");
@@ -62,7 +48,7 @@ public class WatchlistQueue extends Message{
         }else if(type.equals("index")) {
             int user_id = obj.getInt("user_id");
             Watchlist watchlist = new Watchlist();
-            ArrayList<Auction> list = watchlist.getWatchlist(user_id);
+            ArrayList<Auction> list = watchlist.getWatchlists(user_id);
             JSONArray jsonArray = new JSONArray();
             for(Auction a:list){
                 JSONObject ele= new JSONObject();

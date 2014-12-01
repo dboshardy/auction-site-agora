@@ -35,6 +35,7 @@
       <%= submit_tag "Place Bid" %><br><br>
 
     <% end %>
+    <%= button_to 'Add To Watchlist', "/watchlists/#{@auction.auction_id}" %><br>
     <%= link_to 'Flag Auction', "/flags/#{@auction.auction_id}/new" %><br> 
   <% end %>
 <% end %>

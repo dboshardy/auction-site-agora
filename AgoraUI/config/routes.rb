@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "/bids/:id/user_bid_history" => "bids#show_user_history"
   get "/watchlist/:id" => "watchlists#show"
   get "/watchlists/:id/new" => "watchlists#new"
-  post "/watchlists/:id/create" => "watchlists#create"
+  post "/watchlists/:id" => "watchlists#create"
   get "/flags/:id/new" => "flags#new"
   post "flags/:id/create" => "flags#create"
   get "/transactions/:id/new" => "transactions#new"

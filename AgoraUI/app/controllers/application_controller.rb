@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
     def get_watchlists(id)
         message = query_message(id)
 
-        watchlists = message["watchlists"]
+        watchlists = message["auctions"]
 
         auctions = []
 
