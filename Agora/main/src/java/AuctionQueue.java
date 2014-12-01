@@ -242,6 +242,28 @@ public class AuctionQueue extends Message {
                 output.put("succeed", false);
                 output.put("Error", result);
             }
+        } else if (type.equals("update_category")) {
+            int category_id = obj.getInt("category_id");
+            String name = obj.getString("category_name");
+            Category category = categoryController.getCategoryById(category_id);
+            category.setName(name);
+            result = categoryController.updateCategory(category);
+            if (result.equals("true")) {
+                output.put("succeed", true);
+            } else {
+                output.put("succeed", false);
+                output.put("Error", result);
+            }
+        } else if (type.equals("delete_category")) {
+            int category_id = obj.getInt("category_id");
+            Category category = categoryController.getCategoryById(category_id);
+            result = categoryController.deleteCategory(category);
+            if (result.equals("true")) {
+                output.put("succeed", true);
+            } else {
+                output.put("succeed", false);
+                output.put("Error", result);
+            }
         }
         return output;
     }

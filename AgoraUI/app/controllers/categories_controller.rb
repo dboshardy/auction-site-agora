@@ -59,6 +59,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+    @category = Category.new
   end
 
   # POST /categories
@@ -103,12 +104,12 @@ class CategoriesController < ApplicationController
 
     id = SecureRandom.uuid.to_s
 
-    category_info = {:id => id, :type => "update", 
+    category_info = {:id => id, :type => "update_category", 
       :category_id => params[:id],
       :category_name => category.category     
     }
 
-    publish :category, JSON.generate(category_info)
+    publish :auction, JSON.generate(category_info)
 
     status, @error = get_success(id)
 
@@ -135,11 +136,11 @@ class CategoriesController < ApplicationController
   def destroy
     id = SecureRandom.uuid.to_s
 
-    category_info = {:id => id, :type => "delete", 
+    category_info = {:id => id, :type => "delete_category", 
       :category_id => params[:id]
     }
 
-    publish :category, JSON.generate(category_info)
+    publish :auction, JSON.generate(category_info)
 
     status, @error = get_success(id)
 
@@ -157,6 +158,17 @@ class CategoriesController < ApplicationController
     # end
   end
 
+  def manage
+    id = SecureRandom.uuid.to_s
+
+    category_info = {:id => id, :type => "categories" }
+
+    publish :auction, JSON.generate(category_info)  
+
+    @categories = get_categories(id)      
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
@@ -165,6 +177,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:category)
+      params.permit(:category)
     end
 end

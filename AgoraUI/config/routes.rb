@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get "/users/login_page" => "users#login_page"
   post "/users/login" => "users#login"
   get "/categories/new_categories_for_auction/:id" => "categories#new_categories_for_auction"
+  get "/categories/manage" => "categories#manage"
+  post "/categories/:id/update" => "categories#update"
 
   resources :watchlists
 

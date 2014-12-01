@@ -1,0 +1,8 @@
+<h3>Manage Categories</h3>
+
+<% @categories.each do |category| %>
+	<%= category.category %><br>
+	<%= link_to "Update Category", "/categories/#{category.category_id}/edit" %> |
+	<%= link_to "Delete Category", "/categories/#{category.category_id}", method: :delete %><br><br>
+
+<% end %>

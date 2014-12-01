@@ -34,12 +34,13 @@
         <% else %>
           <li><a href="/auctions">Sell</a></li>
           <li><a href="/watchlists">Watchlists</a></li>
-          <li><a href="/shopping_carts/<%= session[:user_id] %>">Shopping Cart</a></li>      
+          <li><a href="/shopping_carts/<%= session[:user_id] %>">Shopping Cart</a></li>     
+          <% if session[:is_admin] %>
+              <li><a href="/flags">Flags</a></li>
+              <li><a href="/categories/manage">Categories</a></li>
+          <% end %> 
           <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>          
           <li><a href="/users/logout">Log Out</a></li>
-        <% end %>
-        <% if session[:is_admin] %>
-            <li><a href="/flags">Flags</a></li>
         <% end %>
       </ul>
     </div>

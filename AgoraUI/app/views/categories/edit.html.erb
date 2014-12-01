@@ -1,6 +1,9 @@
 <h1>Editing category</h1>
 
-<%= render 'form' %>
+<%= form_tag "/categories/#{params[:id]}/update" do %>
+	<%= label_tag :category %><br>
+    <%= text_field_tag :category %><br>
+    <%= submit_tag "Update Category" %>
+<% end %><br>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Back', "/categories/manage" %>

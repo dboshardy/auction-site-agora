@@ -78,7 +78,7 @@ public class CategoryController {
             session.update(category);
             session.getTransaction().commit();
             session.close();
-            result = "Success";
+            result = "true";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
@@ -95,7 +95,7 @@ public class CategoryController {
             session.delete(category);
             session.getTransaction().commit();
             session.close();
-            result = "Success";
+            result = "true";
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
