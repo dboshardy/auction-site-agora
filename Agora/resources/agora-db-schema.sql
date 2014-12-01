@@ -18,6 +18,7 @@ CREATE TABLE UserAccounts
     first_name character varying(45),
     last_name character varying(45),
     user_description character varying(1000),
+    email character varying(100) NOT NULL,
     password_hash character varying(256) NOT NULL,
     user_joined_date timestamp NOT NULL,
     is_admin boolean NOT NULL,
