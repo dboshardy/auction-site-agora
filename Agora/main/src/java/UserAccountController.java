@@ -162,7 +162,7 @@ public class UserAccountController {
             cart.addAuctionToShoppingCart(user.getUserId(), auction.getAuctionId());
             auctionController.updateAuction(auction);
             Email.notifyUsersOfEndedAuction(auction, auction.getSeller().getEmail(),user.getEmail());
-            return "Success";
+            return "true";
         }
         else {
             return "Failure";

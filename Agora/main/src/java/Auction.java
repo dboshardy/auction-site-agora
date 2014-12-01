@@ -20,7 +20,7 @@ public class Auction {
     private BigDecimal mBuyItNowPrice;
     private int mSellerId;
     private Category mCategory;
-    private boolean mIsEnded;
+    private boolean mIsEnded=false;
     private int mCategoryId;
 
     public Auction(String auctionName, UserAccount user, String description, BigDecimal bidAmount, Date endDate, int categoryId) {
@@ -125,6 +125,7 @@ public class Auction {
 
         Bid initialBid = new Bid(mSeller,this,new BigDecimal(bidPrice));
         mCurrentHighestBid = initialBid;
+
     }
 
     public int getSellerId() {
