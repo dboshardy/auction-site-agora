@@ -38,6 +38,9 @@
           <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>          
           <li><a href="/users/logout">Log Out</a></li>
         <% end %>
+        <% if session[:is_admin] %>
+            <li><a href="/flags">Flags</a></li>
+        <% end %>
       </ul>
     </div>
   </nav>

@@ -5,9 +5,7 @@ public class Janitor implements Runnable {
     @Override
     public void run() {
         Janitor endedAuctionJanitor = new EndedAuctionJanitor();
-        Janitor bidChangeJanitor = new BidChangeJanitor();
         endedAuctionJanitor.run();
-        bidChangeJanitor.run();
 
     }
     //this class runs a continues loop that checks the database for ended auctions

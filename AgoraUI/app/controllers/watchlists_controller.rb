@@ -23,6 +23,7 @@ class WatchlistsController < ApplicationController
 
   # GET /watchlists/new
   def new
+    @watchlist = Watchlist.new
 
   end
 
@@ -38,8 +39,9 @@ class WatchlistsController < ApplicationController
     id = SecureRandom.uuid.to_s
 
     watchlist_info = {:id => id, type => "create",
-      :watchlist_name => params[:watchlist_name],
-      :user_id => session[:user_id]
+      :auction_id => params[:id],
+      :user_id => session[:user_id],
+      :watchlist_name => params[:watchlist_name]
     }
 
     publish :watchlist, JSON.generate(watchlist_info)

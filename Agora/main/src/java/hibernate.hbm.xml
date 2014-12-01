@@ -62,13 +62,5 @@
         <property name="DateFlagged" column="date_flagged" type="timestamp"/>
         <property name="mUserId" column="useraccounts_user_id" type="int"/>
     </class>
-    <class name="Email" table = "emails">
-        <id name = "EmailId" type="int" column="email_id">
-                <generator class="native"/>
-        </id>
-        <property name="SenderId" column="sender_id" type="int"/>
-        <property name="ReceiverId" column="receiver_id" type="int"/>
-        <property name = "EmailContent" column="email_content" type="string" length="255"/>
-    </class>
 
 </hibernate-mapping>

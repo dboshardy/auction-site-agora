@@ -156,12 +156,8 @@ class ApplicationController < ActionController::Base
 
             flag.flag_id = f["flag_id"]
             flag.flag_type = f["flag_type"]
-            flag.flag_description = f["flag_desc"]
             
-            auction.auction_id = f["auction_id"]
-            auction.item_name = f["item_name"]
-            auction.item_desc = f["item_desc"]
-            auction.user_id = f["seller_id"]
+            auction.auction_id = f["auction_id"].to_i
 
             array = [flag, auction]
 
