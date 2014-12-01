@@ -91,16 +91,15 @@ public class Watchlist {
         return result;
     }
 
-    public String deleteWatchlist() {
+    public String deleteWatchlist(int user_id, int auction_id) {
         // delete from database
-        String result="false";
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
-        SQLQuery query = session.createSQLQuery("DELETE FROM " + mTableName + " WHERE useraccounts_user_id=" + mUserAccount.getUserId() + " AND watchlist_name=" + this.getWatchlistName());
+        SQLQuery query = session.createSQLQuery("DELETE FROM " + mTableName + " WHERE useraccounts_user_id=" + user_id + " AND auctions_auction_id=" + auction_id);
         query.executeUpdate();
         session.getTransaction().commit();
         session.close();
-        result="true";
+        String result="true";
         return result;
     }
 

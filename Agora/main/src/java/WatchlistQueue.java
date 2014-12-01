@@ -30,7 +30,13 @@ public class WatchlistQueue extends Message{
             result = watchlist.addAuctionToWatchlist(user_id, auction_id);
             output.put("succeed", result);
 
-        }else if(type.equals("deleteAuction")){
+        } else if(type.equals("delete")){
+             int auction_id = obj.getInt("auction_id");
+             int user_id = obj.getInt("user_id");
+             Watchlist watchlist = new Watchlist(user_id, auction_id);
+             result = watchlist.deleteWatchlist(user_id, auction_id);
+             output.put("succeed", result);
+         } else if(type.equals("deleteAuction")){
             String watchlist_name= obj.getString("watchlist_name");
             String auction_id = obj.getString("auction_id");
             AuctionController ac= new AuctionController();

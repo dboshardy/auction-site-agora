@@ -114,8 +114,9 @@ class WatchlistsController < ApplicationController
   def destroy
     id = SecureRandom.uuid.to_s
 
-    watchlist_info = {:id => id, :type => "delete", 
-      :watchlist_id => params[:id]    
+    watchlist_info = {:id => id, :type => "delete",
+      :auction_id => params[:id],
+      :user_id => session[:user_id]
     }
 
     publish :watchlist, JSON.generate(watchlist_info)
@@ -123,12 +124,12 @@ class WatchlistsController < ApplicationController
     status, @error = get_success(id)
 
     if status 
-      @status = "Watchlist deleted!"
+      @status = "Auction Deleted Watchlist"
     else
-      @status = "Watchlist could not be deleted"
-    end
+      @status = "Auction Could Not Be Deleted From Watchlist"
+    end    
 
-    render 'confirm' 
+    render 'confirm'
         # @watchlist.destroy
     # respond_to do |format|
     #   format.html { redirect_to watchlists_url, notice: 'Watchlist was successfully destroyed.' }
