@@ -27,19 +27,6 @@ public class MessageFactory {
             return new FlagQueue();
 
         }
-
-//        else if (queue.equals("/queue/Transaction")){
-//            return new TransactionQueue();
-//
-//        }
-//        else if (queue.equals("/queue/Category")){
-//            return new CategoryQueue();
-//
-//        }
-//        else if (queue.equals("/queue/Email")){
-//            return new EmailQueue();
-//
-//        }
         return null;
     }
 }

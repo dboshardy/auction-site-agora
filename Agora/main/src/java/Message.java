@@ -18,11 +18,4 @@ public abstract class Message {
 
     public abstract JSONObject createMessageBody(JSONObject body);
 
-    // create, read, update, delete
-
-    // id -- to find message
-    // body -- to know what to show user
-    // create, update, delete -- show details of object just created/updated/deleted
-    // read--
-
 }

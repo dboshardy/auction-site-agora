@@ -39,7 +39,6 @@ public class KickoffQueues {
             bidThread.start();
             System.out.println("Kicking off shopping cart queue connection...");
             cartThread.start();
-//          example.after();
 
         } catch (Exception e) {
             System.out.println("Caught an exception during the example: " + e);

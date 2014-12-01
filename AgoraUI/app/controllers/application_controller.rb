@@ -269,6 +269,10 @@ class ApplicationController < ActionController::Base
     def get_new_user_success(id)
         message = query_message(id)
 
+        if message.nil?
+            return false
+        end
+
         status = message["succeed"]
         error = message["Error"]
         user_id = nil
@@ -338,13 +342,9 @@ class ApplicationController < ActionController::Base
 
 	def query_message(id)
 	    attempts = 0
-
-	    message_id = nil
-
 	    message = Message.find_by(:message_id => id)
 
-	    while attempts < 100 # change after testing
-
+	    while attempts < 100 
 	      if message.nil?
 	        sleep(1.0/10.0)
 	        attempts += 1
@@ -354,11 +354,14 @@ class ApplicationController < ActionController::Base
 	      end
 	  	end
 
+        if message.nil?
+            return nil
+        end
+
         json_data = JSON.parse(message.body)
         json = json_data["response"]
 
         return json
-
     end		
 
     private
