@@ -286,6 +286,25 @@ public class AuctionQueue extends Message {
                 jsonArray.put(ele);
             }
             output.put("auctions",jsonArray);
+        } else if (type.equals("ending_soonest")) {
+            List<Auction> list = auctionController.getAllAuctionsByEndingSoonestWithLimit(10);
+            JSONArray jsonArray = new JSONArray();
+            for(Auction a:list) {
+                JSONObject ele = new JSONObject();
+                ele.put("auction_id", a.getAuctionId());
+                ele.put("auction_name", a.getAuctionName());
+                ele.put("end_time", a.getEndTime());
+                ele.put("item_desc", a.getDescription());
+
+                BidController bid = new BidController();
+                Bid highestBid = bid.getBidById(a.getCurrentHighestBidId());
+
+                if (highestBid != null) {
+                    ele.put("highest_bid", highestBid.getBidAmount());
+                }
+                jsonArray.put(ele);
+            }
+            output.put("auctions",jsonArray);
         }
         return output;
     }

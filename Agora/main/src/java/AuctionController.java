@@ -200,7 +200,7 @@ public class AuctionController {
                 session.getTransaction().rollback();
             }
             LOG.warn("Could not get auctions from database.");
-        }
+        }AW
         return auctions;
     }
     public List<Auction> getAllAuctionsByKeyword(String keyword){

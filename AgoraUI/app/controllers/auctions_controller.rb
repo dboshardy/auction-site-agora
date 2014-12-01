@@ -288,6 +288,26 @@ class AuctionsController < ApplicationController
 
   end
 
+  def ending_soonest
+    id = SecureRandom.uuid.to_s
+
+    auction_info = {:id => id, :type => "ending_soonest" }
+
+    publish :auction, JSON.generate(auction_info)
+
+    @auctions = get_auctions(id)    
+
+    if @auctions.nil?
+      @status = "No auctions found"
+      @error = ""
+      render 'confirm'
+      return
+    end
+
+    render 'results'    
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     # def set_auction
