@@ -6,7 +6,6 @@ import org.hibernate.Session;
 
 import javax.persistence.EntityExistsException;
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  * Created by drew on 11/7/14.
@@ -173,7 +172,7 @@ public class AuctionController {
         List<Auction> auctions = null;
         try {
             session.beginTransaction();
-            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE is_ended=FALSE BY end_time DESC LIMIT "+limit).addEntity(Auction.class);
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE is_ended=FALSE ORDER BY end_time DESC LIMIT "+limit).addEntity(Auction.class);
             auctions = query.list();
             session.getTransaction().commit();
             session.close();
@@ -191,7 +190,7 @@ public class AuctionController {
         List<Auction> auctions = null;
         try {
             session.beginTransaction();
-            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE is_ended=FALSE BY end_time ASC LIMIT "+limit).addEntity(Auction.class);
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE is_ended=FALSE AND is_ended=FALSE ORDER BY end_time ASC LIMIT "+limit).addEntity(Auction.class);
             auctions = query.list();
             session.getTransaction().commit();
             session.close();
@@ -208,7 +207,7 @@ public class AuctionController {
         List<Auction> auctions = null;
         try {
             session.beginTransaction();
-            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE auctions.auction_name ILIKE \'%"+keyword+"%\' OR auctions.auction_description ILIKE \'%"+keyword+"%\'").addEntity(Auction.class);
+            Query query = session.createSQLQuery("SELECT * FROM auctions WHERE auctions.auction_name ILIKE \'%"+keyword+"%\' OR auctions.auction_description ILIKE \'%"+keyword+"%\' AND is_ended=FALSE").addEntity(Auction.class);
             auctions = query.list();
             session.getTransaction().commit();
             session.close();
@@ -238,9 +237,9 @@ public class AuctionController {
         }
         return auctions;
     }
-    public ArrayList<Auction> getAllActiveAuctionsBidOnForUser(UserAccount user){
+    public List<Auction> getAllActiveAuctionsBidOnForUser(UserAccount user){
         Session session = HibernateUtils.getSessionFactory().openSession();
-        ArrayList<Auction> auctions = new ArrayList<>();
+        List<Auction> auctions = null;
         BidController bidController = new BidController();
         AuctionController auctionController = new AuctionController();
         List<Bid> bids = bidController.getBidHistoryForUser(user.getUserId());

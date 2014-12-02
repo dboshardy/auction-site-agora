@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,10 +10,10 @@ import java.util.List;
 public class Auction {
 
     private Bid mCurrentHighestBid;
-    private Date mListTime;
+    private Date mListTime = new Date();
     private Date mEndTime;
-    private List<Bid> mBidList;
-    private List<Flag> mFlagList;
+    private List<Bid> mBidList = new ArrayList<Bid>();
+    private List<Flag> mFlagList = new ArrayList<Flag>();
     private UserAccount mSeller;
     private int mAuctionId;
     private String mDescription;
